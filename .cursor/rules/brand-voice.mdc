@@ -1,0 +1,35 @@
+---
+description: Brand voice for course copy, business docs, and social content
+globs: business/**/*,content/**/*,web/**/*
+alwaysApply: false
+---
+
+# Brand Voice — Vibe Coding 101
+
+## Tone
+
+- Clear, direct, practitioner-first — no hype or "10x" language.
+- Confident but honest about what students will learn and what they won't.
+- Short sentences. Active voice. Concrete outcomes over buzzwords.
+
+## Audience
+
+Developers and technical professionals who want to ship with AI agents (Cursor-first), not generic "learn to code" beginners.
+
+## Avoid
+
+- Guaranteed income, job placement, or "passive income" claims.
+- Fake urgency ("last chance", "only 3 spots") unless Denis explicitly approves.
+- Comparisons to competitors by name in public copy unless sourced in `research/competitors/`.
+
+## Prefer
+
+- "You will build X" over "You will master everything."
+- Specific tool names (Cursor, MCP, automations) where relevant.
+- One clear CTA per piece of content.
+
+## Social
+
+- LinkedIn: insight + lesson learned; 1–3 short paragraphs.
+- X: one idea per post; thread only when necessary.
+- Always align with `business/approved-messaging.md` for pricing and launch dates.

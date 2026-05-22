@@ -1,24 +1,37 @@
 # TODO — Vibe Coding 101
 
-## Now (this week)
+## Now — Denis (manual, ~1 hour)
 
-- [ ] Define course positioning and working title
-- [ ] List 5–10 competitors for research automations
-- [ ] Set up first Cursor Automation: morning standup prep
-- [ ] Draft business plan outline in `business/plan-v1.md`
+- [ ] Create Slack channels: `#vibe-standup`, `#vibe-research`, `#vibe-business`, `#vibe-social`, `#vibe-inbox`
+- [ ] Connect Slack at [cursor.com/dashboard/integrations](https://www.cursor.com/dashboard/integrations)
+- [ ] Connect MCPs: Slack + Exa minimum ([setup guide](../docs/slack-and-mcp-setup.md))
+- [ ] Create automation: Morning standup ([prompt](../docs/automations/01-morning-standup.md))
+- [ ] Fill `research/competitors/COMPETITORS.md` (5–10 names)
+- [ ] Fill `business/approved-messaging.md` (title + one-liner)
+
+## Now — Agent (after Denis unblocks)
+
+- [ ] First competitor report when COMPETITORS.md has entries
+- [ ] Draft 3 LinkedIn posts after messaging approved
+- [ ] Expand `business/plan-v1.md` executive summary
+
+## Done
+
+- [x] Git repo + README
+- [x] Automations playbook
+- [x] `.cursor/rules/` (PM, brand, research, social)
+- [x] `.cursor/mcp.json` + `.env.example`
+- [x] Templates + first standup (2026-05-22)
+- [x] Slack/MCP setup doc + 4 automation prompt files
 
 ## Next
 
-- [ ] Competitor analysis template + first weekly scan
-- [ ] Brand voice rule in `.cursor/rules/`
-- [ ] Social MCP (Buffer or similar) — draft-only first
-
-## Backlog
-
+- [ ] Automations 02–04 in Cursor UI
+- [ ] GitHub remote + attach repo to automations
+- [ ] Buffer MCP + publish automation (draft-only until approved)
 - [ ] Landing page in `web/`
-- [ ] Waitlist / lead capture webhook → automation
-- [ ] Connect GitHub remote when ready
 
 ## Blockers
 
-_None yet — add during daily standup._
+- Slack channels + Cursor integration required before automations fire
+- GitHub remote optional for local agent work; required for cloud automation repo attach

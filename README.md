@@ -13,15 +13,16 @@ This repo is the single source of truth for strategy, research, and assets. **Yo
 | Research | `research/` | Competitor analysis, market notes, citations |
 | Content | `content/` | Social posts, newsletters, course copy drafts |
 | Web | `web/` | Landing page / website code when we build it |
-| Automations | `docs/` | Playbooks for Cursor Automations, MCP, SDK |
+| Automations | `docs/` | Playbooks, Slack/MCP setup, automation prompts |
 | Agent context | `.cursor/rules/` | Persistent instructions for agents in this repo |
+| MCP config | `.cursor/mcp.json` | Slack, Notion, Linear, Exa, Buffer |
 
 ## How we work
 
 1. **Daily rhythm** — Short standup: done / todo / blockers. Artifacts go in `planning/standups/`.
 2. **Deep work** — Competitor scans, business plans, and course design live under `research/` and `business/`.
 3. **Ship in git** — Meaningful outputs are committed here so agents and future-you have full context.
-4. **Automate with Cursor** — Background agents via [Cursor Automations](https://cursor.com/docs/cloud-agent/automations); see [`docs/cursor-automations-playbook.md`](docs/cursor-automations-playbook.md).
+4. **Automate with Cursor** — Slack-first interface; see [`docs/slack-and-mcp-setup.md`](docs/slack-and-mcp-setup.md) and [`docs/cursor-automations-playbook.md`](docs/cursor-automations-playbook.md).
 
 ## Cursor stack (quick reference)
 
@@ -37,14 +38,15 @@ This repo is the single source of truth for strategy, research, and assets. **Yo
 cursor .
 ```
 
-Open the automations playbook and pick the first automation to enable (recommended: **Morning standup prep**).
+Follow **[Slack + MCP setup](docs/slack-and-mcp-setup.md)** — Phase 1–4 (~1 hour).
 
 ## Status
 
 - [x] Git repository initialized
-- [ ] First daily standup template
-- [ ] Competitor research template
-- [ ] Cursor Automations configured (see playbook)
+- [x] Cursor rules, MCP config, templates
+- [x] First standup + automation prompt files
+- [ ] Slack channels + Cursor integration (Denis)
+- [ ] Cursor Automations live in UI (copy from `docs/automations/`)
 
 ---
 
