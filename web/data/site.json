@@ -1,0 +1,578 @@
+{
+  "meta": {
+    "generatedAt": "2026-05-26T09:37:44.155Z",
+    "generator": "scripts/build-site-data.js",
+    "gitSha": "60844d97b3e66ca95876d4dbc4ae47d37b4f12e1",
+    "sources": [
+      "README.md",
+      "planning/TODO.md",
+      "planning/standups/2026-05-22.md",
+      "business/plan-v1.md",
+      "business/approved-messaging.md",
+      "research/competitors/COMPETITORS.md",
+      "docs/automations/01-morning-standup.md",
+      "docs/automations/02-competitor-research.md",
+      "docs/automations/03-business-plan.md",
+      "docs/automations/04-social-content.md",
+      "content/social/_template.md"
+    ]
+  },
+  "readme": {
+    "path": "README.md",
+    "title": "Vibe Coding 101 — Course Business HQ",
+    "description": "Central workspace for building a course program business from scratch: planning, business analysis, landing pages, automations, content, and project management.",
+    "areas": [
+      {
+        "area": "Planning & PM",
+        "path": "planning/",
+        "purpose": "Roadmaps, standups, todos, decisions"
+      },
+      {
+        "area": "Business",
+        "path": "business/",
+        "purpose": "Business plans, financial models, positioning"
+      },
+      {
+        "area": "Research",
+        "path": "research/",
+        "purpose": "Competitor analysis, market notes, citations"
+      },
+      {
+        "area": "Content",
+        "path": "content/",
+        "purpose": "Social posts, newsletters, course copy drafts"
+      },
+      {
+        "area": "Web",
+        "path": "web/",
+        "purpose": "GitHub Pages HQ dashboard and future landing page code"
+      },
+      {
+        "area": "Automations",
+        "path": "docs/",
+        "purpose": "Playbooks, Slack/MCP setup, automation prompts"
+      },
+      {
+        "area": "Agent context",
+        "path": ".cursor/rules/",
+        "purpose": "Persistent instructions for agents in this repo"
+      },
+      {
+        "area": "MCP config",
+        "path": ".cursor/mcp.json",
+        "purpose": "Slack, Notion, Linear, Exa, Buffer"
+      }
+    ],
+    "statusItems": [
+      {
+        "text": "Git repository initialized",
+        "done": true
+      },
+      {
+        "text": "Cursor rules, MCP config, templates",
+        "done": true
+      },
+      {
+        "text": "First standup + automation prompt files",
+        "done": true
+      },
+      {
+        "text": "GitHub Pages HQ dashboard scaffold",
+        "done": true
+      },
+      {
+        "text": "Slack channels + Cursor integration (Denis)",
+        "done": false
+      },
+      {
+        "text": "Cursor Automations live in UI (copy from docs/automations/)",
+        "done": false
+      }
+    ]
+  },
+  "todo": {
+    "path": "planning/TODO.md",
+    "groups": [
+      {
+        "title": "Now — Denis (manual, ~1 hour)",
+        "slug": "now-denis-manual-1-hour",
+        "items": [
+          {
+            "text": "Create Slack channels: #vibe-standup, #vibe-research, #vibe-business, #vibe-social, #vibe-inbox",
+            "done": false,
+            "raw": "Create Slack channels: `#vibe-standup`, `#vibe-research`, `#vibe-business`, `#vibe-social`, `#vibe-inbox`"
+          },
+          {
+            "text": "Connect Slack at cursor.com/dashboard/integrations",
+            "done": false,
+            "raw": "Connect Slack at [cursor.com/dashboard/integrations](https://www.cursor.com/dashboard/integrations)"
+          },
+          {
+            "text": "Connect MCPs: Slack + Exa minimum (setup guide)",
+            "done": false,
+            "raw": "Connect MCPs: Slack + Exa minimum ([setup guide](../docs/slack-and-mcp-setup.md))"
+          },
+          {
+            "text": "Create automation: Morning standup (prompt)",
+            "done": false,
+            "raw": "Create automation: Morning standup ([prompt](../docs/automations/01-morning-standup.md))"
+          },
+          {
+            "text": "Fill research/competitors/COMPETITORS.md (5–10 names)",
+            "done": false,
+            "raw": "Fill `research/competitors/COMPETITORS.md` (5–10 names)"
+          },
+          {
+            "text": "Fill business/approved-messaging.md (title + one-liner)",
+            "done": false,
+            "raw": "Fill `business/approved-messaging.md` (title + one-liner)"
+          }
+        ]
+      },
+      {
+        "title": "Now — Agent (after Denis unblocks)",
+        "slug": "now-agent-after-denis-unblocks",
+        "items": [
+          {
+            "text": "First competitor report when COMPETITORS.md has entries",
+            "done": false,
+            "raw": "First competitor report when COMPETITORS.md has entries"
+          },
+          {
+            "text": "Draft 3 LinkedIn posts after messaging approved",
+            "done": false,
+            "raw": "Draft 3 LinkedIn posts after messaging approved"
+          },
+          {
+            "text": "Expand business/plan-v1.md executive summary",
+            "done": false,
+            "raw": "Expand `business/plan-v1.md` executive summary"
+          }
+        ]
+      },
+      {
+        "title": "Done",
+        "slug": "done",
+        "items": [
+          {
+            "text": "Git repo + README",
+            "done": true,
+            "raw": "Git repo + README"
+          },
+          {
+            "text": "Automations playbook",
+            "done": true,
+            "raw": "Automations playbook"
+          },
+          {
+            "text": ".cursor/rules/ (PM, brand, research, social)",
+            "done": true,
+            "raw": "`.cursor/rules/` (PM, brand, research, social)"
+          },
+          {
+            "text": ".cursor/mcp.json + .env.example",
+            "done": true,
+            "raw": "`.cursor/mcp.json` + `.env.example`"
+          },
+          {
+            "text": "Templates + first standup (2026-05-22)",
+            "done": true,
+            "raw": "Templates + first standup (2026-05-22)"
+          },
+          {
+            "text": "Slack/MCP setup doc + 4 automation prompt files",
+            "done": true,
+            "raw": "Slack/MCP setup doc + 4 automation prompt files"
+          },
+          {
+            "text": "GitHub Pages HQ dashboard scaffold (web/) + JSON data generator (scripts/build-site-data.js)",
+            "done": true,
+            "raw": "GitHub Pages HQ dashboard scaffold (`web/`) + JSON data generator (`scripts/build-site-data.js`)"
+          }
+        ]
+      },
+      {
+        "title": "Next",
+        "slug": "next",
+        "items": [
+          {
+            "text": "Automations 02–04 in Cursor UI",
+            "done": false,
+            "raw": "Automations 02–04 in Cursor UI"
+          },
+          {
+            "text": "GitHub remote + attach repo to automations",
+            "done": false,
+            "raw": "GitHub remote + attach repo to automations"
+          },
+          {
+            "text": "Buffer MCP + publish automation (draft-only until approved)",
+            "done": false,
+            "raw": "Buffer MCP + publish automation (draft-only until approved)"
+          },
+          {
+            "text": "Enable GitHub Pages with GitHub Actions source after this dashboard PR merges",
+            "done": false,
+            "raw": "Enable GitHub Pages with GitHub Actions source after this dashboard PR merges"
+          },
+          {
+            "text": "Public landing page in web/ (separate from HQ dashboard)",
+            "done": false,
+            "raw": "Public landing page in `web/` (separate from HQ dashboard)"
+          }
+        ]
+      },
+      {
+        "title": "Blockers",
+        "slug": "blockers",
+        "items": []
+      }
+    ],
+    "counts": {
+      "total": 21,
+      "done": 7,
+      "open": 14
+    }
+  },
+  "standups": {
+    "entries": [
+      {
+        "date": "2026-05-22",
+        "path": "planning/standups/2026-05-22.md",
+        "done": [
+          "Initialized git repo and business HQ structure",
+          "Wrote Cursor Automations playbook (docs/cursor-automations-playbook.md)",
+          "Implemented .cursor/rules/, mcp.json, templates, automation prompt docs",
+          "Researched Slack-as-UI and MCP platform integrations"
+        ],
+        "today": [
+          "Denis: Create Slack channels (#vibe-standup, #vibe-research, #vibe-business, #vibe-social) and connect Cursor Slack integration",
+          "Denis: Connect MCPs in Cursor Settings (Slack, Notion, Exa minimum)",
+          "Denis: Create first automation — Morning standup prep (copy from docs/automations/01-morning-standup.md)"
+        ],
+        "blockers": [
+          "Course positioning: working title + one-liner → update business/approved-messaging.md",
+          "Competitors: add 5–10 names to research/competitors/COMPETITORS.md",
+          "Social MCP: Buffer token now or draft-only for 2 weeks?"
+        ],
+        "agentNextActions": [
+          "After Denis fills COMPETITORS.md → run first competitor: research on top priority",
+          "Expand business/plan-v1.md once positioning is set",
+          "Draft 3 LinkedIn posts (draft-only) when messaging approved"
+        ]
+      }
+    ],
+    "latest": {
+      "date": "2026-05-22",
+      "path": "planning/standups/2026-05-22.md",
+      "done": [
+        "Initialized git repo and business HQ structure",
+        "Wrote Cursor Automations playbook (docs/cursor-automations-playbook.md)",
+        "Implemented .cursor/rules/, mcp.json, templates, automation prompt docs",
+        "Researched Slack-as-UI and MCP platform integrations"
+      ],
+      "today": [
+        "Denis: Create Slack channels (#vibe-standup, #vibe-research, #vibe-business, #vibe-social) and connect Cursor Slack integration",
+        "Denis: Connect MCPs in Cursor Settings (Slack, Notion, Exa minimum)",
+        "Denis: Create first automation — Morning standup prep (copy from docs/automations/01-morning-standup.md)"
+      ],
+      "blockers": [
+        "Course positioning: working title + one-liner → update business/approved-messaging.md",
+        "Competitors: add 5–10 names to research/competitors/COMPETITORS.md",
+        "Social MCP: Buffer token now or draft-only for 2 weeks?"
+      ],
+      "agentNextActions": [
+        "After Denis fills COMPETITORS.md → run first competitor: research on top priority",
+        "Expand business/plan-v1.md once positioning is set",
+        "Draft 3 LinkedIn posts (draft-only) when messaging approved"
+      ]
+    }
+  },
+  "business": {
+    "plan": {
+      "path": "business/plan-v1.md",
+      "status": "Draft outline — Denis to fill positioning",
+      "lastUpdated": "2026-05-22",
+      "sections": [
+        {
+          "title": "1. Executive summary",
+          "slug": "1-executive-summary",
+          "content": "_TBD — 3–5 sentences after positioning call._",
+          "bullets": [],
+          "tables": []
+        },
+        {
+          "title": "2. Problem & ICP",
+          "slug": "2-problem-icp",
+          "content": "- **Problem:**\n- **Ideal student:**\n- **Not for:**",
+          "bullets": [
+            "Problem:",
+            "Ideal student:",
+            "Not for:"
+          ],
+          "tables": []
+        },
+        {
+          "title": "3. Solution & curriculum",
+          "slug": "3-solution-curriculum",
+          "content": "- **Promise:** Ship with AI agents (Cursor-first), not theory-only.\n- **Modules (draft):**\n  1. Cursor IDE + agent workflow\n  2. Rules, skills, project structure\n  3. MCP integrations (Notion, Slack, Buffer, etc.)\n  4. Cursor Automations for PM, research, content\n  5. Landing page + waitlist + launch",
+          "bullets": [
+            "Promise: Ship with AI agents (Cursor-first), not theory-only.",
+            "Modules (draft):",
+            "Cursor IDE + agent workflow",
+            "Rules, skills, project structure",
+            "MCP integrations (Notion, Slack, Buffer, etc.)",
+            "Cursor Automations for PM, research, content",
+            "Landing page + waitlist + launch"
+          ],
+          "tables": []
+        },
+        {
+          "title": "4. Market",
+          "slug": "4-market",
+          "content": "- **TAM / SAM / SOM:** _TBD with assumptions stated_\n- **Trends:** AI-native dev education, agentic coding",
+          "bullets": [
+            "TAM / SAM / SOM: TBD with assumptions stated",
+            "Trends: AI-native dev education, agentic coding"
+          ],
+          "tables": []
+        },
+        {
+          "title": "5. Competition",
+          "slug": "5-competition",
+          "content": "See `research/competitors/COMPETITORS.md` and weekly reports in `research/competitors/`.",
+          "bullets": [],
+          "tables": []
+        },
+        {
+          "title": "6. Go-to-market",
+          "slug": "6-go-to-market",
+          "content": "| Channel | Role | Status |\n|---------|------|--------|\n| LinkedIn | Authority + waitlist | planned |\n| X | Short insights | planned |\n| Slack (internal) | PM + agent ops | implementing |\n| Landing page | Conversion | backlog |",
+          "bullets": [],
+          "tables": [
+            [
+              {
+                "channel": "LinkedIn",
+                "role": "Authority + waitlist",
+                "status": "planned"
+              },
+              {
+                "channel": "X",
+                "role": "Short insights",
+                "status": "planned"
+              },
+              {
+                "channel": "Slack (internal)",
+                "role": "PM + agent ops",
+                "status": "implementing"
+              },
+              {
+                "channel": "Landing page",
+                "role": "Conversion",
+                "status": "backlog"
+              }
+            ]
+          ]
+        },
+        {
+          "title": "7. Revenue model",
+          "slug": "7-revenue-model",
+          "content": "- _TBD:_ cohort / self-paced / hybrid / community\n- **Price hypothesis:** _TBD_\n- **Costs:** Cursor usage, MCP tools, ads (later)",
+          "bullets": [
+            "TBD: cohort / self-paced / hybrid / community",
+            "Price hypothesis: TBD",
+            "Costs: Cursor usage, MCP tools, ads (later)"
+          ],
+          "tables": []
+        },
+        {
+          "title": "8. 90-day roadmap",
+          "slug": "8-90-day-roadmap",
+          "content": "| Week | Milestone |\n|------|-----------|\n| 1–2 | Positioning, competitor scan, Slack + automations live |\n| 3–4 | Curriculum outline v1, approved messaging, first social drafts |\n| 5–8 | Landing page, waitlist, pilot module |\n| 9–12 | Beta cohort or self-paced launch |",
+          "bullets": [],
+          "tables": [
+            [
+              {
+                "week": "1–2",
+                "milestone": "Positioning, competitor scan, Slack + automations live"
+              },
+              {
+                "week": "3–4",
+                "milestone": "Curriculum outline v1, approved messaging, first social drafts"
+              },
+              {
+                "week": "5–8",
+                "milestone": "Landing page, waitlist, pilot module"
+              },
+              {
+                "week": "9–12",
+                "milestone": "Beta cohort or self-paced launch"
+              }
+            ]
+          ]
+        },
+        {
+          "title": "9. Risks & mitigations",
+          "slug": "9-risks-mitigations",
+          "content": "| Risk | Mitigation |\n|------|------------|\n| Scope creep | One repo, max 3 daily priorities |\n| Unverified competitor data | Citation rules in competitor-research rule |\n| Social misfire | `approved: false` default + approved-messaging.md |",
+          "bullets": [],
+          "tables": [
+            [
+              {
+                "risk": "Scope creep",
+                "mitigation": "One repo, max 3 daily priorities"
+              },
+              {
+                "risk": "Unverified competitor data",
+                "mitigation": "Citation rules in competitor-research rule"
+              },
+              {
+                "risk": "Social misfire",
+                "mitigation": "approved: false default + approved-messaging.md"
+              }
+            ]
+          ]
+        }
+      ]
+    },
+    "approvedMessaging": {
+      "path": "business/approved-messaging.md",
+      "course": {
+        "working-title": "TBD",
+        "one-liner": "TBD",
+        "who-it-s-for": "Developers using Cursor to ship real projects"
+      },
+      "pricingAndLaunch": [
+        {
+          "item": "Price",
+          "approved-text": "Not approved yet",
+          "status": "draft"
+        },
+        {
+          "item": "Launch date",
+          "approved-text": "Not approved yet",
+          "status": "draft"
+        },
+        {
+          "item": "Waitlist URL",
+          "approved-text": "Not approved yet",
+          "status": "draft"
+        }
+      ],
+      "allowedClaims": [
+        "Teaching Cursor, MCP, and automations for real workflows",
+        "Solo-founder / practitioner perspective"
+      ],
+      "disallowedClaims": [
+        "Income guarantees",
+        "Job placement",
+        "\"Best\" or \"#1\" without source"
+      ]
+    }
+  },
+  "research": {
+    "competitors": {
+      "path": "research/competitors/COMPETITORS.md",
+      "watchlist": [
+        {
+          "name": "Example: Reforge",
+          "url": "https://www.reforge.com",
+          "notes": "Cohort-based growth",
+          "priority": "medium"
+        }
+      ],
+      "reports": [],
+      "triggerHints": [
+        "Slack (#vibe-research): competitor: {name} or research: {name}",
+        "Cursor chat: \"Research competitor X and save to research/competitors/\"",
+        "Weekly automation: scans this table (see docs/automations/02-competitor-research.md)"
+      ]
+    }
+  },
+  "automations": [
+    {
+      "path": "docs/automations/01-morning-standup.md",
+      "id": "automation-morning-standup-prep",
+      "title": "Automation: Morning standup prep",
+      "settings": {
+        "name": "Vibe — Morning standup prep",
+        "trigger": "Scheduled — weekdays 08:00 (adjust timezone)",
+        "also": "Slack → #vibe-standup → New message → filter: standup",
+        "repo": "vibe-coding-101",
+        "tools": "Memories, Read Slack (optional), Send to Slack (optional)",
+        "memories": "Enabled"
+      },
+      "checklist": [
+        "Automation created and saved",
+        "First run checked — file exists under planning/standups/",
+        "Reply in thread with today's #1 priority"
+      ],
+      "promptPreview": "You are the PM Agent for Vibe Coding 101. Prefix Slack output with: 🎯 *PM Agent* |\n\n1. Read planning/standups/ for the last 7 days and planning/TODO.md.\n2. Read recent git commits if repo is available.\n3. Write planning/standups/YYYY-MM-DD.md using the standup template:\n   - Done (since last standup — only verified items)\n   - Today (max 3 priorities)\n   - Blockers / decisions for Denis\n   - Agent next actions\n4. Update planning/TODO.md if priorities changed; do not delete completed items without evidence.\n5. If Send to Slack is enabled, post a ≤15 line summary to #vibe-standup."
+    },
+    {
+      "path": "docs/automations/02-competitor-research.md",
+      "id": "automation-competitor-research",
+      "title": "Automation: Competitor research",
+      "settings": {
+        "name": "Vibe — Competitor research",
+        "trigger": "Slack → #vibe-research → New message → regex: ^(competitor|research):\\s*.+",
+        "also": "Scheduled — Monday 09:00 (weekly batch)",
+        "repo": "vibe-coding-101",
+        "tools": "Memories, MCP Exa (if connected), web search",
+        "memories": "Enabled — seed with COMPETITORS.md contents"
+      },
+      "checklist": [
+        "Fill research/competitors/COMPETITORS.md",
+        "Test: post competitor: {name} in #vibe-research",
+        "Verify markdown file committed or agent reports path"
+      ],
+      "promptPreview": "You are the Research Agent for Vibe Coding 101. Prefix Slack output with: 🔍 *Research Agent* |\n\n## On Slack trigger (competitor: NAME or research: NAME)\n1. Parse the competitor name from the message.\n2. Read research/competitors/COMPETITORS.md for URL hints.\n3. Research using web search / Exa MCP. Cite URLs with dates.\n4. Write research/competitors/YYYY-MM-DD-<slug>.md using the competitor template.\n5. Reply in thread with: 3-bullet summary + link to file path.\n\n## On weekly schedule (no Slack name)\n1. Read research/competitors/COMPETITORS.md priority table.\n2. For each high-priority competitor not covered in the last 7 days, append findings to research/competitors/YYYY-MM-DD-weekly.md."
+    },
+    {
+      "path": "docs/automations/03-business-plan.md",
+      "id": "automation-business-plan-assistant",
+      "title": "Automation: Business plan assistant",
+      "settings": {
+        "name": "Vibe — Business plan",
+        "trigger": "Slack → #vibe-business → filter: plan or business",
+        "also": "Scheduled — 1st of month 10:00 (plan vs reality)",
+        "repo": "vibe-coding-101",
+        "tools": "Memories, MCP Notion (optional), Read Slack",
+        "memories": "Enabled"
+      },
+      "checklist": [
+        "Fill executive summary + ICP in business/plan-v1.md",
+        "Test: plan update positioning in #vibe-business"
+      ],
+      "promptPreview": "You are the Business Agent for Vibe Coding 101. Prefix Slack output with: 📊 *Business Agent* |\n\n## On Slack trigger\nIf message contains \"update\" or \"draft\":\n- Read business/plan-v1.md, business/approved-messaging.md, research/competitors/, planning/TODO.md.\n- Update the relevant sections of business/plan-v1.md (do not remove Denis's manual edits without noting in reply).\n- Reply with: what changed + open questions for Denis.\n\nIf message contains \"review\" or \"reality\":\n- Compare planning/TODO.md + last 30 days standups to business/plan-v1.md section 8 (roadmap).\n- Write a short variance report in business/variance-YYYY-MM-DD.md."
+    },
+    {
+      "path": "docs/automations/04-social-content.md",
+      "id": "automation-social-content-draft-only",
+      "title": "Automation: Social content (draft-only)",
+      "settings": {
+        "name": "Vibe — Social drafts",
+        "trigger": "Slack → #vibe-social → filter: draft",
+        "also": "Scheduled — Wednesday 14:00",
+        "repo": "vibe-coding-101",
+        "tools": "Memories — do NOT enable Buffer on this automation",
+        "memories": "Brand voice summary"
+      },
+      "checklist": [
+        "Test: draft: 2 linkedin posts about learning Cursor automations",
+        "Review files in content/social/",
+        "Set approved: true before enabling publish automation"
+      ],
+      "promptPreview": "You are the Social Agent for Vibe Coding 101. Prefix Slack output with: 📣 *Social Agent* |\n\n1. Read business/approved-messaging.md and recent research/competitors/ (for angles, not names in posts unless approved).\n2. Read business/plan-v1.md for curriculum hooks.\n3. Create 3 draft posts under content/social/YYYY-MM-DD/:\n   - linkedin-01.md\n   - x-01.md\n   - linkedin-02.md (or thread outline)\n4. Each file MUST have frontmatter approved: false.\n5. Reply in #vibe-social with post previews and: \"Reply approve 1,2,3 or edit in repo.\"\n\n## Publish automation (separate — create later)"
+    }
+  ],
+  "social": {
+    "templatePath": "content/social/_template.md",
+    "drafts": [],
+    "counts": {
+      "total": 0,
+      "approved": 0,
+      "pending": 0
+    }
+  }
+}

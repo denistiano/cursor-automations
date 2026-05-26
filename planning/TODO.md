@@ -23,13 +23,15 @@
 - [x] `.cursor/mcp.json` + `.env.example`
 - [x] Templates + first standup (2026-05-22)
 - [x] Slack/MCP setup doc + 4 automation prompt files
+- [x] GitHub Pages HQ dashboard scaffold (`web/`) + JSON data generator (`scripts/build-site-data.js`)
 
 ## Next
 
 - [ ] Automations 02–04 in Cursor UI
 - [ ] GitHub remote + attach repo to automations
 - [ ] Buffer MCP + publish automation (draft-only until approved)
-- [ ] Landing page in `web/`
+- [ ] Enable GitHub Pages with GitHub Actions source after this dashboard PR merges
+- [ ] Public landing page in `web/` (separate from HQ dashboard)
 
 ## Blockers
 
