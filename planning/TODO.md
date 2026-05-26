@@ -48,7 +48,13 @@
 
 ---
 
-## Done
+- [x] Git repo + README
+- [x] Automations playbook
+- [x] `.cursor/rules/` (PM, brand, research, social)
+- [x] `.cursor/mcp.json` + `.env.example`
+- [x] Templates + first standup (2026-05-22)
+- [x] Slack/MCP setup doc + 4 automation prompt files
+- [x] GitHub Pages HQ dashboard scaffold (`web/`) + JSON data generator (`scripts/build-site-data.js`)
 
 - [x] Git repo + README, rules, MCP template, automation prompts
 - [x] Slack: `#vibe-standup`, `#vibe-research`, `#vibe-business`, `#vibe-social`
@@ -57,7 +63,11 @@
 - [x] Roadmap with Denis vs PM split + 13 topics (`planning/roadmap.md`, 2026-05-26)
 - [x] Course name options doc (`business/course-name-options.md`, 2026-05-26)
 
----
+- [ ] Automations 02–04 in Cursor UI
+- [ ] GitHub remote + attach repo to automations
+- [ ] Buffer MCP + publish automation (draft-only until approved)
+- [ ] Enable GitHub Pages with GitHub Actions source after this dashboard PR merges
+- [ ] Public landing page in `web/` (separate from HQ dashboard)
 
 ## Blockers
 
