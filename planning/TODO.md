@@ -1,21 +1,52 @@
 # TODO — Vibe Coding 101
 
-## Now — Denis (manual, ~1 hour)
+> **Roadmap:** Multi-week launch path → `planning/roadmap.md`  
+> **Owners:** Denis = decisions & IRL · PM/Agent = drafts & repo
 
-- [ ] Create Slack channels: `#vibe-standup`, `#vibe-research`, `#vibe-business`, `#vibe-social`, `#vibe-inbox`
-- [ ] Connect Slack at [cursor.com/dashboard/integrations](https://www.cursor.com/dashboard/integrations)
-- [ ] Connect MCPs: Slack + Exa minimum ([setup guide](../docs/slack-and-mcp-setup.md))
-- [ ] Create automation: Morning standup ([prompt](../docs/automations/01-morning-standup.md))
-- [ ] Fill `research/competitors/COMPETITORS.md` (5–10 names)
-- [ ] Fill `business/approved-messaging.md` (title + one-liner)
+---
 
-## Now — Agent (after Denis unblocks)
+## Denis — decisions & manual
 
-- [ ] First competitor report when COMPETITORS.md has entries
-- [ ] Draft 3 LinkedIn posts after messaging approved
+### Launch path (from Denis 2026-05-26)
+
+- [ ] **#3** Pick course name → `business/approved-messaging.md` (see `business/course-name-options.md`)
+- [ ] **#2** Add PO job text to repo → `business/jobs/product-owner.md`; choose where to publish
+- [ ] **#2** Publish & share PO position (LinkedIn, boards, network)
+- [ ] **#1** Office Plovdiv — budget/area constraints; visit shortlist
+- [ ] **#4** Create social accounts (after name + bios approved)
+- [ ] **#5** Approve brand direction (colors, logo direction)
+- [ ] **#11** Approve early bird: price, date, seats, legal line
+- [ ] **#12** Record video presentation (after script approved)
+
+### Infra (when needed)
+
+- [ ] `#vibe-inbox` channel
+- [ ] MCPs: Slack + Exa ([setup](../docs/slack-and-mcp-setup.md))
+- [ ] Automations 02–04 in Cursor UI
+
+---
+
+## PM / Agent — drafts & build
+
+### Queue (pick up to 3 per standup day)
+
+- [ ] **#3** Keep name options updated; apply chosen name across repo when Denis decides
+- [ ] **#2** Publish checklist + social announcement drafts (blocked: JD in repo)
+- [ ] **#5** Creative brief + `content/brand/` structure (templates for flyer/poster)
+- [ ] **#10** Draft `content/syllabus-v1.md` (after name/messaging)
+- [ ] **#8** Presentation outline + slide copy in `content/presentation/`
+- [ ] **#6 + #7 + #11** Scaffold `web/` landing + careers + early bird section (copy draft-only until approved)
+- [ ] **#4** Social page bios + first-post pack (draft)
+- [ ] **#9 + #13** Repurpose plan: deck → posts; master video → clip list
+- [ ] **#12** Video script + storyboard in `content/video/`
+- [ ] **#1** Plovdiv office search brief + listing research doc in `planning/office-plovdiv.md`
+
+### Backlog (lower priority vs launch path)
+
+- [ ] Competitor report when `research/competitors/COMPETITORS.md` has entries
 - [ ] Expand `business/plan-v1.md` executive summary
 
-## Done
+---
 
 - [x] Git repo + README
 - [x] Automations playbook
@@ -25,7 +56,12 @@
 - [x] Slack/MCP setup doc + 4 automation prompt files
 - [x] GitHub Pages HQ dashboard scaffold (`web/`) + JSON data generator (`scripts/build-site-data.js`)
 
-## Next
+- [x] Git repo + README, rules, MCP template, automation prompts
+- [x] Slack: `#vibe-standup`, `#vibe-research`, `#vibe-business`, `#vibe-social`
+- [x] Morning standup automation live (2026-05-26)
+- [x] GitHub remote `denistiano/cursor-automations`
+- [x] Roadmap with Denis vs PM split + 13 topics (`planning/roadmap.md`, 2026-05-26)
+- [x] Course name options doc (`business/course-name-options.md`, 2026-05-26)
 
 - [ ] Automations 02–04 in Cursor UI
 - [ ] GitHub remote + attach repo to automations
@@ -35,5 +71,9 @@
 
 ## Blockers
 
-- Slack channels + Cursor integration required before automations fire
-- GitHub remote optional for local agent work; required for cloud automation repo attach
+| Blocker | Owner |
+|---------|--------|
+| Course name not chosen | Denis → blocks social, landing, syllabus tone |
+| PO JD not in repo | Denis → blocks agent publish pack |
+| Early bird terms not approved | Denis → blocks live pricing on site |
+| Brand direction not set | Denis → blocks logo/flyer final designs |
