@@ -12,7 +12,7 @@ This repo is the single source of truth for strategy, research, and assets. **Yo
 | Business | `business/` | Business plans, financial models, positioning |
 | Research | `research/` | Competitor analysis, market notes, citations |
 | Content | `content/` | Social posts, newsletters, course copy drafts |
-| Web | `web/` | Landing page / website code when we build it |
+| Web | `web/` | GitHub Pages HQ dashboard and future landing page code |
 | Automations | `docs/` | Playbooks, Slack/MCP setup, automation prompts |
 | Agent context | `.cursor/rules/` | Persistent instructions for agents in this repo |
 | MCP config | `.cursor/mcp.json` | Slack, Notion, Linear, Exa, Buffer |
@@ -31,6 +31,22 @@ This repo is the single source of truth for strategy, research, and assets. **Yo
 - **Rules** — `.cursor/rules/` for tone, brand, and PM conventions.
 - **Skills** — Reusable agent skills in Cursor for recurring tasks.
 
+## GitHub Pages HQ
+
+This repo includes a no-framework static dashboard in `web/` for browsing the structured business context without opening every markdown file.
+
+```bash
+node scripts/build-site-data.js
+python3 -m http.server 8080 --directory web
+```
+
+- UI: `web/index.html`, `web/styles.css`, `web/app.js`
+- Structured data: `web/data/site.json`
+- Data generator: `scripts/build-site-data.js`
+- Deploy workflow: `.github/workflows/deploy-pages.yml`
+
+The automation-owned markdown paths remain the source of truth. The dashboard reads generated JSON and does not move or rewrite `planning/`, `business/`, `research/`, `content/`, or `docs/automations/`.
+
 ## Getting started
 
 ```bash
@@ -45,9 +61,10 @@ Follow **[Slack + MCP setup](docs/slack-and-mcp-setup.md)** — Phase 1–4 (~1 
 - [x] Git repository initialized
 - [x] Cursor rules, MCP config, templates
 - [x] First standup + automation prompt files
+- [x] GitHub Pages HQ dashboard scaffold
 - [ ] Slack channels + Cursor integration (Denis)
 - [ ] Cursor Automations live in UI (copy from `docs/automations/`)
 
 ---
 
-*Private workspace — no remote configured yet.*
+*Private workspace — automation artifacts and dashboard data are versioned in git.*

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Vibe Coding 101 operations dashboard for planning, business, research, social, and automation docs."
+    />
+    <title>Vibe Coding 101 HQ</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+
+    <header class="hero">
+      <nav class="topbar" aria-label="Primary">
+        <a class="brand" href="#overview" aria-label="Vibe Coding 101 HQ home">
+          <span class="brand-mark">VC</span>
+          <span>
+            <strong>Vibe Coding 101</strong>
+            <small>Course Business HQ</small>
+          </span>
+        </a>
+        <div class="topbar-actions">
+          <a class="ghost-link" href="https://github.com/denistiano/cursor-automations/blob/master/README.md">Repo README</a>
+          <a class="ghost-link" href="https://github.com/denistiano/cursor-automations/blob/master/planning/TODO.md">TODO</a>
+        </div>
+      </nav>
+
+      <section class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">GitHub Pages dashboard</p>
+          <h1>Structured course-business intelligence without digging through markdown.</h1>
+          <p class="hero-subtitle">
+            A dark, read-only command center generated from the repo's automation-safe source files.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-button" href="#tasks">Review priorities</a>
+            <a class="secondary-button" href="#automations">Automation map</a>
+          </div>
+        </div>
+        <aside class="status-panel" aria-label="Repository status">
+          <div class="status-header">
+            <span class="pulse"></span>
+            <span id="generatedAt">Loading data...</span>
+          </div>
+          <div class="metric-grid" id="heroMetrics" aria-live="polite"></div>
+        </aside>
+      </section>
+    </header>
+
+    <main class="shell">
+      <section class="control-panel" aria-label="Dashboard controls">
+        <div class="search-wrap">
+          <label for="searchInput">Search the HQ</label>
+          <input id="searchInput" type="search" placeholder="Search tasks, blockers, automations..." />
+        </div>
+        <div class="tabs" id="tabs" role="tablist" aria-label="Dashboard sections">
+          <button class="tab is-active" type="button" data-section="overview">Overview</button>
+          <button class="tab" type="button" data-section="tasks">Tasks</button>
+          <button class="tab" type="button" data-section="standups">Standups</button>
+          <button class="tab" type="button" data-section="business">Business</button>
+          <button class="tab" type="button" data-section="research">Research</button>
+          <button class="tab" type="button" data-section="automations">Automations</button>
+          <button class="tab" type="button" data-section="social">Social</button>
+        </div>
+      </section>
+
+      <div id="app" class="content-stack" aria-live="polite">
+        <section class="loading-card">
+          <span class="loader"></span>
+          <p>Building HQ view from repo data...</p>
+        </section>
+      </div>
+    </main>
+
+    <template id="emptyStateTemplate">
+      <section class="empty-state">
+        <p class="eyebrow">No matching cards</p>
+        <h2>Try a broader search.</h2>
+      </section>
+    </template>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>
