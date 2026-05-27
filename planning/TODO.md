@@ -10,7 +10,7 @@
 ### Launch path (from Denis 2026-05-26)
 
 - [x] **#3** Pick course name → Vibe Coders Academy in `business/approved-messaging.md`
-- [ ] **#2** Add PO job text to repo → `business/jobs/product-owner.md`; choose where to publish
+- [x] **#2** Add PO job text to repo → `business/jobs/product-owner.md`; choose where to publish
 - [ ] **#2** Publish & share PO position (LinkedIn, boards, network)
 - [ ] **#1** Office Plovdiv — budget/area constraints; visit shortlist
 - [ ] **#4** Create social accounts (after name + bios approved)
@@ -31,7 +31,7 @@
 ### Queue (pick up to 3 per standup day)
 
 - [x] **#3** Apply chosen name Vibe Coders Academy across repo docs
-- [ ] **#2** Publish checklist + social announcement drafts (blocked: JD in repo)
+- [ ] **#2** Publish checklist + social announcement drafts (blocked: Denis — apply method + publish channels)
 - [ ] **#5** Creative brief + `content/brand/` structure (templates for flyer/poster)
 - [ ] **#10** Draft `content/syllabus-v1.md` (after name/messaging)
 - [ ] **#8** Presentation outline + slide copy in `content/presentation/`
@@ -73,7 +73,7 @@
 
 | Blocker | Owner |
 |---------|--------|
-| PO JD not in repo | Denis → blocks agent publish pack |
+| PO apply method + publish channels | Denis → blocks agent publish pack |
 | Early bird terms not approved | Denis → blocks live pricing on site |
 | Brand direction not set | Denis → blocks logo/flyer final designs |
 | `vibe-coders.academy` not active yet | Denis → blocks public domain launch |
