@@ -240,7 +240,7 @@ function actionCard(a) {
 }
 
 function slackBlock(a, roleMeta) {
-  const channel = a.slackChannel || roleMeta.channel || "#vibe-inbox";
+  const channel = a.slackChannel || roleMeta.channel || "#vibe-code";
   const trigger = a.slackTrigger ? `<span class="trigger">Trigger: <code>${escapeHtml(a.slackTrigger)}</code></span>` : "";
   return `
     <section class="copy-block">

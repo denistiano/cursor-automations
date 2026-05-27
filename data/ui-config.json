@@ -14,7 +14,7 @@
     "research": { "label": "Research Agent", "channel": "#vibe-research", "prefix": "🔍 *Research Agent* |" },
     "business": { "label": "Business Agent", "channel": "#vibe-business", "prefix": "📊 *Business Agent* |" },
     "social": { "label": "Social Agent", "channel": "#vibe-social", "prefix": "📣 *Social Agent* |" },
-    "developer": { "label": "Developer Agent", "channel": "#vibe-inbox", "prefix": "🛠 *Dev Agent* |" }
+    "developer": { "label": "Developer Agent", "channel": "#vibe-code", "prefix": "🛠 *Dev Agent* |" }
   },
   "actionKinds": {
     "input": { "label": "Needs your input", "badge": "input" },

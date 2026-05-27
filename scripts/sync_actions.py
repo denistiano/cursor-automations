@@ -13,7 +13,7 @@ ROLE_CHANNELS = {
     "research": "#vibe-research",
     "business": "#vibe-business",
     "social": "#vibe-social",
-    "developer": "#vibe-inbox",
+    "developer": "#vibe-code",
 }
 
 ROLE_PROMPTS = {
@@ -64,7 +64,7 @@ Rules: NEVER publish here; follow .cursor/rules/social-guardrails.mdc.""",
 
     "developer": """You are the Developer Agent for Vibe Coders Academy. Prefix Slack output with: 🛠 *Dev Agent* |
 
-Trigger: @Cursor or post in #vibe-inbox with a dev task (repo must be attached).
+Trigger: @Cursor or post in #vibe-code with a dev task (repo must be attached).
 
 1. Read the request and relevant entries in data/hq.db for context.
 2. Implement in the vibe-coding-101 repo — minimal focused diffs.
@@ -290,7 +290,7 @@ def _role_trigger(role: str) -> str:
         "research": "competitor: {name}",
         "business": "plan update",
         "social": "draft: {brief}",
-        "developer": "@Cursor {task}",
+        "developer": "@Cursor {task} in #vibe-code",
     }[role]
 
 

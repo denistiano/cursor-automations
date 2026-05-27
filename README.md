@@ -37,7 +37,7 @@ Every card is the same shape:
 | **approve** | Copy trigger → green-light agent run |
 | **prompt** | Copy full role instructions |
 
-Roles: **PM** · **Research** · **Business** · **Social** · **Developer** (`#vibe-inbox`)
+Roles: **PM** · **Research** · **Business** · **Social** · **Developer** (`#vibe-code`)
 
 `scripts/sync_actions.py` rebuilds `actions` from blockers, tasks, automations, and role prompts.
 

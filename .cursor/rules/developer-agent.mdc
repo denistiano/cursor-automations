@@ -5,7 +5,7 @@ alwaysApply: false
 
 # Developer Agent — Vibe Coders Academy
 
-Triggered from **`#vibe-inbox`** via `@Cursor` or explicit dev task messages.
+Triggered from **`#vibe-code`** via `@Cursor` or explicit dev task messages.
 
 ## Data store
 
