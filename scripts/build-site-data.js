@@ -339,6 +339,81 @@ function parseAutomations() {
   return listFiles("docs/automations", (file) => /^docs\/automations\/\d{2}-.+\.md$/.test(file)).map(parseAutomationDoc);
 }
 
+function categorizeDocument(relativePath) {
+  if (relativePath.startsWith("planning/")) return "Planning";
+  if (relativePath.startsWith("business/")) return "Business";
+  if (relativePath.startsWith("research/")) return "Research";
+  if (relativePath.startsWith("docs/automations/")) return "Automations";
+  if (relativePath.startsWith("docs/")) return "Docs";
+  if (relativePath.startsWith("content/")) return "Content";
+  return "Other";
+}
+
+function parseDocument(relativePath) {
+  const markdown = readMaybe(relativePath);
+  const lines = markdown.split("\n");
+  const title = cleanInline(
+    (lines.find((line) => line.startsWith("# ")) || `# ${path.basename(relativePath, ".md")}`).replace(/^#\s+/, "")
+  );
+  const bodyStart = lines.findIndex((line) => line.startsWith("# "));
+  const body = bodyStart >= 0 ? lines.slice(bodyStart + 1).join("\n").trim() : markdown.trim();
+  const excerpt = cleanInline(body.replace(/\n+/g, " ").slice(0, 220));
+
+  return {
+    path: relativePath,
+    title,
+    category: categorizeDocument(relativePath),
+    excerpt: excerpt.length < body.length ? `${excerpt}…` : excerpt,
+    content: markdown,
+    size: Buffer.byteLength(markdown, "utf8"),
+  };
+}
+
+function parseDocuments() {
+  const paths = [
+    ...listFiles("planning", (file) => file.endsWith(".md") && !file.endsWith("/_template.md")),
+    ...listFiles("business", (file) => file.endsWith(".md")),
+    ...listFiles("research", (file) => file.endsWith(".md")),
+    ...listFiles("docs", (file) => file.endsWith(".md") && !file.endsWith("/_template.md")),
+    ...listFiles("content", (file) => file.endsWith(".md") && !file.endsWith("/_template.md")),
+  ].filter((file) => file !== "README.md");
+
+  const documents = paths.map(parseDocument).sort((a, b) => {
+    const categoryOrder = ["Planning", "Business", "Research", "Docs", "Automations", "Content", "Other"];
+    const categoryDiff = categoryOrder.indexOf(a.category) - categoryOrder.indexOf(b.category);
+    if (categoryDiff !== 0) return categoryDiff;
+    return a.title.localeCompare(b.title);
+  });
+
+  const categories = [...new Set(documents.map((doc) => doc.category))];
+  return { documents, categories };
+}
+
+function parseJobs() {
+  const files = listFiles("business/jobs", (file) => file.endsWith(".md"));
+  return files.map((relativePath) => {
+    const markdown = readMaybe(relativePath);
+    const lines = markdown.split("\n");
+    const title = cleanInline((lines.find((line) => line.startsWith("# ")) || "# Role").replace(/^#\s+/, ""));
+    const status = (markdown.match(/\*\*Status:\*\*\s*(.+)/) || [null, ""])[1].trim();
+    const sections = Object.fromEntries(parseSections(markdown).map((section) => [section.slug, section]));
+    const positionText =
+      sections["position-text-bg"]?.content ||
+      sections["position-text"]?.content ||
+      sections["position-text-en"]?.content ||
+      "";
+
+    return {
+      path: relativePath,
+      title,
+      status,
+      positionText: positionText.trim(),
+      checklist: parseListItems(sections["denis-checklist"]?.content || ""),
+      hasPositionText: Boolean(positionText.trim()),
+    };
+  });
+}
+
 function parseSocial() {
   const files = listFiles("content/social", (file) => file.endsWith(".md") && !file.endsWith("/_template.md"));
   const drafts = files.map((file) => {
@@ -389,6 +464,8 @@ function buildData() {
   const competitors = parseCompetitors();
   const automations = parseAutomations();
   const social = parseSocial();
+  const documents = parseDocuments();
+  const jobs = parseJobs();
 
   return {
     meta: {
@@ -406,6 +483,8 @@ function buildData() {
         ...automations.map((automation) => automation.path),
         social.templatePath,
         ...social.drafts.map((draft) => draft.path),
+        ...documents.documents.map((doc) => doc.path),
+        ...jobs.map((job) => job.path),
       ].filter(Boolean),
     },
     readme,
@@ -420,6 +499,8 @@ function buildData() {
     },
     automations,
     social,
+    documents,
+    jobs,
   };
 }
 
