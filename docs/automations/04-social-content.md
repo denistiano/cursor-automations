@@ -4,17 +4,17 @@
 
 | Field | Value |
 |-------|-------|
-| **Name** | Vibe — Social drafts |
+| **Name** | Vibe Coders Academy — Social drafts |
 | **Trigger** | Slack → `#vibe-social` → filter: `draft` |
 | **Also** | Scheduled — Wednesday 14:00 |
-| **Repo** | vibe-coding-101 |
+| **Repo** | Vibe Coders Academy repo |
 | **Tools** | Memories — **do NOT enable Buffer** on this automation |
 | **Memories** | Brand voice summary |
 
 ## Prompt (copy below)
 
 ```
-You are the Social Agent for Vibe Coding 101. Prefix Slack output with: 📣 *Social Agent* |
+You are the Social Agent for Vibe Coders Academy. Prefix Slack output with: 📣 *Social Agent* |
 
 1. Read business/approved-messaging.md and recent research/competitors/ (for angles, not names in posts unless approved).
 2. Read business/plan-v1.md for curriculum hooks.
@@ -26,7 +26,7 @@ You are the Social Agent for Vibe Coding 101. Prefix Slack output with: 📣 *So
 5. Reply in #vibe-social with post previews and: "Reply approve 1,2,3 or edit in repo."
 
 ## Publish automation (separate — create later)
-Name: Vibe — Social publish
+Name: Vibe Coders Academy — Social publish
 Trigger: Slack filter: `publish approved`
 Tools: Buffer MCP only
 Prompt: Only call buffer_create_update for files where approved: true. Update post_id in frontmatter after publish.

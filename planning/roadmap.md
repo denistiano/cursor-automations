@@ -1,7 +1,7 @@
-# Roadmap — Vibe course business
+# Roadmap — Vibe Coders Academy course business
 
 **Horizon:** Multi-week path (not a single-day sprint)  
-**Updated:** 2026-05-26 — Denis direction: separate PM/Agent work from Denis decisions & IRL actions.
+**Updated:** 2026-05-27 — course name selected; `vibe-coders.academy` planned but not active yet.
 
 ## How we work
 
@@ -21,7 +21,7 @@ Daily standups still cap **Today** at 3 items pulled from this roadmap.
 |---|--------|-------|------------|
 | 1 | **Office in Plovdiv** | Visits, lease, budget sign-off | Search criteria doc; listing shortlist; comparison table |
 | 2 | **PO position — publish** | Final JD text; pick boards/channels; hit Publish | Format JD for web + social; publish checklist; draft announcement posts *(needs JD file in repo)* |
-| 3 | **Course name** | Pick one name → `business/approved-messaging.md` | Maintain `business/course-name-options.md`; brand checks |
+| 3 | **Course name** | Done: Vibe Coders Academy | Keep `business/approved-messaging.md` synced; brand/domain checks |
 | 4 | **Social pages** | Create accounts (LinkedIn, FB, IG, etc.); verify | Bios, cover copy, first-post pack (draft) |
 | 5 | **Design — logos, flyers, posters** | Brand direction, final approval, print/vendor | Creative brief; layout copy; template specs in `content/brand/` |
 | 6 | **Landing page** | Copy + offer approval | Build `web/`; wire early bird when approved |
@@ -60,11 +60,11 @@ flowchart LR
 
 ## Near-term queue (PM picks 1–3 per day with Denis)
 
-1. **#3** — Denis: choose course name from options  
-2. **#2** — Denis: add PO JD to `business/jobs/product-owner.md` (or paste in Slack)  
-3. **#5** — Agent: creative brief + folder structure for brand assets  
-4. **#10** — Agent: syllabus v1 draft after name approved  
-5. **#8** — Agent: presentation outline after syllabus skeleton  
+1. **#6** — Denis/Agent: activate or point `vibe-coders.academy` when DNS/hosting is ready
+2. **#2** — Denis: confirm whether to proceed with PO/JD publishing or keep paused while competitor research runs
+3. **#5** — Agent: creative brief + folder structure for brand assets
+4. **#10** — Agent: syllabus v1 draft using Vibe Coders Academy positioning
+5. **#8** — Agent: presentation outline after syllabus skeleton
 
 ---
 
@@ -74,7 +74,7 @@ flowchart LR
 |-------|------|
 | Roadmap | `planning/roadmap.md` |
 | Master TODO | `planning/TODO.md` |
-| Course name options | `business/course-name-options.md` |
+| Course name decision | `business/course-name-options.md` |
 | PO job description | `business/jobs/product-owner.md` *(Denis to add)* |
 | Syllabus | `content/syllabus-v1.md` |
 | Presentation | `content/presentation/` |
@@ -88,4 +88,4 @@ flowchart LR
 ## Carried over (infra — not on the 13-topic list)
 
 - `#vibe-inbox`, MCP Exa, automations 02–04 — when Denis wants agent research/drafts at scale
-- `research/competitors/COMPETITORS.md` — optional; lower priority vs launch path above
+- `research/competitors/COMPETITORS.md` — now seeded with Bulgaria AI coding / vibe coding / agentic coding competitors

@@ -20,7 +20,7 @@ Invite the **Cursor** app to each channel (`/invite @Cursor`).
 
 1. [Cursor → Integrations](https://www.cursor.com/dashboard/integrations) → **Connect Slack**
 2. [Cloud Agents dashboard](https://www.cursor.com/dashboard/cloud-agents) → enable privacy/display settings you want
-3. In `#vibe-inbox`, run `@Cursor settings` → set default repo to **vibe-coding-101** (when GitHub is connected) or use local path for now
+3. In `#vibe-inbox`, run `@Cursor settings` → set default repo to the **Vibe Coders Academy** repo (when GitHub is connected) or use local path for now
 
 ## Phase 3 — MCP in Cursor IDE (15 min)
 
@@ -47,14 +47,14 @@ Create four automations at [cursor.com/automations/new](https://cursor.com/autom
 
 **Shared settings:**
 
-- **Repo:** `vibe-coding-101` (attach when GitHub remote exists; until then use local sync or push to GitHub first)
+- **Repo:** Vibe Coders Academy repo (attach when GitHub remote exists; until then use local sync or push to GitHub first)
 - **Slack trigger → From:** `Anyone in the channel`
 - **Memories:** On for standup + research
 - **Model:** Default or Sonnet-class for plans; Haiku OK for digests if cost-sensitive
 
 ## Phase 5 — Seed data (10 min)
 
-1. Edit `research/competitors/COMPETITORS.md` — add real competitors
+1. Edit `research/competitors/COMPETITORS.md` — review/update seeded Bulgaria AI coding competitors
 2. Edit `business/approved-messaging.md` — title + one-liner
 3. Post `standup` in `#vibe-standup` to test Slack trigger (after automation exists)
 

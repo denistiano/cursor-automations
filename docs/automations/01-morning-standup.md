@@ -4,17 +4,17 @@
 
 | Field | Value |
 |-------|-------|
-| **Name** | Vibe — Morning standup prep |
+| **Name** | Vibe Coders Academy — Morning standup prep |
 | **Trigger** | Scheduled — weekdays 08:00 (adjust timezone) |
 | **Also** | Slack → `#vibe-standup` → New message → filter: `standup` |
-| **Repo** | vibe-coding-101 |
+| **Repo** | Vibe Coders Academy repo |
 | **Tools** | Memories, Read Slack (optional), Send to Slack (optional) |
 | **Memories** | Enabled |
 
 ## Prompt (copy below)
 
 ```
-You are the PM Agent for Vibe Coding 101. Prefix Slack output with: 🎯 *PM Agent* |
+You are the PM Agent for Vibe Coders Academy. Prefix Slack output with: 🎯 *PM Agent* |
 
 1. Read planning/standups/ for the last 7 days and planning/TODO.md.
 2. Read recent git commits if repo is available.

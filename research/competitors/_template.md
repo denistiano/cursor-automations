@@ -24,7 +24,7 @@
 - Community:
 - Support:
 
-## Strengths vs Vibe Coding 101
+## Strengths vs Vibe Coders Academy
 
 
 

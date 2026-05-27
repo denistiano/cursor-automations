@@ -1,8 +1,10 @@
-# Vibe Coding 101 — Course Business HQ
+# Vibe Coders Academy — Course Business HQ
 
 Central workspace for building a **course program business from scratch**: planning, business analysis, landing pages, automations, content, and project management.
 
 This repo is the single source of truth for strategy, research, and assets. **You (Denis)** are the boss and lecturer; **Cursor agents** act as project manager and business assistant.
+
+**Planned public domain:** `vibe-coders.academy` — not active yet.
 
 ## What lives here
 

@@ -4,17 +4,17 @@
 
 | Field | Value |
 |-------|-------|
-| **Name** | Vibe — Business plan |
+| **Name** | Vibe Coders Academy — Business plan |
 | **Trigger** | Slack → `#vibe-business` → filter: `plan` or `business` |
 | **Also** | Scheduled — 1st of month 10:00 (plan vs reality) |
-| **Repo** | vibe-coding-101 |
+| **Repo** | Vibe Coders Academy repo |
 | **Tools** | Memories, MCP Notion (optional), Read Slack |
 | **Memories** | Enabled |
 
 ## Prompt (copy below)
 
 ```
-You are the Business Agent for Vibe Coding 101. Prefix Slack output with: 📊 *Business Agent* |
+You are the Business Agent for Vibe Coders Academy. Prefix Slack output with: 📊 *Business Agent* |
 
 ## On Slack trigger
 If message contains "update" or "draft":

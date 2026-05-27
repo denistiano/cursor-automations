@@ -1,12 +1,21 @@
-# Course name options (draft — not approved)
+# Course name decision
 
-Denis asked for **Vibe**-leaning names. Pick one (or mix) → update `business/approved-messaging.md`.
+Denis selected **Vibe Coders Academy**. Apply this name across docs and customer-facing drafts.
+
+**Planned public domain:** `vibe-coders.academy` — not active yet.
+
+## Decision
+
+- **Chosen name:** Vibe Coders Academy
+- **Domain:** `vibe-coders.academy` — not active yet
+- **Decision date:** 2026-05-27
 
 ## Shortlist (recommended to review first)
 
 | Name | Vibe | Notes |
 |------|------|--------|
-| **Vibe Coding 101** | ✓✓ | Current repo name; clear, searchable, course-shaped |
+| **Vibe Coders Academy** | ✓✓✓ | Chosen name; academy-shaped and clear for a course business |
+| Former working name | ✓✓ | Replaced by Vibe Coders Academy; too course-instance-specific |
 | **Vibe Ship** | ✓✓ | Action-oriented; “ship with AI agents” |
 | **Vibe Builder Lab** | ✓✓ | Hands-on; good for cohort/workshop brand |
 | **Vibe to Production** | ✓✓ | Outcome-clear; slightly longer |
@@ -31,8 +40,3 @@ Denis asked for **Vibe**-leaning names. Pick one (or mix) → update `business/a
 - [ ] `.com` / social handle available? (check before final)
 - [ ] Fits both **course** and **future PO hire** employer brand?
 - [ ] Not confused with unrelated “Vibe” products (music app, etc.)?
-
-## Decision
-
-- **Chosen name:** _pending Denis_
-- **Rejected:** _—_

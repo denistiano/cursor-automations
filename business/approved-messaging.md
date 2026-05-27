@@ -4,9 +4,10 @@ Only claims listed here may appear in social posts, landing copy, or automations
 
 ## Course (fill in with Denis)
 
-- **Working title:** _TBD_
+- **Working title:** Vibe Coders Academy
 - **One-liner:** _TBD_
 - **Who it's for:** Developers using Cursor to ship real projects
+- **Planned domain:** `vibe-coders.academy` — not active yet
 
 ## Pricing & launch
 
@@ -15,6 +16,7 @@ Only claims listed here may appear in social posts, landing copy, or automations
 | Price | _Not approved yet_ | draft |
 | Launch date | _Not approved yet_ | draft |
 | Waitlist URL | _Not approved yet_ | draft |
+| Public domain | `vibe-coders.academy` — not active yet | draft |
 
 ## Claims we allow
 
