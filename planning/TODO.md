@@ -10,7 +10,7 @@
 ### Launch path (from Denis 2026-05-26)
 
 - [x] **#3** Pick course name → Vibe Coders Academy in `business/approved-messaging.md`
-- [ ] **#2** Add PO job text to repo → `business/jobs/product-owner.md`; choose where to publish
+- [x] **#2** Add PO job text to repo → `business/jobs/product-owner.md`; choose where to publish
 - [ ] **#2** Publish & share PO position (LinkedIn, boards, network)
 - [ ] **#1** Office Plovdiv — budget/area constraints; visit shortlist
 - [ ] **#4** Create social accounts (after name + bios approved)
@@ -33,9 +33,9 @@
 **Today focus (2026-05-27):** #5 creative brief · #10 syllabus v1
 
 - [x] **#3** Apply chosen name Vibe Coders Academy across repo docs
-- [ ] **#5** Creative brief + `content/brand/` structure (templates for flyer/poster) ← *today*
-- [ ] **#10** Draft `content/syllabus-v1.md` (one-liner still TBD in approved-messaging) ← *today*
-- [ ] **#2** Publish checklist + social announcement drafts (blocked: JD in repo)
+- [ ] **#2** Publish checklist + social announcement drafts (blocked: Denis — apply method + publish channels)
+- [ ] **#5** Creative brief + `content/brand/` structure (templates for flyer/poster)
+- [ ] **#10** Draft `content/syllabus-v1.md` (after name/messaging)
 - [ ] **#8** Presentation outline + slide copy in `content/presentation/`
 - [ ] **#6 + #7 + #11** Scaffold `web/` landing + careers + early bird section (copy draft-only until approved)
 - [ ] **#4** Social page bios + first-post pack (draft)
@@ -50,14 +50,12 @@
 
 ---
 
-- [x] Git repo + README
 - [x] Automations playbook
 - [x] `.cursor/rules/` (PM, brand, research, social)
 - [x] `.cursor/mcp.json` + `.env.example`
 - [x] Templates + first standup (2026-05-22)
 - [x] Slack/MCP setup doc + 4 automation prompt files
 - [x] GitHub Pages HQ dashboard scaffold (`web/`) + JSON data generator (`scripts/build-site-data.js`)
-
 - [x] Git repo + README, rules, MCP template, automation prompts
 - [x] Slack: `#vibe-standup`, `#vibe-research`, `#vibe-business`, `#vibe-social`
 - [x] Morning standup automation live (2026-05-26)
@@ -75,8 +73,8 @@
 
 | Blocker | Owner |
 |---------|--------|
+| PO apply method + publish channels | Denis → blocks agent publish pack |
 | One-liner TBD in `approved-messaging.md` | Denis → blocks customer-facing copy |
-| PO JD not in repo | Denis → blocks agent publish pack |
 | Early bird terms not approved | Denis → blocks live pricing on site |
 | Brand direction not set | Denis → blocks logo/flyer final designs |
 | `vibe-coders.academy` not active yet | Denis → blocks public domain launch |

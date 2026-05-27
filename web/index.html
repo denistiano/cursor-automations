@@ -3,85 +3,56 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta
-      name="description"
-      content="Vibe Coders Academy operations dashboard for planning, business, research, social, and automation docs."
-    />
+    <meta name="description" content="Vibe Coders Academy — internal operations dashboard" />
     <title>Vibe Coders Academy HQ</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="ambient ambient-one"></div>
-    <div class="ambient ambient-two"></div>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <header class="hero">
-      <nav class="topbar" aria-label="Primary">
-        <a class="brand" href="#overview" aria-label="Vibe Coders Academy HQ home">
-          <span class="brand-mark">VCA</span>
-          <span>
+    <div class="app-layout" data-state="loading">
+      <aside class="sidebar" aria-label="Main navigation">
+        <div class="sidebar-brand">
+          <span class="logo" aria-hidden="true">VCA</span>
+          <div>
             <strong>Vibe Coders Academy</strong>
-            <small>Course Business HQ</small>
-          </span>
-        </a>
-        <div class="topbar-actions">
-          <a class="ghost-link" href="https://github.com/denistiano/cursor-automations/blob/master/README.md">Repo README</a>
-          <a class="ghost-link" href="https://github.com/denistiano/cursor-automations/blob/master/planning/TODO.md">TODO</a>
-        </div>
-      </nav>
-
-      <section class="hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow">GitHub Pages dashboard</p>
-          <h1>Structured course-business intelligence without digging through markdown.</h1>
-          <p class="hero-subtitle">
-            A dark, read-only command center generated from the repo's automation-safe source files.
-          </p>
-          <div class="hero-actions">
-            <a class="primary-button" href="#tasks">Review priorities</a>
-            <a class="secondary-button" href="#automations">Automation map</a>
+            <span>Operations HQ</span>
           </div>
         </div>
-        <aside class="status-panel" aria-label="Repository status">
-          <div class="status-header">
-            <span class="pulse"></span>
-            <span id="generatedAt">Loading data...</span>
+
+        <nav class="sidebar-nav" id="sidebarNav">
+          <a href="#home" data-route="home">Home</a>
+          <a href="#tasks" data-route="tasks">Tasks</a>
+          <a href="#documents" data-route="documents">Documents</a>
+          <a href="#standups" data-route="standups">Standups</a>
+          <a href="#careers" data-route="careers">Careers</a>
+          <a href="#research" data-route="research">Research</a>
+          <a href="#automations" data-route="automations">Automations</a>
+        </nav>
+
+        <footer class="sidebar-footer">
+          <p id="syncStatus" class="sync-status">Loading…</p>
+          <a href="https://github.com/denistiano/cursor-automations" target="_blank" rel="noreferrer">GitHub repo</a>
+        </footer>
+      </aside>
+
+      <div class="workspace">
+        <header class="topbar">
+          <div class="topbar-title">
+            <h1 id="pageTitle">Home</h1>
+            <p id="pageSubtitle" class="page-subtitle"></p>
           </div>
-          <div class="metric-grid" id="heroMetrics" aria-live="polite"></div>
-        </aside>
-      </section>
-    </header>
+          <div class="topbar-tools">
+            <label class="search-field">
+              <span class="visually-hidden">Search</span>
+              <input id="searchInput" type="search" placeholder="Search tasks and documents…" autocomplete="off" />
+            </label>
+          </div>
+        </header>
 
-    <main class="shell">
-      <section class="control-panel" aria-label="Dashboard controls">
-        <div class="search-wrap">
-          <label for="searchInput">Search the HQ</label>
-          <input id="searchInput" type="search" placeholder="Search tasks, blockers, automations..." />
-        </div>
-        <div class="tabs" id="tabs" role="tablist" aria-label="Dashboard sections">
-          <button class="tab is-active" type="button" data-section="overview">Overview</button>
-          <button class="tab" type="button" data-section="tasks">Tasks</button>
-          <button class="tab" type="button" data-section="standups">Standups</button>
-          <button class="tab" type="button" data-section="business">Business</button>
-          <button class="tab" type="button" data-section="research">Research</button>
-          <button class="tab" type="button" data-section="automations">Automations</button>
-          <button class="tab" type="button" data-section="social">Social</button>
-        </div>
-      </section>
-
-      <div id="app" class="content-stack" aria-live="polite">
-        <section class="loading-card">
-          <span class="loader"></span>
-          <p>Building HQ view from repo data...</p>
-        </section>
+        <main id="main" class="main" aria-live="polite"></main>
       </div>
-    </main>
-
-    <template id="emptyStateTemplate">
-      <section class="empty-state">
-        <p class="eyebrow">No matching cards</p>
-        <h2>Try a broader search.</h2>
-      </section>
-    </template>
+    </div>
 
     <script src="app.js" defer></script>
   </body>
