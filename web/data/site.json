@@ -1,11 +1,13 @@
 {
   "meta": {
-    "generatedAt": "2026-05-26T09:37:44.155Z",
+    "generatedAt": "2026-05-27T05:02:42.533Z",
     "generator": "scripts/build-site-data.js",
-    "gitSha": "60844d97b3e66ca95876d4dbc4ae47d37b4f12e1",
+    "gitSha": "fb0692e575c887937d28bdd32e082500b3d0d3df",
     "sources": [
       "README.md",
       "planning/TODO.md",
+      "planning/standups/2026-05-27.md",
+      "planning/standups/2026-05-26.md",
       "planning/standups/2026-05-22.md",
       "business/plan-v1.md",
       "business/approved-messaging.md",
@@ -94,66 +96,130 @@
     "path": "planning/TODO.md",
     "groups": [
       {
-        "title": "Now — Denis (manual, ~1 hour)",
-        "slug": "now-denis-manual-1-hour",
+        "title": "Denis — decisions & manual",
+        "slug": "denis-decisions-manual",
         "items": [
           {
-            "text": "Create Slack channels: #vibe-standup, #vibe-research, #vibe-business, #vibe-social, #vibe-inbox",
+            "text": "#3 Pick course name → business/approved-messaging.md (see business/course-name-options.md)",
             "done": false,
-            "raw": "Create Slack channels: `#vibe-standup`, `#vibe-research`, `#vibe-business`, `#vibe-social`, `#vibe-inbox`"
+            "raw": "**#3** Pick course name → `business/approved-messaging.md` (see `business/course-name-options.md`)"
           },
           {
-            "text": "Connect Slack at cursor.com/dashboard/integrations",
+            "text": "#2 Add PO job text to repo → business/jobs/product-owner.md; choose where to publish",
             "done": false,
-            "raw": "Connect Slack at [cursor.com/dashboard/integrations](https://www.cursor.com/dashboard/integrations)"
+            "raw": "**#2** Add PO job text to repo → `business/jobs/product-owner.md`; choose where to publish"
           },
           {
-            "text": "Connect MCPs: Slack + Exa minimum (setup guide)",
+            "text": "#2 Publish & share PO position (LinkedIn, boards, network)",
             "done": false,
-            "raw": "Connect MCPs: Slack + Exa minimum ([setup guide](../docs/slack-and-mcp-setup.md))"
+            "raw": "**#2** Publish & share PO position (LinkedIn, boards, network)"
           },
           {
-            "text": "Create automation: Morning standup (prompt)",
+            "text": "#1 Office Plovdiv — budget/area constraints; visit shortlist",
             "done": false,
-            "raw": "Create automation: Morning standup ([prompt](../docs/automations/01-morning-standup.md))"
+            "raw": "**#1** Office Plovdiv — budget/area constraints; visit shortlist"
           },
           {
-            "text": "Fill research/competitors/COMPETITORS.md (5–10 names)",
+            "text": "#4 Create social accounts (after name + bios approved)",
             "done": false,
-            "raw": "Fill `research/competitors/COMPETITORS.md` (5–10 names)"
+            "raw": "**#4** Create social accounts (after name + bios approved)"
           },
           {
-            "text": "Fill business/approved-messaging.md (title + one-liner)",
+            "text": "#5 Approve brand direction (colors, logo direction)",
             "done": false,
-            "raw": "Fill `business/approved-messaging.md` (title + one-liner)"
+            "raw": "**#5** Approve brand direction (colors, logo direction)"
+          },
+          {
+            "text": "#11 Approve early bird: price, date, seats, legal line",
+            "done": false,
+            "raw": "**#11** Approve early bird: price, date, seats, legal line"
+          },
+          {
+            "text": "#12 Record video presentation (after script approved)",
+            "done": false,
+            "raw": "**#12** Record video presentation (after script approved)"
+          },
+          {
+            "text": "#vibe-inbox channel",
+            "done": false,
+            "raw": "`#vibe-inbox` channel"
+          },
+          {
+            "text": "MCPs: Slack + Exa (setup)",
+            "done": false,
+            "raw": "MCPs: Slack + Exa ([setup](../docs/slack-and-mcp-setup.md))"
+          },
+          {
+            "text": "Automations 02–04 in Cursor UI",
+            "done": false,
+            "raw": "Automations 02–04 in Cursor UI"
           }
         ]
       },
       {
-        "title": "Now — Agent (after Denis unblocks)",
-        "slug": "now-agent-after-denis-unblocks",
+        "title": "PM / Agent — drafts & build",
+        "slug": "pm-agent-drafts-build",
         "items": [
           {
-            "text": "First competitor report when COMPETITORS.md has entries",
+            "text": "#3 Keep name options updated; apply chosen name across repo when Denis decides",
             "done": false,
-            "raw": "First competitor report when COMPETITORS.md has entries"
+            "raw": "**#3** Keep name options updated; apply chosen name across repo when Denis decides"
           },
           {
-            "text": "Draft 3 LinkedIn posts after messaging approved",
+            "text": "#2 Publish checklist + social announcement drafts (blocked: JD in repo)",
             "done": false,
-            "raw": "Draft 3 LinkedIn posts after messaging approved"
+            "raw": "**#2** Publish checklist + social announcement drafts (blocked: JD in repo)"
+          },
+          {
+            "text": "#5 Creative brief (content/brand/creative-brief.md) + flyer/poster copy specs",
+            "done": false,
+            "raw": "**#5** Creative brief (`content/brand/creative-brief.md`) + flyer/poster copy specs"
+          },
+          {
+            "text": "#10 Draft content/syllabus-v1.md (after name/messaging)",
+            "done": false,
+            "raw": "**#10** Draft `content/syllabus-v1.md` (after name/messaging)"
+          },
+          {
+            "text": "#8 Presentation outline + slide copy in content/presentation/",
+            "done": false,
+            "raw": "**#8** Presentation outline + slide copy in `content/presentation/`"
+          },
+          {
+            "text": "#6 + #7 + #11 Scaffold web/ landing + careers + early bird section (copy draft-only until approved)",
+            "done": false,
+            "raw": "**#6 + #7 + #11** Scaffold `web/` landing + careers + early bird section (copy draft-only until approved)"
+          },
+          {
+            "text": "#4 Social page bios + first-post pack (draft)",
+            "done": false,
+            "raw": "**#4** Social page bios + first-post pack (draft)"
+          },
+          {
+            "text": "#9 + #13 Repurpose plan: deck → posts; master video → clip list",
+            "done": false,
+            "raw": "**#9 + #13** Repurpose plan: deck → posts; master video → clip list"
+          },
+          {
+            "text": "#12 Video script + storyboard in content/video/",
+            "done": false,
+            "raw": "**#12** Video script + storyboard in `content/video/`"
+          },
+          {
+            "text": "#1 Office listing research in planning/office-plovdiv.md (blocked: Denis criteria empty)",
+            "done": false,
+            "raw": "**#1** Office listing research in `planning/office-plovdiv.md` (blocked: Denis criteria empty)"
+          },
+          {
+            "text": "Competitor report when research/competitors/COMPETITORS.md has entries",
+            "done": false,
+            "raw": "Competitor report when `research/competitors/COMPETITORS.md` has entries"
           },
           {
             "text": "Expand business/plan-v1.md executive summary",
             "done": false,
             "raw": "Expand `business/plan-v1.md` executive summary"
-          }
-        ]
-      },
-      {
-        "title": "Done",
-        "slug": "done",
-        "items": [
+          },
           {
             "text": "Git repo + README",
             "done": true,
@@ -185,25 +251,49 @@
             "raw": "Slack/MCP setup doc + 4 automation prompt files"
           },
           {
-            "text": "GitHub Pages HQ dashboard scaffold (web/) + JSON data generator (scripts/build-site-data.js)",
+            "text": "GitHub Pages HQ dashboard (web/) + JSON data generator + deploy workflow (merged 2026-05-26)",
             "done": true,
-            "raw": "GitHub Pages HQ dashboard scaffold (`web/`) + JSON data generator (`scripts/build-site-data.js`)"
-          }
-        ]
-      },
-      {
-        "title": "Next",
-        "slug": "next",
-        "items": [
+            "raw": "GitHub Pages HQ dashboard (`web/`) + JSON data generator + deploy workflow (merged 2026-05-26)"
+          },
+          {
+            "text": "Slack: #vibe-standup, #vibe-research, #vibe-business, #vibe-social",
+            "done": true,
+            "raw": "Slack: `#vibe-standup`, `#vibe-research`, `#vibe-business`, `#vibe-social`"
+          },
+          {
+            "text": "Morning standup automation live (2026-05-26)",
+            "done": true,
+            "raw": "Morning standup automation live (2026-05-26)"
+          },
+          {
+            "text": "GitHub remote denistiano/cursor-automations",
+            "done": true,
+            "raw": "GitHub remote `denistiano/cursor-automations`"
+          },
+          {
+            "text": "Roadmap with Denis vs PM split + 13 topics (planning/roadmap.md, 2026-05-26)",
+            "done": true,
+            "raw": "Roadmap with Denis vs PM split + 13 topics (`planning/roadmap.md`, 2026-05-26)"
+          },
+          {
+            "text": "Course name options doc (business/course-name-options.md, 2026-05-26)",
+            "done": true,
+            "raw": "Course name options doc (`business/course-name-options.md`, 2026-05-26)"
+          },
+          {
+            "text": "Scaffold: business/jobs/product-owner.md, planning/office-plovdiv.md, content/brand/README.md (awaiting content)",
+            "done": true,
+            "raw": "Scaffold: `business/jobs/product-owner.md`, `planning/office-plovdiv.md`, `content/brand/README.md` (awaiting content)"
+          },
+          {
+            "text": "Denis: Enable GitHub Pages — Actions source — so HQ dashboard is publicly reachable",
+            "done": false,
+            "raw": "**Denis:** Enable GitHub Pages — Actions source — so HQ dashboard is publicly reachable"
+          },
           {
             "text": "Automations 02–04 in Cursor UI",
             "done": false,
             "raw": "Automations 02–04 in Cursor UI"
-          },
-          {
-            "text": "GitHub remote + attach repo to automations",
-            "done": false,
-            "raw": "GitHub remote + attach repo to automations"
           },
           {
             "text": "Buffer MCP + publish automation (draft-only until approved)",
@@ -211,14 +301,9 @@
             "raw": "Buffer MCP + publish automation (draft-only until approved)"
           },
           {
-            "text": "Enable GitHub Pages with GitHub Actions source after this dashboard PR merges",
+            "text": "Public course landing page in web/ (separate from HQ dashboard)",
             "done": false,
-            "raw": "Enable GitHub Pages with GitHub Actions source after this dashboard PR merges"
-          },
-          {
-            "text": "Public landing page in web/ (separate from HQ dashboard)",
-            "done": false,
-            "raw": "Public landing page in `web/` (separate from HQ dashboard)"
+            "raw": "Public course landing page in `web/` (separate from HQ dashboard)"
           }
         ]
       },
@@ -229,13 +314,75 @@
       }
     ],
     "counts": {
-      "total": 21,
-      "done": 7,
-      "open": 14
+      "total": 40,
+      "done": 13,
+      "open": 27
     }
   },
   "standups": {
     "entries": [
+      {
+        "date": "2026-05-27",
+        "path": "planning/standups/2026-05-27.md",
+        "done": [
+          "GitHub Pages HQ dashboard merged to master (PR #2): web/, scripts/build-site-data.js, .github/workflows/deploy-pages.yml — commit 6621e9c",
+          "PM standup automation path merged (PR #1) — commit fb0692e",
+          "Repo scaffolds (structure only, awaiting Denis content):",
+          "business/jobs/product-owner.md — placeholder; JD not pasted",
+          "planning/office-plovdiv.md — criteria table empty",
+          "content/brand/README.md — planned asset list; no creative-brief.md yet",
+          "Morning standup cron fired in #vibe-standup (automation 27e893a7-6ed6-4c77-ae00-22a42e8754be)"
+        ],
+        "today": [
+          "Denis: Pick course name from business/course-name-options.md → fill business/approved-messaging.md",
+          "Denis: Paste PO position text into business/jobs/product-owner.md + note apply channel (LinkedIn / email / form)",
+          "PM Agent: Draft content/brand/creative-brief.md; remind Denis to enable GitHub Pages (Actions source) so HQ dashboard is live"
+        ],
+        "blockers": [
+          "Name: Still TBD in approved-messaging.md — blocks syllabus, landing copy, social bios",
+          "PO job: File exists but position text is Paste here. — blocks careers page + publish pack",
+          "Early bird: Price, end date, max seats — needed before live pricing on site",
+          "Office: Fill criteria in planning/office-plovdiv.md (areas, budget, move-in) before agent listing research",
+          "GitHub Pages: Enable Pages with GitHub Actions source in repo settings after dashboard PR is on master (merged 2026-05-26)"
+        ],
+        "agentNextActions": [
+          "Draft creative brief + flyer/poster copy specs in content/brand/",
+          "Run node scripts/build-site-data.js after planning/TODO updates",
+          "After name → content/syllabus-v1.md + presentation outline",
+          "After PO JD → careers section copy + LinkedIn announcement draft",
+          "See phased order in planning/roadmap.md"
+        ]
+      },
+      {
+        "date": "2026-05-26",
+        "path": "planning/standups/2026-05-26.md",
+        "done": [
+          "Slack channels live: #vibe-standup, #vibe-research, #vibe-business, #vibe-social (verified in workspace)",
+          "Cursor Slack integration active — morning standup automation enabled in #vibe-standup; first manual trigger (start) on 2026-05-26",
+          "GitHub remote attached: denistiano/cursor-automations (same commits as local through 2026-05-22)",
+          "PM restructure: planning/roadmap.md — 13-topic launch path; Denis vs PM/Agent ownership",
+          "Course names: draft options in business/course-name-options.md (not approved)",
+          "planning/TODO.md reorganized by owner (Denis / PM Agent)"
+        ],
+        "today": [
+          "Denis: Pick course name from business/course-name-options.md → update business/approved-messaging.md",
+          "Denis: Add PO position text to business/jobs/product-owner.md + say where to publish first",
+          "PM Agent: Creative brief + content/brand/ scaffold; start planning/office-plovdiv.md search criteria (if Denis shares budget/area)"
+        ],
+        "blockers": [
+          "Name: Which option from business/course-name-options.md (or new suggestion)?",
+          "PO job: Paste JD into repo — agent cannot invent the official position text",
+          "Early bird: Price, end date, max seats (needed before live website pricing)",
+          "Office: Plovdiv — preferred areas, monthly budget, move-in date?",
+          "Design: DIY + agent drafts vs hire a designer for logo/print?"
+        ],
+        "agentNextActions": [
+          "After name → syllabus v1 + presentation outline + landing copy drafts",
+          "After PO JD in repo → web careers page draft + LinkedIn announcement post",
+          "After brand OK → flyer/poster templates in content/brand/",
+          "See full phased order in planning/roadmap.md"
+        ]
+      },
       {
         "date": "2026-05-22",
         "path": "planning/standups/2026-05-22.md",
@@ -263,28 +410,35 @@
       }
     ],
     "latest": {
-      "date": "2026-05-22",
-      "path": "planning/standups/2026-05-22.md",
+      "date": "2026-05-27",
+      "path": "planning/standups/2026-05-27.md",
       "done": [
-        "Initialized git repo and business HQ structure",
-        "Wrote Cursor Automations playbook (docs/cursor-automations-playbook.md)",
-        "Implemented .cursor/rules/, mcp.json, templates, automation prompt docs",
-        "Researched Slack-as-UI and MCP platform integrations"
+        "GitHub Pages HQ dashboard merged to master (PR #2): web/, scripts/build-site-data.js, .github/workflows/deploy-pages.yml — commit 6621e9c",
+        "PM standup automation path merged (PR #1) — commit fb0692e",
+        "Repo scaffolds (structure only, awaiting Denis content):",
+        "business/jobs/product-owner.md — placeholder; JD not pasted",
+        "planning/office-plovdiv.md — criteria table empty",
+        "content/brand/README.md — planned asset list; no creative-brief.md yet",
+        "Morning standup cron fired in #vibe-standup (automation 27e893a7-6ed6-4c77-ae00-22a42e8754be)"
       ],
       "today": [
-        "Denis: Create Slack channels (#vibe-standup, #vibe-research, #vibe-business, #vibe-social) and connect Cursor Slack integration",
-        "Denis: Connect MCPs in Cursor Settings (Slack, Notion, Exa minimum)",
-        "Denis: Create first automation — Morning standup prep (copy from docs/automations/01-morning-standup.md)"
+        "Denis: Pick course name from business/course-name-options.md → fill business/approved-messaging.md",
+        "Denis: Paste PO position text into business/jobs/product-owner.md + note apply channel (LinkedIn / email / form)",
+        "PM Agent: Draft content/brand/creative-brief.md; remind Denis to enable GitHub Pages (Actions source) so HQ dashboard is live"
       ],
       "blockers": [
-        "Course positioning: working title + one-liner → update business/approved-messaging.md",
-        "Competitors: add 5–10 names to research/competitors/COMPETITORS.md",
-        "Social MCP: Buffer token now or draft-only for 2 weeks?"
+        "Name: Still TBD in approved-messaging.md — blocks syllabus, landing copy, social bios",
+        "PO job: File exists but position text is Paste here. — blocks careers page + publish pack",
+        "Early bird: Price, end date, max seats — needed before live pricing on site",
+        "Office: Fill criteria in planning/office-plovdiv.md (areas, budget, move-in) before agent listing research",
+        "GitHub Pages: Enable Pages with GitHub Actions source in repo settings after dashboard PR is on master (merged 2026-05-26)"
       ],
       "agentNextActions": [
-        "After Denis fills COMPETITORS.md → run first competitor: research on top priority",
-        "Expand business/plan-v1.md once positioning is set",
-        "Draft 3 LinkedIn posts (draft-only) when messaging approved"
+        "Draft creative brief + flyer/poster copy specs in content/brand/",
+        "Run node scripts/build-site-data.js after planning/TODO updates",
+        "After name → content/syllabus-v1.md + presentation outline",
+        "After PO JD → careers section copy + LinkedIn announcement draft",
+        "See phased order in planning/roadmap.md"
       ]
     }
   },

@@ -32,14 +32,14 @@
 
 - [ ] **#3** Keep name options updated; apply chosen name across repo when Denis decides
 - [ ] **#2** Publish checklist + social announcement drafts (blocked: JD in repo)
-- [ ] **#5** Creative brief + `content/brand/` structure (templates for flyer/poster)
+- [ ] **#5** Creative brief (`content/brand/creative-brief.md`) + flyer/poster copy specs
 - [ ] **#10** Draft `content/syllabus-v1.md` (after name/messaging)
 - [ ] **#8** Presentation outline + slide copy in `content/presentation/`
 - [ ] **#6 + #7 + #11** Scaffold `web/` landing + careers + early bird section (copy draft-only until approved)
 - [ ] **#4** Social page bios + first-post pack (draft)
 - [ ] **#9 + #13** Repurpose plan: deck → posts; master video → clip list
 - [ ] **#12** Video script + storyboard in `content/video/`
-- [ ] **#1** Plovdiv office search brief + listing research doc in `planning/office-plovdiv.md`
+- [ ] **#1** Office listing research in `planning/office-plovdiv.md` (blocked: Denis criteria empty)
 
 ### Backlog (lower priority vs launch path)
 
@@ -54,20 +54,18 @@
 - [x] `.cursor/mcp.json` + `.env.example`
 - [x] Templates + first standup (2026-05-22)
 - [x] Slack/MCP setup doc + 4 automation prompt files
-- [x] GitHub Pages HQ dashboard scaffold (`web/`) + JSON data generator (`scripts/build-site-data.js`)
-
-- [x] Git repo + README, rules, MCP template, automation prompts
+- [x] GitHub Pages HQ dashboard (`web/`) + JSON data generator + deploy workflow (merged 2026-05-26)
 - [x] Slack: `#vibe-standup`, `#vibe-research`, `#vibe-business`, `#vibe-social`
 - [x] Morning standup automation live (2026-05-26)
 - [x] GitHub remote `denistiano/cursor-automations`
 - [x] Roadmap with Denis vs PM split + 13 topics (`planning/roadmap.md`, 2026-05-26)
 - [x] Course name options doc (`business/course-name-options.md`, 2026-05-26)
+- [x] Scaffold: `business/jobs/product-owner.md`, `planning/office-plovdiv.md`, `content/brand/README.md` (awaiting content)
 
+- [ ] **Denis:** Enable GitHub Pages — Actions source — so HQ dashboard is publicly reachable
 - [ ] Automations 02–04 in Cursor UI
-- [ ] GitHub remote + attach repo to automations
 - [ ] Buffer MCP + publish automation (draft-only until approved)
-- [ ] Enable GitHub Pages with GitHub Actions source after this dashboard PR merges
-- [ ] Public landing page in `web/` (separate from HQ dashboard)
+- [ ] Public course landing page in `web/` (separate from HQ dashboard)
 
 ## Blockers
 
