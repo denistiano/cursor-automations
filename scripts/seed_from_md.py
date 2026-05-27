@@ -280,7 +280,6 @@ def seed_standups(conn) -> None:
         mapping = {
             "done": "done",
             "today-max-3": "today",
-            "today": "today",
             "blockers-decisions-for-denis": "blockers",
             "agent-next-actions": "agent_next",
         }
