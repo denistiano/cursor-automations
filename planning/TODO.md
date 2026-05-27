@@ -30,9 +30,10 @@
 
 ### Queue (pick up to 3 per standup day)
 
+- [ ] **Pages** Enable GitHub Pages (Actions source) — dashboard PR merged 2026-05-26; Denis repo settings
+- [ ] **#5** Creative brief + `content/brand/` structure (templates for flyer/poster) — *today*
 - [ ] **#3** Keep name options updated; apply chosen name across repo when Denis decides
 - [ ] **#2** Publish checklist + social announcement drafts (blocked: JD in repo)
-- [ ] **#5** Creative brief + `content/brand/` structure (templates for flyer/poster)
 - [ ] **#10** Draft `content/syllabus-v1.md` (after name/messaging)
 - [ ] **#8** Presentation outline + slide copy in `content/presentation/`
 - [ ] **#6 + #7 + #11** Scaffold `web/` landing + careers + early bird section (copy draft-only until approved)
@@ -64,9 +65,9 @@
 - [x] Course name options doc (`business/course-name-options.md`, 2026-05-26)
 
 - [ ] Automations 02–04 in Cursor UI
-- [ ] GitHub remote + attach repo to automations
+- [x] GitHub remote + attach repo to automations (`denistiano/cursor-automations`, 2026-05-26)
 - [ ] Buffer MCP + publish automation (draft-only until approved)
-- [ ] Enable GitHub Pages with GitHub Actions source after this dashboard PR merges
+- [ ] Enable GitHub Pages with GitHub Actions source (PR #2 merged 2026-05-26 — awaiting repo settings)
 - [ ] Public landing page in `web/` (separate from HQ dashboard)
 
 ## Blockers
