@@ -1,2364 +1,1930 @@
 {
   "meta": {
-    "generatedAt": "2026-05-27T13:09:45.631553+00:00",
+    "generatedAt": "2026-05-27T13:29:43.346498+00:00",
     "generator": "scripts/build_site.py",
-    "gitSha": "8025cdb99f4590b64af5473ddaac3acd3efc11a7",
+    "gitSha": "d4aefb683fdf3ce2ec9e55f7057f081e970897ff",
     "schemaVersion": "1",
-    "dataModel": "generic-collections-v1"
+    "dataModel": "generic-actions-v2"
   },
   "project": {
     "title": "Vibe Coders Academy — Course Business HQ",
     "description": "Central workspace for Vibe Coders Academy — course business planning, research, automations, and launch ops."
   },
   "metrics": {
-    "openTasks": 24,
-    "doneTasks": 16,
-    "standups": 3,
-    "automations": 4,
-    "socialDrafts": 0,
-    "socialPending": 0,
-    "entries": 31
+    "openActions": 20,
+    "needsInput": 16,
+    "needsApproval": 4,
+    "prompts": 5
   },
   "ui": {
     "nav": [
       {
-        "id": "overview",
-        "label": "Overview",
-        "icon": "home"
+        "id": "inbox",
+        "label": "Inbox",
+        "icon": "inbox",
+        "filter": "open"
       },
       {
-        "id": "tasks",
-        "collection": "tasks",
-        "label": "Tasks",
-        "icon": "check-square"
-      },
-      {
-        "id": "roadmap",
-        "collection": "roadmap",
-        "label": "Roadmap",
-        "icon": "map"
-      },
-      {
-        "id": "standups",
-        "collection": "standups",
-        "label": "Standups",
-        "icon": "calendar"
-      },
-      {
-        "id": "business",
-        "collection": "business",
-        "label": "Business",
-        "icon": "briefcase"
-      },
-      {
-        "id": "office",
-        "collection": "office",
-        "label": "Office",
-        "icon": "building"
+        "id": "pm",
+        "label": "PM",
+        "icon": "calendar",
+        "role": "pm"
       },
       {
         "id": "research",
-        "collection": "research",
         "label": "Research",
-        "icon": "search"
+        "icon": "search",
+        "role": "research"
       },
       {
-        "id": "jobs",
-        "collection": "jobs",
-        "label": "Jobs",
-        "icon": "users"
-      },
-      {
-        "id": "names",
-        "collection": "names",
-        "label": "Course names",
-        "icon": "tag"
-      },
-      {
-        "id": "automations",
-        "collection": "automations",
-        "label": "Automations",
-        "icon": "zap"
+        "id": "business",
+        "label": "Business",
+        "icon": "briefcase",
+        "role": "business"
       },
       {
         "id": "social",
-        "collection": "social",
         "label": "Social",
-        "icon": "share"
+        "icon": "share",
+        "role": "social"
+      },
+      {
+        "id": "developer",
+        "label": "Developer",
+        "icon": "code",
+        "role": "developer"
+      },
+      {
+        "id": "prompts",
+        "label": "All prompts",
+        "icon": "copy",
+        "filter": "prompts"
+      },
+      {
+        "id": "reference",
+        "label": "Reference",
+        "icon": "book",
+        "view": "reference"
       }
     ],
-    "collections": {
-      "tasks": {
-        "layout": "checklist_groups",
-        "groupEntryKind": "group",
-        "listSections": [
-          "items"
-        ],
-        "showBlockers": true,
-        "blockersEntrySlug": "blockers"
-      },
-      "roadmap": {
-        "layout": "roadmap",
-        "tracksEntrySlug": "tracks",
-        "phasesEntrySlug": "phases",
-        "nearTermEntrySlug": "near-term"
-      },
-      "standups": {
-        "layout": "timeline",
-        "dateField": "date",
-        "listSections": [
-          "done",
-          "today",
-          "blockers",
-          "agent_next"
-        ]
-      },
-      "business": {
-        "layout": "documents",
-        "primarySlugs": [
-          "plan",
-          "messaging"
-        ]
-      },
-      "office": {
-        "layout": "tracker",
-        "primarySlug": "plovdiv"
+    "roles": {
+      "pm": {
+        "label": "PM Agent",
+        "channel": "#vibe-standup",
+        "prefix": "🎯 *PM Agent* |"
       },
       "research": {
-        "layout": "research",
-        "primarySlug": "competitors"
+        "label": "Research Agent",
+        "channel": "#vibe-research",
+        "prefix": "🔍 *Research Agent* |"
       },
-      "jobs": {
-        "layout": "cards",
-        "showTables": [
-          "publish_log"
-        ]
-      },
-      "names": {
-        "layout": "names",
-        "primarySlug": "options"
-      },
-      "automations": {
-        "layout": "automations",
-        "showBodyPreviewLines": 12
+      "business": {
+        "label": "Business Agent",
+        "channel": "#vibe-business",
+        "prefix": "📊 *Business Agent* |"
       },
       "social": {
-        "layout": "cards",
-        "statusField": "approved"
+        "label": "Social Agent",
+        "channel": "#vibe-social",
+        "prefix": "📣 *Social Agent* |"
+      },
+      "developer": {
+        "label": "Developer Agent",
+        "channel": "#vibe-inbox",
+        "prefix": "🛠 *Dev Agent* |"
+      }
+    },
+    "actionKinds": {
+      "input": {
+        "label": "Needs your input",
+        "badge": "input"
+      },
+      "approve": {
+        "label": "Green-light agent",
+        "badge": "approve"
+      },
+      "prompt": {
+        "label": "Copy-paste prompt",
+        "badge": "prompt"
       }
     }
   },
-  "collections": [
+  "inbox": [
     {
-      "slug": "tasks",
-      "label": "Tasks",
-      "description": "Priorities, blockers, and checklists",
-      "icon": "check-square",
-      "sortOrder": 10,
-      "config": {}
+      "id": 67,
+      "slug": "input-blocker-brand-direction-not-set",
+      "title": "Brand direction not set",
+      "kind": "input",
+      "role": "pm",
+      "priority": 1,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Brand direction: colors= | logo style= | DIY or hire designer= ",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "blocks logo/flyer final designs",
+      "inputLabel": "Brand direction",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "blockers",
+        "listItemId": 160
+      },
+      "updatedAt": "2026-05-27 13:29:43"
     },
     {
-      "slug": "roadmap",
-      "label": "Roadmap",
-      "description": "Launch tracks and phases",
-      "icon": "map",
-      "sortOrder": 20,
-      "config": {}
+      "id": 66,
+      "slug": "input-blocker-early-bird-terms-not-approved",
+      "title": "Early bird terms not approved",
+      "kind": "input",
+      "role": "pm",
+      "priority": 1,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Early bird: price= | end date= | max seats= | legal line= ",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "blocks live pricing on site",
+      "inputLabel": "Early bird terms",
+      "inputExample": "price=299 BGN | end=2026-07-15 | seats=20 | legal=Terms on site",
+      "source": {
+        "collection": "tasks",
+        "slug": "blockers",
+        "listItemId": 159
+      },
+      "updatedAt": "2026-05-27 13:29:43"
     },
     {
-      "slug": "standups",
-      "label": "Standups",
-      "description": "Daily PM records",
-      "icon": "calendar",
-      "sortOrder": 30,
-      "config": {}
+      "id": 65,
+      "slug": "input-blocker-one-liner-tbd-in-approved-messaging-md",
+      "title": "One-liner TBD in approved-messaging.md",
+      "kind": "input",
+      "role": "pm",
+      "priority": 1,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "One-liner: ",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "blocks customer-facing copy",
+      "inputLabel": "Approved one-liner",
+      "inputExample": "Ship real projects with Cursor and AI agents — not theory slides.",
+      "source": {
+        "collection": "tasks",
+        "slug": "blockers",
+        "listItemId": 158
+      },
+      "updatedAt": "2026-05-27 13:29:43"
     },
     {
-      "slug": "business",
-      "label": "Business",
-      "description": "Plan and approved messaging",
-      "icon": "briefcase",
-      "sortOrder": 40,
-      "config": {}
+      "id": 64,
+      "slug": "input-blocker-po-apply-method-publish-channels",
+      "title": "PO apply method + publish channels",
+      "kind": "input",
+      "role": "pm",
+      "priority": 1,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "PO apply: email | form URL | LinkedIn Easy Apply — publish first on: ",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "blocks agent publish pack",
+      "inputLabel": "Your answer",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "blockers",
+        "listItemId": 157
+      },
+      "updatedAt": "2026-05-27 13:29:43"
     },
     {
-      "slug": "office",
-      "label": "Office",
-      "description": "Location search and shortlists",
-      "icon": "building",
-      "sortOrder": 50,
-      "config": {}
+      "id": 69,
+      "slug": "input-blocker-positioning-vs-softuni-overlap",
+      "title": "Positioning vs SoftUni overlap",
+      "kind": "input",
+      "role": "pm",
+      "priority": 1,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Positioning vs SoftUni: ",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "confirm differentiation before public launch",
+      "inputLabel": "Your answer",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "blockers",
+        "listItemId": 162
+      },
+      "updatedAt": "2026-05-27 13:29:43"
     },
     {
-      "slug": "research",
-      "label": "Research",
-      "description": "Competitors and reports",
-      "icon": "search",
-      "sortOrder": 60,
-      "config": {}
+      "id": 83,
+      "slug": "input-one-liner",
+      "title": "Provide course one-liner",
+      "kind": "input",
+      "role": "business",
+      "priority": 1,
+      "status": "open",
+      "slackChannel": "#vibe-business",
+      "slackReply": "One-liner: ",
+      "slackTrigger": "plan",
+      "prompt": "",
+      "hint": "Blocks customer-facing copy and social drafts",
+      "inputLabel": "One-liner",
+      "inputExample": "Ship real projects with Cursor and AI agents — practitioner-first.",
+      "source": {
+        "collection": "business",
+        "slug": "messaging"
+      },
+      "updatedAt": "2026-05-27 13:29:43"
     },
     {
-      "slug": "jobs",
-      "label": "Jobs",
-      "description": "Role descriptions and publish log",
-      "icon": "users",
-      "sortOrder": 70,
-      "config": {}
+      "id": 68,
+      "slug": "input-blocker-vibe-coders-academy-not-active-yet",
+      "title": "vibe-coders.academy not active yet",
+      "kind": "input",
+      "role": "pm",
+      "priority": 1,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Domain: vibe-coders.academy status= (registrar/DNS notes) ",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "blocks public domain launch",
+      "inputLabel": "Your answer",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "blockers",
+        "listItemId": 161
+      },
+      "updatedAt": "2026-05-27 13:29:43"
     },
     {
-      "slug": "names",
-      "label": "Course names",
-      "description": "Naming options and decision",
-      "icon": "tag",
-      "sortOrder": 80,
-      "config": {}
+      "id": 71,
+      "slug": "input-task-1-office-plovdiv-budget-area-constraints-visit-shortlist",
+      "title": "#1 Office Plovdiv — budget/area constraints; visit shortlist",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Update: #1 Office Plovdiv — budget/area constraints; visit shortlist",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Denis manual task from launch path",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 120
+      },
+      "updatedAt": "2026-05-27 13:29:43"
     },
     {
-      "slug": "automations",
-      "label": "Automations",
-      "description": "Cursor automation prompts",
-      "icon": "zap",
-      "sortOrder": 90,
-      "config": {}
+      "id": 74,
+      "slug": "input-task-11-approve-early-bird-price-date-seats-legal-line",
+      "title": "#11 Approve early bird: price, date, seats, legal line",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Update: #11 Approve early bird: price, date, seats, legal line",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Denis manual task from launch path",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 123
+      },
+      "updatedAt": "2026-05-27 13:29:43"
     },
     {
-      "slug": "social",
-      "label": "Social",
-      "description": "Draft posts and approval queue",
-      "icon": "share",
-      "sortOrder": 100,
-      "config": {}
+      "id": 75,
+      "slug": "input-task-12-record-video-presentation-after-script-approved",
+      "title": "#12 Record video presentation (after script approved)",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Update: #12 Record video presentation (after script approved)",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Denis manual task from launch path",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 124
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 70,
+      "slug": "input-task-2-publish-share-po-position-linkedin-boards-network",
+      "title": "#2 Publish & share PO position (LinkedIn, boards, network)",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Done: #2 Publish & share PO position (LinkedIn, boards, network)",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Denis manual task from launch path",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 119
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 72,
+      "slug": "input-task-4-create-social-accounts-after-name-bios-approved",
+      "title": "#4 Create social accounts (after name + bios approved)",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Update: #4 Create social accounts (after name + bios approved)",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Denis manual task from launch path",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 121
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 73,
+      "slug": "input-task-5-approve-brand-direction-colors-logo-direction",
+      "title": "#5 Approve brand direction (colors, logo direction)",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Update: #5 Approve brand direction (colors, logo direction)",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Denis manual task from launch path",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 122
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 76,
+      "slug": "input-task-vibe-inbox-channel",
+      "title": "#vibe-inbox channel",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Update: #vibe-inbox channel",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Denis manual task from launch path",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 125
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 78,
+      "slug": "input-task-automations-02-04-in-cursor-ui",
+      "title": "Automations 02–04 in Cursor UI",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Update: Automations 02–04 in Cursor UI",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Denis manual task from launch path",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 127
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 77,
+      "slug": "input-task-mcps-slack-exa-setup",
+      "title": "MCPs: Slack + Exa (setup)",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Update: MCPs: Slack + Exa (setup)",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Denis manual task from launch path",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 126
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 81,
+      "slug": "approve-automation-business-plan-assistant",
+      "title": "Vibe Coders Academy — Business plan",
+      "kind": "approve",
+      "role": "business",
+      "priority": 3,
+      "status": "open",
+      "slackChannel": "#vibe-business",
+      "slackReply": "plan update positioning",
+      "slackTrigger": "Scheduled — 1st of month 10:00 (plan vs reality)",
+      "prompt": "You are the Business Agent for Vibe Coders Academy. Prefix Slack output with: 📊 *Business Agent* |\n\n## On Slack trigger\nIf message contains \"update\" or \"draft\":\n- Read business/plan and business/messaging entries in data/hq.db, plus tasks and research.\n- Update business collection entries (preserve Denis manual edits; note changes in reply).\n- Run python3 scripts/build_site.py\n- Reply with: what changed + open questions for Denis.\n\nIf message contains \"review\" or \"reality\":\n- Compare tasks + last 30 days standups to business/plan roadmap section.\n- Add variance note as new entry in business collection.\n\nRules:\n- State assumptions for market size numbers.\n- No pricing/launch claims unless in messaging entry.\n- Follow .cursor/rules/brand-voice.mdc.",
+      "hint": "Green-light: Slack → #vibe-business → filter: plan or business",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "automations",
+        "slug": "automation-business-plan-assistant"
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 80,
+      "slug": "approve-automation-competitor-research",
+      "title": "Vibe Coders Academy — Competitor research",
+      "kind": "approve",
+      "role": "research",
+      "priority": 3,
+      "status": "open",
+      "slackChannel": "#vibe-research",
+      "slackReply": "competitor: SoftUni AI",
+      "slackTrigger": "Scheduled — Monday 09:00 (weekly batch)",
+      "prompt": "You are the Research Agent for Vibe Coders Academy. Prefix Slack output with: 🔍 *Research Agent* |\n\n## On Slack trigger (competitor: NAME or research: NAME)\n1. Parse the competitor name from the message.\n2. Read research/competitors watchlist table in data/hq.db.\n3. Research using web search / Exa MCP. Cite URLs with dates.\n4. Insert child entry under research/competitors with report body.\n5. Run python3 scripts/build_site.py\n6. Reply in thread with: 3-bullet summary + entry slug.\n\n## On weekly schedule\n1. Read watchlist priority column from hq.db.\n2. For each high-priority competitor not covered in 7 days, append to a weekly report entry.\n3. End with Strategic recommendations (max 3 bullets).\n\nRules:\n- Do not invent pricing or features. Mark unknowns explicitly.\n- Follow .cursor/rules/competitor-research.mdc.",
+      "hint": "Green-light: Slack → #vibe-research → New message → regex: ^(competitor|research):\\s*.+",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "automations",
+        "slug": "automation-competitor-research"
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 79,
+      "slug": "approve-automation-morning-standup-prep",
+      "title": "Vibe Coders Academy — Morning standup prep",
+      "kind": "approve",
+      "role": "pm",
+      "priority": 3,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "standup",
+      "slackTrigger": "Slack → #vibe-standup → New message → filter: standup",
+      "prompt": "You are the PM Agent for Vibe Coders Academy. Prefix Slack output with: 🎯 *PM Agent* |\n\n1. Read data/hq.db — collections: standups (last 7 days), tasks.\n2. Read recent git commits if repo is available.\n3. Upsert standups entry for YYYY-MM-DD with list_items sections: done, today (max 3), blockers, agent_next.\n4. Update tasks collection if priorities changed; do not delete completed items without evidence.\n5. Run: python3 scripts/build_site.py\n6. If Send to Slack is enabled, post a ≤15 line summary to #vibe-standup.\n\nRules:\n- Never invent completed work.\n- Ask Denis explicit questions for blockers.\n- Follow .cursor/rules/pm-assistant.mdc conventions.",
+      "hint": "Green-light: Scheduled — weekdays 08:00 (adjust timezone)",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "automations",
+        "slug": "automation-morning-standup-prep"
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 82,
+      "slug": "approve-automation-social-content-draft-only",
+      "title": "Vibe Coders Academy — Social drafts",
+      "kind": "approve",
+      "role": "social",
+      "priority": 3,
+      "status": "open",
+      "slackChannel": "#vibe-social",
+      "slackReply": "draft: 2 linkedin posts about Cursor automations",
+      "slackTrigger": "Scheduled — Wednesday 14:00",
+      "prompt": "You are the Social Agent for Vibe Coders Academy. Prefix Slack output with: 📣 *Social Agent* |\n\n1. Read business/messaging and business/plan entries in data/hq.db.\n2. Create 3 draft entries in social collection with props.approved=false.\n3. Run python3 scripts/build_site.py\n4. Reply in #vibe-social with previews and: \"Reply approve 1,2,3 or edit in DB.\"\n\nPublish automation (separate): only Buffer MCP when props.approved=true.\n\nRules:\n- Follow .cursor/rules/social-guardrails.mdc strictly.\n- NEVER publish in this automation.",
+      "hint": "Green-light: Slack → #vibe-social → filter: draft",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "automations",
+        "slug": "automation-social-content-draft-only"
+      },
+      "updatedAt": "2026-05-27 13:29:43"
     }
   ],
-  "entriesByCollection": {
-    "automations": [
-      {
-        "id": 26,
-        "collection": "automations",
-        "parentId": null,
-        "slug": "automation-morning-standup-prep",
-        "title": "Vibe Coders Academy — Morning standup prep",
-        "status": null,
-        "owner": null,
-        "body": "You are the PM Agent for Vibe Coders Academy. Prefix Slack output with: 🎯 *PM Agent* |\n\n1. Read data/hq.db — collections: standups (last 7 days), tasks.\n2. Read recent git commits if repo is available.\n3. Upsert standups entry for YYYY-MM-DD with list_items sections: done, today (max 3), blockers, agent_next.\n4. Update tasks collection if priorities changed; do not delete completed items without evidence.\n5. Run: python3 scripts/build_site.py\n6. If Send to Slack is enabled, post a ≤15 line summary to #vibe-standup.\n\nRules:\n- Never invent completed work.\n- Ask Denis explicit questions for blockers.\n- Follow .cursor/rules/pm-assistant.mdc conventions.",
-        "props": {
-          "settings": {
-            "name": "Vibe Coders Academy — Morning standup prep",
-            "trigger": "Scheduled — weekdays 08:00 (adjust timezone)",
-            "also": "Slack → #vibe-standup → New message → filter: standup",
-            "repo": "Vibe Coders Academy repo",
-            "tools": "Memories, Read Slack (optional), Send to Slack (optional)",
-            "memories": "Enabled"
-          },
-          "source_file": "docs/automations/01-morning-standup.md"
-        },
-        "sortOrder": 0,
-        "createdAt": "2026-05-27 13:00:39",
-        "updatedAt": "2026-05-27 13:09:45",
-        "listItems": [
-          {
-            "id": 205,
-            "entryId": 26,
-            "section": "checklist",
-            "text": "Automation created and saved",
-            "done": false,
-            "meta": {},
-            "sortOrder": 0
-          },
-          {
-            "id": 206,
-            "entryId": 26,
-            "section": "checklist",
-            "text": "First run checked — file exists under planning/standups/",
-            "done": false,
-            "meta": {},
-            "sortOrder": 1
-          },
-          {
-            "id": 207,
-            "entryId": 26,
-            "section": "checklist",
-            "text": "Reply in thread with today's #1 priority",
-            "done": false,
-            "meta": {},
-            "sortOrder": 2
-          }
-        ],
-        "tables": []
-      },
-      {
-        "id": 27,
-        "collection": "automations",
-        "parentId": null,
-        "slug": "automation-competitor-research",
-        "title": "Vibe Coders Academy — Competitor research",
-        "status": null,
-        "owner": null,
-        "body": "You are the Research Agent for Vibe Coders Academy. Prefix Slack output with: 🔍 *Research Agent* |\n\n## On Slack trigger (competitor: NAME or research: NAME)\n1. Parse the competitor name from the message.\n2. Read research/competitors watchlist table in data/hq.db.\n3. Research using web search / Exa MCP. Cite URLs with dates.\n4. Insert child entry under research/competitors with report body.\n5. Run python3 scripts/build_site.py\n6. Reply in thread with: 3-bullet summary + entry slug.\n\n## On weekly schedule\n1. Read watchlist priority column from hq.db.\n2. For each high-priority competitor not covered in 7 days, append to a weekly report entry.\n3. End with Strategic recommendations (max 3 bullets).\n\nRules:\n- Do not invent pricing or features. Mark unknowns explicitly.\n- Follow .cursor/rules/competitor-research.mdc.",
-        "props": {
-          "settings": {
-            "name": "Vibe Coders Academy — Competitor research",
-            "trigger": "Slack → #vibe-research → New message → regex: ^(competitor|research):\\s*.+",
-            "also": "Scheduled — Monday 09:00 (weekly batch)",
-            "repo": "Vibe Coders Academy repo",
-            "tools": "Memories, MCP Exa (if connected), web search",
-            "memories": "Enabled — seed with COMPETITORS.md contents"
-          },
-          "source_file": "docs/automations/02-competitor-research.md"
-        },
-        "sortOrder": 1,
-        "createdAt": "2026-05-27 13:00:39",
-        "updatedAt": "2026-05-27 13:09:45",
-        "listItems": [
-          {
-            "id": 208,
-            "entryId": 27,
-            "section": "checklist",
-            "text": "Fill research/competitors/COMPETITORS.md",
-            "done": false,
-            "meta": {},
-            "sortOrder": 0
-          },
-          {
-            "id": 209,
-            "entryId": 27,
-            "section": "checklist",
-            "text": "Test: post competitor: {name} in #vibe-research",
-            "done": false,
-            "meta": {},
-            "sortOrder": 1
-          },
-          {
-            "id": 210,
-            "entryId": 27,
-            "section": "checklist",
-            "text": "Verify markdown file committed or agent reports path",
-            "done": false,
-            "meta": {},
-            "sortOrder": 2
-          }
-        ],
-        "tables": []
-      },
-      {
-        "id": 28,
-        "collection": "automations",
-        "parentId": null,
-        "slug": "automation-business-plan-assistant",
-        "title": "Vibe Coders Academy — Business plan",
-        "status": null,
-        "owner": null,
-        "body": "You are the Business Agent for Vibe Coders Academy. Prefix Slack output with: 📊 *Business Agent* |\n\n## On Slack trigger\nIf message contains \"update\" or \"draft\":\n- Read business/plan and business/messaging entries in data/hq.db, plus tasks and research.\n- Update business collection entries (preserve Denis manual edits; note changes in reply).\n- Run python3 scripts/build_site.py\n- Reply with: what changed + open questions for Denis.\n\nIf message contains \"review\" or \"reality\":\n- Compare tasks + last 30 days standups to business/plan roadmap section.\n- Add variance note as new entry in business collection.\n\nRules:\n- State assumptions for market size numbers.\n- No pricing/launch claims unless in messaging entry.\n- Follow .cursor/rules/brand-voice.mdc.",
-        "props": {
-          "settings": {
-            "name": "Vibe Coders Academy — Business plan",
-            "trigger": "Slack → #vibe-business → filter: plan or business",
-            "also": "Scheduled — 1st of month 10:00 (plan vs reality)",
-            "repo": "Vibe Coders Academy repo",
-            "tools": "Memories, MCP Notion (optional), Read Slack",
-            "memories": "Enabled"
-          },
-          "source_file": "docs/automations/03-business-plan.md"
-        },
-        "sortOrder": 2,
-        "createdAt": "2026-05-27 13:00:39",
-        "updatedAt": "2026-05-27 13:09:45",
-        "listItems": [
-          {
-            "id": 211,
-            "entryId": 28,
-            "section": "checklist",
-            "text": "Fill executive summary + ICP in business/plan-v1.md",
-            "done": false,
-            "meta": {},
-            "sortOrder": 0
-          },
-          {
-            "id": 212,
-            "entryId": 28,
-            "section": "checklist",
-            "text": "Test: plan update positioning in #vibe-business",
-            "done": false,
-            "meta": {},
-            "sortOrder": 1
-          }
-        ],
-        "tables": []
-      },
-      {
-        "id": 29,
-        "collection": "automations",
-        "parentId": null,
-        "slug": "automation-social-content-draft-only",
-        "title": "Vibe Coders Academy — Social drafts",
-        "status": null,
-        "owner": null,
-        "body": "You are the Social Agent for Vibe Coders Academy. Prefix Slack output with: 📣 *Social Agent* |\n\n1. Read business/messaging and business/plan entries in data/hq.db.\n2. Create 3 draft entries in social collection with props.approved=false.\n3. Run python3 scripts/build_site.py\n4. Reply in #vibe-social with previews and: \"Reply approve 1,2,3 or edit in DB.\"\n\nPublish automation (separate): only Buffer MCP when props.approved=true.\n\nRules:\n- Follow .cursor/rules/social-guardrails.mdc strictly.\n- NEVER publish in this automation.",
-        "props": {
-          "settings": {
-            "name": "Vibe Coders Academy — Social drafts",
-            "trigger": "Slack → #vibe-social → filter: draft",
-            "also": "Scheduled — Wednesday 14:00",
-            "repo": "Vibe Coders Academy repo",
-            "tools": "Memories — do NOT enable Buffer on this automation",
-            "memories": "Brand voice summary"
-          },
-          "source_file": "docs/automations/04-social-content.md"
-        },
-        "sortOrder": 3,
-        "createdAt": "2026-05-27 13:00:39",
-        "updatedAt": "2026-05-27 13:09:45",
-        "listItems": [
-          {
-            "id": 213,
-            "entryId": 29,
-            "section": "checklist",
-            "text": "Test: draft: 2 linkedin posts about learning Cursor automations",
-            "done": false,
-            "meta": {},
-            "sortOrder": 0
-          },
-          {
-            "id": 214,
-            "entryId": 29,
-            "section": "checklist",
-            "text": "Review files in content/social/",
-            "done": false,
-            "meta": {},
-            "sortOrder": 1
-          },
-          {
-            "id": 215,
-            "entryId": 29,
-            "section": "checklist",
-            "text": "Set approved: true before enabling publish automation",
-            "done": false,
-            "meta": {},
-            "sortOrder": 2
-          }
-        ],
-        "tables": []
-      }
-    ],
-    "business": [
-      {
-        "id": 11,
-        "collection": "business",
-        "parentId": null,
-        "slug": "plan",
-        "title": "Business plan v1",
-        "status": "Draft outline — Denis to fill positioning",
-        "owner": null,
-        "body": "# Business plan v1 — Vibe Coders Academy\n\n**Status:** Draft outline — Denis to fill positioning  \n**Last updated:** 2026-05-27\n**Planned domain:** `vibe-coders.academy` — not active yet\n\n## 1. Executive summary\n\n_TBD — 3–5 sentences after positioning call._\n\n## 2. Problem & ICP\n\n- **Problem:**\n- **Ideal student:**\n- **Not for:**\n\n## 3. Solution & curriculum\n\n- **Promise:** Ship with AI agents (Cursor-first), not theory-only.\n- **Modules (draft):**\n  1. Cursor IDE + agent workflow\n  2. Rules, skills, project structure\n  3. MCP integrations (Notion, Slack, Buffer, etc.)\n  4. Cursor Automations for PM, research, content\n  5. Landing page + waitlist + launch\n\n## 4. Market\n\n- **TAM / SAM / SOM:** _TBD with assumptions stated_\n- **Trends:** AI-native dev education, agentic coding\n\n## 5. Competition\n\nSee `research/competitors/COMPETITORS.md` and weekly reports in `research/competitors/`.\n\nCurrent direct competitor signal: SoftUni already markets Bulgarian AI-first programming, vibe coding, AI-assisted development, and agentic workflow courses. See `research/competitors/2026-05-27-bulgaria-ai-coding-market.md`.\n\n## 6. Go-to-market\n\n| Channel | Role | Status |\n|---------|------|--------|\n| LinkedIn | Authority + waitlist | planned |\n| X | Short insights | planned |\n| Slack (internal) | PM + agent ops | implementing |\n| Landing page | Conversion | backlog |\n\n## 7. Revenue model\n\n- _TBD:_ cohort / self-paced / hybrid / community\n- **Price hypothesis:** _TBD_\n- **Costs:** Cursor usage, MCP tools, ads (later)\n\n## 8. 90-day roadmap\n\n| Week | Milestone |\n|------|-----------|\n| 1–2 | Positioning, competitor scan, Slack + automations live |\n| 3–4 | Curriculum outline v1, approved messaging, first social drafts |\n| 5–8 | Landing page, waitlist, pilot module |\n| 9–12 | Beta cohort or self-paced launch |\n\n## 9. Risks & mitigations\n\n| Risk | Mitigation |\n|------|------------|\n| Scope creep | One repo, max 3 daily priorities |\n| Unverified competitor data | Citation rules in competitor-research rule |\n| Social misfire | `approved: false` default + approved-messaging.md |\n",
-        "props": {
-          "last_updated": "2026-05-27"
-        },
-        "sortOrder": 0,
-        "createdAt": "2026-05-27 13:00:39",
-        "updatedAt": "2026-05-27 13:09:38",
-        "listItems": [],
-        "tables": []
-      },
-      {
-        "id": 12,
-        "collection": "business",
-        "parentId": 11,
-        "slug": "plan-1-executive-summary",
-        "title": "1. Executive summary",
-        "status": null,
-        "owner": null,
-        "body": "_TBD — 3–5 sentences after positioning call._",
-        "props": {},
-        "sortOrder": 0,
-        "createdAt": "2026-05-27 13:00:39",
-        "updatedAt": "2026-05-27 13:09:38",
-        "listItems": [],
-        "tables": []
-      },
-      {
-        "id": 21,
-        "collection": "business",
-        "parentId": null,
-        "slug": "messaging",
-        "title": "Approved messaging",
-        "status": null,
-        "owner": null,
-        "body": "# Approved messaging\n\nOnly claims listed here may appear in social posts, landing copy, or automations.\n\n## Course (fill in with Denis)\n\n- **Working title:** Vibe Coders Academy\n- **One-liner:** _TBD_\n- **Who it's for:** Developers using Cursor to ship real projects\n- **Planned domain:** `vibe-coders.academy` — not active yet\n\n## Pricing & launch\n\n| Item | Approved text | Status |\n|------|---------------|--------|\n| Price | _Not approved yet_ | draft |\n| Launch date | _Not approved yet_ | draft |\n| Waitlist URL | _Not approved yet_ | draft |\n| Public domain | `vibe-coders.academy` — not active yet | draft |\n\n## Claims we allow\n\n- Teaching Cursor, MCP, and automations for real workflows\n- Solo-founder / practitioner perspective\n\n## Claims we do NOT allow (until approved)\n\n- Income guarantees\n- Job placement\n- \"Best\" or \"#1\" without source\n",
-        "props": {
-          "course": {
-            "working-title": "Vibe Coders Academy",
-            "one-liner": "TBD",
-            "who-it-s-for": "Developers using Cursor to ship real projects",
-            "planned-domain": "vibe-coders.academy — not active yet"
-          }
-        },
-        "sortOrder": 0,
-        "createdAt": "2026-05-27 13:00:39",
-        "updatedAt": "2026-05-27 13:09:38",
-        "listItems": [
-          {
-            "id": 189,
-            "entryId": 21,
-            "section": "allowed_claims",
-            "text": "Teaching Cursor, MCP, and automations for real workflows",
-            "done": false,
-            "meta": {},
-            "sortOrder": 0
-          },
-          {
-            "id": 190,
-            "entryId": 21,
-            "section": "allowed_claims",
-            "text": "Solo-founder / practitioner perspective",
-            "done": false,
-            "meta": {},
-            "sortOrder": 1
-          },
-          {
-            "id": 191,
-            "entryId": 21,
-            "section": "disallowed_claims",
-            "text": "Income guarantees",
-            "done": false,
-            "meta": {},
-            "sortOrder": 0
-          },
-          {
-            "id": 192,
-            "entryId": 21,
-            "section": "disallowed_claims",
-            "text": "Job placement",
-            "done": false,
-            "meta": {},
-            "sortOrder": 1
-          },
-          {
-            "id": 193,
-            "entryId": 21,
-            "section": "disallowed_claims",
-            "text": "\"Best\" or \"#1\" without source",
-            "done": false,
-            "meta": {},
-            "sortOrder": 2
-          }
-        ],
-        "tables": [
-          {
-            "id": 17,
-            "entryId": 21,
-            "name": "pricing",
-            "columns": [
-              "item",
-              "approved_text",
-              "status"
-            ],
-            "rows": [
-              {
-                "item": "Price",
-                "approved_text": "Not approved yet",
-                "status": "draft"
-              },
-              {
-                "item": "Launch date",
-                "approved_text": "Not approved yet",
-                "status": "draft"
-              },
-              {
-                "item": "Waitlist URL",
-                "approved_text": "Not approved yet",
-                "status": "draft"
-              },
-              {
-                "item": "Public domain",
-                "approved_text": "vibe-coders.academy — not active yet",
-                "status": "draft"
-              }
-            ],
-            "sortOrder": 0
-          }
-        ]
-      },
-      {
-        "id": 13,
-        "collection": "business",
-        "parentId": 11,
-        "slug": "plan-2-problem-icp",
-        "title": "2. Problem & ICP",
-        "status": null,
-        "owner": null,
-        "body": "- **Problem:**\n- **Ideal student:**\n- **Not for:**",
-        "props": {},
-        "sortOrder": 1,
-        "createdAt": "2026-05-27 13:00:39",
-        "updatedAt": "2026-05-27 13:09:38",
-        "listItems": [],
-        "tables": []
-      },
-      {
-        "id": 14,
-        "collection": "business",
-        "parentId": 11,
-        "slug": "plan-3-solution-curriculum",
-        "title": "3. Solution & curriculum",
-        "status": null,
-        "owner": null,
-        "body": "- **Promise:** Ship with AI agents (Cursor-first), not theory-only.\n- **Modules (draft):**\n  1. Cursor IDE + agent workflow\n  2. Rules, skills, project structure\n  3. MCP integrations (Notion, Slack, Buffer, etc.)\n  4. Cursor Automations for PM, research, content\n  5. Landing page + waitlist + launch",
-        "props": {},
-        "sortOrder": 2,
-        "createdAt": "2026-05-27 13:00:39",
-        "updatedAt": "2026-05-27 13:09:38",
-        "listItems": [],
-        "tables": []
-      },
-      {
-        "id": 15,
-        "collection": "business",
-        "parentId": 11,
-        "slug": "plan-4-market",
-        "title": "4. Market",
-        "status": null,
-        "owner": null,
-        "body": "- **TAM / SAM / SOM:** _TBD with assumptions stated_\n- **Trends:** AI-native dev education, agentic coding",
-        "props": {},
-        "sortOrder": 3,
-        "createdAt": "2026-05-27 13:00:39",
-        "updatedAt": "2026-05-27 13:09:38",
-        "listItems": [],
-        "tables": []
-      },
-      {
-        "id": 16,
-        "collection": "business",
-        "parentId": 11,
-        "slug": "plan-5-competition",
-        "title": "5. Competition",
-        "status": null,
-        "owner": null,
-        "body": "See `research/competitors/COMPETITORS.md` and weekly reports in `research/competitors/`.\n\nCurrent direct competitor signal: SoftUni already markets Bulgarian AI-first programming, vibe coding, AI-assisted development, and agentic workflow courses. See `research/competitors/2026-05-27-bulgaria-ai-coding-market.md`.",
-        "props": {},
-        "sortOrder": 4,
-        "createdAt": "2026-05-27 13:00:39",
-        "updatedAt": "2026-05-27 13:09:38",
-        "listItems": [],
-        "tables": []
-      },
-      {
-        "id": 17,
-        "collection": "business",
-        "parentId": 11,
-        "slug": "plan-6-go-to-market",
-        "title": "6. Go-to-market",
-        "status": null,
-        "owner": null,
-        "body": "| Channel | Role | Status |\n|---------|------|--------|\n| LinkedIn | Authority + waitlist | planned |\n| X | Short insights | planned |\n| Slack (internal) | PM + agent ops | implementing |\n| Landing page | Conversion | backlog |",
-        "props": {},
-        "sortOrder": 5,
-        "createdAt": "2026-05-27 13:00:39",
-        "updatedAt": "2026-05-27 13:09:38",
-        "listItems": [],
-        "tables": [
-          {
-            "id": 14,
-            "entryId": 17,
-            "name": "table-0",
-            "columns": [
-              "channel",
-              "role",
-              "status"
-            ],
-            "rows": [
-              {
-                "channel": "LinkedIn",
-                "role": "Authority + waitlist",
-                "status": "planned"
-              },
-              {
-                "channel": "X",
-                "role": "Short insights",
-                "status": "planned"
-              },
-              {
-                "channel": "Slack (internal)",
-                "role": "PM + agent ops",
-                "status": "implementing"
-              },
-              {
-                "channel": "Landing page",
-                "role": "Conversion",
-                "status": "backlog"
-              }
-            ],
-            "sortOrder": 0
-          }
-        ]
-      },
-      {
-        "id": 18,
-        "collection": "business",
-        "parentId": 11,
-        "slug": "plan-7-revenue-model",
-        "title": "7. Revenue model",
-        "status": null,
-        "owner": null,
-        "body": "- _TBD:_ cohort / self-paced / hybrid / community\n- **Price hypothesis:** _TBD_\n- **Costs:** Cursor usage, MCP tools, ads (later)",
-        "props": {},
-        "sortOrder": 6,
-        "createdAt": "2026-05-27 13:00:39",
-        "updatedAt": "2026-05-27 13:09:38",
-        "listItems": [],
-        "tables": []
-      },
-      {
-        "id": 19,
-        "collection": "business",
-        "parentId": 11,
-        "slug": "plan-8-90-day-roadmap",
-        "title": "8. 90-day roadmap",
-        "status": null,
-        "owner": null,
-        "body": "| Week | Milestone |\n|------|-----------|\n| 1–2 | Positioning, competitor scan, Slack + automations live |\n| 3–4 | Curriculum outline v1, approved messaging, first social drafts |\n| 5–8 | Landing page, waitlist, pilot module |\n| 9–12 | Beta cohort or self-paced launch |",
-        "props": {},
-        "sortOrder": 7,
-        "createdAt": "2026-05-27 13:00:39",
-        "updatedAt": "2026-05-27 13:09:38",
-        "listItems": [],
-        "tables": [
-          {
-            "id": 15,
-            "entryId": 19,
-            "name": "table-0",
-            "columns": [
-              "week",
-              "milestone"
-            ],
-            "rows": [
-              {
-                "week": "1–2",
-                "milestone": "Positioning, competitor scan, Slack + automations live"
-              },
-              {
-                "week": "3–4",
-                "milestone": "Curriculum outline v1, approved messaging, first social drafts"
-              },
-              {
-                "week": "5–8",
-                "milestone": "Landing page, waitlist, pilot module"
-              },
-              {
-                "week": "9–12",
-                "milestone": "Beta cohort or self-paced launch"
-              }
-            ],
-            "sortOrder": 0
-          }
-        ]
-      },
-      {
-        "id": 20,
-        "collection": "business",
-        "parentId": 11,
-        "slug": "plan-9-risks-mitigations",
-        "title": "9. Risks & mitigations",
-        "status": null,
-        "owner": null,
-        "body": "| Risk | Mitigation |\n|------|------------|\n| Scope creep | One repo, max 3 daily priorities |\n| Unverified competitor data | Citation rules in competitor-research rule |\n| Social misfire | `approved: false` default + approved-messaging.md |",
-        "props": {},
-        "sortOrder": 8,
-        "createdAt": "2026-05-27 13:00:39",
-        "updatedAt": "2026-05-27 13:09:38",
-        "listItems": [],
-        "tables": [
-          {
-            "id": 16,
-            "entryId": 20,
-            "name": "table-0",
-            "columns": [
-              "risk",
-              "mitigation"
-            ],
-            "rows": [
-              {
-                "risk": "Scope creep",
-                "mitigation": "One repo, max 3 daily priorities"
-              },
-              {
-                "risk": "Unverified competitor data",
-                "mitigation": "Citation rules in competitor-research rule"
-              },
-              {
-                "risk": "Social misfire",
-                "mitigation": "approved: false default + approved-messaging.md"
-              }
-            ],
-            "sortOrder": 0
-          }
-        ]
-      }
-    ],
-    "jobs": [
-      {
-        "id": 24,
-        "collection": "jobs",
-        "parentId": null,
-        "slug": "product-owner",
-        "title": "Product Owner",
-        "status": "Draft in repo (2026-05-27) — Denis to confirm apply method and publish channels.",
-        "owner": null,
-        "body": "# Product Owner / Operations — job description\n\n**Status:** Draft in repo (2026-05-27) — Denis to confirm apply method and publish channels.\n\n## Denis checklist\n\n- [x] Paste full JD below\n- [ ] Apply method: email / form URL / LinkedIn Easy Apply\n- [ ] Location: Plovdiv / remote / hybrid\n- [ ] Approve for website + social announcement\n\n---\n\n## Position text (BG)\n\nВ началото всичко ще е доста динамично и различно всеки ден. Търсим човек, който може да помага с организацията, координацията и просто да движи нещата напред.\n\nНякои от задачите може да включват:\n\n- Организация на ежедневни задачи\n- Project management и координация\n- Research и business analysis\n- Social media и online presence\n- Административни задачи\n- Офис организация и логистика при нужда\n- Комуникация с хора, които се интересуват от курсовете\n\nБазови умения по web design / web development са плюс, но не са задължителни.\n\nКурсовете ще бъдат водени от AI специалист с много години опит в software engineering, enterprise проекти, software architecture и leadership. Има реална възможност да се учиш директно от този опит и да участваш в изграждането на нещо от самото начало.\n\nНе е нужно да можеш всичко. По-важни са:\n\n- Организираност\n- Самостоятелност\n- Инициатива\n- Желание за развитие\n\nИ за да сме напълно честни — понякога ще има и по-досадни или рутинни задачи. Това е част от процеса, когато се изгражда нещо от нулата.\n\nНо за правилния човек има много добра възможност за развитие, учене, повече ownership и дългосрочно участие в проекта.\n\n---\n\n## Publish log\n\n| Channel | Date | Link |\n|---------|------|------|\n| Website careers | | |\n| LinkedIn | | |\n| Other | | |\n",
-        "props": {
-          "position_text": "(BG)\n\nВ началото всичко ще е доста динамично и различно всеки ден. Търсим човек, който може да помага с организацията, координацията и просто да движи нещата напред.\n\nНякои от задачите може да включват:\n\n- Организация на ежедневни задачи\n- Project management и координация\n- Research и business analysis\n- Social media и online presence\n- Административни задачи\n- Офис организация и логистика при нужда\n- Комуникация с хора, които се интересуват от курсовете\n\nБазови умения по web design / web development са плюс, но не са задължителни.\n\nКурсовете ще бъдат водени от AI специалист с много години опит в software engineering, enterprise проекти, software architecture и leadership. Има реална възможност да се учиш директно от този опит и да участваш в изграждането на нещо от самото начало.\n\nНе е нужно да можеш всичко. По-важни са:\n\n- Организираност\n- Самостоятелност\n- Инициатива\n- Желание за развитие\n\nИ за да сме напълно честни — понякога ще има и по-досадни или рутинни задачи. Това е част от процеса, когато се изгражда нещо от нулата.\n\nНо за правилния човек има много добра възможност за развитие, учене, повече ownership и дългосрочно участие в проекта."
-        },
-        "sortOrder": 0,
-        "createdAt": "2026-05-27 13:00:39",
-        "updatedAt": "2026-05-27 13:09:38",
-        "listItems": [
-          {
-            "id": 197,
-            "entryId": 24,
-            "section": "checklist",
-            "text": "Paste full JD below",
-            "done": true,
-            "meta": {},
-            "sortOrder": 0
-          },
-          {
-            "id": 198,
-            "entryId": 24,
-            "section": "checklist",
-            "text": "Apply method: email / form URL / LinkedIn Easy Apply",
-            "done": false,
-            "meta": {},
-            "sortOrder": 1
-          },
-          {
-            "id": 199,
-            "entryId": 24,
-            "section": "checklist",
-            "text": "Location: Plovdiv / remote / hybrid",
-            "done": false,
-            "meta": {},
-            "sortOrder": 2
-          },
-          {
-            "id": 200,
-            "entryId": 24,
-            "section": "checklist",
-            "text": "Approve for website + social announcement",
-            "done": false,
-            "meta": {},
-            "sortOrder": 3
-          }
-        ],
-        "tables": [
-          {
-            "id": 20,
-            "entryId": 24,
-            "name": "publish_log",
-            "columns": [
-              "channel",
-              "date",
-              "link"
-            ],
-            "rows": [
-              {
-                "channel": "Website careers",
-                "date": "",
-                "link": ""
-              },
-              {
-                "channel": "LinkedIn",
-                "date": "",
-                "link": ""
-              },
-              {
-                "channel": "Other",
-                "date": "",
-                "link": ""
-              }
-            ],
-            "sortOrder": 0
-          }
-        ]
-      }
-    ],
-    "names": [
-      {
-        "id": 25,
-        "collection": "names",
-        "parentId": null,
-        "slug": "options",
-        "title": "Course name options",
-        "status": "draft",
-        "owner": null,
-        "body": "# Course name decision\n\nDenis selected **Vibe Coders Academy**. Apply this name across docs and customer-facing drafts.\n\n**Planned public domain:** `vibe-coders.academy` — not active yet.\n\n## Decision\n\n- **Chosen name:** Vibe Coders Academy\n- **Domain:** `vibe-coders.academy` — not active yet\n- **Decision date:** 2026-05-27\n\n## Shortlist (recommended to review first)\n\n| Name | Vibe | Notes |\n|------|------|--------|\n| **Vibe Coders Academy** | ✓✓✓ | Chosen name; academy-shaped and clear for a course business |\n| Former working name | ✓✓ | Replaced by Vibe Coders Academy; too course-instance-specific |\n| **Vibe Ship** | ✓✓ | Action-oriented; “ship with AI agents” |\n| **Vibe Builder Lab** | ✓✓ | Hands-on; good for cohort/workshop brand |\n| **Vibe to Production** | ✓✓ | Outcome-clear; slightly longer |\n| **The Vibe Cohort** | ✓✓ | Community/cohort feel; less “tool tutorial” |\n\n## More options\n\n| Name | Tagline idea (draft) |\n|------|----------------------|\n| Vibe Stack | Cursor, MCP, and automations — the modern dev stack |\n| Vibe Dev Studio | Build real projects with agents in the room |\n| Code the Vibe | Learn the workflow, not just the hype |\n| Vibe Engineers | For developers who ship with AI, not slides |\n| Ship the Vibe | From idea to deployed — practitioner-first |\n| Vibe Automate | Emphasizes Cursor Automations (narrower niche) |\n| Vibe Cursor Academy | Very explicit; strong SEO for “Cursor course” |\n| Vibe Ops | PM + agents + Slack ops angle (might confuse with DevOps) |\n\n## Naming criteria (for Denis)\n\n- [ ] Works in Bulgarian market pronunciation? (say aloud: “Vibe …”)\n- [ ] `.com` / social handle available? (check before final)\n- [ ] Fits both **course** and **future PO hire** employer brand?\n- [ ] Not confused with unrelated “Vibe” products (music app, etc.)?\n",
-        "props": {
-          "decision": {
-            "chosen": "** Vibe Coders Academy",
-            "rejected": ""
-          }
-        },
-        "sortOrder": 0,
-        "createdAt": "2026-05-27 13:00:39",
-        "updatedAt": "2026-05-27 13:09:38",
-        "listItems": [
-          {
-            "id": 201,
-            "entryId": 25,
-            "section": "criteria",
-            "text": "Works in Bulgarian market pronunciation? (say aloud: “Vibe …”)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 0
-          },
-          {
-            "id": 202,
-            "entryId": 25,
-            "section": "criteria",
-            "text": ".com / social handle available? (check before final)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 1
-          },
-          {
-            "id": 203,
-            "entryId": 25,
-            "section": "criteria",
-            "text": "Fits both course and future PO hire employer brand?",
-            "done": false,
-            "meta": {},
-            "sortOrder": 2
-          },
-          {
-            "id": 204,
-            "entryId": 25,
-            "section": "criteria",
-            "text": "Not confused with unrelated “Vibe” products (music app, etc.)?",
-            "done": false,
-            "meta": {},
-            "sortOrder": 3
-          }
-        ],
-        "tables": [
-          {
-            "id": 21,
-            "entryId": 25,
-            "name": "names",
-            "columns": [
-              "name",
-              "category",
-              "vibe",
-              "notes",
-              "tagline"
-            ],
-            "rows": [],
-            "sortOrder": 0
-          }
-        ]
-      }
-    ],
-    "office": [
-      {
-        "id": 22,
-        "collection": "office",
-        "parentId": null,
-        "slug": "plovdiv",
-        "title": "Office search — Plovdiv",
-        "status": null,
-        "owner": null,
-        "body": "",
-        "props": {},
-        "sortOrder": 0,
-        "createdAt": "2026-05-27 13:00:39",
-        "updatedAt": "2026-05-27 13:09:38",
-        "listItems": [],
-        "tables": [
-          {
-            "id": 7,
-            "entryId": 22,
-            "name": "criteria",
-            "columns": [
-              "field",
-              "value"
-            ],
-            "rows": [
-              {
-                "field": "Areas / neighborhoods",
-                "value": ""
-              },
-              {
-                "field": "Monthly budget (BGN/EUR)",
-                "value": ""
-              },
-              {
-                "field": "Size (m²) / desks",
-                "value": ""
-              },
-              {
-                "field": "Move-in date",
-                "value": ""
-              },
-              {
-                "field": "Must-haves (parking, fiber, meeting room)",
-                "value": ""
-              }
-            ],
-            "sortOrder": 0
-          },
-          {
-            "id": 18,
-            "entryId": 22,
-            "name": "shortlist",
-            "columns": [
-              "num",
-              "address",
-              "rent",
-              "notes",
-              "visit"
-            ],
-            "rows": [],
-            "sortOrder": 0
-          }
-        ]
-      }
-    ],
-    "research": [
-      {
-        "id": 23,
-        "collection": "research",
-        "parentId": null,
-        "slug": "competitors",
-        "title": "Competitor watchlist",
-        "status": null,
-        "owner": null,
-        "body": "# Competitor watchlist\n\nAdd competitors Denis wants tracked. Automations and agents read this list.\n\n| Name | URL | Notes | Priority |\n|------|-----|-------|----------|\n| SoftUni AI / SoftUni | https://ai.softuni.bg/ | Direct competitor: AI-first programming, vibe coding, AI-assisted development, AI agents/workflows; largest local education brand. | high |\n| SoftUni Vibe Coding Fundamentals | https://softuni.bg/modules/155/vibe-coding-fundamentals-january-2026/1615 | Direct offer for beginners and operators building web apps with AI, TypeScript/React/Tailwind/Supabase/Netlify. | high |\n| SoftUni AI-Assisted Development | https://ai.softuni.bg/trainings/189/ai-assisted-development-january-2026 | Direct developer offer covering Copilot, Cursor, Claude Code, Augment Code, validation workflows, PRs. | high |\n| SoftUni AI Agents and Workflows for Developers | https://softuni.bg/trainings/5350/ai-agents-and-worfklows-for-developers-august-2026 | Direct agentic coding/workflows offer covering n8n, LangChain, LangGraph, HITL, observability. | high |\n| Telerik Academy — GenAI for Developers | https://www.telerikacademy.com/sprint/genai-for-developers | Adjacent pro-developer GenAI course; strong brand, certificate, business case positioning. | high |\n| NobleProg Bulgaria — GitHub Copilot | https://www.nobleprog.bg/en/github-copilot-training | Corporate/onsite AI coding training; Copilot course catalog and scheduled Bulgaria sessions. | high |\n| NobleProg Bulgaria — Cursor workflows | https://www.nobleprog.bg/cc/cursor1 | Direct Cursor/agent workflow training for developers and engineering managers. | high |\n| IT STEP Computer Academy Bulgaria | https://itstep.bg/python-programming-course | Python + AI / ML and web-development academy; longer career-transition pathway. | medium |\n| Advance Academy AI | https://ai.advanceacademy.bg/ai | Bulgarian AI Basics / AI Specialist / business/content AI programs; broader beginner audience. | medium |\n| Aula.bg AI / ChatGPT | https://aula.bg/kurs-chatgpt | Bulgarian online AI productivity and ChatGPT courses; not coding-first but competes for AI upskilling budget. | medium |\n| New Horizons Bulgaria | https://newhorizons.bg/course-outline/course/ai-3025-work-smarter-with-ai | Corporate Microsoft Copilot / AI productivity training; adjacent B2B budget competitor. | low |\n\nLatest market scan: `research/competitors/2026-05-27-bulgaria-ai-coding-market.md`.\n\n## How to trigger research\n\n- **Slack** (`#vibe-research`): `competitor: {name}` or `research: {name}`\n- **Cursor chat:** \"Research competitor X and save to research/competitors/\"\n- **Weekly automation:** scans this table (see `docs/automations/02-competitor-research.md`)\n",
-        "props": {},
-        "sortOrder": 0,
-        "createdAt": "2026-05-27 13:00:39",
-        "updatedAt": "2026-05-27 13:09:38",
-        "listItems": [
-          {
-            "id": 194,
-            "entryId": 23,
-            "section": "triggers",
-            "text": "Slack (#vibe-research): competitor: {name} or research: {name}",
-            "done": false,
-            "meta": {},
-            "sortOrder": 0
-          },
-          {
-            "id": 195,
-            "entryId": 23,
-            "section": "triggers",
-            "text": "Cursor chat: \"Research competitor X and save to research/competitors/\"",
-            "done": false,
-            "meta": {},
-            "sortOrder": 1
-          },
-          {
-            "id": 196,
-            "entryId": 23,
-            "section": "triggers",
-            "text": "Weekly automation: scans this table (see docs/automations/02-competitor-research.md)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 2
-          }
-        ],
-        "tables": [
-          {
-            "id": 19,
-            "entryId": 23,
-            "name": "watchlist",
-            "columns": [
-              "name",
-              "url",
-              "notes",
-              "priority"
-            ],
-            "rows": [
-              {
-                "name": "SoftUni AI / SoftUni",
-                "url": "https://ai.softuni.bg/",
-                "notes": "Direct competitor: AI-first programming, vibe coding, AI-assisted development, AI agents/workflows; largest local education brand.",
-                "priority": "high"
-              },
-              {
-                "name": "SoftUni Vibe Coding Fundamentals",
-                "url": "https://softuni.bg/modules/155/vibe-coding-fundamentals-january-2026/1615",
-                "notes": "Direct offer for beginners and operators building web apps with AI, TypeScript/React/Tailwind/Supabase/Netlify.",
-                "priority": "high"
-              },
-              {
-                "name": "SoftUni AI-Assisted Development",
-                "url": "https://ai.softuni.bg/trainings/189/ai-assisted-development-january-2026",
-                "notes": "Direct developer offer covering Copilot, Cursor, Claude Code, Augment Code, validation workflows, PRs.",
-                "priority": "high"
-              },
-              {
-                "name": "SoftUni AI Agents and Workflows for Developers",
-                "url": "https://softuni.bg/trainings/5350/ai-agents-and-worfklows-for-developers-august-2026",
-                "notes": "Direct agentic coding/workflows offer covering n8n, LangChain, LangGraph, HITL, observability.",
-                "priority": "high"
-              },
-              {
-                "name": "Telerik Academy — GenAI for Developers",
-                "url": "https://www.telerikacademy.com/sprint/genai-for-developers",
-                "notes": "Adjacent pro-developer GenAI course; strong brand, certificate, business case positioning.",
-                "priority": "high"
-              },
-              {
-                "name": "NobleProg Bulgaria — GitHub Copilot",
-                "url": "https://www.nobleprog.bg/en/github-copilot-training",
-                "notes": "Corporate/onsite AI coding training; Copilot course catalog and scheduled Bulgaria sessions.",
-                "priority": "high"
-              },
-              {
-                "name": "NobleProg Bulgaria — Cursor workflows",
-                "url": "https://www.nobleprog.bg/cc/cursor1",
-                "notes": "Direct Cursor/agent workflow training for developers and engineering managers.",
-                "priority": "high"
-              },
-              {
-                "name": "IT STEP Computer Academy Bulgaria",
-                "url": "https://itstep.bg/python-programming-course",
-                "notes": "Python + AI / ML and web-development academy; longer career-transition pathway.",
-                "priority": "medium"
-              },
-              {
-                "name": "Advance Academy AI",
-                "url": "https://ai.advanceacademy.bg/ai",
-                "notes": "Bulgarian AI Basics / AI Specialist / business/content AI programs; broader beginner audience.",
-                "priority": "medium"
-              },
-              {
-                "name": "Aula.bg AI / ChatGPT",
-                "url": "https://aula.bg/kurs-chatgpt",
-                "notes": "Bulgarian online AI productivity and ChatGPT courses; not coding-first but competes for AI upskilling budget.",
-                "priority": "medium"
-              },
-              {
-                "name": "New Horizons Bulgaria",
-                "url": "https://newhorizons.bg/course-outline/course/ai-3025-work-smarter-with-ai",
-                "notes": "Corporate Microsoft Copilot / AI productivity training; adjacent B2B budget competitor.",
-                "priority": "low"
-              }
-            ],
-            "sortOrder": 0
-          }
-        ]
-      },
-      {
-        "id": 52,
-        "collection": "research",
-        "parentId": 23,
-        "slug": "2026-05-27-bulgaria-ai-coding-market",
-        "title": "Bulgaria AI coding competitor scan",
-        "status": null,
-        "owner": null,
-        "body": "# Bulgaria AI coding competitor scan\n\n**Date:** 2026-05-27  \n**Analyst:** Cursor agent  \n**Confidence:** medium-high  \n**Scope:** Bulgarian businesses and Bulgaria-localized providers for AI coding, vibe coding, agentic coding, Cursor/Copilot training, and adjacent AI upskilling.\n\n## Summary\n\nThe Bulgarian market already has direct competition for Vibe Coders Academy. SoftUni is the clearest direct competitor: it has a dedicated SoftUni AI brand, a Vibe Coding / AI-first programming pathway, developer courses for Copilot, Cursor, Claude Code, and an AI Agents and Workflows course covering n8n, LangChain, and LangGraph. NobleProg Bulgaria is the strongest corporate-training competitor for Copilot, Cursor, and agent workflows. Telerik Academy competes for professional developer upskilling with a polished GenAI for Developers sprint. IT STEP, Advance Academy, Aula.bg, and New Horizons are adjacent competitors that can absorb beginner, productivity, and corporate AI training demand.\n\n## Offer & positioning\n\n| Competitor | Directness | Offer & positioning | Audience | Priority |\n|------------|------------|----------------------|----------|----------|\n| SoftUni AI / SoftUni | Direct | Large local education brand with AI, vibe coding, AI-first programming, AI-assisted development, AI integrations, and AI agents. Positions itself as a leading AI education program in Bulgaria. | Beginners, developers, business users, career switchers | high |\n| SoftUni Vibe Coding Fundamentals | Direct | 24-week module teaching web/app creation with AI prompts, TypeScript, React, Tailwind, Supabase, Netlify, Bolt, Lovable, Replit, Firebase Studio. | Entrepreneurs, managers, students, beginners, developers adding AI practices | high |\n| SoftUni AI-Assisted Development | Direct | 5-week developer course on Copilot, Cursor, Claude Code, Augment Code, prompt patterns, testing, docs, refactoring, and PR workflows. | Junior to senior developers, QA/DevOps/Data specialists | high |\n| SoftUni AI Agents and Workflows for Developers | Direct | 6-week agentic workflow course with n8n, LangChain Agents & Tools, memory, HITL, LangGraph, reliability, observability, and cost tracking. | Software engineers, tech leads, product/platform teams | high |\n| Telerik Academy — GenAI for Developers | Adjacent/direct | Self-paced practical LLM course for software engineering: prompting, GitHub Copilot, code quality, refactoring, unit tests, JavaScript/React examples, SiteGround business case. | Developers, team leads, experienced coders, tech upskillers | high |\n| NobleProg Bulgaria — GitHub Copilot | Direct B2B | Instructor-led online/onsite Copilot training in Bulgaria, including intro, intermediate, advanced, debugging, code review, front-end, Python, DevOps, team collaboration, and advanced agent mode. | Developers and engineering teams; corporate buyers | high |\n| NobleProg Bulgaria — Cursor workflows | Direct B2B | Instructor-led Cursor training for Composer, agent mode, multi-file edits, repo-aware context, team workspaces, rules, CI, PRs, debugging, and security. | Developers, engineering managers, freelancers | high |\n| IT STEP Computer Academy Bulgaria | Adjacent | 6-month Python Advanced course with Python & AI / ML and Python web development, career-transition positioning, professional certificate/diploma. | Beginners 15+, career switchers, aspiring Python developers | medium |\n| Advance Academy AI | Adjacent | AI Basics, AI Specialist, AI for business/content/social/visual content; practical Bulgarian beginner AI upskilling. | Beginners, business/content users, digital upskillers | medium |\n| Aula.bg AI / ChatGPT | Adjacent | Online Bulgarian ChatGPT / AI productivity courses with licensed-center certificate and subscription model; not coding-first. | Office specialists, managers, freelancers, non-technical professionals | medium |\n| New Horizons Bulgaria | Adjacent B2B | Microsoft Copilot / AI productivity training and global AI/ML catalog localized for Bulgaria. | Corporate teams, Microsoft ecosystem users | low |\n\n## Pricing\n\n| Competitor / product | Price | Billing / duration | Source URL | Checked |\n|----------------------|-------|--------------------|------------|---------|\n| SoftUni Vibe Coding Fundamentals | 1017.03 лв. / 520.00 EUR reduced; 1136.15 лв. / 580.90 EUR listed full price | 24 weeks; 4-course module; installment option 2 x 275 EUR | https://softuni.bg/modules/155/vibe-coding-fundamentals-january-2026/1615 | 2026-05-27 |\n| SoftUni AI-Assisted Development | 220.00 лв. / 112.48 EUR | 5 weeks | https://ai.softuni.bg/trainings/189/ai-assisted-development-january-2026 | 2026-05-27 |\n| SoftUni AI Agents and Workflows for Developers | 224.92 лв. / 115.00 EUR | 6 weeks | https://softuni.bg/trainings/5350/ai-agents-and-worfklows-for-developers-august-2026 | 2026-05-27 |\n| Telerik Academy — GenAI for Developers | 199 BGN / 101.75 EUR incl. VAT | Self-paced; 13 hours | https://www.telerikacademy.com/sprint/genai-for-developers | 2026-05-27 |\n| NobleProg Bulgaria — Introduction to GitHub Copilot | 270 EUR online; 1120 EUR classroom | 7 hours | https://www.nobleprog.bg/en/github-copilot-training | 2026-05-27 |\n| NobleProg Bulgaria — GitHub Copilot advanced/team/front-end courses | 540 EUR online; 940 EUR classroom typical listed sessions | 14 hours | https://www.nobleprog.bg/en/github-copilot-training | 2026-05-27 |\n| NobleProg Bulgaria — GitHub Copilot: Advanced Agent Mode | 810 EUR online; 1410 EUR classroom | 21 hours | https://www.nobleprog.bg/en/github-copilot-training | 2026-05-27 |\n| NobleProg Bulgaria — Cursor workflows | 540 EUR online; 940 EUR classroom typical listed sessions; some Plovdiv classroom listings at 2240 EUR | 14 hours | https://www.nobleprog.bg/cc/cursor1 | 2026-05-27 |\n| IT STEP Python / Artificial Intelligence | From 255 лв./month | 6 months; 2 sessions/week | https://itstep.bg/python-programming-course | 2026-05-27 |\n| Advance Academy AI Basics / AI Specialist | Unknown — needs manual check | 2 weeks to 2 months depending on program | https://ai.advanceacademy.bg/ai | 2026-05-27 |\n| Aula.bg — Тайните на ChatGPT | 299 лв. / 152.88 EUR single course; 289 лв. / 147.76 EUR discounted subscription; 599 лв. / 306.26 EUR PRO subscription | 8-week course; 6 months access for single course | https://aula.bg/kurs-chatgpt | 2026-05-27 |\n| New Horizons Bulgaria — AI-3025 Work smarter with AI | 100 EUR | 1 day / 8 hours | https://newhorizons.bg/course-outline/course/ai-3025-work-smarter-with-ai | 2026-05-27 |\n\n## Format\n\n| Competitor | Delivery | Community / support | Certificate |\n|------------|----------|---------------------|-------------|\n| SoftUni AI / SoftUni | Online live + recordings; exams/projects | Closed course group, mentor help, lifetime lecture/resource access | SoftUni certificate; some modules mention professional training certificate |\n| Telerik Academy | Online self-paced Sprint | Practical projects, frameworks/guides, business case; admission may close between cohorts | Telerik Academy certificate |\n| NobleProg Bulgaria | Instructor-led online live or onsite in Bulgaria; public or tailored corporate sessions | Hands-on labs in real IDE/version-control environments; tailored to team stack | Training completion certificate implied by provider |\n| IT STEP | Online and academy-based options | Partner-company positioning; practical tasks | Professional qualification certificate and international diploma |\n| Advance Academy | Live online programs and shorter seminars | Practical examples and beginner-focused paths | Unknown — needs manual check |\n| Aula.bg | Async online lessons, forum/Q&A, 24/7 access | Forum and course community; licensed training center | Certificate/credential from licensed center |\n| New Horizons Bulgaria | Corporate course format | Standard course outline; schedule/details via provider | Unknown — needs manual check |\n\n## Strengths vs Vibe Coders Academy\n\n- **SoftUni has breadth, brand, and SEO ownership.** It already covers the exact terms Vibe Coders Academy wants: AI-first programming, vibe coding, Cursor, Copilot, Claude Code, AI agents, n8n, LangChain, LangGraph, and production workflows.\n- **SoftUni and Telerik have recognizable certificates.** This matters for students who value credential signaling.\n- **NobleProg can sell to companies.** Its online/onsite format, tailored exercises, and Bulgaria locations make it credible for B2B training budgets.\n- **Pricing anchors are already visible.** SoftUni's direct developer courses are low-cost per module, while NobleProg anchors premium corporate pricing.\n- **Adjacent players capture non-developer AI demand.** Aula.bg and Advance Academy may own the beginner/productivity audience before those users consider coding.\n\n## Gaps we can exploit\n\n- **Cursor-first, project-first specialization.** SoftUni teaches many tools; Vibe Coders Academy can be narrower and deeper around Cursor Cloud Agents, rules, MCP, repo workflows, PRs, and production habits.\n- **Senior practitioner / architecture angle.** Position around real engineering leadership, software architecture, enterprise delivery, testing, review, and operational discipline rather than generic AI productivity.\n- **Small-cohort ownership and feedback.** Compete against large-scale platforms with hands-on review, direct feedback, and shipped artifacts.\n- **Agentic business operations.** Blend coding agents with PM, Slack, automations, research, and launch operations; most competitors separate coding from operating a business/project with agents.\n- **Bulgarian founder/operator positioning.** Build examples from local business use cases and practical constraints rather than generic demos.\n\n## Market notes\n\n- Searches for Bulgarian \"vibe coding\", \"AI-assisted development\", \"Cursor AI\", and \"agentic coding\" overwhelmingly returned SoftUni and NobleProg for direct developer offers.\n- SoftUni AI publicly claims its SoftUni Vibe Coding program is the only Vibe Coding program for practical skills in Bulgaria; this claim should be treated as their marketing claim, not repeated as fact in our public copy without independent verification.\n- I did not find a clearly branded independent Bulgarian \"Cursor-first academy\" competitor during this scan. The nearest direct substitutes are SoftUni's AI-Assisted Development and NobleProg's Cursor workflows course.\n\n## Sources\n\n- https://ai.softuni.bg/\n- https://softuni.bg/modules/155/vibe-coding-fundamentals-january-2026/1615\n- https://ai.softuni.bg/trainings/189/ai-assisted-development-january-2026\n- https://softuni.bg/trainings/5350/ai-agents-and-worfklows-for-developers-august-2026\n- https://www.telerikacademy.com/sprint/genai-for-developers\n- https://www.nobleprog.bg/en/github-copilot-training\n- https://www.nobleprog.bg/cc/cursor1\n- https://itstep.bg/python-programming-course\n- https://ai.advanceacademy.bg/ai\n- https://aula.bg/kurs-chatgpt\n- https://newhorizons.bg/course-outline/course/ai-3025-work-smarter-with-ai\n\n## Strategic recommendations\n\n1. Position Vibe Coders Academy as **Cursor-first agentic software delivery**, not generic AI or beginner \"no-code vibe coding\".\n2. Build the first offer around **one shipped project + repo workflow + PR/test/review discipline** to differentiate from broad lecture catalogs.\n3. Track SoftUni and NobleProg weekly; they are the direct competitors most likely to shape pricing, keywords, and student expectations.\n",
-        "props": {
-          "report_date": "2026-05-27"
-        },
-        "sortOrder": 0,
-        "createdAt": "2026-05-27 13:09:38",
-        "updatedAt": "2026-05-27 13:09:38",
-        "listItems": [],
-        "tables": []
-      }
-    ],
-    "roadmap": [
-      {
-        "id": 5,
-        "collection": "roadmap",
-        "parentId": null,
-        "slug": "overview",
-        "title": "Roadmap overview",
-        "status": null,
-        "owner": null,
-        "body": "# Roadmap — Vibe Coders Academy course business\n\n**Horizon:** Multi-week path (not a single-day sprint)  \n**Updated:** 2026-05-27 — course name selected; `vibe-coders.academy` planned but not active yet.",
-        "props": {
-          "horizon": "Multi-week path",
-          "updated": "2026-05-26"
-        },
-        "sortOrder": 0,
-        "createdAt": "2026-05-27 13:00:38",
-        "updatedAt": "2026-05-27 13:09:38",
-        "listItems": [],
-        "tables": []
-      },
-      {
-        "id": 6,
-        "collection": "roadmap",
-        "parentId": null,
-        "slug": "tracks",
-        "title": "Launch tracks",
-        "status": null,
-        "owner": null,
-        "body": "",
-        "props": {},
-        "sortOrder": 1,
-        "createdAt": "2026-05-27 13:00:38",
-        "updatedAt": "2026-05-27 13:09:38",
-        "listItems": [],
-        "tables": [
-          {
-            "id": 12,
-            "entryId": 6,
-            "name": "tracks",
-            "columns": [
-              "track_num",
-              "topic",
-              "denis",
-              "pm"
-            ],
-            "rows": [
-              {
-                "track_num": null,
-                "topic": "Office in Plovdiv",
-                "denis": "Visits, lease, budget sign-off",
-                "pm": "Search criteria doc; listing shortlist; comparison table"
-              },
-              {
-                "track_num": null,
-                "topic": "PO position — publish",
-                "denis": "Final JD text; pick boards/channels; hit Publish",
-                "pm": "Format JD for web + social; publish checklist; draft announcement posts (needs JD file in repo)"
-              },
-              {
-                "track_num": null,
-                "topic": "Course name",
-                "denis": "Done: Vibe Coders Academy",
-                "pm": "Keep business/approved-messaging.md synced; brand/domain checks"
-              },
-              {
-                "track_num": null,
-                "topic": "Social pages",
-                "denis": "Create accounts (LinkedIn, FB, IG, etc.); verify",
-                "pm": "Bios, cover copy, first-post pack (draft)"
-              },
-              {
-                "track_num": null,
-                "topic": "Design — logos, flyers, posters",
-                "denis": "Brand direction, final approval, print/vendor",
-                "pm": "Creative brief; layout copy; template specs in content/brand/"
-              },
-              {
-                "track_num": null,
-                "topic": "Landing page",
-                "denis": "Copy + offer approval",
-                "pm": "Build web/; wire early bird when approved"
-              },
-              {
-                "track_num": null,
-                "topic": "Our job ad on website",
-                "denis": "PO text + apply method (email/form)",
-                "pm": "Careers page + SEO; link from landing"
-              },
-              {
-                "track_num": null,
-                "topic": "Presentation",
-                "denis": "Narrative sign-off; present/record if live",
-                "pm": "Deck outline + slide content in content/presentation/"
-              },
-              {
-                "track_num": null,
-                "topic": "Social posts from presentation",
-                "denis": "Approve which slides become posts",
-                "pm": "Repurpose plan + draft posts in content/social/"
-              },
-              {
-                "track_num": null,
-                "topic": "Syllabus",
-                "denis": "Module priorities, depth, what you teach live",
-                "pm": "Draft content/syllabus-v1.md from business/plan-v1.md"
-              },
-              {
-                "track_num": null,
-                "topic": "Early bird on website",
-                "denis": "Price, dates, capacity, legal wording",
-                "pm": "Implement section on landing; sync approved-messaging.md"
-              },
-              {
-                "track_num": null,
-                "topic": "Video presentation",
-                "denis": "Record on camera; final cut approval",
-                "pm": "Script, storyboard, B-roll list in content/video/"
-              },
-              {
-                "track_num": null,
-                "topic": "Short clips for social",
-                "denis": "Approve clips",
-                "pm": "Cut list + captions from #12 master video"
-              }
-            ],
-            "sortOrder": 0
-          }
-        ]
-      },
-      {
-        "id": 7,
-        "collection": "roadmap",
-        "parentId": null,
-        "slug": "phases",
-        "title": "Phases",
-        "status": null,
-        "owner": null,
-        "body": "",
-        "props": {},
-        "sortOrder": 2,
-        "createdAt": "2026-05-27 13:00:39",
-        "updatedAt": "2026-05-27 13:09:38",
-        "listItems": [],
-        "tables": [
-          {
-            "id": 13,
-            "entryId": 7,
-            "name": "phases",
-            "columns": [
-              "phase",
-              "focus",
-              "unlocks"
-            ],
-            "rows": [
-              {
-                "phase": "A — Identity",
-                "focus": "#3 Name, #5 design direction",
-                "unlocks": "Everything customer-facing"
-              },
-              {
-                "phase": "B — Story",
-                "focus": "#8 Presentation, #10 Syllabus",
-                "unlocks": "#9, #12, #13 content"
-              },
-              {
-                "phase": "C — Web",
-                "focus": "#6 Landing, #11 Early bird, #7 Job page",
-                "unlocks": "#2 PO announcement, #4 social links"
-              },
-              {
-                "phase": "D — Distribution",
-                "focus": "#4 Social pages, #9 #13 social content",
-                "unlocks": "Audience + waitlist"
-              },
-              {
-                "phase": "E — Ops",
-                "focus": "#1 Office, #2 PO publish",
-                "unlocks": "Parallel; not blocking course launch"
-              }
-            ],
-            "sortOrder": 0
-          }
-        ]
-      },
-      {
-        "id": 8,
-        "collection": "roadmap",
-        "parentId": null,
-        "slug": "near-term",
-        "title": "Near-term queue",
-        "status": null,
-        "owner": null,
-        "body": "",
-        "props": {},
-        "sortOrder": 3,
-        "createdAt": "2026-05-27 13:00:39",
-        "updatedAt": "2026-05-27 13:09:38",
-        "listItems": [
-          {
-            "id": 163,
-            "entryId": 8,
-            "section": "items",
-            "text": "#6 — Denis/Agent: activate or point vibe-coders.academy when DNS/hosting is ready",
-            "done": false,
-            "meta": {},
-            "sortOrder": 0
-          },
-          {
-            "id": 164,
-            "entryId": 8,
-            "section": "items",
-            "text": "#2 — Denis: confirm whether to proceed with PO/JD publishing or keep paused while competitor research runs",
-            "done": false,
-            "meta": {},
-            "sortOrder": 1
-          },
-          {
-            "id": 165,
-            "entryId": 8,
-            "section": "items",
-            "text": "#5 — Agent: creative brief + folder structure for brand assets",
-            "done": false,
-            "meta": {},
-            "sortOrder": 2
-          },
-          {
-            "id": 166,
-            "entryId": 8,
-            "section": "items",
-            "text": "#10 — Agent: syllabus v1 draft using Vibe Coders Academy positioning",
-            "done": false,
-            "meta": {},
-            "sortOrder": 3
-          },
-          {
-            "id": 167,
-            "entryId": 8,
-            "section": "items",
-            "text": "#8 — Agent: presentation outline after syllabus skeleton",
-            "done": false,
-            "meta": {},
-            "sortOrder": 4
-          },
-          {
-            "id": 168,
-            "entryId": 8,
-            "section": "items",
-            "text": "#vibe-inbox, MCP Exa, automations 02–04 — when Denis wants agent research/drafts at scale",
-            "done": false,
-            "meta": {},
-            "sortOrder": 5
-          },
-          {
-            "id": 169,
-            "entryId": 8,
-            "section": "items",
-            "text": "research/competitors/COMPETITORS.md — now seeded with Bulgaria AI coding / vibe coding / agentic coding competitors",
-            "done": false,
-            "meta": {},
-            "sortOrder": 6
-          }
-        ],
-        "tables": []
-      }
-    ],
-    "standups": [
-      {
-        "id": 9,
-        "collection": "standups",
-        "parentId": null,
-        "slug": "2026-05-26",
-        "title": "Standup — 2026-05-26",
-        "status": null,
-        "owner": null,
-        "body": "",
-        "props": {
-          "date": "2026-05-26"
-        },
-        "sortOrder": 0,
-        "createdAt": "2026-05-27 13:00:39",
-        "updatedAt": "2026-05-27 13:00:39",
-        "listItems": [
-          {
-            "id": 73,
-            "entryId": 9,
-            "section": "agent_next",
-            "text": "After name → syllabus v1 + presentation outline + landing copy drafts",
-            "done": false,
-            "meta": {},
-            "sortOrder": 0
-          },
-          {
-            "id": 74,
-            "entryId": 9,
-            "section": "agent_next",
-            "text": "After PO JD in repo → web careers page draft + LinkedIn announcement post",
-            "done": false,
-            "meta": {},
-            "sortOrder": 1
-          },
-          {
-            "id": 75,
-            "entryId": 9,
-            "section": "agent_next",
-            "text": "After brand OK → flyer/poster templates in content/brand/",
-            "done": false,
-            "meta": {},
-            "sortOrder": 2
-          },
-          {
-            "id": 76,
-            "entryId": 9,
-            "section": "agent_next",
-            "text": "See full phased order in planning/roadmap.md",
-            "done": false,
-            "meta": {},
-            "sortOrder": 3
-          },
-          {
-            "id": 68,
-            "entryId": 9,
-            "section": "blockers",
-            "text": "Name: Which option from business/course-name-options.md (or new suggestion)?",
-            "done": false,
-            "meta": {},
-            "sortOrder": 0
-          },
-          {
-            "id": 69,
-            "entryId": 9,
-            "section": "blockers",
-            "text": "PO job: Paste JD into repo — agent cannot invent the official position text",
-            "done": false,
-            "meta": {},
-            "sortOrder": 1
-          },
-          {
-            "id": 70,
-            "entryId": 9,
-            "section": "blockers",
-            "text": "Early bird: Price, end date, max seats (needed before live website pricing)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 2
-          },
-          {
-            "id": 71,
-            "entryId": 9,
-            "section": "blockers",
-            "text": "Office: Plovdiv — preferred areas, monthly budget, move-in date?",
-            "done": false,
-            "meta": {},
-            "sortOrder": 3
-          },
-          {
-            "id": 72,
-            "entryId": 9,
-            "section": "blockers",
-            "text": "Design: DIY + agent drafts vs hire a designer for logo/print?",
-            "done": false,
-            "meta": {},
-            "sortOrder": 4
-          },
-          {
-            "id": 59,
-            "entryId": 9,
-            "section": "done",
-            "text": "Slack channels live: #vibe-standup, #vibe-research, #vibe-business, #vibe-social (verified in workspace)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 0
-          },
-          {
-            "id": 60,
-            "entryId": 9,
-            "section": "done",
-            "text": "Cursor Slack integration active — morning standup automation enabled in #vibe-standup; first manual trigger (start) on 2026-05-26",
-            "done": false,
-            "meta": {},
-            "sortOrder": 1
-          },
-          {
-            "id": 61,
-            "entryId": 9,
-            "section": "done",
-            "text": "GitHub remote attached: denistiano/cursor-automations (same commits as local through 2026-05-22)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 2
-          },
-          {
-            "id": 62,
-            "entryId": 9,
-            "section": "done",
-            "text": "PM restructure: planning/roadmap.md — 13-topic launch path; Denis vs PM/Agent ownership",
-            "done": false,
-            "meta": {},
-            "sortOrder": 3
-          },
-          {
-            "id": 63,
-            "entryId": 9,
-            "section": "done",
-            "text": "Course names: draft options in business/course-name-options.md (not approved)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 4
-          },
-          {
-            "id": 64,
-            "entryId": 9,
-            "section": "done",
-            "text": "planning/TODO.md reorganized by owner (Denis / PM Agent)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 5
-          }
-        ],
-        "tables": []
-      },
-      {
-        "id": 10,
-        "collection": "standups",
-        "parentId": null,
-        "slug": "2026-05-22",
-        "title": "Standup — 2026-05-22",
-        "status": null,
-        "owner": null,
-        "body": "",
-        "props": {
-          "date": "2026-05-22"
-        },
-        "sortOrder": 0,
-        "createdAt": "2026-05-27 13:00:39",
-        "updatedAt": "2026-05-27 13:00:39",
-        "listItems": [
-          {
-            "id": 87,
-            "entryId": 10,
-            "section": "agent_next",
-            "text": "After Denis fills COMPETITORS.md → run first competitor: research on top priority",
-            "done": false,
-            "meta": {},
-            "sortOrder": 0
-          },
-          {
-            "id": 88,
-            "entryId": 10,
-            "section": "agent_next",
-            "text": "Expand business/plan-v1.md once positioning is set",
-            "done": false,
-            "meta": {},
-            "sortOrder": 1
-          },
-          {
-            "id": 89,
-            "entryId": 10,
-            "section": "agent_next",
-            "text": "Draft 3 LinkedIn posts (draft-only) when messaging approved",
-            "done": false,
-            "meta": {},
-            "sortOrder": 2
-          },
-          {
-            "id": 84,
-            "entryId": 10,
-            "section": "blockers",
-            "text": "Course positioning: working title + one-liner → update business/approved-messaging.md",
-            "done": false,
-            "meta": {},
-            "sortOrder": 0
-          },
-          {
-            "id": 85,
-            "entryId": 10,
-            "section": "blockers",
-            "text": "Competitors: add 5–10 names to research/competitors/COMPETITORS.md",
-            "done": false,
-            "meta": {},
-            "sortOrder": 1
-          },
-          {
-            "id": 86,
-            "entryId": 10,
-            "section": "blockers",
-            "text": "Social MCP: Buffer token now or draft-only for 2 weeks?",
-            "done": false,
-            "meta": {},
-            "sortOrder": 2
-          },
-          {
-            "id": 77,
-            "entryId": 10,
-            "section": "done",
-            "text": "Initialized git repo and business HQ structure",
-            "done": false,
-            "meta": {},
-            "sortOrder": 0
-          },
-          {
-            "id": 78,
-            "entryId": 10,
-            "section": "done",
-            "text": "Wrote Cursor Automations playbook (docs/cursor-automations-playbook.md)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 1
-          },
-          {
-            "id": 79,
-            "entryId": 10,
-            "section": "done",
-            "text": "Implemented .cursor/rules/, mcp.json, templates, automation prompt docs",
-            "done": false,
-            "meta": {},
-            "sortOrder": 2
-          },
-          {
-            "id": 80,
-            "entryId": 10,
-            "section": "done",
-            "text": "Researched Slack-as-UI and MCP platform integrations",
-            "done": false,
-            "meta": {},
-            "sortOrder": 3
-          }
-        ],
-        "tables": []
-      },
-      {
-        "id": 38,
-        "collection": "standups",
-        "parentId": null,
-        "slug": "2026-05-27",
-        "title": "Standup — 2026-05-27",
-        "status": null,
-        "owner": null,
-        "body": "",
-        "props": {
-          "date": "2026-05-27"
-        },
-        "sortOrder": 0,
-        "createdAt": "2026-05-27 13:09:38",
-        "updatedAt": "2026-05-27 13:09:38",
-        "listItems": [
-          {
-            "id": 184,
-            "entryId": 38,
-            "section": "agent_next",
-            "text": "Draft creative brief + syllabus v1 (today)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 0
-          },
-          {
-            "id": 185,
-            "entryId": 38,
-            "section": "agent_next",
-            "text": "After one-liner approved → presentation outline in content/presentation/",
-            "done": false,
-            "meta": {},
-            "sortOrder": 1
-          },
-          {
-            "id": 186,
-            "entryId": 38,
-            "section": "agent_next",
-            "text": "After PO JD in repo → careers page copy + LinkedIn announcement draft",
-            "done": false,
-            "meta": {},
-            "sortOrder": 2
-          },
-          {
-            "id": 187,
-            "entryId": 38,
-            "section": "agent_next",
-            "text": "After brand OK → flyer/poster templates in content/brand/",
-            "done": false,
-            "meta": {},
-            "sortOrder": 3
-          },
-          {
-            "id": 188,
-            "entryId": 38,
-            "section": "agent_next",
-            "text": "See phased order in planning/roadmap.md",
-            "done": false,
-            "meta": {},
-            "sortOrder": 4
-          },
-          {
-            "id": 178,
-            "entryId": 38,
-            "section": "blockers",
-            "text": "One-liner: What is the approved tagline for Vibe Coders Academy?",
-            "done": false,
-            "meta": {},
-            "sortOrder": 0
-          },
-          {
-            "id": 179,
-            "entryId": 38,
-            "section": "blockers",
-            "text": "PO job: Official position text still placeholder in business/jobs/product-owner.md",
-            "done": false,
-            "meta": {},
-            "sortOrder": 1
-          },
-          {
-            "id": 180,
-            "entryId": 38,
-            "section": "blockers",
-            "text": "Early bird: Price, end date, max seats (needed before live website pricing)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 2
-          },
-          {
-            "id": 181,
-            "entryId": 38,
-            "section": "blockers",
-            "text": "Brand: Colors, logo direction — DIY + agent drafts vs hire a designer?",
-            "done": false,
-            "meta": {},
-            "sortOrder": 3
-          },
-          {
-            "id": 182,
-            "entryId": 38,
-            "section": "blockers",
-            "text": "Domain: vibe-coders.academy not active yet — when to register/activate DNS?",
-            "done": false,
-            "meta": {},
-            "sortOrder": 4
-          },
-          {
-            "id": 183,
-            "entryId": 38,
-            "section": "blockers",
-            "text": "Positioning vs SoftUni: Competitor scan shows direct overlap on Cursor/vibe coding — confirm differentiation angle before public copy",
-            "done": false,
-            "meta": {},
-            "sortOrder": 5
-          },
-          {
-            "id": 170,
-            "entryId": 38,
-            "section": "done",
-            "text": "Course name selected: Vibe Coders Academy — recorded in business/course-name-options.md (2026-05-27) and business/approved-messaging.md",
-            "done": false,
-            "meta": {},
-            "sortOrder": 0
-          },
-          {
-            "id": 171,
-            "entryId": 38,
-            "section": "done",
-            "text": "Name applied repo-wide: PR #4 merged (19b485a) — 20 files updated (rules, docs, roadmap, README, web dashboard)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 1
-          },
-          {
-            "id": 172,
-            "entryId": 38,
-            "section": "done",
-            "text": "Competitor research delivered: research/competitors/2026-05-27-bulgaria-ai-coding-market.md — Bulgaria AI/vibe/agentic coding market scan",
-            "done": false,
-            "meta": {},
-            "sortOrder": 2
-          },
-          {
-            "id": 173,
-            "entryId": 38,
-            "section": "done",
-            "text": "Competitor watchlist filled: 11 entries in research/competitors/COMPETITORS.md (SoftUni, NobleProg, Telerik, others)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 3
-          },
-          {
-            "id": 174,
-            "entryId": 38,
-            "section": "done",
-            "text": "HQ dashboard data regenerated after docs update (efc2e88)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 4
-          }
-        ],
-        "tables": []
-      }
-    ],
-    "tasks": [
-      {
-        "id": 2,
+  "actions": [
+    {
+      "id": 67,
+      "slug": "input-blocker-brand-direction-not-set",
+      "title": "Brand direction not set",
+      "kind": "input",
+      "role": "pm",
+      "priority": 1,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Brand direction: colors= | logo style= | DIY or hire designer= ",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "blocks logo/flyer final designs",
+      "inputLabel": "Brand direction",
+      "inputExample": "",
+      "source": {
         "collection": "tasks",
-        "parentId": null,
-        "slug": "denis-decisions-manual",
-        "title": "Denis — decisions & manual",
-        "status": null,
-        "owner": "denis",
-        "body": "",
-        "props": {
-          "kind": "group"
-        },
-        "sortOrder": 0,
-        "createdAt": "2026-05-27 13:00:38",
-        "updatedAt": "2026-05-27 13:09:38",
-        "listItems": [
-          {
-            "id": 117,
-            "entryId": 2,
-            "section": "items",
-            "text": "#3 Pick course name → Vibe Coders Academy in business/approved-messaging.md",
-            "done": true,
-            "meta": {},
-            "sortOrder": 0
-          },
-          {
-            "id": 118,
-            "entryId": 2,
-            "section": "items",
-            "text": "#2 Add PO job text to repo → business/jobs/product-owner.md; choose where to publish",
-            "done": true,
-            "meta": {},
-            "sortOrder": 1
-          },
-          {
-            "id": 119,
-            "entryId": 2,
-            "section": "items",
-            "text": "#2 Publish & share PO position (LinkedIn, boards, network)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 2
-          },
-          {
-            "id": 120,
-            "entryId": 2,
-            "section": "items",
-            "text": "#1 Office Plovdiv — budget/area constraints; visit shortlist",
-            "done": false,
-            "meta": {},
-            "sortOrder": 3
-          },
-          {
-            "id": 121,
-            "entryId": 2,
-            "section": "items",
-            "text": "#4 Create social accounts (after name + bios approved)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 4
-          },
-          {
-            "id": 122,
-            "entryId": 2,
-            "section": "items",
-            "text": "#5 Approve brand direction (colors, logo direction)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 5
-          },
-          {
-            "id": 123,
-            "entryId": 2,
-            "section": "items",
-            "text": "#11 Approve early bird: price, date, seats, legal line",
-            "done": false,
-            "meta": {},
-            "sortOrder": 6
-          },
-          {
-            "id": 124,
-            "entryId": 2,
-            "section": "items",
-            "text": "#12 Record video presentation (after script approved)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 7
-          },
-          {
-            "id": 125,
-            "entryId": 2,
-            "section": "items",
-            "text": "#vibe-inbox channel",
-            "done": false,
-            "meta": {},
-            "sortOrder": 8
-          },
-          {
-            "id": 126,
-            "entryId": 2,
-            "section": "items",
-            "text": "MCPs: Slack + Exa (setup)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 9
-          },
-          {
-            "id": 127,
-            "entryId": 2,
-            "section": "items",
-            "text": "Automations 02–04 in Cursor UI",
-            "done": false,
-            "meta": {},
-            "sortOrder": 10
-          }
-        ],
-        "tables": []
-      },
-      {
-        "id": 3,
-        "collection": "tasks",
-        "parentId": null,
-        "slug": "pm-agent-drafts-build",
-        "title": "PM / Agent — drafts & build",
-        "status": null,
-        "owner": "pm",
-        "body": "",
-        "props": {
-          "kind": "group"
-        },
-        "sortOrder": 1,
-        "createdAt": "2026-05-27 13:00:38",
-        "updatedAt": "2026-05-27 13:09:38",
-        "listItems": [
-          {
-            "id": 128,
-            "entryId": 3,
-            "section": "items",
-            "text": "#3 Apply chosen name Vibe Coders Academy across repo docs",
-            "done": true,
-            "meta": {},
-            "sortOrder": 0
-          },
-          {
-            "id": 129,
-            "entryId": 3,
-            "section": "items",
-            "text": "#2 Publish checklist + social announcement drafts (blocked: Denis — apply method + publish channels)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 1
-          },
-          {
-            "id": 130,
-            "entryId": 3,
-            "section": "items",
-            "text": "#5 Creative brief + content/brand/ structure (templates for flyer/poster)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 2
-          },
-          {
-            "id": 131,
-            "entryId": 3,
-            "section": "items",
-            "text": "#10 Draft content/syllabus-v1.md (after name/messaging)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 3
-          },
-          {
-            "id": 132,
-            "entryId": 3,
-            "section": "items",
-            "text": "#8 Presentation outline + slide copy in content/presentation/",
-            "done": false,
-            "meta": {},
-            "sortOrder": 4
-          },
-          {
-            "id": 133,
-            "entryId": 3,
-            "section": "items",
-            "text": "#6 + #7 + #11 Scaffold web/ landing + careers + early bird section (copy draft-only until approved)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 5
-          },
-          {
-            "id": 134,
-            "entryId": 3,
-            "section": "items",
-            "text": "#4 Social page bios + first-post pack (draft)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 6
-          },
-          {
-            "id": 135,
-            "entryId": 3,
-            "section": "items",
-            "text": "#9 + #13 Repurpose plan: deck → posts; master video → clip list",
-            "done": false,
-            "meta": {},
-            "sortOrder": 7
-          },
-          {
-            "id": 136,
-            "entryId": 3,
-            "section": "items",
-            "text": "#12 Video script + storyboard in content/video/",
-            "done": false,
-            "meta": {},
-            "sortOrder": 8
-          },
-          {
-            "id": 137,
-            "entryId": 3,
-            "section": "items",
-            "text": "#1 Plovdiv office search brief + listing research doc in planning/office-plovdiv.md",
-            "done": false,
-            "meta": {},
-            "sortOrder": 9
-          },
-          {
-            "id": 138,
-            "entryId": 3,
-            "section": "items",
-            "text": "Competitor report for Bulgarian AI coding / vibe coding / agentic coding market (research/competitors/2026-05-27-bulgaria-ai-coding-market.md)",
-            "done": true,
-            "meta": {},
-            "sortOrder": 10
-          },
-          {
-            "id": 139,
-            "entryId": 3,
-            "section": "items",
-            "text": "Expand business/plan-v1.md executive summary",
-            "done": false,
-            "meta": {},
-            "sortOrder": 11
-          },
-          {
-            "id": 140,
-            "entryId": 3,
-            "section": "items",
-            "text": "Automations playbook",
-            "done": true,
-            "meta": {},
-            "sortOrder": 12
-          },
-          {
-            "id": 141,
-            "entryId": 3,
-            "section": "items",
-            "text": ".cursor/rules/ (PM, brand, research, social)",
-            "done": true,
-            "meta": {},
-            "sortOrder": 13
-          },
-          {
-            "id": 142,
-            "entryId": 3,
-            "section": "items",
-            "text": ".cursor/mcp.json + .env.example",
-            "done": true,
-            "meta": {},
-            "sortOrder": 14
-          },
-          {
-            "id": 143,
-            "entryId": 3,
-            "section": "items",
-            "text": "Templates + first standup (2026-05-22)",
-            "done": true,
-            "meta": {},
-            "sortOrder": 15
-          },
-          {
-            "id": 144,
-            "entryId": 3,
-            "section": "items",
-            "text": "Slack/MCP setup doc + 4 automation prompt files",
-            "done": true,
-            "meta": {},
-            "sortOrder": 16
-          },
-          {
-            "id": 145,
-            "entryId": 3,
-            "section": "items",
-            "text": "GitHub Pages HQ dashboard scaffold (web/) + JSON data generator (scripts/build-site-data.js)",
-            "done": true,
-            "meta": {},
-            "sortOrder": 17
-          },
-          {
-            "id": 146,
-            "entryId": 3,
-            "section": "items",
-            "text": "Git repo + README, rules, MCP template, automation prompts",
-            "done": true,
-            "meta": {},
-            "sortOrder": 18
-          },
-          {
-            "id": 147,
-            "entryId": 3,
-            "section": "items",
-            "text": "Slack: #vibe-standup, #vibe-research, #vibe-business, #vibe-social",
-            "done": true,
-            "meta": {},
-            "sortOrder": 19
-          },
-          {
-            "id": 148,
-            "entryId": 3,
-            "section": "items",
-            "text": "Morning standup automation live (2026-05-26)",
-            "done": true,
-            "meta": {},
-            "sortOrder": 20
-          },
-          {
-            "id": 149,
-            "entryId": 3,
-            "section": "items",
-            "text": "GitHub remote denistiano/cursor-automations",
-            "done": true,
-            "meta": {},
-            "sortOrder": 21
-          },
-          {
-            "id": 150,
-            "entryId": 3,
-            "section": "items",
-            "text": "Roadmap with Denis vs PM split + 13 topics (planning/roadmap.md, 2026-05-26)",
-            "done": true,
-            "meta": {},
-            "sortOrder": 22
-          },
-          {
-            "id": 151,
-            "entryId": 3,
-            "section": "items",
-            "text": "Course name options doc (business/course-name-options.md, 2026-05-26)",
-            "done": true,
-            "meta": {},
-            "sortOrder": 23
-          },
-          {
-            "id": 152,
-            "entryId": 3,
-            "section": "items",
-            "text": "Automations 02–04 in Cursor UI",
-            "done": false,
-            "meta": {},
-            "sortOrder": 24
-          },
-          {
-            "id": 153,
-            "entryId": 3,
-            "section": "items",
-            "text": "GitHub remote + attach repo to automations",
-            "done": false,
-            "meta": {},
-            "sortOrder": 25
-          },
-          {
-            "id": 154,
-            "entryId": 3,
-            "section": "items",
-            "text": "Buffer MCP + publish automation (draft-only until approved)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 26
-          },
-          {
-            "id": 155,
-            "entryId": 3,
-            "section": "items",
-            "text": "Enable GitHub Pages with GitHub Actions source after this dashboard PR merges",
-            "done": false,
-            "meta": {},
-            "sortOrder": 27
-          },
-          {
-            "id": 156,
-            "entryId": 3,
-            "section": "items",
-            "text": "Public landing page in web/ (separate from HQ dashboard)",
-            "done": false,
-            "meta": {},
-            "sortOrder": 28
-          }
-        ],
-        "tables": []
-      },
-      {
-        "id": 4,
-        "collection": "tasks",
-        "parentId": null,
         "slug": "blockers",
-        "title": "Blockers",
-        "status": null,
-        "owner": null,
-        "body": "",
-        "props": {
-          "kind": "blockers"
-        },
-        "sortOrder": 900,
-        "createdAt": "2026-05-27 13:00:38",
-        "updatedAt": "2026-05-27 13:09:38",
-        "listItems": [
-          {
-            "id": 157,
-            "entryId": 4,
-            "section": "items",
-            "text": "PO apply method + publish channels",
-            "done": false,
-            "meta": {
-              "owner": "Denis → blocks agent publish pack"
-            },
-            "sortOrder": 0
-          },
-          {
-            "id": 158,
-            "entryId": 4,
-            "section": "items",
-            "text": "One-liner TBD in approved-messaging.md",
-            "done": false,
-            "meta": {
-              "owner": "Denis → blocks customer-facing copy"
-            },
-            "sortOrder": 1
-          },
-          {
-            "id": 159,
-            "entryId": 4,
-            "section": "items",
-            "text": "Early bird terms not approved",
-            "done": false,
-            "meta": {
-              "owner": "Denis → blocks live pricing on site"
-            },
-            "sortOrder": 2
-          },
-          {
-            "id": 160,
-            "entryId": 4,
-            "section": "items",
-            "text": "Brand direction not set",
-            "done": false,
-            "meta": {
-              "owner": "Denis → blocks logo/flyer final designs"
-            },
-            "sortOrder": 3
-          },
-          {
-            "id": 161,
-            "entryId": 4,
-            "section": "items",
-            "text": "vibe-coders.academy not active yet",
-            "done": false,
-            "meta": {
-              "owner": "Denis → blocks public domain launch"
-            },
-            "sortOrder": 4
-          },
-          {
-            "id": 162,
-            "entryId": 4,
-            "section": "items",
-            "text": "Positioning vs SoftUni overlap",
-            "done": false,
-            "meta": {
-              "owner": "Denis → confirm differentiation before public launch"
-            },
-            "sortOrder": 5
-          }
-        ],
-        "tables": []
+        "listItemId": 160
       },
-      {
-        "id": 1,
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 66,
+      "slug": "input-blocker-early-bird-terms-not-approved",
+      "title": "Early bird terms not approved",
+      "kind": "input",
+      "role": "pm",
+      "priority": 1,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Early bird: price= | end date= | max seats= | legal line= ",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "blocks live pricing on site",
+      "inputLabel": "Early bird terms",
+      "inputExample": "price=299 BGN | end=2026-07-15 | seats=20 | legal=Terms on site",
+      "source": {
         "collection": "tasks",
-        "parentId": null,
-        "slug": "project-status",
-        "title": "Project status",
-        "status": null,
-        "owner": null,
-        "body": "",
-        "props": {},
-        "sortOrder": 999,
-        "createdAt": "2026-05-27 13:00:38",
-        "updatedAt": "2026-05-27 13:09:38",
-        "listItems": [],
-        "tables": []
-      }
-    ]
+        "slug": "blockers",
+        "listItemId": 159
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 65,
+      "slug": "input-blocker-one-liner-tbd-in-approved-messaging-md",
+      "title": "One-liner TBD in approved-messaging.md",
+      "kind": "input",
+      "role": "pm",
+      "priority": 1,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "One-liner: ",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "blocks customer-facing copy",
+      "inputLabel": "Approved one-liner",
+      "inputExample": "Ship real projects with Cursor and AI agents — not theory slides.",
+      "source": {
+        "collection": "tasks",
+        "slug": "blockers",
+        "listItemId": 158
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 64,
+      "slug": "input-blocker-po-apply-method-publish-channels",
+      "title": "PO apply method + publish channels",
+      "kind": "input",
+      "role": "pm",
+      "priority": 1,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "PO apply: email | form URL | LinkedIn Easy Apply — publish first on: ",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "blocks agent publish pack",
+      "inputLabel": "Your answer",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "blockers",
+        "listItemId": 157
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 69,
+      "slug": "input-blocker-positioning-vs-softuni-overlap",
+      "title": "Positioning vs SoftUni overlap",
+      "kind": "input",
+      "role": "pm",
+      "priority": 1,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Positioning vs SoftUni: ",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "confirm differentiation before public launch",
+      "inputLabel": "Your answer",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "blockers",
+        "listItemId": 162
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 83,
+      "slug": "input-one-liner",
+      "title": "Provide course one-liner",
+      "kind": "input",
+      "role": "business",
+      "priority": 1,
+      "status": "open",
+      "slackChannel": "#vibe-business",
+      "slackReply": "One-liner: ",
+      "slackTrigger": "plan",
+      "prompt": "",
+      "hint": "Blocks customer-facing copy and social drafts",
+      "inputLabel": "One-liner",
+      "inputExample": "Ship real projects with Cursor and AI agents — practitioner-first.",
+      "source": {
+        "collection": "business",
+        "slug": "messaging"
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 68,
+      "slug": "input-blocker-vibe-coders-academy-not-active-yet",
+      "title": "vibe-coders.academy not active yet",
+      "kind": "input",
+      "role": "pm",
+      "priority": 1,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Domain: vibe-coders.academy status= (registrar/DNS notes) ",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "blocks public domain launch",
+      "inputLabel": "Your answer",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "blockers",
+        "listItemId": 161
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 71,
+      "slug": "input-task-1-office-plovdiv-budget-area-constraints-visit-shortlist",
+      "title": "#1 Office Plovdiv — budget/area constraints; visit shortlist",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Update: #1 Office Plovdiv — budget/area constraints; visit shortlist",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Denis manual task from launch path",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 120
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 74,
+      "slug": "input-task-11-approve-early-bird-price-date-seats-legal-line",
+      "title": "#11 Approve early bird: price, date, seats, legal line",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Update: #11 Approve early bird: price, date, seats, legal line",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Denis manual task from launch path",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 123
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 75,
+      "slug": "input-task-12-record-video-presentation-after-script-approved",
+      "title": "#12 Record video presentation (after script approved)",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Update: #12 Record video presentation (after script approved)",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Denis manual task from launch path",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 124
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 70,
+      "slug": "input-task-2-publish-share-po-position-linkedin-boards-network",
+      "title": "#2 Publish & share PO position (LinkedIn, boards, network)",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Done: #2 Publish & share PO position (LinkedIn, boards, network)",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Denis manual task from launch path",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 119
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 72,
+      "slug": "input-task-4-create-social-accounts-after-name-bios-approved",
+      "title": "#4 Create social accounts (after name + bios approved)",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Update: #4 Create social accounts (after name + bios approved)",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Denis manual task from launch path",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 121
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 73,
+      "slug": "input-task-5-approve-brand-direction-colors-logo-direction",
+      "title": "#5 Approve brand direction (colors, logo direction)",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Update: #5 Approve brand direction (colors, logo direction)",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Denis manual task from launch path",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 122
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 76,
+      "slug": "input-task-vibe-inbox-channel",
+      "title": "#vibe-inbox channel",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Update: #vibe-inbox channel",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Denis manual task from launch path",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 125
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 78,
+      "slug": "input-task-automations-02-04-in-cursor-ui",
+      "title": "Automations 02–04 in Cursor UI",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Update: Automations 02–04 in Cursor UI",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Denis manual task from launch path",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 127
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 77,
+      "slug": "input-task-mcps-slack-exa-setup",
+      "title": "MCPs: Slack + Exa (setup)",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Update: MCPs: Slack + Exa (setup)",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Denis manual task from launch path",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 126
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 81,
+      "slug": "approve-automation-business-plan-assistant",
+      "title": "Vibe Coders Academy — Business plan",
+      "kind": "approve",
+      "role": "business",
+      "priority": 3,
+      "status": "open",
+      "slackChannel": "#vibe-business",
+      "slackReply": "plan update positioning",
+      "slackTrigger": "Scheduled — 1st of month 10:00 (plan vs reality)",
+      "prompt": "You are the Business Agent for Vibe Coders Academy. Prefix Slack output with: 📊 *Business Agent* |\n\n## On Slack trigger\nIf message contains \"update\" or \"draft\":\n- Read business/plan and business/messaging entries in data/hq.db, plus tasks and research.\n- Update business collection entries (preserve Denis manual edits; note changes in reply).\n- Run python3 scripts/build_site.py\n- Reply with: what changed + open questions for Denis.\n\nIf message contains \"review\" or \"reality\":\n- Compare tasks + last 30 days standups to business/plan roadmap section.\n- Add variance note as new entry in business collection.\n\nRules:\n- State assumptions for market size numbers.\n- No pricing/launch claims unless in messaging entry.\n- Follow .cursor/rules/brand-voice.mdc.",
+      "hint": "Green-light: Slack → #vibe-business → filter: plan or business",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "automations",
+        "slug": "automation-business-plan-assistant"
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 80,
+      "slug": "approve-automation-competitor-research",
+      "title": "Vibe Coders Academy — Competitor research",
+      "kind": "approve",
+      "role": "research",
+      "priority": 3,
+      "status": "open",
+      "slackChannel": "#vibe-research",
+      "slackReply": "competitor: SoftUni AI",
+      "slackTrigger": "Scheduled — Monday 09:00 (weekly batch)",
+      "prompt": "You are the Research Agent for Vibe Coders Academy. Prefix Slack output with: 🔍 *Research Agent* |\n\n## On Slack trigger (competitor: NAME or research: NAME)\n1. Parse the competitor name from the message.\n2. Read research/competitors watchlist table in data/hq.db.\n3. Research using web search / Exa MCP. Cite URLs with dates.\n4. Insert child entry under research/competitors with report body.\n5. Run python3 scripts/build_site.py\n6. Reply in thread with: 3-bullet summary + entry slug.\n\n## On weekly schedule\n1. Read watchlist priority column from hq.db.\n2. For each high-priority competitor not covered in 7 days, append to a weekly report entry.\n3. End with Strategic recommendations (max 3 bullets).\n\nRules:\n- Do not invent pricing or features. Mark unknowns explicitly.\n- Follow .cursor/rules/competitor-research.mdc.",
+      "hint": "Green-light: Slack → #vibe-research → New message → regex: ^(competitor|research):\\s*.+",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "automations",
+        "slug": "automation-competitor-research"
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 79,
+      "slug": "approve-automation-morning-standup-prep",
+      "title": "Vibe Coders Academy — Morning standup prep",
+      "kind": "approve",
+      "role": "pm",
+      "priority": 3,
+      "status": "open",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "standup",
+      "slackTrigger": "Slack → #vibe-standup → New message → filter: standup",
+      "prompt": "You are the PM Agent for Vibe Coders Academy. Prefix Slack output with: 🎯 *PM Agent* |\n\n1. Read data/hq.db — collections: standups (last 7 days), tasks.\n2. Read recent git commits if repo is available.\n3. Upsert standups entry for YYYY-MM-DD with list_items sections: done, today (max 3), blockers, agent_next.\n4. Update tasks collection if priorities changed; do not delete completed items without evidence.\n5. Run: python3 scripts/build_site.py\n6. If Send to Slack is enabled, post a ≤15 line summary to #vibe-standup.\n\nRules:\n- Never invent completed work.\n- Ask Denis explicit questions for blockers.\n- Follow .cursor/rules/pm-assistant.mdc conventions.",
+      "hint": "Green-light: Scheduled — weekdays 08:00 (adjust timezone)",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "automations",
+        "slug": "automation-morning-standup-prep"
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 82,
+      "slug": "approve-automation-social-content-draft-only",
+      "title": "Vibe Coders Academy — Social drafts",
+      "kind": "approve",
+      "role": "social",
+      "priority": 3,
+      "status": "open",
+      "slackChannel": "#vibe-social",
+      "slackReply": "draft: 2 linkedin posts about Cursor automations",
+      "slackTrigger": "Scheduled — Wednesday 14:00",
+      "prompt": "You are the Social Agent for Vibe Coders Academy. Prefix Slack output with: 📣 *Social Agent* |\n\n1. Read business/messaging and business/plan entries in data/hq.db.\n2. Create 3 draft entries in social collection with props.approved=false.\n3. Run python3 scripts/build_site.py\n4. Reply in #vibe-social with previews and: \"Reply approve 1,2,3 or edit in DB.\"\n\nPublish automation (separate): only Buffer MCP when props.approved=true.\n\nRules:\n- Follow .cursor/rules/social-guardrails.mdc strictly.\n- NEVER publish in this automation.",
+      "hint": "Green-light: Slack → #vibe-social → filter: draft",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "automations",
+        "slug": "automation-social-content-draft-only"
+      },
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 61,
+      "slug": "role-prompt-business",
+      "title": "Business — role prompt",
+      "kind": "prompt",
+      "role": "business",
+      "priority": 0,
+      "status": "ready",
+      "slackChannel": "#vibe-business",
+      "slackReply": "",
+      "slackTrigger": "plan update",
+      "prompt": "You are the Business Agent for Vibe Coders Academy. Prefix Slack output with: 📊 *Business Agent* |\n\nTrigger: post `plan update` or `business update` in #vibe-business.\n\n1. Read business/plan, business/messaging, tasks, research in data/hq.db.\n2. Update relevant entries; note assumptions.\n3. Run python3 scripts/build_site.py\n4. Reply: what changed + open questions for Denis.\n\nRules: no pricing/launch claims unless in messaging entry; follow brand-voice rule.",
+      "hint": "",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {},
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 63,
+      "slug": "role-prompt-developer",
+      "title": "Developer — role prompt",
+      "kind": "prompt",
+      "role": "developer",
+      "priority": 0,
+      "status": "ready",
+      "slackChannel": "#vibe-inbox",
+      "slackReply": "",
+      "slackTrigger": "@Cursor {task}",
+      "prompt": "You are the Developer Agent for Vibe Coders Academy. Prefix Slack output with: 🛠 *Dev Agent* |\n\nTrigger: @Cursor or post in #vibe-inbox with a dev task (repo must be attached).\n\n1. Read the request and relevant entries in data/hq.db for context.\n2. Implement in the vibe-coding-101 repo — minimal focused diffs.\n3. Run python3 scripts/build_site.py if data/UI changed.\n4. Reply with: what changed, how to test, any blockers.\n\nScope: web/, scripts/, data/ — landing page, HQ UI, build pipeline, SQLite helpers.\nRules: match existing conventions; no scope creep; ask before destructive changes.",
+      "hint": "",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {},
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 59,
+      "slug": "role-prompt-pm",
+      "title": "Pm — role prompt",
+      "kind": "prompt",
+      "role": "pm",
+      "priority": 0,
+      "status": "ready",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "",
+      "slackTrigger": "standup",
+      "prompt": "You are the PM Agent for Vibe Coders Academy. Prefix Slack output with: 🎯 *PM Agent* |\n\nRead data/hq.db (collections: standups, tasks, actions). After Denis replies in Slack with inputs:\n1. Update the matching action(s) in actions collection — set props.status=done, store reply in props.reply.\n2. Upsert today's standup with Done / Today (max 3) / Blockers / Agent next actions.\n3. Sync tasks collection from roadmap priorities.\n4. Run: python3 scripts/build_site.py\n5. Post ≤15 line summary to #vibe-standup listing what unblocked and next agent steps.\n\nRules: never invent completed work; ask explicit questions only when still blocked.",
+      "hint": "",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {},
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 60,
+      "slug": "role-prompt-research",
+      "title": "Research — role prompt",
+      "kind": "prompt",
+      "role": "research",
+      "priority": 0,
+      "status": "ready",
+      "slackChannel": "#vibe-research",
+      "slackReply": "",
+      "slackTrigger": "competitor: {name}",
+      "prompt": "You are the Research Agent for Vibe Coders Academy. Prefix Slack output with: 🔍 *Research Agent* |\n\nTrigger: post `competitor: {name}` or `research: {topic}` in #vibe-research.\n\n1. Read research/competitors watchlist in data/hq.db.\n2. Research with web / Exa MCP — cite URLs and dates.\n3. Insert child entry under research/competitors with full report body.\n4. Run python3 scripts/build_site.py\n5. Reply in thread: 3-bullet summary + entry slug.\n\nRules: no invented pricing; mark unknowns; follow .cursor/rules/competitor-research.mdc.",
+      "hint": "",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {},
+      "updatedAt": "2026-05-27 13:29:43"
+    },
+    {
+      "id": 62,
+      "slug": "role-prompt-social",
+      "title": "Social — role prompt",
+      "kind": "prompt",
+      "role": "social",
+      "priority": 0,
+      "status": "ready",
+      "slackChannel": "#vibe-social",
+      "slackReply": "",
+      "slackTrigger": "draft: {brief}",
+      "prompt": "You are the Social Agent for Vibe Coders Academy. Prefix Slack output with: 📣 *Social Agent* |\n\nTrigger: post `draft: {brief}` in #vibe-social.\n\n1. Read business/messaging and business/plan in data/hq.db.\n2. Create draft entries in social collection with props.approved=false.\n3. Run python3 scripts/build_site.py\n4. Reply with previews; Denis approves via `approve: {slug}` in Slack.\n\nRules: NEVER publish here; follow .cursor/rules/social-guardrails.mdc.",
+      "hint": "",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {},
+      "updatedAt": "2026-05-27 13:29:43"
+    }
+  ],
+  "roles": {
+    "pm": {
+      "meta": {
+        "label": "PM Agent",
+        "channel": "#vibe-standup",
+        "prefix": "🎯 *PM Agent* |"
+      },
+      "actions": [
+        {
+          "id": 67,
+          "slug": "input-blocker-brand-direction-not-set",
+          "title": "Brand direction not set",
+          "kind": "input",
+          "role": "pm",
+          "priority": 1,
+          "status": "open",
+          "slackChannel": "#vibe-standup",
+          "slackReply": "Brand direction: colors= | logo style= | DIY or hire designer= ",
+          "slackTrigger": "standup",
+          "prompt": "",
+          "hint": "blocks logo/flyer final designs",
+          "inputLabel": "Brand direction",
+          "inputExample": "",
+          "source": {
+            "collection": "tasks",
+            "slug": "blockers",
+            "listItemId": 160
+          },
+          "updatedAt": "2026-05-27 13:29:43"
+        },
+        {
+          "id": 66,
+          "slug": "input-blocker-early-bird-terms-not-approved",
+          "title": "Early bird terms not approved",
+          "kind": "input",
+          "role": "pm",
+          "priority": 1,
+          "status": "open",
+          "slackChannel": "#vibe-standup",
+          "slackReply": "Early bird: price= | end date= | max seats= | legal line= ",
+          "slackTrigger": "standup",
+          "prompt": "",
+          "hint": "blocks live pricing on site",
+          "inputLabel": "Early bird terms",
+          "inputExample": "price=299 BGN | end=2026-07-15 | seats=20 | legal=Terms on site",
+          "source": {
+            "collection": "tasks",
+            "slug": "blockers",
+            "listItemId": 159
+          },
+          "updatedAt": "2026-05-27 13:29:43"
+        },
+        {
+          "id": 65,
+          "slug": "input-blocker-one-liner-tbd-in-approved-messaging-md",
+          "title": "One-liner TBD in approved-messaging.md",
+          "kind": "input",
+          "role": "pm",
+          "priority": 1,
+          "status": "open",
+          "slackChannel": "#vibe-standup",
+          "slackReply": "One-liner: ",
+          "slackTrigger": "standup",
+          "prompt": "",
+          "hint": "blocks customer-facing copy",
+          "inputLabel": "Approved one-liner",
+          "inputExample": "Ship real projects with Cursor and AI agents — not theory slides.",
+          "source": {
+            "collection": "tasks",
+            "slug": "blockers",
+            "listItemId": 158
+          },
+          "updatedAt": "2026-05-27 13:29:43"
+        },
+        {
+          "id": 64,
+          "slug": "input-blocker-po-apply-method-publish-channels",
+          "title": "PO apply method + publish channels",
+          "kind": "input",
+          "role": "pm",
+          "priority": 1,
+          "status": "open",
+          "slackChannel": "#vibe-standup",
+          "slackReply": "PO apply: email | form URL | LinkedIn Easy Apply — publish first on: ",
+          "slackTrigger": "standup",
+          "prompt": "",
+          "hint": "blocks agent publish pack",
+          "inputLabel": "Your answer",
+          "inputExample": "",
+          "source": {
+            "collection": "tasks",
+            "slug": "blockers",
+            "listItemId": 157
+          },
+          "updatedAt": "2026-05-27 13:29:43"
+        },
+        {
+          "id": 69,
+          "slug": "input-blocker-positioning-vs-softuni-overlap",
+          "title": "Positioning vs SoftUni overlap",
+          "kind": "input",
+          "role": "pm",
+          "priority": 1,
+          "status": "open",
+          "slackChannel": "#vibe-standup",
+          "slackReply": "Positioning vs SoftUni: ",
+          "slackTrigger": "standup",
+          "prompt": "",
+          "hint": "confirm differentiation before public launch",
+          "inputLabel": "Your answer",
+          "inputExample": "",
+          "source": {
+            "collection": "tasks",
+            "slug": "blockers",
+            "listItemId": 162
+          },
+          "updatedAt": "2026-05-27 13:29:43"
+        },
+        {
+          "id": 68,
+          "slug": "input-blocker-vibe-coders-academy-not-active-yet",
+          "title": "vibe-coders.academy not active yet",
+          "kind": "input",
+          "role": "pm",
+          "priority": 1,
+          "status": "open",
+          "slackChannel": "#vibe-standup",
+          "slackReply": "Domain: vibe-coders.academy status= (registrar/DNS notes) ",
+          "slackTrigger": "standup",
+          "prompt": "",
+          "hint": "blocks public domain launch",
+          "inputLabel": "Your answer",
+          "inputExample": "",
+          "source": {
+            "collection": "tasks",
+            "slug": "blockers",
+            "listItemId": 161
+          },
+          "updatedAt": "2026-05-27 13:29:43"
+        },
+        {
+          "id": 71,
+          "slug": "input-task-1-office-plovdiv-budget-area-constraints-visit-shortlist",
+          "title": "#1 Office Plovdiv — budget/area constraints; visit shortlist",
+          "kind": "input",
+          "role": "pm",
+          "priority": 2,
+          "status": "open",
+          "slackChannel": "#vibe-standup",
+          "slackReply": "Update: #1 Office Plovdiv — budget/area constraints; visit shortlist",
+          "slackTrigger": "standup",
+          "prompt": "",
+          "hint": "Denis manual task from launch path",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {
+            "collection": "tasks",
+            "slug": "denis-decisions-manual",
+            "listItemId": 120
+          },
+          "updatedAt": "2026-05-27 13:29:43"
+        },
+        {
+          "id": 74,
+          "slug": "input-task-11-approve-early-bird-price-date-seats-legal-line",
+          "title": "#11 Approve early bird: price, date, seats, legal line",
+          "kind": "input",
+          "role": "pm",
+          "priority": 2,
+          "status": "open",
+          "slackChannel": "#vibe-standup",
+          "slackReply": "Update: #11 Approve early bird: price, date, seats, legal line",
+          "slackTrigger": "standup",
+          "prompt": "",
+          "hint": "Denis manual task from launch path",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {
+            "collection": "tasks",
+            "slug": "denis-decisions-manual",
+            "listItemId": 123
+          },
+          "updatedAt": "2026-05-27 13:29:43"
+        },
+        {
+          "id": 75,
+          "slug": "input-task-12-record-video-presentation-after-script-approved",
+          "title": "#12 Record video presentation (after script approved)",
+          "kind": "input",
+          "role": "pm",
+          "priority": 2,
+          "status": "open",
+          "slackChannel": "#vibe-standup",
+          "slackReply": "Update: #12 Record video presentation (after script approved)",
+          "slackTrigger": "standup",
+          "prompt": "",
+          "hint": "Denis manual task from launch path",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {
+            "collection": "tasks",
+            "slug": "denis-decisions-manual",
+            "listItemId": 124
+          },
+          "updatedAt": "2026-05-27 13:29:43"
+        },
+        {
+          "id": 70,
+          "slug": "input-task-2-publish-share-po-position-linkedin-boards-network",
+          "title": "#2 Publish & share PO position (LinkedIn, boards, network)",
+          "kind": "input",
+          "role": "pm",
+          "priority": 2,
+          "status": "open",
+          "slackChannel": "#vibe-standup",
+          "slackReply": "Done: #2 Publish & share PO position (LinkedIn, boards, network)",
+          "slackTrigger": "standup",
+          "prompt": "",
+          "hint": "Denis manual task from launch path",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {
+            "collection": "tasks",
+            "slug": "denis-decisions-manual",
+            "listItemId": 119
+          },
+          "updatedAt": "2026-05-27 13:29:43"
+        },
+        {
+          "id": 72,
+          "slug": "input-task-4-create-social-accounts-after-name-bios-approved",
+          "title": "#4 Create social accounts (after name + bios approved)",
+          "kind": "input",
+          "role": "pm",
+          "priority": 2,
+          "status": "open",
+          "slackChannel": "#vibe-standup",
+          "slackReply": "Update: #4 Create social accounts (after name + bios approved)",
+          "slackTrigger": "standup",
+          "prompt": "",
+          "hint": "Denis manual task from launch path",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {
+            "collection": "tasks",
+            "slug": "denis-decisions-manual",
+            "listItemId": 121
+          },
+          "updatedAt": "2026-05-27 13:29:43"
+        },
+        {
+          "id": 73,
+          "slug": "input-task-5-approve-brand-direction-colors-logo-direction",
+          "title": "#5 Approve brand direction (colors, logo direction)",
+          "kind": "input",
+          "role": "pm",
+          "priority": 2,
+          "status": "open",
+          "slackChannel": "#vibe-standup",
+          "slackReply": "Update: #5 Approve brand direction (colors, logo direction)",
+          "slackTrigger": "standup",
+          "prompt": "",
+          "hint": "Denis manual task from launch path",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {
+            "collection": "tasks",
+            "slug": "denis-decisions-manual",
+            "listItemId": 122
+          },
+          "updatedAt": "2026-05-27 13:29:43"
+        },
+        {
+          "id": 76,
+          "slug": "input-task-vibe-inbox-channel",
+          "title": "#vibe-inbox channel",
+          "kind": "input",
+          "role": "pm",
+          "priority": 2,
+          "status": "open",
+          "slackChannel": "#vibe-standup",
+          "slackReply": "Update: #vibe-inbox channel",
+          "slackTrigger": "standup",
+          "prompt": "",
+          "hint": "Denis manual task from launch path",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {
+            "collection": "tasks",
+            "slug": "denis-decisions-manual",
+            "listItemId": 125
+          },
+          "updatedAt": "2026-05-27 13:29:43"
+        },
+        {
+          "id": 78,
+          "slug": "input-task-automations-02-04-in-cursor-ui",
+          "title": "Automations 02–04 in Cursor UI",
+          "kind": "input",
+          "role": "pm",
+          "priority": 2,
+          "status": "open",
+          "slackChannel": "#vibe-standup",
+          "slackReply": "Update: Automations 02–04 in Cursor UI",
+          "slackTrigger": "standup",
+          "prompt": "",
+          "hint": "Denis manual task from launch path",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {
+            "collection": "tasks",
+            "slug": "denis-decisions-manual",
+            "listItemId": 127
+          },
+          "updatedAt": "2026-05-27 13:29:43"
+        },
+        {
+          "id": 77,
+          "slug": "input-task-mcps-slack-exa-setup",
+          "title": "MCPs: Slack + Exa (setup)",
+          "kind": "input",
+          "role": "pm",
+          "priority": 2,
+          "status": "open",
+          "slackChannel": "#vibe-standup",
+          "slackReply": "Update: MCPs: Slack + Exa (setup)",
+          "slackTrigger": "standup",
+          "prompt": "",
+          "hint": "Denis manual task from launch path",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {
+            "collection": "tasks",
+            "slug": "denis-decisions-manual",
+            "listItemId": 126
+          },
+          "updatedAt": "2026-05-27 13:29:43"
+        },
+        {
+          "id": 79,
+          "slug": "approve-automation-morning-standup-prep",
+          "title": "Vibe Coders Academy — Morning standup prep",
+          "kind": "approve",
+          "role": "pm",
+          "priority": 3,
+          "status": "open",
+          "slackChannel": "#vibe-standup",
+          "slackReply": "standup",
+          "slackTrigger": "Slack → #vibe-standup → New message → filter: standup",
+          "prompt": "You are the PM Agent for Vibe Coders Academy. Prefix Slack output with: 🎯 *PM Agent* |\n\n1. Read data/hq.db — collections: standups (last 7 days), tasks.\n2. Read recent git commits if repo is available.\n3. Upsert standups entry for YYYY-MM-DD with list_items sections: done, today (max 3), blockers, agent_next.\n4. Update tasks collection if priorities changed; do not delete completed items without evidence.\n5. Run: python3 scripts/build_site.py\n6. If Send to Slack is enabled, post a ≤15 line summary to #vibe-standup.\n\nRules:\n- Never invent completed work.\n- Ask Denis explicit questions for blockers.\n- Follow .cursor/rules/pm-assistant.mdc conventions.",
+          "hint": "Green-light: Scheduled — weekdays 08:00 (adjust timezone)",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {
+            "collection": "automations",
+            "slug": "automation-morning-standup-prep"
+          },
+          "updatedAt": "2026-05-27 13:29:43"
+        }
+      ],
+      "prompts": [
+        {
+          "id": 59,
+          "slug": "role-prompt-pm",
+          "title": "Pm — role prompt",
+          "kind": "prompt",
+          "role": "pm",
+          "priority": 0,
+          "status": "ready",
+          "slackChannel": "#vibe-standup",
+          "slackReply": "",
+          "slackTrigger": "standup",
+          "prompt": "You are the PM Agent for Vibe Coders Academy. Prefix Slack output with: 🎯 *PM Agent* |\n\nRead data/hq.db (collections: standups, tasks, actions). After Denis replies in Slack with inputs:\n1. Update the matching action(s) in actions collection — set props.status=done, store reply in props.reply.\n2. Upsert today's standup with Done / Today (max 3) / Blockers / Agent next actions.\n3. Sync tasks collection from roadmap priorities.\n4. Run: python3 scripts/build_site.py\n5. Post ≤15 line summary to #vibe-standup listing what unblocked and next agent steps.\n\nRules: never invent completed work; ask explicit questions only when still blocked.",
+          "hint": "",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {},
+          "updatedAt": "2026-05-27 13:29:43"
+        }
+      ]
+    },
+    "research": {
+      "meta": {
+        "label": "Research Agent",
+        "channel": "#vibe-research",
+        "prefix": "🔍 *Research Agent* |"
+      },
+      "actions": [
+        {
+          "id": 80,
+          "slug": "approve-automation-competitor-research",
+          "title": "Vibe Coders Academy — Competitor research",
+          "kind": "approve",
+          "role": "research",
+          "priority": 3,
+          "status": "open",
+          "slackChannel": "#vibe-research",
+          "slackReply": "competitor: SoftUni AI",
+          "slackTrigger": "Scheduled — Monday 09:00 (weekly batch)",
+          "prompt": "You are the Research Agent for Vibe Coders Academy. Prefix Slack output with: 🔍 *Research Agent* |\n\n## On Slack trigger (competitor: NAME or research: NAME)\n1. Parse the competitor name from the message.\n2. Read research/competitors watchlist table in data/hq.db.\n3. Research using web search / Exa MCP. Cite URLs with dates.\n4. Insert child entry under research/competitors with report body.\n5. Run python3 scripts/build_site.py\n6. Reply in thread with: 3-bullet summary + entry slug.\n\n## On weekly schedule\n1. Read watchlist priority column from hq.db.\n2. For each high-priority competitor not covered in 7 days, append to a weekly report entry.\n3. End with Strategic recommendations (max 3 bullets).\n\nRules:\n- Do not invent pricing or features. Mark unknowns explicitly.\n- Follow .cursor/rules/competitor-research.mdc.",
+          "hint": "Green-light: Slack → #vibe-research → New message → regex: ^(competitor|research):\\s*.+",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {
+            "collection": "automations",
+            "slug": "automation-competitor-research"
+          },
+          "updatedAt": "2026-05-27 13:29:43"
+        }
+      ],
+      "prompts": [
+        {
+          "id": 60,
+          "slug": "role-prompt-research",
+          "title": "Research — role prompt",
+          "kind": "prompt",
+          "role": "research",
+          "priority": 0,
+          "status": "ready",
+          "slackChannel": "#vibe-research",
+          "slackReply": "",
+          "slackTrigger": "competitor: {name}",
+          "prompt": "You are the Research Agent for Vibe Coders Academy. Prefix Slack output with: 🔍 *Research Agent* |\n\nTrigger: post `competitor: {name}` or `research: {topic}` in #vibe-research.\n\n1. Read research/competitors watchlist in data/hq.db.\n2. Research with web / Exa MCP — cite URLs and dates.\n3. Insert child entry under research/competitors with full report body.\n4. Run python3 scripts/build_site.py\n5. Reply in thread: 3-bullet summary + entry slug.\n\nRules: no invented pricing; mark unknowns; follow .cursor/rules/competitor-research.mdc.",
+          "hint": "",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {},
+          "updatedAt": "2026-05-27 13:29:43"
+        }
+      ]
+    },
+    "business": {
+      "meta": {
+        "label": "Business Agent",
+        "channel": "#vibe-business",
+        "prefix": "📊 *Business Agent* |"
+      },
+      "actions": [
+        {
+          "id": 83,
+          "slug": "input-one-liner",
+          "title": "Provide course one-liner",
+          "kind": "input",
+          "role": "business",
+          "priority": 1,
+          "status": "open",
+          "slackChannel": "#vibe-business",
+          "slackReply": "One-liner: ",
+          "slackTrigger": "plan",
+          "prompt": "",
+          "hint": "Blocks customer-facing copy and social drafts",
+          "inputLabel": "One-liner",
+          "inputExample": "Ship real projects with Cursor and AI agents — practitioner-first.",
+          "source": {
+            "collection": "business",
+            "slug": "messaging"
+          },
+          "updatedAt": "2026-05-27 13:29:43"
+        },
+        {
+          "id": 81,
+          "slug": "approve-automation-business-plan-assistant",
+          "title": "Vibe Coders Academy — Business plan",
+          "kind": "approve",
+          "role": "business",
+          "priority": 3,
+          "status": "open",
+          "slackChannel": "#vibe-business",
+          "slackReply": "plan update positioning",
+          "slackTrigger": "Scheduled — 1st of month 10:00 (plan vs reality)",
+          "prompt": "You are the Business Agent for Vibe Coders Academy. Prefix Slack output with: 📊 *Business Agent* |\n\n## On Slack trigger\nIf message contains \"update\" or \"draft\":\n- Read business/plan and business/messaging entries in data/hq.db, plus tasks and research.\n- Update business collection entries (preserve Denis manual edits; note changes in reply).\n- Run python3 scripts/build_site.py\n- Reply with: what changed + open questions for Denis.\n\nIf message contains \"review\" or \"reality\":\n- Compare tasks + last 30 days standups to business/plan roadmap section.\n- Add variance note as new entry in business collection.\n\nRules:\n- State assumptions for market size numbers.\n- No pricing/launch claims unless in messaging entry.\n- Follow .cursor/rules/brand-voice.mdc.",
+          "hint": "Green-light: Slack → #vibe-business → filter: plan or business",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {
+            "collection": "automations",
+            "slug": "automation-business-plan-assistant"
+          },
+          "updatedAt": "2026-05-27 13:29:43"
+        }
+      ],
+      "prompts": [
+        {
+          "id": 61,
+          "slug": "role-prompt-business",
+          "title": "Business — role prompt",
+          "kind": "prompt",
+          "role": "business",
+          "priority": 0,
+          "status": "ready",
+          "slackChannel": "#vibe-business",
+          "slackReply": "",
+          "slackTrigger": "plan update",
+          "prompt": "You are the Business Agent for Vibe Coders Academy. Prefix Slack output with: 📊 *Business Agent* |\n\nTrigger: post `plan update` or `business update` in #vibe-business.\n\n1. Read business/plan, business/messaging, tasks, research in data/hq.db.\n2. Update relevant entries; note assumptions.\n3. Run python3 scripts/build_site.py\n4. Reply: what changed + open questions for Denis.\n\nRules: no pricing/launch claims unless in messaging entry; follow brand-voice rule.",
+          "hint": "",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {},
+          "updatedAt": "2026-05-27 13:29:43"
+        }
+      ]
+    },
+    "social": {
+      "meta": {
+        "label": "Social Agent",
+        "channel": "#vibe-social",
+        "prefix": "📣 *Social Agent* |"
+      },
+      "actions": [
+        {
+          "id": 82,
+          "slug": "approve-automation-social-content-draft-only",
+          "title": "Vibe Coders Academy — Social drafts",
+          "kind": "approve",
+          "role": "social",
+          "priority": 3,
+          "status": "open",
+          "slackChannel": "#vibe-social",
+          "slackReply": "draft: 2 linkedin posts about Cursor automations",
+          "slackTrigger": "Scheduled — Wednesday 14:00",
+          "prompt": "You are the Social Agent for Vibe Coders Academy. Prefix Slack output with: 📣 *Social Agent* |\n\n1. Read business/messaging and business/plan entries in data/hq.db.\n2. Create 3 draft entries in social collection with props.approved=false.\n3. Run python3 scripts/build_site.py\n4. Reply in #vibe-social with previews and: \"Reply approve 1,2,3 or edit in DB.\"\n\nPublish automation (separate): only Buffer MCP when props.approved=true.\n\nRules:\n- Follow .cursor/rules/social-guardrails.mdc strictly.\n- NEVER publish in this automation.",
+          "hint": "Green-light: Slack → #vibe-social → filter: draft",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {
+            "collection": "automations",
+            "slug": "automation-social-content-draft-only"
+          },
+          "updatedAt": "2026-05-27 13:29:43"
+        }
+      ],
+      "prompts": [
+        {
+          "id": 62,
+          "slug": "role-prompt-social",
+          "title": "Social — role prompt",
+          "kind": "prompt",
+          "role": "social",
+          "priority": 0,
+          "status": "ready",
+          "slackChannel": "#vibe-social",
+          "slackReply": "",
+          "slackTrigger": "draft: {brief}",
+          "prompt": "You are the Social Agent for Vibe Coders Academy. Prefix Slack output with: 📣 *Social Agent* |\n\nTrigger: post `draft: {brief}` in #vibe-social.\n\n1. Read business/messaging and business/plan in data/hq.db.\n2. Create draft entries in social collection with props.approved=false.\n3. Run python3 scripts/build_site.py\n4. Reply with previews; Denis approves via `approve: {slug}` in Slack.\n\nRules: NEVER publish here; follow .cursor/rules/social-guardrails.mdc.",
+          "hint": "",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {},
+          "updatedAt": "2026-05-27 13:29:43"
+        }
+      ]
+    },
+    "developer": {
+      "meta": {
+        "label": "Developer Agent",
+        "channel": "#vibe-inbox",
+        "prefix": "🛠 *Dev Agent* |"
+      },
+      "actions": [],
+      "prompts": [
+        {
+          "id": 63,
+          "slug": "role-prompt-developer",
+          "title": "Developer — role prompt",
+          "kind": "prompt",
+          "role": "developer",
+          "priority": 0,
+          "status": "ready",
+          "slackChannel": "#vibe-inbox",
+          "slackReply": "",
+          "slackTrigger": "@Cursor {task}",
+          "prompt": "You are the Developer Agent for Vibe Coders Academy. Prefix Slack output with: 🛠 *Dev Agent* |\n\nTrigger: @Cursor or post in #vibe-inbox with a dev task (repo must be attached).\n\n1. Read the request and relevant entries in data/hq.db for context.\n2. Implement in the vibe-coding-101 repo — minimal focused diffs.\n3. Run python3 scripts/build_site.py if data/UI changed.\n4. Reply with: what changed, how to test, any blockers.\n\nScope: web/, scripts/, data/ — landing page, HQ UI, build pipeline, SQLite helpers.\nRules: match existing conventions; no scope creep; ask before destructive changes.",
+          "hint": "",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {},
+          "updatedAt": "2026-05-27 13:29:43"
+        }
+      ]
+    }
+  },
+  "reference": {
+    "competitors": {
+      "id": 23,
+      "collection": "research",
+      "slug": "competitors",
+      "title": "Competitor watchlist",
+      "status": null,
+      "body": "# Competitor watchlist\n\nAdd competitors Denis wants tracked. Automations and agents read this list.\n\n| Name | URL | Notes | Priority |\n|------|-----|-------|----------|\n| SoftUni AI / SoftUni | https://ai.softuni.bg/ | Direct competitor: AI-first programming, vibe coding, AI-assisted development, AI agents/workflows; largest local education brand. | high |\n| SoftUni Vibe Coding Fundamentals | https://softuni.bg/modules/155/vibe-coding-fundamentals-january-2026/1615 | Direct offer for beginners and operators building web apps with AI, TypeScript/React/Tailwind/Supabase/Netlify. | high |\n| SoftUni AI-Assisted Development | https://ai.softuni.bg/trainings/189/ai-assisted-development-january-2026 | Direct developer offer covering Copilot, Cursor, Claude Code, Augment Code, validation workflows, PRs. | high |\n| SoftUni AI Agents and Workflows for Developers | https://softuni.bg/trainings/5350/ai-agents-and-worfklows-for-developers-august-2026 | Direct agentic coding/workflows offer covering n8n, LangChain, LangGraph, HITL, observability. | high |\n| Telerik Academy — GenAI for Developers | https://www.telerikacademy.com/sprint/genai-for-developers | Adjacent pro-developer GenAI course; strong brand, certificate, business case positioning. | high |\n| NobleProg Bulgaria — GitHub Copilot | https://www.nobleprog.bg/en/github-copilot-training | Corporate/onsite AI coding training; Copilot course catalog and scheduled Bulgaria sessions. | high |\n| NobleProg Bulgaria — Cursor workflows | https://www.nobleprog.bg/cc/cursor1 | Direct Cursor/agent workflow training for developers and engineering managers. | high |\n| IT STEP Computer Academy Bulgaria | https://itstep.bg/python-programming-course | Python + AI / ML and web-development academy; longer career-transition pathway. | medium |\n| Advance Academy AI | https://ai.advanceacademy.bg/ai | Bulgarian AI Basics / AI Specialist / business/content AI programs; broader beginner audience. | medium |\n| Aula.bg AI / ChatGPT | https://aula.bg/kurs-chatgpt | Bulgarian online AI productivity and ChatGPT courses; not coding-first but competes for AI upskilling budget. | medium |\n| New Horizons Bulgaria | https://newhorizons.bg/course-outline/course/ai-3025-work-smarter-with-ai | Corporate Microsoft Copilot / AI productivity training; adjacent B2B budget competitor. | low |\n\nLatest market scan: `research/competitors/2026-05-27-bulgaria-ai-coding-market.md`.\n\n## How to trigger research\n\n- **Slack** (`#vibe-research`): `competitor: {name}` or `research: {name}`\n- **Cursor chat:** \"Research competitor X and save to research/competitors/\"\n- **Weekly automation:** scans this table (see `docs/automations/02-competitor-research.md`)\n",
+      "props": {},
+      "sortOrder": 0,
+      "updatedAt": "2026-05-27 13:09:38",
+      "listItems": [
+        {
+          "entryId": 23,
+          "section": "triggers",
+          "text": "Slack (#vibe-research): competitor: {name} or research: {name}",
+          "done": false,
+          "meta": {}
+        },
+        {
+          "entryId": 23,
+          "section": "triggers",
+          "text": "Cursor chat: \"Research competitor X and save to research/competitors/\"",
+          "done": false,
+          "meta": {}
+        },
+        {
+          "entryId": 23,
+          "section": "triggers",
+          "text": "Weekly automation: scans this table (see docs/automations/02-competitor-research.md)",
+          "done": false,
+          "meta": {}
+        }
+      ],
+      "tables": [
+        {
+          "name": "watchlist",
+          "columns": [
+            "name",
+            "url",
+            "notes",
+            "priority"
+          ],
+          "rows": [
+            {
+              "name": "SoftUni AI / SoftUni",
+              "url": "https://ai.softuni.bg/",
+              "notes": "Direct competitor: AI-first programming, vibe coding, AI-assisted development, AI agents/workflows; largest local education brand.",
+              "priority": "high"
+            },
+            {
+              "name": "SoftUni Vibe Coding Fundamentals",
+              "url": "https://softuni.bg/modules/155/vibe-coding-fundamentals-january-2026/1615",
+              "notes": "Direct offer for beginners and operators building web apps with AI, TypeScript/React/Tailwind/Supabase/Netlify.",
+              "priority": "high"
+            },
+            {
+              "name": "SoftUni AI-Assisted Development",
+              "url": "https://ai.softuni.bg/trainings/189/ai-assisted-development-january-2026",
+              "notes": "Direct developer offer covering Copilot, Cursor, Claude Code, Augment Code, validation workflows, PRs.",
+              "priority": "high"
+            },
+            {
+              "name": "SoftUni AI Agents and Workflows for Developers",
+              "url": "https://softuni.bg/trainings/5350/ai-agents-and-worfklows-for-developers-august-2026",
+              "notes": "Direct agentic coding/workflows offer covering n8n, LangChain, LangGraph, HITL, observability.",
+              "priority": "high"
+            },
+            {
+              "name": "Telerik Academy — GenAI for Developers",
+              "url": "https://www.telerikacademy.com/sprint/genai-for-developers",
+              "notes": "Adjacent pro-developer GenAI course; strong brand, certificate, business case positioning.",
+              "priority": "high"
+            },
+            {
+              "name": "NobleProg Bulgaria — GitHub Copilot",
+              "url": "https://www.nobleprog.bg/en/github-copilot-training",
+              "notes": "Corporate/onsite AI coding training; Copilot course catalog and scheduled Bulgaria sessions.",
+              "priority": "high"
+            },
+            {
+              "name": "NobleProg Bulgaria — Cursor workflows",
+              "url": "https://www.nobleprog.bg/cc/cursor1",
+              "notes": "Direct Cursor/agent workflow training for developers and engineering managers.",
+              "priority": "high"
+            },
+            {
+              "name": "IT STEP Computer Academy Bulgaria",
+              "url": "https://itstep.bg/python-programming-course",
+              "notes": "Python + AI / ML and web-development academy; longer career-transition pathway.",
+              "priority": "medium"
+            },
+            {
+              "name": "Advance Academy AI",
+              "url": "https://ai.advanceacademy.bg/ai",
+              "notes": "Bulgarian AI Basics / AI Specialist / business/content AI programs; broader beginner audience.",
+              "priority": "medium"
+            },
+            {
+              "name": "Aula.bg AI / ChatGPT",
+              "url": "https://aula.bg/kurs-chatgpt",
+              "notes": "Bulgarian online AI productivity and ChatGPT courses; not coding-first but competes for AI upskilling budget.",
+              "priority": "medium"
+            },
+            {
+              "name": "New Horizons Bulgaria",
+              "url": "https://newhorizons.bg/course-outline/course/ai-3025-work-smarter-with-ai",
+              "notes": "Corporate Microsoft Copilot / AI productivity training; adjacent B2B budget competitor.",
+              "priority": "low"
+            }
+          ]
+        }
+      ]
+    },
+    "roadmapTracks": {
+      "id": 6,
+      "collection": "roadmap",
+      "slug": "tracks",
+      "title": "Launch tracks",
+      "status": null,
+      "body": "",
+      "props": {},
+      "sortOrder": 1,
+      "updatedAt": "2026-05-27 13:09:38",
+      "listItems": [],
+      "tables": [
+        {
+          "name": "tracks",
+          "columns": [
+            "track_num",
+            "topic",
+            "denis",
+            "pm"
+          ],
+          "rows": [
+            {
+              "track_num": null,
+              "topic": "Office in Plovdiv",
+              "denis": "Visits, lease, budget sign-off",
+              "pm": "Search criteria doc; listing shortlist; comparison table"
+            },
+            {
+              "track_num": null,
+              "topic": "PO position — publish",
+              "denis": "Final JD text; pick boards/channels; hit Publish",
+              "pm": "Format JD for web + social; publish checklist; draft announcement posts (needs JD file in repo)"
+            },
+            {
+              "track_num": null,
+              "topic": "Course name",
+              "denis": "Done: Vibe Coders Academy",
+              "pm": "Keep business/approved-messaging.md synced; brand/domain checks"
+            },
+            {
+              "track_num": null,
+              "topic": "Social pages",
+              "denis": "Create accounts (LinkedIn, FB, IG, etc.); verify",
+              "pm": "Bios, cover copy, first-post pack (draft)"
+            },
+            {
+              "track_num": null,
+              "topic": "Design — logos, flyers, posters",
+              "denis": "Brand direction, final approval, print/vendor",
+              "pm": "Creative brief; layout copy; template specs in content/brand/"
+            },
+            {
+              "track_num": null,
+              "topic": "Landing page",
+              "denis": "Copy + offer approval",
+              "pm": "Build web/; wire early bird when approved"
+            },
+            {
+              "track_num": null,
+              "topic": "Our job ad on website",
+              "denis": "PO text + apply method (email/form)",
+              "pm": "Careers page + SEO; link from landing"
+            },
+            {
+              "track_num": null,
+              "topic": "Presentation",
+              "denis": "Narrative sign-off; present/record if live",
+              "pm": "Deck outline + slide content in content/presentation/"
+            },
+            {
+              "track_num": null,
+              "topic": "Social posts from presentation",
+              "denis": "Approve which slides become posts",
+              "pm": "Repurpose plan + draft posts in content/social/"
+            },
+            {
+              "track_num": null,
+              "topic": "Syllabus",
+              "denis": "Module priorities, depth, what you teach live",
+              "pm": "Draft content/syllabus-v1.md from business/plan-v1.md"
+            },
+            {
+              "track_num": null,
+              "topic": "Early bird on website",
+              "denis": "Price, dates, capacity, legal wording",
+              "pm": "Implement section on landing; sync approved-messaging.md"
+            },
+            {
+              "track_num": null,
+              "topic": "Video presentation",
+              "denis": "Record on camera; final cut approval",
+              "pm": "Script, storyboard, B-roll list in content/video/"
+            },
+            {
+              "track_num": null,
+              "topic": "Short clips for social",
+              "denis": "Approve clips",
+              "pm": "Cut list + captions from #12 master video"
+            }
+          ]
+        }
+      ]
+    },
+    "messaging": {
+      "id": 21,
+      "collection": "business",
+      "slug": "messaging",
+      "title": "Approved messaging",
+      "status": null,
+      "body": "# Approved messaging\n\nOnly claims listed here may appear in social posts, landing copy, or automations.\n\n## Course (fill in with Denis)\n\n- **Working title:** Vibe Coders Academy\n- **One-liner:** _TBD_\n- **Who it's for:** Developers using Cursor to ship real projects\n- **Planned domain:** `vibe-coders.academy` — not active yet\n\n## Pricing & launch\n\n| Item | Approved text | Status |\n|------|---------------|--------|\n| Price | _Not approved yet_ | draft |\n| Launch date | _Not approved yet_ | draft |\n| Waitlist URL | _Not approved yet_ | draft |\n| Public domain | `vibe-coders.academy` — not active yet | draft |\n\n## Claims we allow\n\n- Teaching Cursor, MCP, and automations for real workflows\n- Solo-founder / practitioner perspective\n\n## Claims we do NOT allow (until approved)\n\n- Income guarantees\n- Job placement\n- \"Best\" or \"#1\" without source\n",
+      "props": {
+        "course": {
+          "working-title": "Vibe Coders Academy",
+          "one-liner": "TBD",
+          "who-it-s-for": "Developers using Cursor to ship real projects",
+          "planned-domain": "vibe-coders.academy — not active yet"
+        }
+      },
+      "sortOrder": 0,
+      "updatedAt": "2026-05-27 13:09:38",
+      "listItems": [
+        {
+          "entryId": 21,
+          "section": "allowed_claims",
+          "text": "Teaching Cursor, MCP, and automations for real workflows",
+          "done": false,
+          "meta": {}
+        },
+        {
+          "entryId": 21,
+          "section": "allowed_claims",
+          "text": "Solo-founder / practitioner perspective",
+          "done": false,
+          "meta": {}
+        },
+        {
+          "entryId": 21,
+          "section": "disallowed_claims",
+          "text": "Income guarantees",
+          "done": false,
+          "meta": {}
+        },
+        {
+          "entryId": 21,
+          "section": "disallowed_claims",
+          "text": "Job placement",
+          "done": false,
+          "meta": {}
+        },
+        {
+          "entryId": 21,
+          "section": "disallowed_claims",
+          "text": "\"Best\" or \"#1\" without source",
+          "done": false,
+          "meta": {}
+        }
+      ]
+    }
   }
 }

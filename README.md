@@ -22,18 +22,30 @@ GitHub Actions on push
 
 | Table | Purpose |
 |-------|---------|
-| `collections` | Namespaces: tasks, standups, roadmap, business, office, research, jobs, names, automations, social |
-| `entries` | Any record: title, body, status, owner, flexible `props` JSON |
-| `list_items` | Checklists and bullet lists attached to entries (sections: `items`, `done`, `today`, …) |
-| `tables` + `table_rows` | Structured tables (watchlists, phases, pricing, shortlists) |
-| `meta` | Project title, description, schema version |
+| `collections` | Namespaces: **actions** (Denis inbox), tasks, standups, business, research, … |
+| `entries` | Any record — flexible `props` JSON |
+| `list_items` | Checklists attached to entries |
+| `tables` + `table_rows` | Structured tables (watchlists, roadmap tracks, …) |
 
-Add a new dashboard section by inserting a collection + entries — no schema migration required.
+### HQ UI = action cards (one pattern)
+
+Every card is the same shape:
+
+| Kind | Denis does |
+|------|------------|
+| **input** | Copy Slack reply → paste in channel → agent continues |
+| **approve** | Copy trigger → green-light agent run |
+| **prompt** | Copy full role instructions |
+
+Roles: **PM** · **Research** · **Business** · **Social** · **Developer** (`#vibe-inbox`)
+
+`scripts/sync_actions.py` rebuilds `actions` from blockers, tasks, automations, and role prompts.
 
 ## Commands
 
 ```bash
-# Export dashboard JSON (also run in CI)
+# Sync Denis inbox actions, then export JSON (also run in CI)
+python3 scripts/sync_actions.py
 python3 scripts/build_site.py
 
 # One-time import from legacy markdown (if files exist)

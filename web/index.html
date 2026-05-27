@@ -3,24 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Vibe Coding 101 HQ — SQLite-powered operations dashboard" />
-    <title>Vibe Coding 101 HQ</title>
+    <meta name="description" content="Vibe Coders Academy HQ — action inbox and copy-paste prompts" />
+    <title>Vibe Coders Academy HQ</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="app-shell">
       <aside class="sidebar" id="sidebar">
-        <a class="brand" href="#overview">
+        <a class="brand" href="#inbox">
           <span class="brand-mark">VC</span>
           <span class="brand-text">
-            <strong>Vibe Coding 101</strong>
-            <small>HQ</small>
+            <strong>Vibe Coders Academy</strong>
+            <small>Action HQ</small>
           </span>
         </a>
         <nav class="sidebar-nav" id="sidebarNav" aria-label="Sections"></nav>
         <footer class="sidebar-footer">
           <p class="meta" id="generatedAt">Loading…</p>
-          <a class="ghost-link" href="https://github.com/denistiano/cursor-automations" target="_blank" rel="noreferrer">GitHub repo</a>
         </footer>
       </aside>
 
@@ -28,25 +27,19 @@
         <header class="topbar">
           <button class="icon-button sidebar-toggle" id="sidebarToggle" type="button" aria-label="Toggle navigation">☰</button>
           <div class="search-wrap">
-            <input id="searchInput" type="search" placeholder="Search entries, tasks, blockers…" aria-label="Search dashboard" />
+            <input id="searchInput" type="search" placeholder="Search actions, prompts, Slack replies…" />
           </div>
-          <div class="topbar-metrics" id="topbarMetrics" aria-live="polite"></div>
+          <div class="topbar-metrics" id="topbarMetrics"></div>
         </header>
 
-        <main class="content" id="app" aria-live="polite">
-          <section class="loading-state">
-            <span class="loader"></span>
-            <p>Loading HQ data…</p>
-          </section>
+        <main class="content" id="app">
+          <section class="loading-state"><span class="loader"></span><p>Loading inbox…</p></section>
         </main>
       </div>
     </div>
 
-    <template id="emptyStateTemplate">
-      <section class="empty-state">
-        <p class="eyebrow">No matches</p>
-        <h2>Try a different search term.</h2>
-      </section>
+    <template id="toastTemplate">
+      <div class="toast" role="status">Copied</div>
     </template>
 
     <script src="app.js" defer></script>

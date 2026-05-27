@@ -1,556 +1,317 @@
 const DATA_URL = "data/site.json";
 
-const state = { data: null, section: "overview", query: "" };
+const state = { data: null, section: "inbox", query: "", filterKind: "all" };
 
-const app = document.querySelector("#app");
-const sidebarNav = document.querySelector("#sidebarNav");
-const searchInput = document.querySelector("#searchInput");
+const app = document.getElementById("app");
+const sidebarNav = document.getElementById("sidebarNav");
+const searchInput = document.getElementById("searchInput");
 
 document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
   wireControls();
   try {
-    const response = await fetch(DATA_URL, { cache: "no-store" });
-    if (!response.ok) throw new Error(`Could not load ${DATA_URL}`);
-    state.data = await response.json();
+    const res = await fetch(DATA_URL, { cache: "no-store" });
+    if (!res.ok) throw new Error(`Could not load ${DATA_URL}`);
+    state.data = await res.json();
     renderChrome();
-    navigate(getSectionFromHash() || "overview");
-  } catch (error) {
-    app.innerHTML = `
-      <section class="empty-state">
-        <p class="eyebrow">Data unavailable</p>
-        <h2>Could not load dashboard.</h2>
-        <p>${escapeHtml(error.message)}</p>
-        <p class="meta">Run <code>python3 scripts/build_site.py</code> from the repo root.</p>
-      </section>`;
+    navigate(getHash() || "inbox");
+  } catch (err) {
+    app.innerHTML = `<section class="empty-state"><h2>Could not load HQ</h2><p>${escapeHtml(err.message)}</p></section>`;
   }
 }
 
 function wireControls() {
-  sidebarNav.addEventListener("click", (event) => {
-    const link = event.target.closest("[data-section]");
+  sidebarNav.addEventListener("click", (e) => {
+    const link = e.target.closest("[data-section]");
     if (!link) return;
-    event.preventDefault();
+    e.preventDefault();
     navigate(link.dataset.section);
   });
 
-  searchInput.addEventListener("input", (event) => {
-    state.query = event.target.value.trim().toLowerCase();
-    applySearch();
+  searchInput.addEventListener("input", (e) => {
+    state.query = e.target.value.trim().toLowerCase();
+    renderSection();
   });
 
-  window.addEventListener("hashchange", () => navigate(getSectionFromHash() || "overview", { hash: false }));
+  window.addEventListener("hashchange", () => navigate(getHash() || "inbox", { hash: false }));
 
-  document.querySelector("#sidebarToggle").addEventListener("click", () => {
+  document.getElementById("sidebarToggle").addEventListener("click", () => {
     document.body.classList.toggle("sidebar-open");
+  });
+
+  app.addEventListener("click", (e) => {
+    const btn = e.target.closest("[data-copy]");
+    if (!btn) return;
+    copyText(btn.dataset.copy, btn);
+  });
+
+  app.addEventListener("click", (e) => {
+    const tab = e.target.closest("[data-filter-kind]");
+    if (!tab) return;
+    state.filterKind = tab.dataset.filterKind;
+    document.querySelectorAll("[data-filter-kind]").forEach((el) => {
+      el.classList.toggle("is-active", el.dataset.filterKind === state.filterKind);
+    });
+    renderSection();
   });
 }
 
-function getSectionFromHash() {
+function getHash() {
   return window.location.hash.replace("#", "") || null;
 }
 
-function navigate(section, options = {}) {
+function navigate(section, opts = {}) {
   state.section = section;
-  if (options.hash !== false) window.location.hash = section;
-  document.querySelectorAll(".nav-link").forEach((link) => {
-    link.classList.toggle("is-active", link.dataset.section === section);
-  });
+  state.filterKind = "all";
+  if (opts.hash !== false) window.location.hash = section;
+  document.querySelectorAll(".nav-link").forEach((l) => l.classList.toggle("is-active", l.dataset.section === section));
   renderSection();
   document.body.classList.remove("sidebar-open");
 }
 
 function renderChrome() {
   const { data } = state;
-  const generated = new Date(data.meta.generatedAt);
-  document.querySelector("#generatedAt").textContent = `Updated ${generated.toLocaleString([], { dateStyle: "medium", timeStyle: "short" })}`;
-
-  sidebarNav.innerHTML = data.ui.nav
-    .map(
-      (item) => `
-        <a class="nav-link" href="#${escapeAttr(item.id)}" data-section="${escapeAttr(item.id)}">
-          <span class="nav-icon">${icon(item.icon)}</span>
-          <span>${escapeHtml(item.label)}</span>
-        </a>`
-    )
-    .join("");
+  document.getElementById("generatedAt").textContent = `Updated ${new Date(data.meta.generatedAt).toLocaleString([], { dateStyle: "medium", timeStyle: "short" })}`;
 
   const m = data.metrics;
-  document.querySelector("#topbarMetrics").innerHTML = [
-    metricPill(`${m.openTasks} open`),
-    metricPill(`${m.standups} standups`),
-    metricPill(`${m.automations} automations`),
+  document.getElementById("topbarMetrics").innerHTML = [
+    pill(`${m.needsInput} inputs`, "warn"),
+    pill(`${m.needsApproval} approvals`, "accent"),
   ].join("");
+
+  sidebarNav.innerHTML = data.ui.nav
+    .map((item) => {
+      const count = navCount(item, data);
+      return `
+        <a class="nav-link" href="#${item.id}" data-section="${item.id}">
+          <span class="nav-icon">${icon(item.icon)}</span>
+          <span>${escapeHtml(item.label)}</span>
+          ${count ? `<span class="nav-badge">${count}</span>` : ""}
+        </a>`;
+    })
+    .join("");
 }
 
-function metricPill(text) {
-  return `<span class="metric-pill">${escapeHtml(text)}</span>`;
+function navCount(item, data) {
+  if (item.id === "inbox") return data.inbox.length;
+  if (item.role) {
+    return (data.roles[item.role]?.actions || []).filter((a) => a.status === "open").length;
+  }
+  return 0;
 }
 
 function renderSection() {
   const { data, section } = state;
-  const navItem = data.ui.nav.find((item) => item.id === section) || data.ui.nav[0];
-  const collection = navItem?.collection;
-  const layoutConfig = collection ? data.ui.collections[collection] : null;
+  const navItem = data.ui.nav.find((n) => n.id === section) || data.ui.nav[0];
 
-  const renderers = {
-    overview: renderOverview,
-  };
+  let html = "";
+  if (navItem.view === "reference") html = renderReference();
+  else if (navItem.filter === "prompts") html = renderPrompts();
+  else if (navItem.filter === "open" || section === "inbox") html = renderInbox();
+  else if (navItem.role) html = renderRole(navItem.role);
+  else html = renderInbox();
 
-  if (collection && layoutConfig) {
-    app.innerHTML = renderCollectionPage(navItem, collection, layoutConfig);
-  } else {
-    app.innerHTML = renderers[section]?.() || renderOverview();
-  }
+  app.innerHTML = html;
   applySearch();
 }
 
-function renderOverview() {
-  const { project, metrics, entriesByCollection, ui } = state.data;
-  const latestStandup = (entriesByCollection.standups || []).sort((a, b) =>
-    (b.props.date || "").localeCompare(a.props.date || "")
-  )[0];
-  const blockers = (entriesByCollection.tasks || []).find((e) => e.slug === "blockers");
-  const businessPlan = (entriesByCollection.business || []).find((e) => e.slug === "plan");
-  const messaging = (entriesByCollection.business || []).find((e) => e.slug === "messaging");
+function renderInbox() {
+  const actions = filterActions(state.data.inbox);
+  return `
+    ${pageHeader("Inbox", "Everything waiting on you — reply in Slack or green-light an agent.")}
+    ${filterTabs()}
+    ${actionList(actions, "No open actions. Check All prompts for role kits.")}`;
+}
+
+function renderRole(role) {
+  const roleData = state.data.roles[role] || { meta: {}, actions: [], prompts: [] };
+  const meta = roleData.meta || {};
+  const open = filterActions((roleData.actions || []).filter((a) => a.status === "open"));
+  const prompts = roleData.prompts || [];
 
   return `
-    ${pageHeader("Overview", project.description || "SQLite-backed command center for the course business.")}
-    <div class="stat-grid">
-      ${statCard("Open tasks", metrics.openTasks, "warn")}
-      ${statCard("Done tasks", metrics.doneTasks, "good")}
-      ${statCard("Standups", metrics.standups)}
-      ${statCard("Entries", metrics.entries)}
-    </div>
-    <div class="panel-grid two">
-      ${panel(
-        "Latest standup",
-        latestStandup
-          ? `
-            <p class="eyebrow">${escapeHtml(latestStandup.props.date || latestStandup.slug)}</p>
-            <h3>Today</h3>
-            ${listItems(latestStandup.listItems.filter((i) => i.section === "today"))}
-            <h3>Blockers</h3>
-            ${listItems(latestStandup.listItems.filter((i) => i.section === "blockers"))}
-          `
-          : "<p class=\"muted\">No standups yet.</p>"
-      )}
-      ${panel(
-        "Active blockers",
-        blockers?.listItems?.length
-          ? listItems(blockers.listItems.filter((i) => i.section === "items"), { showOwner: true })
-          : "<p class=\"muted\">No blockers recorded.</p>"
-      )}
-    </div>
-    <div class="panel-grid two">
-      ${panel(
-        "Business signal",
-        `
-          <p><strong>Plan status:</strong> ${escapeHtml(businessPlan?.status || "Unknown")}</p>
-          <p><strong>Working title:</strong> ${escapeHtml(messaging?.props?.course?.["working-title"] || "TBD")}</p>
-          <div class="chip-row">${chip("SQLite source of truth")}${chip("Generic collections model")}</div>
-        `
-      )}
-      ${panel(
-        "Collections",
-        `<div class="chip-row">${ui.nav
-          .filter((n) => n.collection)
-          .map((n) => chip(n.label))
-          .join("")}</div>`
-      )}
+    ${pageHeader(meta.label || role, `Post in ${meta.channel || "Slack"} — copy a reply or prompt below.`)}
+    ${prompts.length ? `<section class="section-block"><h2 class="section-title">Role prompt kit</h2>${actionList(prompts)}</section>` : ""}
+    <section class="section-block">
+      <h2 class="section-title">Your inputs & approvals</h2>
+      ${filterTabs()}
+      ${actionList(open, `Nothing open for ${meta.label}.`)}
+    </section>`;
+}
+
+function renderPrompts() {
+  const prompts = filterActions(state.data.actions.filter((a) => a.kind === "prompt"));
+  return `
+    ${pageHeader("All prompts", "Copy-paste agent instructions by role.")}
+    ${actionList(prompts, "No prompts found.")}`;
+}
+
+function renderReference() {
+  const ref = state.data.reference || {};
+  const watchlist = ref.competitors?.tables?.find((t) => t.name === "watchlist");
+  const tracks = ref.roadmapTracks?.tables?.find((t) => t.name === "tracks");
+  const course = ref.messaging?.props?.course || {};
+
+  return `
+    ${pageHeader("Reference", "Background context — actions live in Inbox and role tabs.")}
+    <div class="action-grid">
+      ${actionCard({
+        slug: "ref-messaging",
+        title: "Approved messaging",
+        kind: "reference",
+        role: "business",
+        hint: "Source of truth for copy",
+        slackReply: "",
+        prompt: `Working title: ${course["working-title"] || "TBD"}\nOne-liner: ${course["one-liner"] || "TBD"}\nWho it's for: ${course["who-it-s-for"] || course["who-its-for"] || "TBD"}`,
+      })}
+      ${watchlist ? referenceTableCard("Competitor watchlist", watchlist) : ""}
+      ${tracks ? referenceTableCard("Roadmap tracks", tracks) : ""}
     </div>`;
 }
 
-function renderCollectionPage(navItem, collection, layoutConfig) {
-  const entries = state.data.entriesByCollection[collection] || [];
-  const collectionMeta = state.data.collections.find((c) => c.slug === collection);
-  const layout = layoutConfig.layout;
-
-  const body = {
-    checklist_groups: () => renderChecklistGroups(entries, layoutConfig, collectionMeta),
-    timeline: () => renderTimeline(entries, layoutConfig, collectionMeta),
-    roadmap: () => renderRoadmap(entries, layoutConfig, collectionMeta),
-    documents: () => renderDocuments(entries, layoutConfig, collectionMeta),
-    tracker: () => renderTracker(entries, layoutConfig, collectionMeta),
-    research: () => renderResearch(entries, layoutConfig, collectionMeta),
-    cards: () => renderCards(entries, layoutConfig, collectionMeta),
-    names: () => renderNames(entries, layoutConfig, collectionMeta),
-    automations: () => renderAutomations(entries, layoutConfig, collectionMeta),
-  }[layout]?.() || renderCards(entries, layoutConfig, collectionMeta);
-
-  return `${pageHeader(navItem.label, collectionMeta?.description || "")}${body}`;
+function referenceTableCard(title, table) {
+  const cols = table.columns || [];
+  const preview = (table.rows || [])
+    .slice(0, 5)
+    .map((r) => cols.map((c) => `${c}: ${r[c] || ""}`).join(" | "))
+    .join("\n");
+  return actionCard({
+    slug: `ref-${title}`,
+    title,
+    kind: "reference",
+    role: "research",
+    hint: `${(table.rows || []).length} rows`,
+    prompt: preview,
+  });
 }
 
-function renderChecklistGroups(entries, config) {
-  const groups = entries.filter((e) => e.props.kind === "group" || (e.slug !== "blockers" && e.slug !== "project-status"));
-  const blockers = entries.find((e) => e.slug === "blockers");
-
+function filterTabs() {
   return `
-    <div class="panel-grid two">
-      ${groups
-        .map((group) =>
-          panel(
-            group.title,
-            group.listItems.filter((i) => i.section === "items").length
-              ? checklist(group.listItems.filter((i) => i.section === "items"))
-              : "<p class=\"muted\">No items.</p>",
-            { owner: group.owner }
-          )
-        )
-        .join("")}
-    </div>
-    ${
-      config.showBlockers && blockers
-        ? panel("Blockers", listItems(blockers.listItems.filter((i) => i.section === "items"), { showOwner: true }))
-        : ""
-    }`;
-}
-
-function renderTimeline(entries, config) {
-  const sorted = [...entries].sort((a, b) => (b.props[config.dateField] || b.slug).localeCompare(a.props[config.dateField] || a.slug));
-  const sections = config.listSections || ["done", "today", "blockers", "agent_next"];
-
-  return `
-    <div class="timeline">
-      ${
-        sorted.length
-          ? sorted
-              .map(
-                (entry) => `
-                  <article class="panel timeline-item" data-search-text="${searchText(entry)}">
-                    <header class="panel-head">
-                      <div>
-                        <p class="eyebrow">${escapeHtml(entry.props.date || entry.slug)}</p>
-                        <h3>${escapeHtml(entry.title)}</h3>
-                      </div>
-                    </header>
-                    <div class="panel-grid two">
-                      ${sections
-                        .map(
-                          (section) => `
-                            <div>
-                              <h4>${escapeHtml(titleCase(section))}</h4>
-                              ${listItems(entry.listItems.filter((i) => i.section === section))}
-                            </div>`
-                        )
-                        .join("")}
-                    </div>
-                  </article>`
-              )
-              .join("")
-          : panel("No entries", "<p class=\"muted\">Nothing in this collection yet.</p>")
-      }
+    <div class="filter-tabs" role="tablist">
+      <button type="button" class="filter-tab ${state.filterKind === "all" ? "is-active" : ""}" data-filter-kind="all">All</button>
+      <button type="button" class="filter-tab ${state.filterKind === "input" ? "is-active" : ""}" data-filter-kind="input">Needs input</button>
+      <button type="button" class="filter-tab ${state.filterKind === "approve" ? "is-active" : ""}" data-filter-kind="approve">Green-light</button>
     </div>`;
 }
 
-function renderRoadmap(entries) {
-  const tracks = entries.find((e) => e.slug === "tracks");
-  const phases = entries.find((e) => e.slug === "phases");
-  const nearTerm = entries.find((e) => e.slug === "near-term");
-
-  return `
-    <div class="panel-grid">
-      ${tracks ? panel("Launch tracks", dataTable(tracks.tables.find((t) => t.name === "tracks"))) : ""}
-      ${phases ? panel("Phases", dataTable(phases.tables.find((t) => t.name === "phases"))) : ""}
-      ${nearTerm ? panel("Near-term queue", listItems(nearTerm.listItems.filter((i) => i.section === "items"))) : ""}
-    </div>`;
+function filterActions(actions) {
+  let list = actions;
+  if (state.filterKind !== "all") list = list.filter((a) => a.kind === state.filterKind);
+  if (state.query) {
+    list = list.filter((a) => searchBlob(a).includes(state.query));
+  }
+  return list;
 }
 
-function renderDocuments(entries, config) {
-  const slugs = config.primarySlugs || [];
-  const primary = entries.filter((e) => slugs.includes(e.slug));
-
-  return `
-    <div class="panel-grid">
-      ${primary
-        .map((entry) => {
-          const tables = entry.tables.map((t) => dataTable(t)).join("");
-          const sections = [...new Set(entry.listItems.map((i) => i.section))];
-          const lists = sections
-            .map(
-              (section) => `
-                <h4>${escapeHtml(titleCase(section))}</h4>
-                ${listItems(entry.listItems.filter((i) => i.section === section))}`
-            )
-            .join("");
-          return panel(
-            entry.title,
-            `
-              ${entry.status ? `<p><strong>Status:</strong> ${escapeHtml(entry.status)}</p>` : ""}
-              ${bodyPreview(entry.body)}
-              ${lists}
-              ${tables}
-            `
-          );
-        })
-        .join("")}
-      ${renderChildSections(entries, slugs)}
-    </div>`;
+function actionList(actions, emptyMsg = "Nothing here.") {
+  if (!actions.length) return `<p class="empty-inline">${escapeHtml(emptyMsg)}</p>`;
+  return `<div class="action-grid">${actions.map(actionCard).join("")}</div>`;
 }
 
-function renderChildSections(entries, excludeSlugs) {
-  const children = entries.filter((e) => excludeSlugs.includes(e.slug) === false && e.parentId);
-  if (!children.length) return "";
-  return `
-    <div class="panel-grid two">
-      ${children
-        .slice(0, 12)
-        .map((child) =>
-          panel(
-            child.title,
-            `${bodyPreview(child.body)}${child.tables.map((t) => dataTable(t)).join("")}`
-          )
-        )
-        .join("")}
-    </div>`;
-}
+function actionCard(a) {
+  const kinds = state.data.ui.actionKinds || {};
+  const kindMeta = kinds[a.kind] || { label: a.kind, badge: a.kind };
+  const roles = state.data.ui.roles || {};
+  const roleMeta = roles[a.role] || { label: a.role, channel: a.slackChannel };
 
-function renderTracker(entries, config) {
-  const entry = entries.find((e) => e.slug === config.primarySlug) || entries[0];
-  if (!entry) return panel("Empty", "<p class=\"muted\">No tracker entry.</p>");
-
-  const criteria = entry.tables.find((t) => t.name === "criteria");
-  const shortlist = entry.tables.find((t) => t.name === "shortlist");
+  const showSlack = a.kind !== "prompt" && a.slackReply;
+  const showPrompt = a.prompt && a.kind !== "reference";
+  const priority = a.priority === 1 ? `<span class="priority">P1</span>` : "";
 
   return `
-    <div class="panel-grid two">
-      ${panel(
-        entry.title,
-        `
-          ${entry.status ? `<p><strong>Status:</strong> ${escapeHtml(entry.status)}</p>` : ""}
-          ${bodyPreview(entry.body, 6)}
-        `
-      )}
-      ${criteria ? panel("Criteria", dataTable(criteria)) : ""}
-    </div>
-    ${shortlist ? panel("Shortlist", dataTable(shortlist)) : ""}`;
-}
-
-function renderResearch(entries, config) {
-  const root = entries.find((e) => e.slug === config.primarySlug) || entries.find((e) => !e.parentId);
-  const reports = entries.filter((e) => e.parentId === root?.id);
-
-  return `
-    <div class="panel-grid two">
-      ${root ? panel("Watchlist", dataTable(root.tables.find((t) => t.name === "watchlist"))) : ""}
-      ${root ? panel("Triggers", listItems(root.listItems.filter((i) => i.section === "triggers"))) : ""}
-    </div>
-    <div class="panel-grid">
-      ${
-        reports.length
-          ? reports.map((r) => panel(r.title, bodyPreview(r.body, 4))).join("")
-          : panel("Reports", "<p class=\"muted\">No dated reports yet.</p>")
-      }
-    </div>`;
-}
-
-function renderCards(entries, config) {
-  const roots = entries.filter((e) => !e.parentId);
-  return `
-    <div class="panel-grid two">
-      ${roots
-        .map((entry) => {
-          const approved = entry.props.approved;
-          const statusChip =
-            config.statusField && approved !== undefined
-              ? chip(approved ? "approved" : "pending", approved ? "good" : "warn")
-              : entry.status
-                ? chip(entry.status)
-                : "";
-          const tables = (config.showTables || [])
-            .map((name) => {
-              const table = entry.tables.find((t) => t.name === name);
-              return table ? `<h4>${escapeHtml(titleCase(name))}</h4>${dataTable(table)}` : "";
-            })
-            .join("");
-          return panel(
-            entry.title,
-            `
-              <div class="chip-row">
-                ${entry.props.platform ? chip(entry.props.platform) : ""}
-                ${statusChip}
-              </div>
-              ${entry.props.scheduled_at ? `<p><strong>Scheduled:</strong> ${escapeHtml(entry.props.scheduled_at)}</p>` : ""}
-              ${bodyPreview(entry.body, 8)}
-              ${checklist(entry.listItems.filter((i) => i.section === "checklist"))}
-              ${tables}
-            `
-          );
-        })
-        .join("")}
-    </div>`;
-}
-
-function renderNames(entries, config) {
-  const entry = entries.find((e) => e.slug === config.primarySlug) || entries[0];
-  if (!entry) return panel("Empty", "<p class=\"muted\">No naming data.</p>");
-
-  const namesTable = entry.tables.find((t) => t.name === "names");
-  const decision = entry.props.decision || {};
-
-  return `
-    ${panel("Decision", `<p><strong>Chosen:</strong> ${escapeHtml(decision.chosen || "Pending")}</p><p><strong>Rejected:</strong> ${escapeHtml(decision.rejected || "—")}</p>`)}
-    ${namesTable ? panel("Options", dataTable(namesTable)) : ""}
-    ${panel("Criteria", checklist(entry.listItems.filter((i) => i.section === "criteria")))}`;
-}
-
-function renderAutomations(entries, config) {
-  const lines = config.showBodyPreviewLines || 12;
-  return `
-    <div class="panel-grid two">
-      ${entries
-        .map((entry) => {
-          const settings = entry.props.settings || {};
-          return panel(
-            entry.title,
-            `
-              <div class="chip-row">
-                ${settings.trigger ? chip(settings.trigger, "warn") : ""}
-                ${settings.repo ? chip(settings.repo) : ""}
-              </div>
-              <p><strong>Tools:</strong> ${escapeHtml(settings.tools || "TBD")}</p>
-              ${checklist(entry.listItems.filter((i) => i.section === "checklist"))}
-              <pre class="code-preview">${escapeHtml((entry.body || "").split("\n").slice(0, lines).join("\n"))}</pre>
-            `
-          );
-        })
-        .join("")}
-    </div>`;
-}
-
-function pageHeader(title, description) {
-  return `
-    <header class="page-header">
-      <div>
-        <p class="eyebrow">${escapeHtml(state.section)}</p>
-        <h1>${escapeHtml(title)}</h1>
-        <p class="lede">${escapeHtml(description)}</p>
-      </div>
-    </header>`;
-}
-
-function panel(title, body, options = {}) {
-  const owner = options.owner ? `<span class="owner-tag">${escapeHtml(options.owner)}</span>` : "";
-  return `
-    <article class="panel" data-search-text="${searchText({ title, body, owner: options.owner })}">
-      <header class="panel-head">
-        <h3>${escapeHtml(title)}</h3>
-        ${owner}
+    <article class="action-card kind-${escapeAttr(a.kind)}" data-search-text="${searchAttr(a)}">
+      <header class="action-head">
+        <div class="badges">
+          <span class="badge role">${escapeHtml(roleMeta.label || a.role)}</span>
+          <span class="badge kind">${escapeHtml(kindMeta.label)}</span>
+          ${priority}
+        </div>
+        <h3>${escapeHtml(a.title)}</h3>
+        ${a.hint ? `<p class="hint">${escapeHtml(a.hint)}</p>` : ""}
       </header>
-      <div class="panel-body">${body}</div>
+
+      ${a.inputLabel ? `<p class="input-label"><strong>${escapeHtml(a.inputLabel)}</strong>${a.inputExample ? ` — e.g. ${escapeHtml(a.inputExample)}` : ""}</p>` : ""}
+
+      ${showSlack ? slackBlock(a, roleMeta) : ""}
+      ${showPrompt ? promptBlock(a, a.kind === "prompt") : ""}
+      ${a.kind === "reference" && a.prompt ? promptBlock(a, false) : ""}
     </article>`;
 }
 
-function statCard(label, value, variant = "") {
+function slackBlock(a, roleMeta) {
+  const channel = a.slackChannel || roleMeta.channel || "#vibe-inbox";
+  const trigger = a.slackTrigger ? `<span class="trigger">Trigger: <code>${escapeHtml(a.slackTrigger)}</code></span>` : "";
   return `
-    <div class="stat-card ${escapeAttr(variant)}" data-search-text="${searchText({ label, value })}">
-      <strong>${escapeHtml(value)}</strong>
-      <span>${escapeHtml(label)}</span>
-    </div>`;
+    <section class="copy-block">
+      <div class="copy-head">
+        <span class="copy-label">Slack → ${escapeHtml(channel)}</span>
+        ${trigger}
+      </div>
+      <div class="copy-row">
+        <pre class="copy-text" id="slack-${escapeAttr(a.slug)}">${escapeHtml(a.slackReply)}</pre>
+        <button type="button" class="copy-btn" data-copy="${escapeAttr(a.slackReply)}">Copy reply</button>
+      </div>
+    </section>`;
 }
 
-function checklist(items) {
-  if (!items?.length) return "<p class=\"muted\">Nothing here.</p>";
-  return items
-    .map(
-      (item) => `
-        <div class="check-row">
-          <span class="check-box ${item.done ? "is-done" : ""}" aria-hidden="true">${item.done ? "✓" : ""}</span>
-          <span class="${item.done ? "done" : ""}">${escapeHtml(item.text)}</span>
-        </div>`
-    )
-    .join("");
-}
-
-function listItems(items, options = {}) {
-  if (!items?.length) return "<p class=\"muted\">Nothing recorded.</p>";
-  return `<ul class="plain-list">${items
-    .map((item) => {
-      const owner = options.showOwner && item.meta?.owner ? ` <span class="muted">(${escapeHtml(item.meta.owner)})</span>` : "";
-      return `<li>${escapeHtml(item.text)}${owner}</li>`;
-    })
-    .join("")}</ul>`;
-}
-
-function dataTable(table) {
-  if (!table?.rows?.length) return "<p class=\"muted\">No rows yet.</p>";
-  const columns = table.columns?.length ? table.columns : Object.keys(table.rows[0] || {});
+function promptBlock(a, expanded) {
   return `
-    <div class="table-wrap">
-      <table>
-        <thead><tr>${columns.map((c) => `<th>${escapeHtml(titleCase(c))}</th>`).join("")}</tr></thead>
-        <tbody>
-          ${table.rows
-            .map(
-              (row) =>
-                `<tr>${columns.map((c) => `<td>${escapeHtml(String(row[c] ?? ""))}</td>`).join("")}</tr>`
-            )
-            .join("")}
-        </tbody>
-      </table>
-    </div>`;
+    <section class="copy-block ${expanded ? "is-expanded" : ""}">
+      <div class="copy-head">
+        <span class="copy-label">${expanded ? "Agent prompt" : "Agent prompt (optional)"}</span>
+      </div>
+      <div class="copy-row">
+        <pre class="copy-text prompt-text">${escapeHtml(a.prompt)}</pre>
+        <button type="button" class="copy-btn" data-copy="${escapeAttr(a.prompt)}">Copy prompt</button>
+      </div>
+    </section>`;
 }
 
-function bodyPreview(body, maxLines = 10) {
-  const text = (body || "").split("\n").filter((line) => line.trim() && !line.startsWith("#")).slice(0, maxLines).join("\n");
-  if (!text) return "";
-  return `<div class="body-preview">${escapeHtml(text).replace(/\n/g, "<br />")}</div>`;
-}
-
-function chip(label, variant = "") {
-  return `<span class="chip ${escapeAttr(variant)}">${escapeHtml(label || "TBD")}</span>`;
-}
-
-function icon(name) {
-  const icons = {
-    home: "⌂",
-    "check-square": "☑",
-    map: "◎",
-    calendar: "▦",
-    briefcase: "◫",
-    building: "▣",
-    search: "⌕",
-    users: "👥",
-    tag: "🏷",
-    zap: "⚡",
-    share: "↗",
-    folder: "▤",
-  };
-  return icons[name] || "•";
+function pageHeader(title, desc) {
+  return `
+    <header class="page-header">
+      <p class="eyebrow">${escapeHtml(state.section)}</p>
+      <h1>${escapeHtml(title)}</h1>
+      <p class="lede">${escapeHtml(desc)}</p>
+    </header>`;
 }
 
 function applySearch() {
-  const query = state.query;
-  const nodes = app.querySelectorAll("[data-search-text]");
-  let visible = 0;
-  nodes.forEach((node) => {
-    const matches = !query || node.dataset.searchText.toLowerCase().includes(query);
-    node.classList.toggle("hidden-by-search", !matches);
-    if (matches) visible += 1;
+  const q = state.query;
+  document.querySelectorAll(".action-card").forEach((el) => {
+    const match = !q || (el.dataset.searchText || "").includes(q);
+    el.classList.toggle("hidden", !match);
   });
-  app.querySelector(".empty-state")?.remove();
-  if (query && nodes.length && !visible) {
-    app.appendChild(document.querySelector("#emptyStateTemplate").content.cloneNode(true));
-  }
 }
 
-function searchText(value) {
-  return escapeAttr(typeof value === "string" ? value : JSON.stringify(value));
+function copyText(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = "Copied!";
+    setTimeout(() => { btn.textContent = btn.classList.contains("copy-btn") ? (btn.closest(".copy-block")?.querySelector(".prompt-text") ? "Copy prompt" : "Copy reply") : "Copy"; }, 1200);
+  });
 }
 
-function titleCase(value) {
-  return String(value).replace(/_/g, " ").replace(/-/g, " ").replace(/\b\w/g, (l) => l.toUpperCase());
+function searchBlob(a) {
+  return [a.title, a.hint, a.slackReply, a.prompt, a.role, a.kind, a.inputLabel].filter(Boolean).join(" ").toLowerCase();
 }
 
-function escapeHtml(value) {
-  return String(value ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
+function searchAttr(a) {
+  return escapeAttr(searchBlob(a));
 }
 
-function escapeAttr(value) {
-  return escapeHtml(value).replace(/`/g, "&#096;");
+function pill(text, variant = "") {
+  return `<span class="metric-pill ${variant}">${escapeHtml(text)}</span>`;
+}
+
+function icon(name) {
+  return { inbox: "📥", calendar: "📅", search: "🔍", briefcase: "💼", share: "📣", code: "🛠", copy: "📋", book: "📚" }[name] || "•";
+}
+
+function escapeHtml(v) {
+  return String(v ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+function escapeAttr(v) {
+  return escapeHtml(v).replace(/`/g, "&#096;");
 }

@@ -13,6 +13,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_site import main as build_main
 from hq_db import connect, init_db, json_dumps, json_loads, replace_list_items, upsert_entry
 from seed_from_md import seed_all
+from sync_actions import sync_all as sync_actions_all
 
 
 def cmd_init(args: argparse.Namespace) -> None:
@@ -26,6 +27,10 @@ def cmd_seed(args: argparse.Namespace) -> None:
 
 def cmd_build(_args: argparse.Namespace) -> None:
     build_main()
+
+
+def cmd_sync_actions(_args: argparse.Namespace) -> None:
+    sync_actions_all()
 
 
 def cmd_show(args: argparse.Namespace) -> None:
@@ -87,6 +92,9 @@ def main() -> None:
 
     p_build = sub.add_parser("build", help="Export web/data/site.json")
     p_build.set_defaults(func=cmd_build)
+
+    p_sync = sub.add_parser("sync-actions", help="Rebuild actions collection from tasks/blockers")
+    p_sync.set_defaults(func=cmd_sync_actions)
 
     p_show = sub.add_parser("show", help="List entries in a collection")
     p_show.add_argument("collection")

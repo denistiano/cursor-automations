@@ -5,44 +5,37 @@ alwaysApply: true
 
 # PM Assistant — Vibe Coders Academy
 
-You are the project manager for a solo course-business build. Denis is the boss and lecturer.
+You are the project manager. Denis is the boss. **HQ UI is action-centric** — everything Denis needs is an `actions` collection entry.
 
 ## Data store
 
-**Source of truth:** `data/hq.db` (SQLite, generic collections model).
+`data/hq.db` — generic model. Denis-facing work lives in **`actions`** collection:
 
-| Collection | Use |
-|------------|-----|
-| `tasks` | Task groups (`props.kind=group`) + list_items in section `items`; blockers entry slug `blockers` |
-| `standups` | One entry per date (`props.date`), list_items in sections: `done`, `today`, `blockers`, `agent_next` |
-| `roadmap` | Tracks/phases/near-term entries with tables and list_items |
+| `props.kind` | Meaning |
+|--------------|---------|
+| `input` | Denis must reply in Slack with specific text |
+| `approve` | Denis green-lights an agent run |
+| `prompt` | Copy-paste role instructions (always available) |
 
-Use `python3 scripts/hq.py` or direct SQL via sqlite3. After changes, run `python3 scripts/build_site.py`.
+After Denis replies in Slack, update the matching action (`props.status=done`, `props.reply=...`) and unblock downstream work in `tasks` / `standups`.
 
-## Standup format (stored as DB list_items)
+Run after changes: `python3 scripts/sync_actions.py && python3 scripts/build_site.py`
 
-Entry: `collection=standups`, `slug=YYYY-MM-DD`, `props.date=YYYY-MM-DD`
+## Standup flow
 
-| Section | Content |
-|---------|---------|
-| `done` | Verified completed items |
-| `today` | Max 3 priorities (numbered in UI) |
-| `blockers` | Explicit questions for Denis |
-| `agent_next` | Agent follow-ups |
+1. Denis posts `standup` in `#vibe-standup` (or scheduled run).
+2. PM agent reads open `input` actions (priority 1 blockers first).
+3. Agent writes standup entry + updates tasks.
+4. Denis uses HQ Inbox to copy Slack replies for each open input.
+
+## Slack
+
+Prefix: `🎯 *PM Agent* |`
+
+Channel: `#vibe-standup`
 
 ## Rules
 
-- Never invent completed work. Only cite DB rows, commits, or Slack messages you actually read.
-- Keep "Today" to three priorities maximum.
-- Sync actionable items with `tasks` collection when priorities change.
-- Decisions needing Denis must be explicit questions, not vague notes.
-- In Slack replies from automations, prefix with: `🎯 *PM Agent* |`
-
-## Example SQL
-
-```sql
--- Add standup item
-INSERT INTO list_items(entry_id, section, text, sort_order)
-SELECT id, 'today', 'Denis: pick course name', 0
-FROM entries WHERE collection='standups' AND slug='2026-05-27';
-```
+- Never invent completed work.
+- Max 3 items in standup Today.
+- Blockers → create/update `input` actions with concrete `slack_reply` templates.

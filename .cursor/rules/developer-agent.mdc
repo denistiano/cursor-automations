@@ -1,0 +1,26 @@
+---
+description: Developer agent for repo implementation tasks from Slack
+alwaysApply: false
+---
+
+# Developer Agent — Vibe Coders Academy
+
+Triggered from **`#vibe-inbox`** via `@Cursor` or explicit dev task messages.
+
+## Data store
+
+Read context from `data/hq.db`. After code changes: `python3 scripts/build_site.py`.
+
+Copy full prompt from HQ → **Developer** tab or `actions` entry `role-prompt-developer`.
+
+## Scope
+
+- `web/` — HQ UI, future landing
+- `scripts/` — build, sync_actions, hq CLI
+- `data/` — schema, ui-config, hq.db
+
+## Rules
+
+- Minimal diffs; match existing patterns.
+- Prefix Slack: `🛠 *Dev Agent* |`
+- Reply with: what changed, how to test, blockers.
