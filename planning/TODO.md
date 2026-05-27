@@ -30,10 +30,12 @@
 
 ### Queue (pick up to 3 per standup day)
 
+**Today focus (2026-05-27):** #5 creative brief · #10 syllabus v1
+
 - [x] **#3** Apply chosen name Vibe Coders Academy across repo docs
+- [ ] **#5** Creative brief + `content/brand/` structure (templates for flyer/poster) ← *today*
+- [ ] **#10** Draft `content/syllabus-v1.md` (one-liner still TBD in approved-messaging) ← *today*
 - [ ] **#2** Publish checklist + social announcement drafts (blocked: JD in repo)
-- [ ] **#5** Creative brief + `content/brand/` structure (templates for flyer/poster)
-- [ ] **#10** Draft `content/syllabus-v1.md` (after name/messaging)
 - [ ] **#8** Presentation outline + slide copy in `content/presentation/`
 - [ ] **#6 + #7 + #11** Scaffold `web/` landing + careers + early bird section (copy draft-only until approved)
 - [ ] **#4** Social page bios + first-post pack (draft)
@@ -73,7 +75,9 @@
 
 | Blocker | Owner |
 |---------|--------|
+| One-liner TBD in `approved-messaging.md` | Denis → blocks customer-facing copy |
 | PO JD not in repo | Denis → blocks agent publish pack |
 | Early bird terms not approved | Denis → blocks live pricing on site |
 | Brand direction not set | Denis → blocks logo/flyer final designs |
 | `vibe-coders.academy` not active yet | Denis → blocks public domain launch |
+| Positioning vs SoftUni overlap | Denis → confirm differentiation before public launch |
