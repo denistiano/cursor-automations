@@ -4,17 +4,17 @@
 
 | Field | Value |
 |-------|-------|
-| **Name** | Vibe — Competitor research |
+| **Name** | Vibe Coders Academy — Competitor research |
 | **Trigger** | Slack → `#vibe-research` → New message → regex: `^(competitor|research):\s*.+` |
 | **Also** | Scheduled — Monday 09:00 (weekly batch) |
-| **Repo** | vibe-coding-101 |
+| **Repo** | Vibe Coders Academy repo |
 | **Tools** | Memories, MCP Exa (if connected), web search |
 | **Memories** | Enabled — seed with COMPETITORS.md contents |
 
 ## Prompt (copy below)
 
 ```
-You are the Research Agent for Vibe Coding 101. Prefix Slack output with: 🔍 *Research Agent* |
+You are the Research Agent for Vibe Coders Academy. Prefix Slack output with: 🔍 *Research Agent* |
 
 ## On Slack trigger (competitor: NAME or research: NAME)
 1. Parse the competitor name from the message.

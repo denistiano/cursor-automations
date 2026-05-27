@@ -1,15 +1,17 @@
 {
   "meta": {
-    "generatedAt": "2026-05-26T09:37:44.155Z",
+    "generatedAt": "2026-05-27T05:21:24.217Z",
     "generator": "scripts/build-site-data.js",
-    "gitSha": "60844d97b3e66ca95876d4dbc4ae47d37b4f12e1",
+    "gitSha": "fb0692e575c887937d28bdd32e082500b3d0d3df",
     "sources": [
       "README.md",
       "planning/TODO.md",
+      "planning/standups/2026-05-26.md",
       "planning/standups/2026-05-22.md",
       "business/plan-v1.md",
       "business/approved-messaging.md",
       "research/competitors/COMPETITORS.md",
+      "research/competitors/2026-05-27-bulgaria-ai-coding-market.md",
       "docs/automations/01-morning-standup.md",
       "docs/automations/02-competitor-research.md",
       "docs/automations/03-business-plan.md",
@@ -19,7 +21,7 @@
   },
   "readme": {
     "path": "README.md",
-    "title": "Vibe Coding 101 — Course Business HQ",
+    "title": "Vibe Coders Academy — Course Business HQ",
     "description": "Central workspace for building a course program business from scratch: planning, business analysis, landing pages, automations, content, and project management.",
     "areas": [
       {
@@ -94,66 +96,130 @@
     "path": "planning/TODO.md",
     "groups": [
       {
-        "title": "Now — Denis (manual, ~1 hour)",
-        "slug": "now-denis-manual-1-hour",
+        "title": "Denis — decisions & manual",
+        "slug": "denis-decisions-manual",
         "items": [
           {
-            "text": "Create Slack channels: #vibe-standup, #vibe-research, #vibe-business, #vibe-social, #vibe-inbox",
-            "done": false,
-            "raw": "Create Slack channels: `#vibe-standup`, `#vibe-research`, `#vibe-business`, `#vibe-social`, `#vibe-inbox`"
+            "text": "#3 Pick course name → Vibe Coders Academy in business/approved-messaging.md",
+            "done": true,
+            "raw": "**#3** Pick course name → Vibe Coders Academy in `business/approved-messaging.md`"
           },
           {
-            "text": "Connect Slack at cursor.com/dashboard/integrations",
+            "text": "#2 Add PO job text to repo → business/jobs/product-owner.md; choose where to publish",
             "done": false,
-            "raw": "Connect Slack at [cursor.com/dashboard/integrations](https://www.cursor.com/dashboard/integrations)"
+            "raw": "**#2** Add PO job text to repo → `business/jobs/product-owner.md`; choose where to publish"
           },
           {
-            "text": "Connect MCPs: Slack + Exa minimum (setup guide)",
+            "text": "#2 Publish & share PO position (LinkedIn, boards, network)",
             "done": false,
-            "raw": "Connect MCPs: Slack + Exa minimum ([setup guide](../docs/slack-and-mcp-setup.md))"
+            "raw": "**#2** Publish & share PO position (LinkedIn, boards, network)"
           },
           {
-            "text": "Create automation: Morning standup (prompt)",
+            "text": "#1 Office Plovdiv — budget/area constraints; visit shortlist",
             "done": false,
-            "raw": "Create automation: Morning standup ([prompt](../docs/automations/01-morning-standup.md))"
+            "raw": "**#1** Office Plovdiv — budget/area constraints; visit shortlist"
           },
           {
-            "text": "Fill research/competitors/COMPETITORS.md (5–10 names)",
+            "text": "#4 Create social accounts (after name + bios approved)",
             "done": false,
-            "raw": "Fill `research/competitors/COMPETITORS.md` (5–10 names)"
+            "raw": "**#4** Create social accounts (after name + bios approved)"
           },
           {
-            "text": "Fill business/approved-messaging.md (title + one-liner)",
+            "text": "#5 Approve brand direction (colors, logo direction)",
             "done": false,
-            "raw": "Fill `business/approved-messaging.md` (title + one-liner)"
+            "raw": "**#5** Approve brand direction (colors, logo direction)"
+          },
+          {
+            "text": "#11 Approve early bird: price, date, seats, legal line",
+            "done": false,
+            "raw": "**#11** Approve early bird: price, date, seats, legal line"
+          },
+          {
+            "text": "#12 Record video presentation (after script approved)",
+            "done": false,
+            "raw": "**#12** Record video presentation (after script approved)"
+          },
+          {
+            "text": "#vibe-inbox channel",
+            "done": false,
+            "raw": "`#vibe-inbox` channel"
+          },
+          {
+            "text": "MCPs: Slack + Exa (setup)",
+            "done": false,
+            "raw": "MCPs: Slack + Exa ([setup](../docs/slack-and-mcp-setup.md))"
+          },
+          {
+            "text": "Automations 02–04 in Cursor UI",
+            "done": false,
+            "raw": "Automations 02–04 in Cursor UI"
           }
         ]
       },
       {
-        "title": "Now — Agent (after Denis unblocks)",
-        "slug": "now-agent-after-denis-unblocks",
+        "title": "PM / Agent — drafts & build",
+        "slug": "pm-agent-drafts-build",
         "items": [
           {
-            "text": "First competitor report when COMPETITORS.md has entries",
-            "done": false,
-            "raw": "First competitor report when COMPETITORS.md has entries"
+            "text": "#3 Apply chosen name Vibe Coders Academy across repo docs",
+            "done": true,
+            "raw": "**#3** Apply chosen name Vibe Coders Academy across repo docs"
           },
           {
-            "text": "Draft 3 LinkedIn posts after messaging approved",
+            "text": "#2 Publish checklist + social announcement drafts (blocked: JD in repo)",
             "done": false,
-            "raw": "Draft 3 LinkedIn posts after messaging approved"
+            "raw": "**#2** Publish checklist + social announcement drafts (blocked: JD in repo)"
+          },
+          {
+            "text": "#5 Creative brief + content/brand/ structure (templates for flyer/poster)",
+            "done": false,
+            "raw": "**#5** Creative brief + `content/brand/` structure (templates for flyer/poster)"
+          },
+          {
+            "text": "#10 Draft content/syllabus-v1.md (after name/messaging)",
+            "done": false,
+            "raw": "**#10** Draft `content/syllabus-v1.md` (after name/messaging)"
+          },
+          {
+            "text": "#8 Presentation outline + slide copy in content/presentation/",
+            "done": false,
+            "raw": "**#8** Presentation outline + slide copy in `content/presentation/`"
+          },
+          {
+            "text": "#6 + #7 + #11 Scaffold web/ landing + careers + early bird section (copy draft-only until approved)",
+            "done": false,
+            "raw": "**#6 + #7 + #11** Scaffold `web/` landing + careers + early bird section (copy draft-only until approved)"
+          },
+          {
+            "text": "#4 Social page bios + first-post pack (draft)",
+            "done": false,
+            "raw": "**#4** Social page bios + first-post pack (draft)"
+          },
+          {
+            "text": "#9 + #13 Repurpose plan: deck → posts; master video → clip list",
+            "done": false,
+            "raw": "**#9 + #13** Repurpose plan: deck → posts; master video → clip list"
+          },
+          {
+            "text": "#12 Video script + storyboard in content/video/",
+            "done": false,
+            "raw": "**#12** Video script + storyboard in `content/video/`"
+          },
+          {
+            "text": "#1 Plovdiv office search brief + listing research doc in planning/office-plovdiv.md",
+            "done": false,
+            "raw": "**#1** Plovdiv office search brief + listing research doc in `planning/office-plovdiv.md`"
+          },
+          {
+            "text": "Competitor report for Bulgarian AI coding / vibe coding / agentic coding market (research/competitors/2026-05-27-bulgaria-ai-coding-market.md)",
+            "done": true,
+            "raw": "Competitor report for Bulgarian AI coding / vibe coding / agentic coding market (`research/competitors/2026-05-27-bulgaria-ai-coding-market.md`)"
           },
           {
             "text": "Expand business/plan-v1.md executive summary",
             "done": false,
             "raw": "Expand `business/plan-v1.md` executive summary"
-          }
-        ]
-      },
-      {
-        "title": "Done",
-        "slug": "done",
-        "items": [
+          },
           {
             "text": "Git repo + README",
             "done": true,
@@ -188,13 +254,37 @@
             "text": "GitHub Pages HQ dashboard scaffold (web/) + JSON data generator (scripts/build-site-data.js)",
             "done": true,
             "raw": "GitHub Pages HQ dashboard scaffold (`web/`) + JSON data generator (`scripts/build-site-data.js`)"
-          }
-        ]
-      },
-      {
-        "title": "Next",
-        "slug": "next",
-        "items": [
+          },
+          {
+            "text": "Git repo + README, rules, MCP template, automation prompts",
+            "done": true,
+            "raw": "Git repo + README, rules, MCP template, automation prompts"
+          },
+          {
+            "text": "Slack: #vibe-standup, #vibe-research, #vibe-business, #vibe-social",
+            "done": true,
+            "raw": "Slack: `#vibe-standup`, `#vibe-research`, `#vibe-business`, `#vibe-social`"
+          },
+          {
+            "text": "Morning standup automation live (2026-05-26)",
+            "done": true,
+            "raw": "Morning standup automation live (2026-05-26)"
+          },
+          {
+            "text": "GitHub remote denistiano/cursor-automations",
+            "done": true,
+            "raw": "GitHub remote `denistiano/cursor-automations`"
+          },
+          {
+            "text": "Roadmap with Denis vs PM split + 13 topics (planning/roadmap.md, 2026-05-26)",
+            "done": true,
+            "raw": "Roadmap with Denis vs PM split + 13 topics (`planning/roadmap.md`, 2026-05-26)"
+          },
+          {
+            "text": "Course name options doc (business/course-name-options.md, 2026-05-26)",
+            "done": true,
+            "raw": "Course name options doc (`business/course-name-options.md`, 2026-05-26)"
+          },
           {
             "text": "Automations 02–04 in Cursor UI",
             "done": false,
@@ -229,13 +319,43 @@
       }
     ],
     "counts": {
-      "total": 21,
-      "done": 7,
-      "open": 14
+      "total": 41,
+      "done": 16,
+      "open": 25
     }
   },
   "standups": {
     "entries": [
+      {
+        "date": "2026-05-26",
+        "path": "planning/standups/2026-05-26.md",
+        "done": [
+          "Slack channels live: #vibe-standup, #vibe-research, #vibe-business, #vibe-social (verified in workspace)",
+          "Cursor Slack integration active — morning standup automation enabled in #vibe-standup; first manual trigger (start) on 2026-05-26",
+          "GitHub remote attached: denistiano/cursor-automations (same commits as local through 2026-05-22)",
+          "PM restructure: planning/roadmap.md — 13-topic launch path; Denis vs PM/Agent ownership",
+          "Course names: draft options in business/course-name-options.md (not approved)",
+          "planning/TODO.md reorganized by owner (Denis / PM Agent)"
+        ],
+        "today": [
+          "Denis: Pick course name from business/course-name-options.md → update business/approved-messaging.md",
+          "Denis: Add PO position text to business/jobs/product-owner.md + say where to publish first",
+          "PM Agent: Creative brief + content/brand/ scaffold; start planning/office-plovdiv.md search criteria (if Denis shares budget/area)"
+        ],
+        "blockers": [
+          "Name: Which option from business/course-name-options.md (or new suggestion)?",
+          "PO job: Paste JD into repo — agent cannot invent the official position text",
+          "Early bird: Price, end date, max seats (needed before live website pricing)",
+          "Office: Plovdiv — preferred areas, monthly budget, move-in date?",
+          "Design: DIY + agent drafts vs hire a designer for logo/print?"
+        ],
+        "agentNextActions": [
+          "After name → syllabus v1 + presentation outline + landing copy drafts",
+          "After PO JD in repo → web careers page draft + LinkedIn announcement post",
+          "After brand OK → flyer/poster templates in content/brand/",
+          "See full phased order in planning/roadmap.md"
+        ]
+      },
       {
         "date": "2026-05-22",
         "path": "planning/standups/2026-05-22.md",
@@ -263,28 +383,33 @@
       }
     ],
     "latest": {
-      "date": "2026-05-22",
-      "path": "planning/standups/2026-05-22.md",
+      "date": "2026-05-26",
+      "path": "planning/standups/2026-05-26.md",
       "done": [
-        "Initialized git repo and business HQ structure",
-        "Wrote Cursor Automations playbook (docs/cursor-automations-playbook.md)",
-        "Implemented .cursor/rules/, mcp.json, templates, automation prompt docs",
-        "Researched Slack-as-UI and MCP platform integrations"
+        "Slack channels live: #vibe-standup, #vibe-research, #vibe-business, #vibe-social (verified in workspace)",
+        "Cursor Slack integration active — morning standup automation enabled in #vibe-standup; first manual trigger (start) on 2026-05-26",
+        "GitHub remote attached: denistiano/cursor-automations (same commits as local through 2026-05-22)",
+        "PM restructure: planning/roadmap.md — 13-topic launch path; Denis vs PM/Agent ownership",
+        "Course names: draft options in business/course-name-options.md (not approved)",
+        "planning/TODO.md reorganized by owner (Denis / PM Agent)"
       ],
       "today": [
-        "Denis: Create Slack channels (#vibe-standup, #vibe-research, #vibe-business, #vibe-social) and connect Cursor Slack integration",
-        "Denis: Connect MCPs in Cursor Settings (Slack, Notion, Exa minimum)",
-        "Denis: Create first automation — Morning standup prep (copy from docs/automations/01-morning-standup.md)"
+        "Denis: Pick course name from business/course-name-options.md → update business/approved-messaging.md",
+        "Denis: Add PO position text to business/jobs/product-owner.md + say where to publish first",
+        "PM Agent: Creative brief + content/brand/ scaffold; start planning/office-plovdiv.md search criteria (if Denis shares budget/area)"
       ],
       "blockers": [
-        "Course positioning: working title + one-liner → update business/approved-messaging.md",
-        "Competitors: add 5–10 names to research/competitors/COMPETITORS.md",
-        "Social MCP: Buffer token now or draft-only for 2 weeks?"
+        "Name: Which option from business/course-name-options.md (or new suggestion)?",
+        "PO job: Paste JD into repo — agent cannot invent the official position text",
+        "Early bird: Price, end date, max seats (needed before live website pricing)",
+        "Office: Plovdiv — preferred areas, monthly budget, move-in date?",
+        "Design: DIY + agent drafts vs hire a designer for logo/print?"
       ],
       "agentNextActions": [
-        "After Denis fills COMPETITORS.md → run first competitor: research on top priority",
-        "Expand business/plan-v1.md once positioning is set",
-        "Draft 3 LinkedIn posts (draft-only) when messaging approved"
+        "After name → syllabus v1 + presentation outline + landing copy drafts",
+        "After PO JD in repo → web careers page draft + LinkedIn announcement post",
+        "After brand OK → flyer/poster templates in content/brand/",
+        "See full phased order in planning/roadmap.md"
       ]
     }
   },
@@ -292,7 +417,7 @@
     "plan": {
       "path": "business/plan-v1.md",
       "status": "Draft outline — Denis to fill positioning",
-      "lastUpdated": "2026-05-22",
+      "lastUpdated": "2026-05-27",
       "sections": [
         {
           "title": "1. Executive summary",
@@ -340,7 +465,7 @@
         {
           "title": "5. Competition",
           "slug": "5-competition",
-          "content": "See `research/competitors/COMPETITORS.md` and weekly reports in `research/competitors/`.",
+          "content": "See `research/competitors/COMPETITORS.md` and weekly reports in `research/competitors/`.\n\nCurrent direct competitor signal: SoftUni already markets Bulgarian AI-first programming, vibe coding, AI-assisted development, and agentic workflow courses. See `research/competitors/2026-05-27-bulgaria-ai-coding-market.md`.",
           "bullets": [],
           "tables": []
         },
@@ -438,9 +563,10 @@
     "approvedMessaging": {
       "path": "business/approved-messaging.md",
       "course": {
-        "working-title": "TBD",
+        "working-title": "Vibe Coders Academy",
         "one-liner": "TBD",
-        "who-it-s-for": "Developers using Cursor to ship real projects"
+        "who-it-s-for": "Developers using Cursor to ship real projects",
+        "planned-domain": "vibe-coders.academy — not active yet"
       },
       "pricingAndLaunch": [
         {
@@ -456,6 +582,11 @@
         {
           "item": "Waitlist URL",
           "approved-text": "Not approved yet",
+          "status": "draft"
+        },
+        {
+          "item": "Public domain",
+          "approved-text": "vibe-coders.academy — not active yet",
           "status": "draft"
         }
       ],
@@ -475,13 +606,78 @@
       "path": "research/competitors/COMPETITORS.md",
       "watchlist": [
         {
-          "name": "Example: Reforge",
-          "url": "https://www.reforge.com",
-          "notes": "Cohort-based growth",
+          "name": "SoftUni AI / SoftUni",
+          "url": "https://ai.softuni.bg/",
+          "notes": "Direct competitor: AI-first programming, vibe coding, AI-assisted development, AI agents/workflows; largest local education brand.",
+          "priority": "high"
+        },
+        {
+          "name": "SoftUni Vibe Coding Fundamentals",
+          "url": "https://softuni.bg/modules/155/vibe-coding-fundamentals-january-2026/1615",
+          "notes": "Direct offer for beginners and operators building web apps with AI, TypeScript/React/Tailwind/Supabase/Netlify.",
+          "priority": "high"
+        },
+        {
+          "name": "SoftUni AI-Assisted Development",
+          "url": "https://ai.softuni.bg/trainings/189/ai-assisted-development-january-2026",
+          "notes": "Direct developer offer covering Copilot, Cursor, Claude Code, Augment Code, validation workflows, PRs.",
+          "priority": "high"
+        },
+        {
+          "name": "SoftUni AI Agents and Workflows for Developers",
+          "url": "https://softuni.bg/trainings/5350/ai-agents-and-worfklows-for-developers-august-2026",
+          "notes": "Direct agentic coding/workflows offer covering n8n, LangChain, LangGraph, HITL, observability.",
+          "priority": "high"
+        },
+        {
+          "name": "Telerik Academy — GenAI for Developers",
+          "url": "https://www.telerikacademy.com/sprint/genai-for-developers",
+          "notes": "Adjacent pro-developer GenAI course; strong brand, certificate, business case positioning.",
+          "priority": "high"
+        },
+        {
+          "name": "NobleProg Bulgaria — GitHub Copilot",
+          "url": "https://www.nobleprog.bg/en/github-copilot-training",
+          "notes": "Corporate/onsite AI coding training; Copilot course catalog and scheduled Bulgaria sessions.",
+          "priority": "high"
+        },
+        {
+          "name": "NobleProg Bulgaria — Cursor workflows",
+          "url": "https://www.nobleprog.bg/cc/cursor1",
+          "notes": "Direct Cursor/agent workflow training for developers and engineering managers.",
+          "priority": "high"
+        },
+        {
+          "name": "IT STEP Computer Academy Bulgaria",
+          "url": "https://itstep.bg/python-programming-course",
+          "notes": "Python + AI / ML and web-development academy; longer career-transition pathway.",
           "priority": "medium"
+        },
+        {
+          "name": "Advance Academy AI",
+          "url": "https://ai.advanceacademy.bg/ai",
+          "notes": "Bulgarian AI Basics / AI Specialist / business/content AI programs; broader beginner audience.",
+          "priority": "medium"
+        },
+        {
+          "name": "Aula.bg AI / ChatGPT",
+          "url": "https://aula.bg/kurs-chatgpt",
+          "notes": "Bulgarian online AI productivity and ChatGPT courses; not coding-first but competes for AI upskilling budget.",
+          "priority": "medium"
+        },
+        {
+          "name": "New Horizons Bulgaria",
+          "url": "https://newhorizons.bg/course-outline/course/ai-3025-work-smarter-with-ai",
+          "notes": "Corporate Microsoft Copilot / AI productivity training; adjacent B2B budget competitor.",
+          "priority": "low"
         }
       ],
-      "reports": [],
+      "reports": [
+        {
+          "path": "research/competitors/2026-05-27-bulgaria-ai-coding-market.md",
+          "title": "Bulgaria AI coding competitor scan"
+        }
+      ],
       "triggerHints": [
         "Slack (#vibe-research): competitor: {name} or research: {name}",
         "Cursor chat: \"Research competitor X and save to research/competitors/\"",
@@ -495,10 +691,10 @@
       "id": "automation-morning-standup-prep",
       "title": "Automation: Morning standup prep",
       "settings": {
-        "name": "Vibe — Morning standup prep",
+        "name": "Vibe Coders Academy — Morning standup prep",
         "trigger": "Scheduled — weekdays 08:00 (adjust timezone)",
         "also": "Slack → #vibe-standup → New message → filter: standup",
-        "repo": "vibe-coding-101",
+        "repo": "Vibe Coders Academy repo",
         "tools": "Memories, Read Slack (optional), Send to Slack (optional)",
         "memories": "Enabled"
       },
@@ -507,17 +703,17 @@
         "First run checked — file exists under planning/standups/",
         "Reply in thread with today's #1 priority"
       ],
-      "promptPreview": "You are the PM Agent for Vibe Coding 101. Prefix Slack output with: 🎯 *PM Agent* |\n\n1. Read planning/standups/ for the last 7 days and planning/TODO.md.\n2. Read recent git commits if repo is available.\n3. Write planning/standups/YYYY-MM-DD.md using the standup template:\n   - Done (since last standup — only verified items)\n   - Today (max 3 priorities)\n   - Blockers / decisions for Denis\n   - Agent next actions\n4. Update planning/TODO.md if priorities changed; do not delete completed items without evidence.\n5. If Send to Slack is enabled, post a ≤15 line summary to #vibe-standup."
+      "promptPreview": "You are the PM Agent for Vibe Coders Academy. Prefix Slack output with: 🎯 *PM Agent* |\n\n1. Read planning/standups/ for the last 7 days and planning/TODO.md.\n2. Read recent git commits if repo is available.\n3. Write planning/standups/YYYY-MM-DD.md using the standup template:\n   - Done (since last standup — only verified items)\n   - Today (max 3 priorities)\n   - Blockers / decisions for Denis\n   - Agent next actions\n4. Update planning/TODO.md if priorities changed; do not delete completed items without evidence.\n5. If Send to Slack is enabled, post a ≤15 line summary to #vibe-standup."
     },
     {
       "path": "docs/automations/02-competitor-research.md",
       "id": "automation-competitor-research",
       "title": "Automation: Competitor research",
       "settings": {
-        "name": "Vibe — Competitor research",
+        "name": "Vibe Coders Academy — Competitor research",
         "trigger": "Slack → #vibe-research → New message → regex: ^(competitor|research):\\s*.+",
         "also": "Scheduled — Monday 09:00 (weekly batch)",
-        "repo": "vibe-coding-101",
+        "repo": "Vibe Coders Academy repo",
         "tools": "Memories, MCP Exa (if connected), web search",
         "memories": "Enabled — seed with COMPETITORS.md contents"
       },
@@ -526,17 +722,17 @@
         "Test: post competitor: {name} in #vibe-research",
         "Verify markdown file committed or agent reports path"
       ],
-      "promptPreview": "You are the Research Agent for Vibe Coding 101. Prefix Slack output with: 🔍 *Research Agent* |\n\n## On Slack trigger (competitor: NAME or research: NAME)\n1. Parse the competitor name from the message.\n2. Read research/competitors/COMPETITORS.md for URL hints.\n3. Research using web search / Exa MCP. Cite URLs with dates.\n4. Write research/competitors/YYYY-MM-DD-<slug>.md using the competitor template.\n5. Reply in thread with: 3-bullet summary + link to file path.\n\n## On weekly schedule (no Slack name)\n1. Read research/competitors/COMPETITORS.md priority table.\n2. For each high-priority competitor not covered in the last 7 days, append findings to research/competitors/YYYY-MM-DD-weekly.md."
+      "promptPreview": "You are the Research Agent for Vibe Coders Academy. Prefix Slack output with: 🔍 *Research Agent* |\n\n## On Slack trigger (competitor: NAME or research: NAME)\n1. Parse the competitor name from the message.\n2. Read research/competitors/COMPETITORS.md for URL hints.\n3. Research using web search / Exa MCP. Cite URLs with dates.\n4. Write research/competitors/YYYY-MM-DD-<slug>.md using the competitor template.\n5. Reply in thread with: 3-bullet summary + link to file path.\n\n## On weekly schedule (no Slack name)\n1. Read research/competitors/COMPETITORS.md priority table.\n2. For each high-priority competitor not covered in the last 7 days, append findings to research/competitors/YYYY-MM-DD-weekly.md."
     },
     {
       "path": "docs/automations/03-business-plan.md",
       "id": "automation-business-plan-assistant",
       "title": "Automation: Business plan assistant",
       "settings": {
-        "name": "Vibe — Business plan",
+        "name": "Vibe Coders Academy — Business plan",
         "trigger": "Slack → #vibe-business → filter: plan or business",
         "also": "Scheduled — 1st of month 10:00 (plan vs reality)",
-        "repo": "vibe-coding-101",
+        "repo": "Vibe Coders Academy repo",
         "tools": "Memories, MCP Notion (optional), Read Slack",
         "memories": "Enabled"
       },
@@ -544,17 +740,17 @@
         "Fill executive summary + ICP in business/plan-v1.md",
         "Test: plan update positioning in #vibe-business"
       ],
-      "promptPreview": "You are the Business Agent for Vibe Coding 101. Prefix Slack output with: 📊 *Business Agent* |\n\n## On Slack trigger\nIf message contains \"update\" or \"draft\":\n- Read business/plan-v1.md, business/approved-messaging.md, research/competitors/, planning/TODO.md.\n- Update the relevant sections of business/plan-v1.md (do not remove Denis's manual edits without noting in reply).\n- Reply with: what changed + open questions for Denis.\n\nIf message contains \"review\" or \"reality\":\n- Compare planning/TODO.md + last 30 days standups to business/plan-v1.md section 8 (roadmap).\n- Write a short variance report in business/variance-YYYY-MM-DD.md."
+      "promptPreview": "You are the Business Agent for Vibe Coders Academy. Prefix Slack output with: 📊 *Business Agent* |\n\n## On Slack trigger\nIf message contains \"update\" or \"draft\":\n- Read business/plan-v1.md, business/approved-messaging.md, research/competitors/, planning/TODO.md.\n- Update the relevant sections of business/plan-v1.md (do not remove Denis's manual edits without noting in reply).\n- Reply with: what changed + open questions for Denis.\n\nIf message contains \"review\" or \"reality\":\n- Compare planning/TODO.md + last 30 days standups to business/plan-v1.md section 8 (roadmap).\n- Write a short variance report in business/variance-YYYY-MM-DD.md."
     },
     {
       "path": "docs/automations/04-social-content.md",
       "id": "automation-social-content-draft-only",
       "title": "Automation: Social content (draft-only)",
       "settings": {
-        "name": "Vibe — Social drafts",
+        "name": "Vibe Coders Academy — Social drafts",
         "trigger": "Slack → #vibe-social → filter: draft",
         "also": "Scheduled — Wednesday 14:00",
-        "repo": "vibe-coding-101",
+        "repo": "Vibe Coders Academy repo",
         "tools": "Memories — do NOT enable Buffer on this automation",
         "memories": "Brand voice summary"
       },
@@ -563,7 +759,7 @@
         "Review files in content/social/",
         "Set approved: true before enabling publish automation"
       ],
-      "promptPreview": "You are the Social Agent for Vibe Coding 101. Prefix Slack output with: 📣 *Social Agent* |\n\n1. Read business/approved-messaging.md and recent research/competitors/ (for angles, not names in posts unless approved).\n2. Read business/plan-v1.md for curriculum hooks.\n3. Create 3 draft posts under content/social/YYYY-MM-DD/:\n   - linkedin-01.md\n   - x-01.md\n   - linkedin-02.md (or thread outline)\n4. Each file MUST have frontmatter approved: false.\n5. Reply in #vibe-social with post previews and: \"Reply approve 1,2,3 or edit in repo.\"\n\n## Publish automation (separate — create later)"
+      "promptPreview": "You are the Social Agent for Vibe Coders Academy. Prefix Slack output with: 📣 *Social Agent* |\n\n1. Read business/approved-messaging.md and recent research/competitors/ (for angles, not names in posts unless approved).\n2. Read business/plan-v1.md for curriculum hooks.\n3. Create 3 draft posts under content/social/YYYY-MM-DD/:\n   - linkedin-01.md\n   - x-01.md\n   - linkedin-02.md (or thread outline)\n4. Each file MUST have frontmatter approved: false.\n5. Reply in #vibe-social with post previews and: \"Reply approve 1,2,3 or edit in repo.\"\n\n## Publish automation (separate — create later)"
     }
   ],
   "social": {

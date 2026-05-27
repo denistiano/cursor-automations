@@ -1,4 +1,4 @@
-# TODO — Vibe Coding 101
+# TODO — Vibe Coders Academy
 
 > **Roadmap:** Multi-week launch path → `planning/roadmap.md`  
 > **Owners:** Denis = decisions & IRL · PM/Agent = drafts & repo
@@ -9,7 +9,7 @@
 
 ### Launch path (from Denis 2026-05-26)
 
-- [ ] **#3** Pick course name → `business/approved-messaging.md` (see `business/course-name-options.md`)
+- [x] **#3** Pick course name → Vibe Coders Academy in `business/approved-messaging.md`
 - [ ] **#2** Add PO job text to repo → `business/jobs/product-owner.md`; choose where to publish
 - [ ] **#2** Publish & share PO position (LinkedIn, boards, network)
 - [ ] **#1** Office Plovdiv — budget/area constraints; visit shortlist
@@ -30,7 +30,7 @@
 
 ### Queue (pick up to 3 per standup day)
 
-- [ ] **#3** Keep name options updated; apply chosen name across repo when Denis decides
+- [x] **#3** Apply chosen name Vibe Coders Academy across repo docs
 - [ ] **#2** Publish checklist + social announcement drafts (blocked: JD in repo)
 - [ ] **#5** Creative brief + `content/brand/` structure (templates for flyer/poster)
 - [ ] **#10** Draft `content/syllabus-v1.md` (after name/messaging)
@@ -43,7 +43,7 @@
 
 ### Backlog (lower priority vs launch path)
 
-- [ ] Competitor report when `research/competitors/COMPETITORS.md` has entries
+- [x] Competitor report for Bulgarian AI coding / vibe coding / agentic coding market (`research/competitors/2026-05-27-bulgaria-ai-coding-market.md`)
 - [ ] Expand `business/plan-v1.md` executive summary
 
 ---
@@ -73,7 +73,7 @@
 
 | Blocker | Owner |
 |---------|--------|
-| Course name not chosen | Denis → blocks social, landing, syllabus tone |
 | PO JD not in repo | Denis → blocks agent publish pack |
 | Early bird terms not approved | Denis → blocks live pricing on site |
 | Brand direction not set | Denis → blocks logo/flyer final designs |
+| `vibe-coders.academy` not active yet | Denis → blocks public domain launch |

@@ -1,6 +1,6 @@
 # Cursor Automations Playbook
 
-**For:** Vibe Coding 101 course business  
+**For:** Vibe Coders Academy course business  
 **Last updated:** 2026-05-22  
 **Sources:** [Cursor Automations docs](https://cursor.com/docs/cloud-agent/automations), [changelog (Mar & May 2026)](https://cursor.com/changelog), [announcement blog](https://cursor.com/blog/automations), marketplace templates, MCP ecosystem research.
 
@@ -50,7 +50,7 @@ flowchart TB
     PROMPT[Automation prompt]
     MEM[Memories]
     MCP[MCP tools]
-    REPO[vibe-coding-101 repo]
+    REPO[Vibe Coders Academy repo]
   end
 
   subgraph outputs [Outputs]
@@ -122,12 +122,12 @@ flowchart TB
 **Automation: `Morning standup prep`**
 
 - **Trigger:** `0 8 * * 1-5` (weekdays 08:00 your timezone — adjust in UI)
-- **Repo:** `vibe-coding-101` @ `main`
+- **Repo:** Vibe Coders Academy repo @ default branch
 - **Tools:** Memories, MCP (optional Notion/Linear later), Send to Slack (optional)
 - **Prompt sketch:**
 
 ```text
-You are the PM for Vibe Coding 101 (solo course business).
+You are the PM for Vibe Coders Academy (solo course business).
 
 1. Read planning/standups/ for the last 7 days and planning/TODO.md if it exists.
 2. Read git log and open diffs since yesterday.

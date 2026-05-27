@@ -1,7 +1,8 @@
-# Business plan v1 — Vibe Coding 101
+# Business plan v1 — Vibe Coders Academy
 
 **Status:** Draft outline — Denis to fill positioning  
-**Last updated:** 2026-05-22
+**Last updated:** 2026-05-27
+**Planned domain:** `vibe-coders.academy` — not active yet
 
 ## 1. Executive summary
 
@@ -31,6 +32,8 @@ _TBD — 3–5 sentences after positioning call._
 ## 5. Competition
 
 See `research/competitors/COMPETITORS.md` and weekly reports in `research/competitors/`.
+
+Current direct competitor signal: SoftUni already markets Bulgarian AI-first programming, vibe coding, AI-assisted development, and agentic workflow courses. See `research/competitors/2026-05-27-bulgaria-ai-coding-market.md`.
 
 ## 6. Go-to-market
 
