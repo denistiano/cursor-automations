@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generatedAt": "2026-05-27T13:40:01.140147+00:00",
+    "generatedAt": "2026-05-27T14:13:49.088811+00:00",
     "generator": "scripts/build_site.py",
-    "gitSha": "b449ff1a51abcf4a4bed6ba75a6afbdc96f59d11",
+    "gitSha": "9792ec051ebf34cc01861d1f3b27b8dfee51e2a0",
     "schemaVersion": "1",
     "dataModel": "generic-actions-v2"
   },
@@ -130,7 +130,7 @@
         "slug": "blockers",
         "listItemId": 160
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 66,
@@ -152,7 +152,7 @@
         "slug": "blockers",
         "listItemId": 159
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 65,
@@ -174,7 +174,7 @@
         "slug": "blockers",
         "listItemId": 158
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 64,
@@ -196,7 +196,7 @@
         "slug": "blockers",
         "listItemId": 157
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 69,
@@ -218,7 +218,7 @@
         "slug": "blockers",
         "listItemId": 162
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 83,
@@ -239,7 +239,7 @@
         "collection": "business",
         "slug": "messaging"
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 68,
@@ -261,7 +261,7 @@
         "slug": "blockers",
         "listItemId": 161
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 71,
@@ -283,7 +283,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 120
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 74,
@@ -305,7 +305,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 123
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 75,
@@ -327,7 +327,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 124
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 70,
@@ -349,7 +349,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 119
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 72,
@@ -371,7 +371,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 121
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 73,
@@ -393,7 +393,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 122
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 76,
@@ -415,7 +415,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 125
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 78,
@@ -437,7 +437,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 127
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 77,
@@ -459,7 +459,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 126
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 81,
@@ -480,7 +480,7 @@
         "collection": "automations",
         "slug": "automation-business-plan-assistant"
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 80,
@@ -501,7 +501,7 @@
         "collection": "automations",
         "slug": "automation-competitor-research"
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 79,
@@ -522,7 +522,7 @@
         "collection": "automations",
         "slug": "automation-morning-standup-prep"
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 82,
@@ -543,7 +543,7 @@
         "collection": "automations",
         "slug": "automation-social-content-draft-only"
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     }
   ],
   "actions": [
@@ -567,7 +567,7 @@
         "slug": "blockers",
         "listItemId": 160
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 66,
@@ -589,7 +589,7 @@
         "slug": "blockers",
         "listItemId": 159
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 65,
@@ -611,7 +611,7 @@
         "slug": "blockers",
         "listItemId": 158
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 64,
@@ -633,7 +633,7 @@
         "slug": "blockers",
         "listItemId": 157
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 69,
@@ -655,7 +655,7 @@
         "slug": "blockers",
         "listItemId": 162
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 83,
@@ -676,7 +676,7 @@
         "collection": "business",
         "slug": "messaging"
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 68,
@@ -698,7 +698,7 @@
         "slug": "blockers",
         "listItemId": 161
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 71,
@@ -720,7 +720,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 120
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 74,
@@ -742,7 +742,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 123
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 75,
@@ -764,7 +764,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 124
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 70,
@@ -786,7 +786,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 119
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 72,
@@ -808,7 +808,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 121
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 73,
@@ -830,7 +830,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 122
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 76,
@@ -852,7 +852,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 125
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 78,
@@ -874,7 +874,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 127
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 77,
@@ -896,7 +896,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 126
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 81,
@@ -917,7 +917,7 @@
         "collection": "automations",
         "slug": "automation-business-plan-assistant"
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 80,
@@ -938,7 +938,7 @@
         "collection": "automations",
         "slug": "automation-competitor-research"
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 79,
@@ -959,7 +959,7 @@
         "collection": "automations",
         "slug": "automation-morning-standup-prep"
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 82,
@@ -980,7 +980,7 @@
         "collection": "automations",
         "slug": "automation-social-content-draft-only"
       },
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 61,
@@ -998,7 +998,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 63,
@@ -1016,7 +1016,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 59,
@@ -1034,7 +1034,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 60,
@@ -1052,7 +1052,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     },
     {
       "id": 62,
@@ -1070,7 +1070,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-27 13:40:01"
+      "updatedAt": "2026-05-27 14:13:49"
     }
   ],
   "roles": {
@@ -1101,7 +1101,7 @@
             "slug": "blockers",
             "listItemId": 160
           },
-          "updatedAt": "2026-05-27 13:40:01"
+          "updatedAt": "2026-05-27 14:13:49"
         },
         {
           "id": 66,
@@ -1123,7 +1123,7 @@
             "slug": "blockers",
             "listItemId": 159
           },
-          "updatedAt": "2026-05-27 13:40:01"
+          "updatedAt": "2026-05-27 14:13:49"
         },
         {
           "id": 65,
@@ -1145,7 +1145,7 @@
             "slug": "blockers",
             "listItemId": 158
           },
-          "updatedAt": "2026-05-27 13:40:01"
+          "updatedAt": "2026-05-27 14:13:49"
         },
         {
           "id": 64,
@@ -1167,7 +1167,7 @@
             "slug": "blockers",
             "listItemId": 157
           },
-          "updatedAt": "2026-05-27 13:40:01"
+          "updatedAt": "2026-05-27 14:13:49"
         },
         {
           "id": 69,
@@ -1189,7 +1189,7 @@
             "slug": "blockers",
             "listItemId": 162
           },
-          "updatedAt": "2026-05-27 13:40:01"
+          "updatedAt": "2026-05-27 14:13:49"
         },
         {
           "id": 68,
@@ -1211,7 +1211,7 @@
             "slug": "blockers",
             "listItemId": 161
           },
-          "updatedAt": "2026-05-27 13:40:01"
+          "updatedAt": "2026-05-27 14:13:49"
         },
         {
           "id": 71,
@@ -1233,7 +1233,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 120
           },
-          "updatedAt": "2026-05-27 13:40:01"
+          "updatedAt": "2026-05-27 14:13:49"
         },
         {
           "id": 74,
@@ -1255,7 +1255,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 123
           },
-          "updatedAt": "2026-05-27 13:40:01"
+          "updatedAt": "2026-05-27 14:13:49"
         },
         {
           "id": 75,
@@ -1277,7 +1277,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 124
           },
-          "updatedAt": "2026-05-27 13:40:01"
+          "updatedAt": "2026-05-27 14:13:49"
         },
         {
           "id": 70,
@@ -1299,7 +1299,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 119
           },
-          "updatedAt": "2026-05-27 13:40:01"
+          "updatedAt": "2026-05-27 14:13:49"
         },
         {
           "id": 72,
@@ -1321,7 +1321,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 121
           },
-          "updatedAt": "2026-05-27 13:40:01"
+          "updatedAt": "2026-05-27 14:13:49"
         },
         {
           "id": 73,
@@ -1343,7 +1343,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 122
           },
-          "updatedAt": "2026-05-27 13:40:01"
+          "updatedAt": "2026-05-27 14:13:49"
         },
         {
           "id": 76,
@@ -1365,7 +1365,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 125
           },
-          "updatedAt": "2026-05-27 13:40:01"
+          "updatedAt": "2026-05-27 14:13:49"
         },
         {
           "id": 78,
@@ -1387,7 +1387,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 127
           },
-          "updatedAt": "2026-05-27 13:40:01"
+          "updatedAt": "2026-05-27 14:13:49"
         },
         {
           "id": 77,
@@ -1409,7 +1409,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 126
           },
-          "updatedAt": "2026-05-27 13:40:01"
+          "updatedAt": "2026-05-27 14:13:49"
         },
         {
           "id": 79,
@@ -1430,7 +1430,7 @@
             "collection": "automations",
             "slug": "automation-morning-standup-prep"
           },
-          "updatedAt": "2026-05-27 13:40:01"
+          "updatedAt": "2026-05-27 14:13:49"
         }
       ],
       "prompts": [
@@ -1450,7 +1450,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-27 13:40:01"
+          "updatedAt": "2026-05-27 14:13:49"
         }
       ]
     },
@@ -1480,7 +1480,7 @@
             "collection": "automations",
             "slug": "automation-competitor-research"
           },
-          "updatedAt": "2026-05-27 13:40:01"
+          "updatedAt": "2026-05-27 14:13:49"
         }
       ],
       "prompts": [
@@ -1500,7 +1500,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-27 13:40:01"
+          "updatedAt": "2026-05-27 14:13:49"
         }
       ]
     },
@@ -1530,7 +1530,7 @@
             "collection": "business",
             "slug": "messaging"
           },
-          "updatedAt": "2026-05-27 13:40:01"
+          "updatedAt": "2026-05-27 14:13:49"
         },
         {
           "id": 81,
@@ -1551,7 +1551,7 @@
             "collection": "automations",
             "slug": "automation-business-plan-assistant"
           },
-          "updatedAt": "2026-05-27 13:40:01"
+          "updatedAt": "2026-05-27 14:13:49"
         }
       ],
       "prompts": [
@@ -1571,7 +1571,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-27 13:40:01"
+          "updatedAt": "2026-05-27 14:13:49"
         }
       ]
     },
@@ -1601,7 +1601,7 @@
             "collection": "automations",
             "slug": "automation-social-content-draft-only"
           },
-          "updatedAt": "2026-05-27 13:40:01"
+          "updatedAt": "2026-05-27 14:13:49"
         }
       ],
       "prompts": [
@@ -1621,7 +1621,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-27 13:40:01"
+          "updatedAt": "2026-05-27 14:13:49"
         }
       ]
     },
@@ -1649,7 +1649,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-27 13:40:01"
+          "updatedAt": "2026-05-27 14:13:49"
         }
       ]
     }
