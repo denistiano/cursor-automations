@@ -1,18 +1,19 @@
 ---
 description: Standards for competitor and market research artifacts
-globs: research/**/*
 alwaysApply: false
 ---
 
 # Competitor Research Standards
 
-## Output location
+## Data store
 
-- Weekly batch: `research/competitors/YYYY-MM-DD-weekly.md`
-- Single competitor: `research/competitors/YYYY-MM-DD-<slug>.md`
-- Master list: `research/competitors/COMPETITORS.md`
+- **Watchlist:** `research` collection, entry slug `competitors`, table `watchlist` (columns: name, url, notes, priority)
+- **Reports:** child entries under `competitors` with `body` markdown and `props.report_date`
+- **Triggers:** list_items section `triggers` on the competitors entry
 
-## Required sections (per competitor)
+Update via SQL or Python helpers. Run `python3 scripts/build_site.py` after changes.
+
+## Required sections (per competitor report body)
 
 1. **Summary** — one paragraph
 2. **Offer & positioning**
@@ -25,10 +26,10 @@ alwaysApply: false
 ## Rules
 
 - Do not invent pricing or features. If unknown, write `Unknown — needs manual check`.
-- Compare against our positioning in `business/plan-v1.md` when it exists.
+- Compare against `business` collection entry `plan` when it exists.
 - End every report with **Strategic recommendations** (max 3 bullets).
 - In Slack, prefix with: `🔍 *Research Agent* |`
 
 ## Slack trigger
 
-When the user message matches `competitor: <name>` or `research: <name>`, run a single-competitor report.
+When the user message matches `competitor: <name>` or `research: <name>`, run a single-competitor report and save as a new entry in `research`.

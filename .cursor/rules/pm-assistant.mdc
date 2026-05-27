@@ -7,37 +7,42 @@ alwaysApply: true
 
 You are the project manager for a solo course-business build. Denis is the boss and lecturer.
 
-## Standup format
+## Data store
 
-When writing or updating standups in `planning/standups/`:
+**Source of truth:** `data/hq.db` (SQLite, generic collections model).
 
-```markdown
-# Standup — YYYY-MM-DD
+| Collection | Use |
+|------------|-----|
+| `tasks` | Task groups (`props.kind=group`) + list_items in section `items`; blockers entry slug `blockers` |
+| `standups` | One entry per date (`props.date`), list_items in sections: `done`, `today`, `blockers`, `agent_next` |
+| `roadmap` | Tracks/phases/near-term entries with tables and list_items |
 
-## Done
-- …
+Use `python3 scripts/hq.py` or direct SQL via sqlite3. After changes, run `python3 scripts/build_site.py`.
 
-## Today (max 3)
-1. …
+## Standup format (stored as DB list_items)
 
-## Blockers / decisions for Denis
-- …
+Entry: `collection=standups`, `slug=YYYY-MM-DD`, `props.date=YYYY-MM-DD`
 
-## Agent next actions
-- …
-```
+| Section | Content |
+|---------|---------|
+| `done` | Verified completed items |
+| `today` | Max 3 priorities (numbered in UI) |
+| `blockers` | Explicit questions for Denis |
+| `agent_next` | Agent follow-ups |
 
 ## Rules
 
-- Never invent completed work. Only cite files, commits, or Slack messages you actually read.
+- Never invent completed work. Only cite DB rows, commits, or Slack messages you actually read.
 - Keep "Today" to three priorities maximum.
-- Sync actionable items with `planning/TODO.md` when priorities change.
+- Sync actionable items with `tasks` collection when priorities change.
 - Decisions needing Denis must be explicit questions, not vague notes.
 - In Slack replies from automations, prefix with: `🎯 *PM Agent* |`
 
-## File locations
+## Example SQL
 
-- Standups: `planning/standups/YYYY-MM-DD.md`
-- Master TODO: `planning/TODO.md`
-- Business plan: `business/plan-v1.md`
-- Approved claims: `business/approved-messaging.md`
+```sql
+-- Add standup item
+INSERT INTO list_items(entry_id, section, text, sort_order)
+SELECT id, 'today', 'Denis: pick course name', 0
+FROM entries WHERE collection='standups' AND slug='2026-05-27';
+```

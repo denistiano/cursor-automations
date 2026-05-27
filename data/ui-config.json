@@ -1,0 +1,63 @@
+{
+  "nav": [
+    { "id": "overview", "label": "Overview", "icon": "home" },
+    { "id": "tasks", "collection": "tasks", "label": "Tasks", "icon": "check-square" },
+    { "id": "roadmap", "collection": "roadmap", "label": "Roadmap", "icon": "map" },
+    { "id": "standups", "collection": "standups", "label": "Standups", "icon": "calendar" },
+    { "id": "business", "collection": "business", "label": "Business", "icon": "briefcase" },
+    { "id": "office", "collection": "office", "label": "Office", "icon": "building" },
+    { "id": "research", "collection": "research", "label": "Research", "icon": "search" },
+    { "id": "jobs", "collection": "jobs", "label": "Jobs", "icon": "users" },
+    { "id": "names", "collection": "names", "label": "Course names", "icon": "tag" },
+    { "id": "automations", "collection": "automations", "label": "Automations", "icon": "zap" },
+    { "id": "social", "collection": "social", "label": "Social", "icon": "share" }
+  ],
+  "collections": {
+    "tasks": {
+      "layout": "checklist_groups",
+      "groupEntryKind": "group",
+      "listSections": ["items"],
+      "showBlockers": true,
+      "blockersEntrySlug": "blockers"
+    },
+    "roadmap": {
+      "layout": "roadmap",
+      "tracksEntrySlug": "tracks",
+      "phasesEntrySlug": "phases",
+      "nearTermEntrySlug": "near-term"
+    },
+    "standups": {
+      "layout": "timeline",
+      "dateField": "date",
+      "listSections": ["done", "today", "blockers", "agent_next"]
+    },
+    "business": {
+      "layout": "documents",
+      "primarySlugs": ["plan", "messaging"]
+    },
+    "office": {
+      "layout": "tracker",
+      "primarySlug": "plovdiv"
+    },
+    "research": {
+      "layout": "research",
+      "primarySlug": "competitors"
+    },
+    "jobs": {
+      "layout": "cards",
+      "showTables": ["publish_log"]
+    },
+    "names": {
+      "layout": "names",
+      "primarySlug": "options"
+    },
+    "automations": {
+      "layout": "automations",
+      "showBodyPreviewLines": 12
+    },
+    "social": {
+      "layout": "cards",
+      "statusField": "approved"
+    }
+  }
+}

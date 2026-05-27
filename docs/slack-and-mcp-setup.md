@@ -38,12 +38,11 @@ Open **Cursor Settings → MCP**. Connect (OAuth where prompted):
 
 ## Phase 4 — Automations (30 min)
 
-Create four automations at [cursor.com/automations/new](https://cursor.com/automations/new). Copy prompts from:
+Create four automations at [cursor.com/automations/new](https://cursor.com/automations/new). Copy prompts from the **`automations` collection** in `data/hq.db` (HQ dashboard → Automations tab), or query:
 
-- `docs/automations/01-morning-standup.md`
-- `docs/automations/02-competitor-research.md`
-- `docs/automations/03-business-plan.md`
-- `docs/automations/04-social-content.md`
+```bash
+python3 scripts/hq.py show automations
+```
 
 **Shared settings:**
 
@@ -54,17 +53,18 @@ Create four automations at [cursor.com/automations/new](https://cursor.com/autom
 
 ## Phase 5 — Seed data (10 min)
 
-1. Edit `research/competitors/COMPETITORS.md` — review/update seeded Bulgaria AI coding competitors
-2. Edit `business/approved-messaging.md` — title + one-liner
-3. Post `standup` in `#vibe-standup` to test Slack trigger (after automation exists)
+1. Review/update Bulgaria AI coding competitors in `research` collection watchlist (`data/hq.db`)
+2. Update `business/messaging` entry — one-liner still TBD
+3. Run `python3 scripts/build_site.py`
+4. Post `standup` in `#vibe-standup` to test Slack trigger (after automation exists)
 
 ## Verification
 
 - [ ] Cursor app in all `#vibe-*` channels
 - [ ] MCP Slack + Exa show green/connected in Settings
-- [ ] Morning automation ran once (check `planning/standups/`)
-- [ ] `competitor: test` in `#vibe-research` produced a file (or agent reply)
-- [ ] Social draft created with `approved: false`
+- [ ] Morning automation ran once (check `standups` collection / HQ dashboard)
+- [ ] `competitor: test` in `#vibe-research` produced a research entry (or agent reply)
+- [ ] Social draft created with `approved: false` in `social` collection
 
 ## Troubleshooting
 

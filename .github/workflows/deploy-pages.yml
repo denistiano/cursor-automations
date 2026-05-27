@@ -6,25 +6,17 @@ on:
       - master
     paths:
       - ".github/workflows/deploy-pages.yml"
-      - "scripts/build-site-data.js"
+      - "scripts/**"
+      - "data/**"
       - "web/**"
       - "README.md"
-      - "planning/**"
-      - "business/**"
-      - "research/**"
-      - "content/social/**"
-      - "docs/automations/**"
   pull_request:
     paths:
       - ".github/workflows/deploy-pages.yml"
-      - "scripts/build-site-data.js"
+      - "scripts/**"
+      - "data/**"
       - "web/**"
       - "README.md"
-      - "planning/**"
-      - "business/**"
-      - "research/**"
-      - "content/social/**"
-      - "docs/automations/**"
   workflow_dispatch:
 
 permissions:
@@ -44,12 +36,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
       - name: Configure GitHub Pages
         if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v5
 
-      - name: Generate structured dashboard data
-        run: node scripts/build-site-data.js
+      - name: Export dashboard JSON from SQLite
+        run: python3 scripts/build_site.py
 
       - name: Upload Pages artifact
         if: github.event_name != 'pull_request'

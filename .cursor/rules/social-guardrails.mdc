@@ -1,36 +1,36 @@
 ---
 description: Guardrails for social content drafts and automated posting
-globs: content/social/**/*
 alwaysApply: false
 ---
 
 # Social Guardrails
 
-## Draft-only default
+## Data store
 
-- Write drafts under `content/social/YYYY-MM-DD/` as markdown files.
-- **Never** call Buffer/Publora/LinkedIn MCP publish tools unless the source file has frontmatter `approved: true` set by Denis.
+Drafts live in `social` collection (`entries` with `body` + `props`):
 
-## Frontmatter (required for publishable posts)
-
-```yaml
----
-platform: linkedin | x | threads
-approved: false
-scheduled_at: null
-post_id: null
----
+```json
+{
+  "platform": "linkedin",
+  "approved": false,
+  "scheduled_at": null,
+  "post_id": null
+}
 ```
+
+**Never** call Buffer/Publora/LinkedIn MCP publish tools unless `props.approved` is `true` (set by Denis).
+
+Run `python3 scripts/build_site.py` after changes.
 
 ## Content rules
 
-- No pricing or launch dates unless copied from `business/approved-messaging.md`.
+- No pricing or launch dates unless copied from `business` entry `messaging`.
 - No competitor names in public posts unless Denis added them to the draft request.
 - Include alt text suggestions for any image placeholders.
 - In Slack, prefix with: `📣 *Social Agent* |`
 
 ## Publish flow
 
-1. Draft → commit to repo → Denis sets `approved: true`
-2. Separate automation or explicit instruction: "publish approved posts for YYYY-MM-DD"
-3. After publish, agent updates `post_id` and `scheduled_at` in the file
+1. Draft → insert into `social` collection → Denis sets `props.approved=true`
+2. Separate automation or explicit instruction: "publish approved posts"
+3. After publish, update `props.post_id` and `props.scheduled_at`
