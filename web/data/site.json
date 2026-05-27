@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generatedAt": "2026-05-27T05:21:24.217Z",
+    "generatedAt": "2026-05-27T05:22:24.061Z",
     "generator": "scripts/build-site-data.js",
-    "gitSha": "fb0692e575c887937d28bdd32e082500b3d0d3df",
+    "gitSha": "19b485ac2538c7cba5c93675fbd4d1be9e02166c",
     "sources": [
       "README.md",
       "planning/TODO.md",
