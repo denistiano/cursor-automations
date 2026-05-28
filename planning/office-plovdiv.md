@@ -8,9 +8,9 @@
 
 | Source | URL | Notes |
 |--------|-----|-------|
-| alo.bg search | https://www.alo.bg/searchq/?q=офис%20под%20наем%20пловdiv | Scraped weekly → `data/office-listings.json` |
-| alo.bg category | https://www.alo.bg/obiavi/imoti-naemi/magazini-ofisi/?location_ids=3333&region_id=16 | Filter by price in UI |
-| imot.bg | https://www.imot.bg/obiavi/prodazhbi-imoti/naemi/plovdiv/ofisi/ | Manual shortlist; sample 400 EUR / 50 m² center |
+| alo.bg search | https://www.alo.bg/searchq/?q=офис%20под%20наем%20пловдив | Scraped (all pages) → `data/office-listings.json` |
+| alo.bg category | https://www.alo.bg/obiavi/imoti-naemi/magazini-ofisi/?location_ids=3333&region_id=16 | Scraped (all pages) |
+| imot.bg | https://www.imot.bg/obiavi/naemi/grad-plovdiv/ofis | Scraped (all pages) |
 
 ## Agent output
 
