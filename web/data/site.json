@@ -1,14 +1,14 @@
 {
   "meta": {
-    "generatedAt": "2026-05-28T14:30:15.362199+00:00",
+    "generatedAt": "2026-05-28T15:14:35.184040+00:00",
     "generator": "scripts/build_site.py",
-    "gitSha": "08f555b67c9cf9707089b35f803134c427cbfac9",
+    "gitSha": "4c460437a587326e0d87844d9593d68b06bc534e",
     "schemaVersion": "1",
     "dataModel": "hq-sections-v3"
   },
   "project": {
     "title": "Vibe Coders Academy — Course Business HQ",
-    "description": "Central workspace for Vibe Coders Academy — course business planning, research, automations, and launch ops."
+    "description": "Central workspace for building a course program business from scratch: planning, business analysis, landing pages, automations, content, and project management."
   },
   "metrics": {
     "openActions": 10,
@@ -19,7 +19,7 @@
       "backlog": 3,
       "todo": 15,
       "in_progress": 4,
-      "done": 20
+      "done": 18
     }
   },
   "ui": {
@@ -162,7 +162,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 351
       },
-      "updatedAt": "2026-05-28 14:30:15"
+      "updatedAt": "2026-05-28 15:14:35"
     },
     {
       "id": 253,
@@ -184,7 +184,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 352
       },
-      "updatedAt": "2026-05-28 14:30:15"
+      "updatedAt": "2026-05-28 15:14:35"
     },
     {
       "id": 81,
@@ -205,7 +205,7 @@
         "collection": "automations",
         "slug": "automation-business-plan-assistant"
       },
-      "updatedAt": "2026-05-28 14:30:15"
+      "updatedAt": "2026-05-28 15:14:35"
     },
     {
       "id": 80,
@@ -226,7 +226,7 @@
         "collection": "automations",
         "slug": "automation-competitor-research"
       },
-      "updatedAt": "2026-05-28 14:30:15"
+      "updatedAt": "2026-05-28 15:14:35"
     },
     {
       "id": 79,
@@ -247,7 +247,7 @@
         "collection": "automations",
         "slug": "automation-morning-standup-prep"
       },
-      "updatedAt": "2026-05-28 14:30:15"
+      "updatedAt": "2026-05-28 15:14:35"
     },
     {
       "id": 82,
@@ -268,10 +268,10 @@
         "collection": "automations",
         "slug": "automation-social-content-draft-only"
       },
-      "updatedAt": "2026-05-28 14:30:15"
+      "updatedAt": "2026-05-28 15:14:35"
     },
     {
-      "id": 64,
+      "id": 430,
       "slug": "input-blocker-po-apply-method-publish-channels",
       "title": "PO apply method + publish channels",
       "kind": "input",
@@ -288,9 +288,9 @@
       "source": {
         "collection": "tasks",
         "slug": "blockers",
-        "listItemId": 353
+        "listItemId": 388
       },
-      "updatedAt": "2026-05-28 14:30:15"
+      "updatedAt": "2026-05-28 15:14:35"
     },
     {
       "id": 71,
@@ -312,7 +312,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 346
       },
-      "updatedAt": "2026-05-28 14:30:15"
+      "updatedAt": "2026-05-28 15:14:35"
     },
     {
       "id": 70,
@@ -334,7 +334,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 345
       },
-      "updatedAt": "2026-05-28 14:30:15"
+      "updatedAt": "2026-05-28 15:14:35"
     },
     {
       "id": 72,
@@ -356,7 +356,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 347
       },
-      "updatedAt": "2026-05-28 14:30:15"
+      "updatedAt": "2026-05-28 15:14:35"
     }
   ],
   "inboxBatch": {
@@ -385,7 +385,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 351
       },
-      "updatedAt": "2026-05-28 14:30:15"
+      "updatedAt": "2026-05-28 15:14:35"
     },
     {
       "id": 253,
@@ -407,7 +407,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 352
       },
-      "updatedAt": "2026-05-28 14:30:15"
+      "updatedAt": "2026-05-28 15:14:35"
     },
     {
       "id": 81,
@@ -428,7 +428,7 @@
         "collection": "automations",
         "slug": "automation-business-plan-assistant"
       },
-      "updatedAt": "2026-05-28 14:30:15"
+      "updatedAt": "2026-05-28 15:14:35"
     },
     {
       "id": 80,
@@ -449,7 +449,7 @@
         "collection": "automations",
         "slug": "automation-competitor-research"
       },
-      "updatedAt": "2026-05-28 14:30:15"
+      "updatedAt": "2026-05-28 15:14:35"
     },
     {
       "id": 79,
@@ -470,7 +470,7 @@
         "collection": "automations",
         "slug": "automation-morning-standup-prep"
       },
-      "updatedAt": "2026-05-28 14:30:15"
+      "updatedAt": "2026-05-28 15:14:35"
     },
     {
       "id": 82,
@@ -491,7 +491,7 @@
         "collection": "automations",
         "slug": "automation-social-content-draft-only"
       },
-      "updatedAt": "2026-05-28 14:30:15"
+      "updatedAt": "2026-05-28 15:14:35"
     },
     {
       "id": 61,
@@ -509,7 +509,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-28 14:30:15"
+      "updatedAt": "2026-05-28 15:14:35"
     },
     {
       "id": 63,
@@ -527,7 +527,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-28 14:30:15"
+      "updatedAt": "2026-05-28 15:14:35"
     },
     {
       "id": 59,
@@ -545,7 +545,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-28 14:30:15"
+      "updatedAt": "2026-05-28 15:14:35"
     },
     {
       "id": 60,
@@ -563,7 +563,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-28 14:30:15"
+      "updatedAt": "2026-05-28 15:14:35"
     },
     {
       "id": 62,
@@ -581,10 +581,10 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-28 14:30:15"
+      "updatedAt": "2026-05-28 15:14:35"
     },
     {
-      "id": 64,
+      "id": 430,
       "slug": "input-blocker-po-apply-method-publish-channels",
       "title": "PO apply method + publish channels",
       "kind": "input",
@@ -601,9 +601,9 @@
       "source": {
         "collection": "tasks",
         "slug": "blockers",
-        "listItemId": 353
+        "listItemId": 388
       },
-      "updatedAt": "2026-05-28 14:30:15"
+      "updatedAt": "2026-05-28 15:14:35"
     },
     {
       "id": 71,
@@ -625,7 +625,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 346
       },
-      "updatedAt": "2026-05-28 14:30:15"
+      "updatedAt": "2026-05-28 15:14:35"
     },
     {
       "id": 70,
@@ -647,7 +647,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 345
       },
-      "updatedAt": "2026-05-28 14:30:15"
+      "updatedAt": "2026-05-28 15:14:35"
     },
     {
       "id": 72,
@@ -669,7 +669,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 347
       },
-      "updatedAt": "2026-05-28 14:30:15"
+      "updatedAt": "2026-05-28 15:14:35"
     }
   ],
   "roles": {
@@ -700,7 +700,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 351
           },
-          "updatedAt": "2026-05-28 14:30:15"
+          "updatedAt": "2026-05-28 15:14:35"
         },
         {
           "id": 253,
@@ -722,7 +722,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 352
           },
-          "updatedAt": "2026-05-28 14:30:15"
+          "updatedAt": "2026-05-28 15:14:35"
         },
         {
           "id": 79,
@@ -743,10 +743,10 @@
             "collection": "automations",
             "slug": "automation-morning-standup-prep"
           },
-          "updatedAt": "2026-05-28 14:30:15"
+          "updatedAt": "2026-05-28 15:14:35"
         },
         {
-          "id": 64,
+          "id": 430,
           "slug": "input-blocker-po-apply-method-publish-channels",
           "title": "PO apply method + publish channels",
           "kind": "input",
@@ -763,9 +763,9 @@
           "source": {
             "collection": "tasks",
             "slug": "blockers",
-            "listItemId": 353
+            "listItemId": 388
           },
-          "updatedAt": "2026-05-28 14:30:15"
+          "updatedAt": "2026-05-28 15:14:35"
         },
         {
           "id": 71,
@@ -787,7 +787,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 346
           },
-          "updatedAt": "2026-05-28 14:30:15"
+          "updatedAt": "2026-05-28 15:14:35"
         },
         {
           "id": 70,
@@ -809,7 +809,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 345
           },
-          "updatedAt": "2026-05-28 14:30:15"
+          "updatedAt": "2026-05-28 15:14:35"
         },
         {
           "id": 72,
@@ -831,7 +831,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 347
           },
-          "updatedAt": "2026-05-28 14:30:15"
+          "updatedAt": "2026-05-28 15:14:35"
         }
       ],
       "prompts": [
@@ -851,7 +851,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-28 14:30:15"
+          "updatedAt": "2026-05-28 15:14:35"
         }
       ]
     },
@@ -881,7 +881,7 @@
             "collection": "automations",
             "slug": "automation-competitor-research"
           },
-          "updatedAt": "2026-05-28 14:30:15"
+          "updatedAt": "2026-05-28 15:14:35"
         }
       ],
       "prompts": [
@@ -901,7 +901,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-28 14:30:15"
+          "updatedAt": "2026-05-28 15:14:35"
         }
       ]
     },
@@ -931,7 +931,7 @@
             "collection": "automations",
             "slug": "automation-business-plan-assistant"
           },
-          "updatedAt": "2026-05-28 14:30:15"
+          "updatedAt": "2026-05-28 15:14:35"
         }
       ],
       "prompts": [
@@ -951,7 +951,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-28 14:30:15"
+          "updatedAt": "2026-05-28 15:14:35"
         }
       ]
     },
@@ -981,7 +981,7 @@
             "collection": "automations",
             "slug": "automation-social-content-draft-only"
           },
-          "updatedAt": "2026-05-28 14:30:15"
+          "updatedAt": "2026-05-28 15:14:35"
         }
       ],
       "prompts": [
@@ -1001,7 +1001,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-28 14:30:15"
+          "updatedAt": "2026-05-28 15:14:35"
         }
       ]
     },
@@ -1029,7 +1029,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-28 14:30:15"
+          "updatedAt": "2026-05-28 15:14:35"
         }
       ]
     }
@@ -1041,33 +1041,11 @@
       "slug": "competitors",
       "title": "Competitor watchlist",
       "status": null,
-      "body": "# Competitor watchlist\n\nAdd competitors Denis wants tracked. Automations and agents read this list.\n\n| Name | URL | Notes | Priority |\n|------|-----|-------|----------|\n| SoftUni AI / SoftUni | https://ai.softuni.bg/ | Direct competitor: AI-first programming, vibe coding, AI-assisted development, AI agents/workflows; largest local education brand. | high |\n| SoftUni Vibe Coding Fundamentals | https://softuni.bg/modules/155/vibe-coding-fundamentals-january-2026/1615 | Direct offer for beginners and operators building web apps with AI, TypeScript/React/Tailwind/Supabase/Netlify. | high |\n| SoftUni AI-Assisted Development | https://ai.softuni.bg/trainings/189/ai-assisted-development-january-2026 | Direct developer offer covering Copilot, Cursor, Claude Code, Augment Code, validation workflows, PRs. | high |\n| SoftUni AI Agents and Workflows for Developers | https://softuni.bg/trainings/5350/ai-agents-and-worfklows-for-developers-august-2026 | Direct agentic coding/workflows offer covering n8n, LangChain, LangGraph, HITL, observability. | high |\n| Telerik Academy — GenAI for Developers | https://www.telerikacademy.com/sprint/genai-for-developers | Adjacent pro-developer GenAI course; strong brand, certificate, business case positioning. | high |\n| NobleProg Bulgaria — GitHub Copilot | https://www.nobleprog.bg/en/github-copilot-training | Corporate/onsite AI coding training; Copilot course catalog and scheduled Bulgaria sessions. | high |\n| NobleProg Bulgaria — Cursor workflows | https://www.nobleprog.bg/cc/cursor1 | Direct Cursor/agent workflow training for developers and engineering managers. | high |\n| IT STEP Computer Academy Bulgaria | https://itstep.bg/python-programming-course | Python + AI / ML and web-development academy; longer career-transition pathway. | medium |\n| Advance Academy AI | https://ai.advanceacademy.bg/ai | Bulgarian AI Basics / AI Specialist / business/content AI programs; broader beginner audience. | medium |\n| Aula.bg AI / ChatGPT | https://aula.bg/kurs-chatgpt | Bulgarian online AI productivity and ChatGPT courses; not coding-first but competes for AI upskilling budget. | medium |\n| New Horizons Bulgaria | https://newhorizons.bg/course-outline/course/ai-3025-work-smarter-with-ai | Corporate Microsoft Copilot / AI productivity training; adjacent B2B budget competitor. | low |\n\nLatest market scan: `research/competitors/2026-05-27-bulgaria-ai-coding-market.md`.\n\n## How to trigger research\n\n- **Slack** (`#vibe-research`): `competitor: {name}` or `research: {name}`\n- **Cursor chat:** \"Research competitor X and save to research/competitors/\"\n- **Weekly automation:** scans this table (see `docs/automations/02-competitor-research.md`)\n",
+      "body": "",
       "props": {},
       "sortOrder": 0,
-      "updatedAt": "2026-05-27 13:09:38",
-      "listItems": [
-        {
-          "entryId": 23,
-          "section": "triggers",
-          "text": "Slack (#vibe-research): competitor: {name} or research: {name}",
-          "done": false,
-          "meta": {}
-        },
-        {
-          "entryId": 23,
-          "section": "triggers",
-          "text": "Cursor chat: \"Research competitor X and save to research/competitors/\"",
-          "done": false,
-          "meta": {}
-        },
-        {
-          "entryId": 23,
-          "section": "triggers",
-          "text": "Weekly automation: scans this table (see docs/automations/02-competitor-research.md)",
-          "done": false,
-          "meta": {}
-        }
-      ],
+      "updatedAt": "2026-05-28 15:13:38",
+      "listItems": [],
       "tables": [
         {
           "name": "watchlist",
@@ -1077,92 +1055,7 @@
             "notes",
             "priority"
           ],
-          "rows": [
-            {
-              "name": "SoftUni AI / SoftUni",
-              "url": "https://ai.softuni.bg/",
-              "notes": "Direct competitor: AI-first programming, vibe coding, AI-assisted development, AI agents/workflows; largest local education brand.",
-              "priority": "high"
-            },
-            {
-              "name": "SoftUni Vibe Coding Fundamentals",
-              "url": "https://softuni.bg/modules/155/vibe-coding-fundamentals-january-2026/1615",
-              "notes": "Direct offer for beginners and operators building web apps with AI, TypeScript/React/Tailwind/Supabase/Netlify.",
-              "priority": "high"
-            },
-            {
-              "name": "SoftUni AI-Assisted Development",
-              "url": "https://ai.softuni.bg/trainings/189/ai-assisted-development-january-2026",
-              "notes": "Direct developer offer covering Copilot, Cursor, Claude Code, Augment Code, validation workflows, PRs.",
-              "priority": "high"
-            },
-            {
-              "name": "SoftUni AI Agents and Workflows for Developers",
-              "url": "https://softuni.bg/trainings/5350/ai-agents-and-worfklows-for-developers-august-2026",
-              "notes": "Direct agentic coding/workflows offer covering n8n, LangChain, LangGraph, HITL, observability.",
-              "priority": "high"
-            },
-            {
-              "name": "Telerik Academy — GenAI for Developers",
-              "url": "https://www.telerikacademy.com/sprint/genai-for-developers",
-              "notes": "Adjacent pro-developer GenAI course; strong brand, certificate, business case positioning.",
-              "priority": "high"
-            },
-            {
-              "name": "NobleProg Bulgaria — GitHub Copilot",
-              "url": "https://www.nobleprog.bg/en/github-copilot-training",
-              "notes": "Corporate/onsite AI coding training; Copilot course catalog and scheduled Bulgaria sessions.",
-              "priority": "high"
-            },
-            {
-              "name": "NobleProg Bulgaria — Cursor workflows",
-              "url": "https://www.nobleprog.bg/cc/cursor1",
-              "notes": "Direct Cursor/agent workflow training for developers and engineering managers.",
-              "priority": "high"
-            },
-            {
-              "name": "IT STEP Computer Academy Bulgaria",
-              "url": "https://itstep.bg/python-programming-course",
-              "notes": "Python + AI / ML and web-development academy; longer career-transition pathway.",
-              "priority": "medium"
-            },
-            {
-              "name": "Advance Academy AI",
-              "url": "https://ai.advanceacademy.bg/ai",
-              "notes": "Bulgarian AI Basics / AI Specialist / business/content AI programs; broader beginner audience.",
-              "priority": "medium"
-            },
-            {
-              "name": "Aula.bg AI / ChatGPT",
-              "url": "https://aula.bg/kurs-chatgpt",
-              "notes": "Bulgarian online AI productivity and ChatGPT courses; not coding-first but competes for AI upskilling budget.",
-              "priority": "medium"
-            },
-            {
-              "name": "New Horizons Bulgaria",
-              "url": "https://newhorizons.bg/course-outline/course/ai-3025-work-smarter-with-ai",
-              "notes": "Corporate Microsoft Copilot / AI productivity training; adjacent B2B budget competitor.",
-              "priority": "low"
-            },
-            {
-              "name": "IT STEP Plovdiv — Software development",
-              "url": "https://plovdiv.itstep.org/razrabotka-na-softuer",
-              "notes": "Plovdiv campus; 2-year diploma incl. Python AI; offline/online.",
-              "priority": "high"
-            },
-            {
-              "name": "Plovdiv University — AI (bachelor)",
-              "url": "https://uni-plovdiv.bg/pages/index/2987/",
-              "notes": "Degree program; academic AI/ML — adjacent, long cycle.",
-              "priority": "medium"
-            },
-            {
-              "name": "GIKN Plovdiv — Programming for AI (high school)",
-              "url": "https://gikn.eu/priem/",
-              "notes": "Teen pipeline in Plovdiv; not pro developer upskill.",
-              "priority": "low"
-            }
-          ]
+          "rows": []
         }
       ]
     },
@@ -1175,7 +1068,7 @@
       "body": "",
       "props": {},
       "sortOrder": 1,
-      "updatedAt": "2026-05-27 13:09:38",
+      "updatedAt": "2026-05-28 15:13:38",
       "listItems": [],
       "tables": [
         {
@@ -1186,86 +1079,7 @@
             "denis",
             "pm"
           ],
-          "rows": [
-            {
-              "track_num": null,
-              "topic": "Office in Plovdiv",
-              "denis": "Visits, lease, budget sign-off",
-              "pm": "Search criteria doc; listing shortlist; comparison table"
-            },
-            {
-              "track_num": null,
-              "topic": "PO position — publish",
-              "denis": "Final JD text; pick boards/channels; hit Publish",
-              "pm": "Format JD for web + social; publish checklist; draft announcement posts (needs JD file in repo)"
-            },
-            {
-              "track_num": null,
-              "topic": "Course name",
-              "denis": "Done: Vibe Coders Academy",
-              "pm": "Keep business/approved-messaging.md synced; brand/domain checks"
-            },
-            {
-              "track_num": null,
-              "topic": "Social pages",
-              "denis": "Create accounts (LinkedIn, FB, IG, etc.); verify",
-              "pm": "Bios, cover copy, first-post pack (draft)"
-            },
-            {
-              "track_num": null,
-              "topic": "Design — logos, flyers, posters",
-              "denis": "Brand direction, final approval, print/vendor",
-              "pm": "Creative brief; layout copy; template specs in content/brand/"
-            },
-            {
-              "track_num": null,
-              "topic": "Landing page",
-              "denis": "Copy + offer approval",
-              "pm": "Build web/; wire early bird when approved"
-            },
-            {
-              "track_num": null,
-              "topic": "Our job ad on website",
-              "denis": "PO text + apply method (email/form)",
-              "pm": "Careers page + SEO; link from landing"
-            },
-            {
-              "track_num": null,
-              "topic": "Presentation",
-              "denis": "Narrative sign-off; present/record if live",
-              "pm": "Deck outline + slide content in content/presentation/"
-            },
-            {
-              "track_num": null,
-              "topic": "Social posts from presentation",
-              "denis": "Approve which slides become posts",
-              "pm": "Repurpose plan + draft posts in content/social/"
-            },
-            {
-              "track_num": null,
-              "topic": "Syllabus",
-              "denis": "Module priorities, depth, what you teach live",
-              "pm": "Draft content/syllabus-v1.md from business/plan-v1.md"
-            },
-            {
-              "track_num": null,
-              "topic": "Early bird on website",
-              "denis": "Price, dates, capacity, legal wording",
-              "pm": "Implement section on landing; sync approved-messaging.md"
-            },
-            {
-              "track_num": null,
-              "topic": "Video presentation",
-              "denis": "Record on camera; final cut approval",
-              "pm": "Script, storyboard, B-roll list in content/video/"
-            },
-            {
-              "track_num": null,
-              "topic": "Short clips for social",
-              "denis": "Approve clips",
-              "pm": "Cut list + captions from #12 master video"
-            }
-          ]
+          "rows": []
         }
       ]
     },
@@ -1275,55 +1089,19 @@
       "slug": "messaging",
       "title": "Approved messaging",
       "status": null,
-      "body": "# Approved messaging\n\nOnly claims listed here may appear in social posts, landing copy, or automations.\n\n## Course (fill in with Denis)\n\n- **Working title:** Vibe Coders Academy\n- **One-liner:** Стани част от AI революцията\n- **Sub-one-liner:** Бъдещето е сега\n- **Who it's for:** Developers using Cursor to ship real projects\n- **Planned domain:** `vibe-coders.academy` — domain purchased; landing page not live yet\n\n## Pricing & launch\n\n| Item | Approved text | Status |\n|------|---------------|--------|\n| Price | _Not approved yet_ | draft |\n| Launch date | _Not approved yet_ | draft |\n| Waitlist URL | _Not approved yet_ | draft |\n| Public domain | `vibe-coders.academy` — domain purchased; landing page not live yet | draft |\n\n## Claims we allow\n\n- Teaching Cursor, MCP, and automations for real workflows\n- Solo-founder / practitioner perspective\n\n## Claims we do NOT allow (until approved)\n\n- Income guarantees\n- Job placement\n- \"Best\" or \"#1\" without source\n",
+      "body": "",
       "props": {
         "course": {
           "working-title": "Vibe Coders Academy",
           "one-liner": "Стани част от AI революцията",
+          "sub-one-liner": "Бъдещето е сега",
           "who-it-s-for": "Developers using Cursor to ship real projects",
-          "planned-domain": "vibe-coders.academy — registered; landing page TODO (Denis)",
-          "sub-one-liner": "Бъдещето е сега"
+          "planned-domain": "vibe-coders.academy — registered; landing page TODO (Denis)"
         }
       },
       "sortOrder": 0,
-      "updatedAt": "2026-05-28 11:47:17",
-      "listItems": [
-        {
-          "entryId": 21,
-          "section": "allowed_claims",
-          "text": "Teaching Cursor, MCP, and automations for real workflows",
-          "done": false,
-          "meta": {}
-        },
-        {
-          "entryId": 21,
-          "section": "allowed_claims",
-          "text": "Solo-founder / practitioner perspective",
-          "done": false,
-          "meta": {}
-        },
-        {
-          "entryId": 21,
-          "section": "disallowed_claims",
-          "text": "Income guarantees",
-          "done": false,
-          "meta": {}
-        },
-        {
-          "entryId": 21,
-          "section": "disallowed_claims",
-          "text": "Job placement",
-          "done": false,
-          "meta": {}
-        },
-        {
-          "entryId": 21,
-          "section": "disallowed_claims",
-          "text": "\"Best\" or \"#1\" without source",
-          "done": false,
-          "meta": {}
-        }
-      ]
+      "updatedAt": "2026-05-28 15:14:35",
+      "listItems": []
     }
   },
   "tasks": {
@@ -1728,38 +1506,13 @@
               }
             }
           ],
-          "done": [
-            {
-              "id": null,
-              "text": "One-liner TBD in approved-messaging.md",
-              "done": true,
-              "column": "done",
-              "owner": "Denis",
-              "meta": {
-                "owner": "Denis",
-                "inbox_status": "done",
-                "reply": "Стани част от AI революцията | sub: Бъдещето е сега"
-              }
-            },
-            {
-              "id": null,
-              "text": "Plovdiv IT/AI courses landscape scan (expand beyond SoftUni)",
-              "done": true,
-              "column": "done",
-              "owner": "Research agent → report in research/",
-              "meta": {
-                "owner": "Research agent → report in research/",
-                "inbox_status": "done",
-                "reply": "Report: research/2026-05-28-plovdiv-it-ai-landscape"
-              }
-            }
-          ]
+          "done": []
         },
         "counts": {
           "backlog": 0,
           "todo": 0,
           "in_progress": 1,
-          "done": 2
+          "done": 0
         }
       },
       {
@@ -1785,7 +1538,7 @@
       "backlog": 3,
       "todo": 15,
       "in_progress": 4,
-      "done": 20
+      "done": 18
     }
   },
   "planning": {
@@ -1795,13 +1548,13 @@
       "slug": "overview",
       "title": "Roadmap overview",
       "status": null,
-      "body": "# Roadmap — Vibe Coders Academy course business\n\n**Horizon:** Multi-week path (not a single-day sprint)  \n**Updated:** 2026-05-27 — course name selected; `vibe-coders.academy` planned but not active yet.",
+      "body": "",
       "props": {
         "horizon": "Multi-week path",
         "updated": "2026-05-26"
       },
       "sortOrder": 0,
-      "updatedAt": "2026-05-27 13:09:38",
+      "updatedAt": "2026-05-28 15:13:38",
       "listItems": []
     },
     "tracks": {
@@ -1813,7 +1566,7 @@
       "body": "",
       "props": {},
       "sortOrder": 1,
-      "updatedAt": "2026-05-27 13:09:38",
+      "updatedAt": "2026-05-28 15:13:38",
       "listItems": [],
       "tables": [
         {
@@ -1824,86 +1577,7 @@
             "denis",
             "pm"
           ],
-          "rows": [
-            {
-              "track_num": null,
-              "topic": "Office in Plovdiv",
-              "denis": "Visits, lease, budget sign-off",
-              "pm": "Search criteria doc; listing shortlist; comparison table"
-            },
-            {
-              "track_num": null,
-              "topic": "PO position — publish",
-              "denis": "Final JD text; pick boards/channels; hit Publish",
-              "pm": "Format JD for web + social; publish checklist; draft announcement posts (needs JD file in repo)"
-            },
-            {
-              "track_num": null,
-              "topic": "Course name",
-              "denis": "Done: Vibe Coders Academy",
-              "pm": "Keep business/approved-messaging.md synced; brand/domain checks"
-            },
-            {
-              "track_num": null,
-              "topic": "Social pages",
-              "denis": "Create accounts (LinkedIn, FB, IG, etc.); verify",
-              "pm": "Bios, cover copy, first-post pack (draft)"
-            },
-            {
-              "track_num": null,
-              "topic": "Design — logos, flyers, posters",
-              "denis": "Brand direction, final approval, print/vendor",
-              "pm": "Creative brief; layout copy; template specs in content/brand/"
-            },
-            {
-              "track_num": null,
-              "topic": "Landing page",
-              "denis": "Copy + offer approval",
-              "pm": "Build web/; wire early bird when approved"
-            },
-            {
-              "track_num": null,
-              "topic": "Our job ad on website",
-              "denis": "PO text + apply method (email/form)",
-              "pm": "Careers page + SEO; link from landing"
-            },
-            {
-              "track_num": null,
-              "topic": "Presentation",
-              "denis": "Narrative sign-off; present/record if live",
-              "pm": "Deck outline + slide content in content/presentation/"
-            },
-            {
-              "track_num": null,
-              "topic": "Social posts from presentation",
-              "denis": "Approve which slides become posts",
-              "pm": "Repurpose plan + draft posts in content/social/"
-            },
-            {
-              "track_num": null,
-              "topic": "Syllabus",
-              "denis": "Module priorities, depth, what you teach live",
-              "pm": "Draft content/syllabus-v1.md from business/plan-v1.md"
-            },
-            {
-              "track_num": null,
-              "topic": "Early bird on website",
-              "denis": "Price, dates, capacity, legal wording",
-              "pm": "Implement section on landing; sync approved-messaging.md"
-            },
-            {
-              "track_num": null,
-              "topic": "Video presentation",
-              "denis": "Record on camera; final cut approval",
-              "pm": "Script, storyboard, B-roll list in content/video/"
-            },
-            {
-              "track_num": null,
-              "topic": "Short clips for social",
-              "denis": "Approve clips",
-              "pm": "Cut list + captions from #12 master video"
-            }
-          ]
+          "rows": []
         }
       ]
     },
@@ -1916,7 +1590,7 @@
       "body": "",
       "props": {},
       "sortOrder": 2,
-      "updatedAt": "2026-05-27 13:09:38",
+      "updatedAt": "2026-05-28 15:13:38",
       "listItems": [],
       "tables": [
         {
@@ -1926,33 +1600,7 @@
             "focus",
             "unlocks"
           ],
-          "rows": [
-            {
-              "phase": "A — Identity",
-              "focus": "#3 Name, #5 design direction",
-              "unlocks": "Everything customer-facing"
-            },
-            {
-              "phase": "B — Story",
-              "focus": "#8 Presentation, #10 Syllabus",
-              "unlocks": "#9, #12, #13 content"
-            },
-            {
-              "phase": "C — Web",
-              "focus": "#6 Landing, #11 Early bird, #7 Job page",
-              "unlocks": "#2 PO announcement, #4 social links"
-            },
-            {
-              "phase": "D — Distribution",
-              "focus": "#4 Social pages, #9 #13 social content",
-              "unlocks": "Audience + waitlist"
-            },
-            {
-              "phase": "E — Ops",
-              "focus": "#1 Office, #2 PO publish",
-              "unlocks": "Parallel; not blocking course launch"
-            }
-          ]
+          "rows": []
         }
       ]
     },
@@ -1965,58 +1613,8 @@
       "body": "",
       "props": {},
       "sortOrder": 3,
-      "updatedAt": "2026-05-27 13:09:38",
-      "listItems": [
-        {
-          "entryId": 8,
-          "section": "items",
-          "text": "#6 — Denis/Agent: activate or point vibe-coders.academy when DNS/hosting is ready",
-          "done": false,
-          "meta": {}
-        },
-        {
-          "entryId": 8,
-          "section": "items",
-          "text": "#2 — Denis: confirm whether to proceed with PO/JD publishing or keep paused while competitor research runs",
-          "done": false,
-          "meta": {}
-        },
-        {
-          "entryId": 8,
-          "section": "items",
-          "text": "#5 — Agent: creative brief + folder structure for brand assets",
-          "done": false,
-          "meta": {}
-        },
-        {
-          "entryId": 8,
-          "section": "items",
-          "text": "#10 — Agent: syllabus v1 draft using Vibe Coders Academy positioning",
-          "done": false,
-          "meta": {}
-        },
-        {
-          "entryId": 8,
-          "section": "items",
-          "text": "#8 — Agent: presentation outline after syllabus skeleton",
-          "done": false,
-          "meta": {}
-        },
-        {
-          "entryId": 8,
-          "section": "items",
-          "text": "#vibe-inbox, MCP Exa, automations 02–04 — when Denis wants agent research/drafts at scale",
-          "done": false,
-          "meta": {}
-        },
-        {
-          "entryId": 8,
-          "section": "items",
-          "text": "research/competitors/COMPETITORS.md — now seeded with Bulgaria AI coding / vibe coding / agentic coding competitors",
-          "done": false,
-          "meta": {}
-        }
-      ]
+      "updatedAt": "2026-05-28 15:13:38",
+      "listItems": []
     },
     "office": {
       "id": 22,
@@ -2024,10 +1622,10 @@
       "slug": "plovdiv",
       "title": "Office search — Plovdiv",
       "status": null,
-      "body": "",
+      "body": "# Office Plovdiv — search brief\n\n**Budget:** under **800 EUR / month** (incl. VAT assumptions TBD per listing)  \n**City:** Plovdiv  \n**Use:** small team / studio + occasional meetings  \n\n## Sources (automated + manual)\n\n| Source | URL | Notes |\n|--------|-----|-------|\n| alo.bg search | https://www.alo.bg/searchq/?q=офис%20под%20наем%20пловдив | Scraped (all pages) → `data/office-listings.json` |\n| alo.bg category | https://www.alo.bg/obiavi/imoti-naemi/magazini-ofisi/?location_ids=3333&region_id=16 | Scraped (all pages) |\n| imot.bg | https://www.imot.bg/obiavi/naemi/grad-plovdiv/ofis | Scraped (all pages) |\n\n## Agent output\n\n- GitHub Action: `.github/workflows/office-listings.yml` (Mondays 06:00 UTC)\n- Run locally: `python3 scripts/fetch_office_listings.py`\n\n## Denis next steps\n\n1. Review `data/office-listings.json` after each run.\n2. Shortlist 3–5 for visits (Kapana, center, Dondukov garden area).\n3. Confirm deposit / VAT / fit-out before signing.\n\n_Last updated: 2026-05-28 (batched inbox)_\n",
       "props": {},
       "sortOrder": 0,
-      "updatedAt": "2026-05-27 13:09:38",
+      "updatedAt": "2026-05-28 15:13:38",
       "listItems": []
     },
     "officeBrief": "# Office Plovdiv — search brief\n\n**Budget:** under **800 EUR / month** (incl. VAT assumptions TBD per listing)  \n**City:** Plovdiv  \n**Use:** small team / studio + occasional meetings  \n\n## Sources (automated + manual)\n\n| Source | URL | Notes |\n|--------|-----|-------|\n| alo.bg search | https://www.alo.bg/searchq/?q=офис%20под%20наем%20пловдив | Scraped (all pages) → `data/office-listings.json` |\n| alo.bg category | https://www.alo.bg/obiavi/imoti-naemi/magazini-ofisi/?location_ids=3333&region_id=16 | Scraped (all pages) |\n| imot.bg | https://www.imot.bg/obiavi/naemi/grad-plovdiv/ofis | Scraped (all pages) |\n\n## Agent output\n\n- GitHub Action: `.github/workflows/office-listings.yml` (Mondays 06:00 UTC)\n- Run locally: `python3 scripts/fetch_office_listings.py`\n\n## Denis next steps\n\n1. Review `data/office-listings.json` after each run.\n2. Shortlist 3–5 for visits (Kapana, center, Dondukov garden area).\n3. Confirm deposit / VAT / fit-out before signing.\n\n_Last updated: 2026-05-28 (batched inbox)_\n",
@@ -2039,23 +1637,15 @@
       ],
       "rows": [
         {
-          "field": "Areas / neighborhoods",
+          "field": "",
           "value": ""
         },
         {
-          "field": "Monthly budget (BGN/EUR)",
+          "field": "",
           "value": ""
         },
         {
-          "field": "Size (m²) / desks",
-          "value": ""
-        },
-        {
-          "field": "Move-in date",
-          "value": ""
-        },
-        {
-          "field": "Must-haves (parking, fiber, meeting room)",
+          "field": "",
           "value": ""
         }
       ]
@@ -2069,7 +1659,29 @@
         "notes",
         "visit"
       ],
-      "rows": []
+      "rows": [
+        {
+          "num": "",
+          "address": "",
+          "rent": "",
+          "notes": "Scraped (all pages) → data/office-listings.json",
+          "visit": ""
+        },
+        {
+          "num": "",
+          "address": "",
+          "rent": "",
+          "notes": "Scraped (all pages)",
+          "visit": ""
+        },
+        {
+          "num": "",
+          "address": "",
+          "rent": "",
+          "notes": "Scraped (all pages)",
+          "visit": ""
+        }
+      ]
     },
     "officeListings": {
       "generatedAt": "2026-05-28T14:30:03.267834+00:00",
@@ -9010,28 +8622,25 @@
         "title": "Standup — 2026-05-28",
         "sections": {
           "agent_next": [
-            "After one-liner → presentation outline (content/presentation entry)",
+            "Unblocked: Presentation outline + slide copy (content/presentation/) — one-liner approved",
             "After PO channels → careers page copy + LinkedIn announcement draft",
-            "After brand OK → flyer/poster templates",
+            "Office: keep planning/office-plovdiv.md brief aligned with Denis budget (<800 EUR) filters",
             "Morning cron: competitor research + business plan automations ready when Denis approves in HQ Inbox"
           ],
           "blockers": [
-            "One-liner: Approved tagline for Vibe Coders Academy? → HQ Inbox input-one-liner",
-            "PO apply: How candidates apply + where to publish first → input-blocker-po-apply-method-publish-channels",
-            "Early bird: Price, end date, max seats, legal line",
-            "Brand: Colors, logo direction — DIY + agent drafts vs hire a designer?",
-            "Domain: vibe-coders.academy — register/activate DNS when?",
-            "Positioning vs SoftUni: Differentiation angle before public copy (Bulgaria competitor scan in hq.db)"
+            "PO apply: How candidates apply + where to publish first → HQ Inbox input-blocker-po-apply-method-publish-channels"
           ],
           "done": [
-            "Actions inbox (PR #8): sync_actions.py maps blockers → input, Denis tasks → input, automations → approve; role prompts in HQ Inbox",
-            "Standup seed fix: seedfrommd keeps Today items when markdown uses today-max-3 heading",
-            "Developer agent: role prompt + automation now target #vibe-code (was generic inbox)"
+            "One-liner approved: Стани част от AI революцията (+ sub-one-liner) in hq.db business/messaging",
+            "Plovdiv IT/AI landscape: research/2026-05-28-plovdiv-it-ai-landscape (watchlist expansion)",
+            "Office listings: 689 Plovdiv offices scraped (alo.bg + imot.bg, paginated) — PR #13 merged",
+            "HQ dashboard: simplified nav, office search UI — PR #12 merged",
+            "Actions inbox (PR #8): sync_actions.py maps blockers → input, Denis tasks → input, automations → approve"
           ],
           "today": [
-            "Denis: Approve one-liner in hq.db business/messaging (TBD — blocks landing, social, syllabus polish)",
-            "Denis: PO apply method + first publish channel (email / form / LinkedIn Easy Apply)",
-            "Denis: Early bird terms OR brand direction (unblocks pricing copy + visual assets)"
+            "Denis: PO apply method + first publish channel (email / form / LinkedIn Easy Apply) — in progress",
+            "Denis: #1 Office Plovdiv — budget/area constraints; visit shortlist (689 listings in HQ)",
+            "Denis: Landing page on vibe-coders.academy OR presentation document (domain registered)"
           ]
         }
       },
@@ -9147,8 +8756,8 @@
         "slug": "competitors",
         "title": "Competitor watchlist",
         "props": {},
-        "excerpt": "# Competitor watchlist\n\nAdd competitors Denis wants tracked. Automations and agents read this list.\n\n| Name | URL | Notes | Priority |\n|------|-----|-------|----------|\n| SoftUni AI / SoftUni | https://ai.softuni.bg/ | Direct competitor: AI-first programming, vibe coding, AI-assisted development, AI agents/workflows; largest local education brand. | high |\n| SoftUni Vibe Coding Fundamentals | https://softuni.bg/modules/155/vibe-coding-fundamentals-january-2026/1615 | Direct offer for beginners and operators building web apps with AI, TypeScript/React/Tailwind/Supabase/Netlify. | high |\n| SoftUni AI-Assisted Development | https://ai.softuni.bg/trainings/189/ai-assisted-development-january-2026 | Direct developer offer covering Copilot, Cursor, Claude Code, Augment Code, validation workflows, PRs. | high |\n| SoftUni AI Agents and Workflows for Developers | https://softuni.bg/trainings/5350/ai-agents-and-worfklows-for-developers-august-2026 | Direct agentic coding/workflows offer covering n8n, LangChain, LangGraph, HITL, observability. | high |\n| Telerik Academy — GenAI for Developers | https://www.telerikacademy.com/sprint/genai-for-developers | Adjacent pro-developer GenAI course; s…",
-        "bodyLength": 2698,
+        "excerpt": "",
+        "bodyLength": 0,
         "tables": [
           {
             "name": "watchlist",
@@ -9158,92 +8767,7 @@
               "notes",
               "priority"
             ],
-            "rows": [
-              {
-                "name": "SoftUni AI / SoftUni",
-                "url": "https://ai.softuni.bg/",
-                "notes": "Direct competitor: AI-first programming, vibe coding, AI-assisted development, AI agents/workflows; largest local education brand.",
-                "priority": "high"
-              },
-              {
-                "name": "SoftUni Vibe Coding Fundamentals",
-                "url": "https://softuni.bg/modules/155/vibe-coding-fundamentals-january-2026/1615",
-                "notes": "Direct offer for beginners and operators building web apps with AI, TypeScript/React/Tailwind/Supabase/Netlify.",
-                "priority": "high"
-              },
-              {
-                "name": "SoftUni AI-Assisted Development",
-                "url": "https://ai.softuni.bg/trainings/189/ai-assisted-development-january-2026",
-                "notes": "Direct developer offer covering Copilot, Cursor, Claude Code, Augment Code, validation workflows, PRs.",
-                "priority": "high"
-              },
-              {
-                "name": "SoftUni AI Agents and Workflows for Developers",
-                "url": "https://softuni.bg/trainings/5350/ai-agents-and-worfklows-for-developers-august-2026",
-                "notes": "Direct agentic coding/workflows offer covering n8n, LangChain, LangGraph, HITL, observability.",
-                "priority": "high"
-              },
-              {
-                "name": "Telerik Academy — GenAI for Developers",
-                "url": "https://www.telerikacademy.com/sprint/genai-for-developers",
-                "notes": "Adjacent pro-developer GenAI course; strong brand, certificate, business case positioning.",
-                "priority": "high"
-              },
-              {
-                "name": "NobleProg Bulgaria — GitHub Copilot",
-                "url": "https://www.nobleprog.bg/en/github-copilot-training",
-                "notes": "Corporate/onsite AI coding training; Copilot course catalog and scheduled Bulgaria sessions.",
-                "priority": "high"
-              },
-              {
-                "name": "NobleProg Bulgaria — Cursor workflows",
-                "url": "https://www.nobleprog.bg/cc/cursor1",
-                "notes": "Direct Cursor/agent workflow training for developers and engineering managers.",
-                "priority": "high"
-              },
-              {
-                "name": "IT STEP Computer Academy Bulgaria",
-                "url": "https://itstep.bg/python-programming-course",
-                "notes": "Python + AI / ML and web-development academy; longer career-transition pathway.",
-                "priority": "medium"
-              },
-              {
-                "name": "Advance Academy AI",
-                "url": "https://ai.advanceacademy.bg/ai",
-                "notes": "Bulgarian AI Basics / AI Specialist / business/content AI programs; broader beginner audience.",
-                "priority": "medium"
-              },
-              {
-                "name": "Aula.bg AI / ChatGPT",
-                "url": "https://aula.bg/kurs-chatgpt",
-                "notes": "Bulgarian online AI productivity and ChatGPT courses; not coding-first but competes for AI upskilling budget.",
-                "priority": "medium"
-              },
-              {
-                "name": "New Horizons Bulgaria",
-                "url": "https://newhorizons.bg/course-outline/course/ai-3025-work-smarter-with-ai",
-                "notes": "Corporate Microsoft Copilot / AI productivity training; adjacent B2B budget competitor.",
-                "priority": "low"
-              },
-              {
-                "name": "IT STEP Plovdiv — Software development",
-                "url": "https://plovdiv.itstep.org/razrabotka-na-softuer",
-                "notes": "Plovdiv campus; 2-year diploma incl. Python AI; offline/online.",
-                "priority": "high"
-              },
-              {
-                "name": "Plovdiv University — AI (bachelor)",
-                "url": "https://uni-plovdiv.bg/pages/index/2987/",
-                "notes": "Degree program; academic AI/ML — adjacent, long cycle.",
-                "priority": "medium"
-              },
-              {
-                "name": "GIKN Plovdiv — Programming for AI (high school)",
-                "url": "https://gikn.eu/priem/",
-                "notes": "Teen pipeline in Plovdiv; not pro developer upskill.",
-                "priority": "low"
-              }
-            ]
+            "rows": []
           }
         ]
       }
