@@ -111,7 +111,50 @@ def slugify(text: str) -> str:
     return text.strip("-")[:60]
 
 
+def _inbox_status(meta: dict) -> str:
+    return (meta or {}).get("inbox_status", "open")
+
+
+def build_inbox_batch(actions: list[dict]) -> dict:
+    """Single Slack template listing all open inputs (numbered)."""
+    inputs = [
+        a
+        for a in actions
+        if a.get("kind") == "input" and a.get("status") in ("open", "in_progress")
+    ]
+    inputs.sort(key=lambda a: (a.get("priority", 2), a.get("title", "")))
+    lines = [
+        "standup batch — reply in #vibe-code or #vibe-standup with numbered answers:",
+        "",
+    ]
+    for index, action in enumerate(inputs, start=1):
+        lines.append(f"{index}. {action['title']}")
+        if action.get("slackReply"):
+            lines.append(f"   {action['slackReply'].strip()}")
+        lines.append("")
+    if len(inputs) == 1:
+        lines.append("(Or reply with a single line using the template above.)")
+    return {
+        "channel": "#vibe-standup",
+        "count": len(inputs),
+        "slackReply": "\n".join(lines).rstrip(),
+    }
+
+
+def _prune_stale_actions(conn: sqlite3.Connection, active_slugs: set[str]) -> None:
+    rows = conn.execute(
+        "SELECT slug FROM entries WHERE collection='actions' AND json_extract(props,'$.kind') IN ('input','approve')"
+    ).fetchall()
+    for row in rows:
+        slug = row["slug"]
+        if slug.startswith("role-prompt-"):
+            continue
+        if slug not in active_slugs:
+            conn.execute("DELETE FROM entries WHERE collection='actions' AND slug=?", (slug,))
+
+
 def sync_actions(conn: sqlite3.Connection) -> None:
+    active_slugs: set[str] = set()
     upsert_collection(
         conn,
         "actions",
@@ -147,8 +190,13 @@ def sync_actions(conn: sqlite3.Connection) -> None:
     ).fetchall()
     for row in blockers:
         meta = json_loads(row["meta"])
+        status = _inbox_status(meta)
+        if status in ("done", "backlog"):
+            continue
         owner_note = meta.get("owner", "")
         hint = owner_note.split("→")[-1].strip() if "→" in owner_note else owner_note
+        if status == "in_progress":
+            hint = meta.get("reply") or hint or "In progress — Denis owns next step"
         text = row["text"]
         slug = f"input-blocker-{slugify(text)}"
         slack_reply = _blocker_slack_reply(text)
@@ -161,6 +209,7 @@ def sync_actions(conn: sqlite3.Connection) -> None:
                 "input",
                 "pm",
                 priority=1,
+                status=status if status in ("open", "in_progress") else "open",
                 slack_reply=slack_reply,
                 hint=hint or "Unblocks agent work after you reply in Slack",
                 trigger="standup",
@@ -170,12 +219,13 @@ def sync_actions(conn: sqlite3.Connection) -> None:
             ),
             sort_order=order,
         )
+        active_slugs.add(slug)
         order += 1
 
     # Denis open tasks → input actions
     denis_tasks = conn.execute(
         """
-        SELECT li.id, li.text, li.done, e.slug AS group_slug
+        SELECT li.id, li.text, li.done, li.meta, e.slug AS group_slug
         FROM list_items li
         JOIN entries e ON e.id = li.entry_id
         WHERE e.collection='tasks' AND e.owner='denis' AND li.section='items' AND li.done=0
@@ -183,6 +233,10 @@ def sync_actions(conn: sqlite3.Connection) -> None:
         """
     ).fetchall()
     for row in denis_tasks:
+        meta = json_loads(row["meta"]) if row["meta"] else {}
+        status = _inbox_status(meta)
+        if status in ("done", "backlog"):
+            continue
         text = row["text"]
         slug = f"input-task-{slugify(text)}"
         upsert_entry(
@@ -194,13 +248,15 @@ def sync_actions(conn: sqlite3.Connection) -> None:
                 "input",
                 "pm",
                 priority=2,
+                status=status if status in ("open", "in_progress") else "open",
                 slack_reply=f"Done: {text}" if "publish" in text.lower() else f"Update: {text}",
-                hint="Denis manual task from launch path",
+                hint=meta.get("reply") or "Denis manual task from launch path",
                 trigger="standup",
                 source={"collection": "tasks", "slug": row["group_slug"], "listItemId": row["id"]},
             ),
             sort_order=order,
         )
+        active_slugs.add(slug)
         order += 1
 
     # Automations → approve actions
@@ -231,6 +287,7 @@ def sync_actions(conn: sqlite3.Connection) -> None:
             ),
             sort_order=order,
         )
+        active_slugs.add(f"approve-{row['slug']}")
         order += 1
 
     # Social drafts pending approval
@@ -255,6 +312,7 @@ def sync_actions(conn: sqlite3.Connection) -> None:
             ),
             sort_order=order,
         )
+        active_slugs.add(f"approve-social-{row['slug']}")
         order += 1
 
     # Messaging gaps
@@ -263,7 +321,8 @@ def sync_actions(conn: sqlite3.Connection) -> None:
     ).fetchone()
     if messaging:
         course = json_loads(messaging["props"]).get("course", {})
-        if not course.get("one-liner") or course.get("one-liner") in ("TBD", "_TBD_"):
+        one = (course.get("one-liner") or "").strip()
+        if not one or one in ("TBD", "_TBD_"):
             upsert_entry(
                 conn,
                 "actions",
@@ -282,6 +341,9 @@ def sync_actions(conn: sqlite3.Connection) -> None:
                 ),
                 sort_order=5,
             )
+            active_slugs.add("input-one-liner")
+
+    _prune_stale_actions(conn, active_slugs)
 
 
 def _role_trigger(role: str) -> str:
@@ -318,6 +380,8 @@ def _blocker_slack_reply(text: str) -> str:
         return "Brand direction: colors= | logo style= | DIY or hire designer= "
     if "domain" in lower or "vibe-coders.academy" in lower:
         return "Domain: vibe-coders.academy status= (registrar/DNS notes) "
+    if "plovdiv" in lower and "landscape" in lower:
+        return "Research: Plovdiv IT/AI landscape — notes= "
     if "softuni" in lower or "positioning" in lower:
         return "Positioning vs SoftUni: "
     return f"Re: {text} — "

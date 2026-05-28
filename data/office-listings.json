@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-05-28T11:47:42.397035+00:00",
+  "maxBudgetEur": 800,
+  "city": "Plovdiv",
+  "searchUrls": [
+    "https://www.alo.bg/obiavi/imoti-naemi/magazini-ofisi/?location_ids=3333&region_id=16",
+    "https://www.alo.bg/searchq/?q=%D0%BE%D1%84%D0%B8%D1%81%20%D0%BF%D0%BE%D0%B4%20%D0%BD%D0%B0%D0%B5%D0%BC%20%D0%BF%D0%BB%D0%BE%D0%B2div"
+  ],
+  "alsoCheck": [
+    "https://www.imot.bg/obiavi/prodazhbi-imoti/naemi/plovdiv/ofisi/",
+    "https://www.alo.bg/obiavi/imoti-naemi/magazini-ofisi/?location_ids=3333&region_id=16"
+  ],
+  "ok": true,
+  "scrapeErrors": [
+    "https://www.alo.bg/searchq/?q=%D0%BE%D1%84%D0%B8%D1%81%20%D0%BF%D0%BE%D0%B4%20%D0%BD%D0%B0%D0%B5%D0%BC%20%D0%BF%D0%BB%D0%BE%D0%B2div: HTTP Error 410: Gone"
+  ],
+  "includesManualSamples": false,
+  "count": 5,
+  "listings": [
+    {
+      "title": "Office listing",
+      "priceEur": 0.0,
+      "sqm": 130.0,
+      "source": "alo.bg",
+      "snippet": "🏢 №20125 | Трейд Хаус недвижими имоти предлага под наем модерен офис в идеален център на Пловдив, до Пловдивски университет. \r\n\r\n📐 130 кв.м функционално разпределение: \r\n✔ Open space зона\r\n✔ Отделен к.. \n\t\t\t\t \n\n\t\t\t \n\t\t\t \n\t\t\t \t\n\t\t \n\t \n\t\t \n\n\t  \n\t \n\t \n\t    \n\t\tТова е обявата спечелила търга \"Банер от обява\" за Позиция&nbsp;2 днес с 2.00 €\t\t  \n\t\t \n\t\t\tСъздай сам свои банери (рекламни блокове) в alo.bg с"
+    },
+    {
+      "title": "Светъл и функционален офис под наем - гр. Пловдив, до Дондукова градина ​Предлагаме под наем отличен офис в самостоятелна биз",
+      "priceEur": 150.0,
+      "sqm": 30.0,
+      "source": "alo.bg",
+      "snippet": "🏢 Светъл и функционален офис под наем - гр. Пловдив, до Дондукова градина\r\n​Предлагаме под наем отличен офис в самостоятелна бизнес сграда на топ локация в центъра на Пловдив - бул. „Шести септември“.. \n\t\t\t\t \n\n\t\t\t \n\t\t\t \n\t\t\t \t\n\t\t  \n\t\t\t\n\t\t\t   преди 4 дни  \n\t\t\t\n\t\t\t   \n\t\t\t\t\t    \n\t\t\t \n\n\t\t\t \n\n\t\t\t\t \n\t\t\t\t\t  Място за маникюр под наем / Стол под наем  \n\t\t\t\t\t    Мараша, Пловдив  \n\t\t\t\t\t\n\t\t\t\t \n\t\t\t\t   Месечен н"
+    },
+    {
+      "title": "Office listing",
+      "priceEur": 350.0,
+      "sqm": 15.0,
+      "source": "alo.bg",
+      "snippet": "🏢 Тип имот: Подходящ за офис, аптека, магазин, шоурум и др. \r\n📦 Допълнително помещение: Включено складово помещение\r\n.. \n\t\t\t\t \n\n\t\t\t \n\t\t\t \n\t\t\t \t\n\t\t  \n\t\t\t\n\t\t\t     NL Consult Real Estate   вчера  \n\t\t\t\n\t\t\t   \n\t\t\t\t\t    \n\t\t\t \n\n\t\t\t \n\n\t\t\t\t \n\t\t\t\t\t  Помещение за бърза закуска, палачинки, тостери, бургери, пици.  \n\t\t\t\t\t    Център, Пловдив  \n\t\t\t\t\t\n\t\t\t\t \n\t\t\t\t   Месечен наем :  350 €  ( 684.54 лв. ) \n    23.33"
+    },
+    {
+      "title": "Офис под наем - ул “Авксентий Велешки”",
+      "priceEur": 420.0,
+      "sqm": 37.0,
+      "source": "alo.bg",
+      "snippet": "Офис под наем - ул “Авксентий Велешки”  \n\t\t\t\t\t    Център, Пловдив  \n\t\t\t\t\t\n\t\t\t\t \n\t\t\t\t   Месечен наем :  420 €  ( 821.45 лв. ) \n    11.35 €/кв.м  ( 22.20 лв./кв.м )  \n Офис \n 37 кв.м \n Партер \n\t Предлагаме под наем светло и функционално офис помещение, разположено на партерно ниво в идеалния център на гр. Пловдив. \r\nИмотът се намира на ъглова позиция с лице към оживена улица, което осигурява .."
+    },
+    {
+      "title": "ОФИС под наем - супер комуникативно място, Кършияка, Герджика\">",
+      "priceEur": 445.0,
+      "sqm": 75.0,
+      "source": "alo.bg",
+      "snippet": "🏢 Отдават се под наем помещения с отлична локация в Пловдив\r\n\r\nПредлагаме под наем функционален имот с площ от 75 кв.м, разположен на висок партер, в изключително комуникативен район - в близост до Це.. \n\t\t\t\t \n\n\t\t\t \n\t\t\t \n\t\t\t \t\n\t\t  \n\t\t\t\n\t\t\t     Гаранти   преди 2 дни  \n\t\t\t\n\t\t\t   \n\t\t\t\t\t    \n\t\t\t \n\n\t\t\t \n\n\t\t\t\t \n\t\t\t\t\t  Офис в бизнес сграда  \n\t\t\t\t\t    Кършияка, Пловдив  \n\t\t\t\t\t\n\t\t\t\t \n\t\t\t\t   Месечен наем :"
+    }
+  ]
+}

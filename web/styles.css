@@ -216,6 +216,20 @@ body {
 .badge.kind { color: var(--muted); }
 .priority { font-size: 0.7rem; color: var(--warn); font-weight: 700; }
 
+.batch-block {
+  margin-bottom: 20px;
+  border-color: rgba(129, 140, 248, 0.35);
+  background: var(--accent-dim);
+}
+
+.batch-block .batch-text { max-height: 280px; }
+
+.copy-btn-primary {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
 .copy-block {
   margin-top: 14px;
   background: var(--panel-2);
