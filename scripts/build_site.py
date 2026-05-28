@@ -138,7 +138,7 @@ def build_reference(by_collection: dict, tables_by_entry: dict[int, list]) -> di
 
 
 def compute_metrics(actions: list[dict]) -> dict:
-    open_actions = [a for a in actions if a["status"] == "open" and a["kind"] != "prompt"]
+    open_actions = [a for a in actions if a["status"] in ("open", "in_progress") and a["kind"] != "prompt"]
     inputs = [a for a in open_actions if a["kind"] == "input"]
     approvals = [a for a in open_actions if a["kind"] == "approve"]
     return {
@@ -189,7 +189,8 @@ def build_payload() -> dict:
         tables_by_entry = fetch_tables_for_entries(conn, entry_ids)
         actions = compile_actions(entries)
         roles = group_by_role(actions, ui_config)
-        inbox = [a for a in actions if a["kind"] != "prompt" and a["status"] == "open"]
+        inbox = [a for a in actions if a["kind"] != "prompt" and a["status"] in ("open", "in_progress")]
+        inbox_batch = __import__("sync_actions", fromlist=["build_inbox_batch"]).build_inbox_batch(actions)
 
         return {
             "meta": {
@@ -206,6 +207,7 @@ def build_payload() -> dict:
             "metrics": compute_metrics(actions),
             "ui": ui_config,
             "inbox": inbox,
+            "inboxBatch": inbox_batch,
             "actions": actions,
             "roles": roles,
             "reference": build_reference(by_collection, tables_by_entry),

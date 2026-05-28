@@ -119,9 +119,27 @@ function renderSection() {
 function renderInbox() {
   const actions = filterActions(state.data.inbox);
   return `
-    ${pageHeader("Inbox", "Everything waiting on you — reply in Slack or green-light an agent.")}
+    ${pageHeader("Inbox", "Everything waiting on you — copy the batch reply once, or use per-card templates.")}
+    ${inboxBatchBlock()}
     ${filterTabs()}
     ${actionList(actions, "No open actions. Check All prompts for role kits.")}`;
+}
+
+function inboxBatchBlock() {
+  const batch = state.data.inboxBatch;
+  if (!batch?.slackReply || !batch.count) return "";
+  const channel = batch.channel || "#vibe-standup";
+  return `
+    <section class="batch-block copy-block">
+      <div class="copy-head">
+        <span class="copy-label">Batched standup (${batch.count} items) → ${escapeHtml(channel)}</span>
+      </div>
+      <p class="hint">Paste one numbered reply in Slack; agents map answers to inbox cards.</p>
+      <div class="copy-row">
+        <pre class="copy-text batch-text">${escapeHtml(batch.slackReply)}</pre>
+        <button type="button" class="copy-btn copy-btn-primary" data-copy="${escapeAttr(batch.slackReply)}">Copy batch</button>
+      </div>
+    </section>`;
 }
 
 function renderRole(role) {

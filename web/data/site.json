@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generatedAt": "2026-05-28T04:02:48.046651+00:00",
+    "generatedAt": "2026-05-28T11:48:10.909980+00:00",
     "generator": "scripts/build_site.py",
-    "gitSha": "4ee0f202f755bf8bbe75db154da0e6d3f5b7b444",
+    "gitSha": "e0e5b2553597e2455e97dab41258ef0f2d746700",
     "schemaVersion": "1",
     "dataModel": "generic-actions-v2"
   },
@@ -11,8 +11,8 @@
     "description": "Central workspace for Vibe Coders Academy — course business planning, research, automations, and launch ops."
   },
   "metrics": {
-    "openActions": 20,
-    "needsInput": 16,
+    "openActions": 10,
+    "needsInput": 6,
     "needsApproval": 4,
     "prompts": 5
   },
@@ -111,168 +111,15 @@
   },
   "inbox": [
     {
-      "id": 67,
-      "slug": "input-blocker-brand-direction-not-set",
-      "title": "Brand direction not set",
-      "kind": "input",
-      "role": "pm",
-      "priority": 1,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "Brand direction: colors= | logo style= | DIY or hire designer= ",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "blocks logo/flyer final designs",
-      "inputLabel": "Brand direction",
-      "inputExample": "",
-      "source": {
-        "collection": "tasks",
-        "slug": "blockers",
-        "listItemId": 160
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 66,
-      "slug": "input-blocker-early-bird-terms-not-approved",
-      "title": "Early bird terms not approved",
-      "kind": "input",
-      "role": "pm",
-      "priority": 1,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "Early bird: price= | end date= | max seats= | legal line= ",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "blocks live pricing on site",
-      "inputLabel": "Early bird terms",
-      "inputExample": "price=299 BGN | end=2026-07-15 | seats=20 | legal=Terms on site",
-      "source": {
-        "collection": "tasks",
-        "slug": "blockers",
-        "listItemId": 159
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 65,
-      "slug": "input-blocker-one-liner-tbd-in-approved-messaging-md",
-      "title": "One-liner TBD in approved-messaging.md",
-      "kind": "input",
-      "role": "pm",
-      "priority": 1,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "One-liner: ",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "blocks customer-facing copy",
-      "inputLabel": "Approved one-liner",
-      "inputExample": "Ship real projects with Cursor and AI agents — not theory slides.",
-      "source": {
-        "collection": "tasks",
-        "slug": "blockers",
-        "listItemId": 158
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 64,
-      "slug": "input-blocker-po-apply-method-publish-channels",
-      "title": "PO apply method + publish channels",
-      "kind": "input",
-      "role": "pm",
-      "priority": 1,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "PO apply: email | form URL | LinkedIn Easy Apply — publish first on: ",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "blocks agent publish pack",
-      "inputLabel": "Your answer",
-      "inputExample": "",
-      "source": {
-        "collection": "tasks",
-        "slug": "blockers",
-        "listItemId": 157
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 69,
-      "slug": "input-blocker-positioning-vs-softuni-overlap",
-      "title": "Positioning vs SoftUni overlap",
-      "kind": "input",
-      "role": "pm",
-      "priority": 1,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "Positioning vs SoftUni: ",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "confirm differentiation before public launch",
-      "inputLabel": "Your answer",
-      "inputExample": "",
-      "source": {
-        "collection": "tasks",
-        "slug": "blockers",
-        "listItemId": 162
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 83,
-      "slug": "input-one-liner",
-      "title": "Provide course one-liner",
-      "kind": "input",
-      "role": "business",
-      "priority": 1,
-      "status": "open",
-      "slackChannel": "#vibe-business",
-      "slackReply": "One-liner: ",
-      "slackTrigger": "plan",
-      "prompt": "",
-      "hint": "Blocks customer-facing copy and social drafts",
-      "inputLabel": "One-liner",
-      "inputExample": "Ship real projects with Cursor and AI agents — practitioner-first.",
-      "source": {
-        "collection": "business",
-        "slug": "messaging"
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 68,
-      "slug": "input-blocker-vibe-coders-academy-not-active-yet",
-      "title": "vibe-coders.academy not active yet",
-      "kind": "input",
-      "role": "pm",
-      "priority": 1,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "Domain: vibe-coders.academy status= (registrar/DNS notes) ",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "blocks public domain launch",
-      "inputLabel": "Your answer",
-      "inputExample": "",
-      "source": {
-        "collection": "tasks",
-        "slug": "blockers",
-        "listItemId": 161
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 71,
-      "slug": "input-task-1-office-plovdiv-budget-area-constraints-visit-shortlist",
-      "title": "#1 Office Plovdiv — budget/area constraints; visit shortlist",
+      "id": 252,
+      "slug": "input-task-landing-page-on-vibe-coders-academy-denis-todo",
+      "title": "Landing page on vibe-coders.academy (Denis TODO)",
       "kind": "input",
       "role": "pm",
       "priority": 2,
       "status": "open",
       "slackChannel": "#vibe-standup",
-      "slackReply": "Update: #1 Office Plovdiv — budget/area constraints; visit shortlist",
+      "slackReply": "Update: Landing page on vibe-coders.academy (Denis TODO)",
       "slackTrigger": "standup",
       "prompt": "",
       "hint": "Denis manual task from launch path",
@@ -281,20 +128,20 @@
       "source": {
         "collection": "tasks",
         "slug": "denis-decisions-manual",
-        "listItemId": 120
+        "listItemId": 351
       },
-      "updatedAt": "2026-05-28 04:02:48"
+      "updatedAt": "2026-05-28 11:48:10"
     },
     {
-      "id": 74,
-      "slug": "input-task-11-approve-early-bird-price-date-seats-legal-line",
-      "title": "#11 Approve early bird: price, date, seats, legal line",
+      "id": 253,
+      "slug": "input-task-presentation-document-denis-todo",
+      "title": "Presentation document (Denis TODO)",
       "kind": "input",
       "role": "pm",
       "priority": 2,
       "status": "open",
       "slackChannel": "#vibe-standup",
-      "slackReply": "Update: #11 Approve early bird: price, date, seats, legal line",
+      "slackReply": "Update: Presentation document (Denis TODO)",
       "slackTrigger": "standup",
       "prompt": "",
       "hint": "Denis manual task from launch path",
@@ -303,163 +150,9 @@
       "source": {
         "collection": "tasks",
         "slug": "denis-decisions-manual",
-        "listItemId": 123
+        "listItemId": 352
       },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 75,
-      "slug": "input-task-12-record-video-presentation-after-script-approved",
-      "title": "#12 Record video presentation (after script approved)",
-      "kind": "input",
-      "role": "pm",
-      "priority": 2,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "Update: #12 Record video presentation (after script approved)",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "Denis manual task from launch path",
-      "inputLabel": "",
-      "inputExample": "",
-      "source": {
-        "collection": "tasks",
-        "slug": "denis-decisions-manual",
-        "listItemId": 124
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 70,
-      "slug": "input-task-2-publish-share-po-position-linkedin-boards-network",
-      "title": "#2 Publish & share PO position (LinkedIn, boards, network)",
-      "kind": "input",
-      "role": "pm",
-      "priority": 2,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "Done: #2 Publish & share PO position (LinkedIn, boards, network)",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "Denis manual task from launch path",
-      "inputLabel": "",
-      "inputExample": "",
-      "source": {
-        "collection": "tasks",
-        "slug": "denis-decisions-manual",
-        "listItemId": 119
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 72,
-      "slug": "input-task-4-create-social-accounts-after-name-bios-approved",
-      "title": "#4 Create social accounts (after name + bios approved)",
-      "kind": "input",
-      "role": "pm",
-      "priority": 2,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "Update: #4 Create social accounts (after name + bios approved)",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "Denis manual task from launch path",
-      "inputLabel": "",
-      "inputExample": "",
-      "source": {
-        "collection": "tasks",
-        "slug": "denis-decisions-manual",
-        "listItemId": 121
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 73,
-      "slug": "input-task-5-approve-brand-direction-colors-logo-direction",
-      "title": "#5 Approve brand direction (colors, logo direction)",
-      "kind": "input",
-      "role": "pm",
-      "priority": 2,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "Update: #5 Approve brand direction (colors, logo direction)",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "Denis manual task from launch path",
-      "inputLabel": "",
-      "inputExample": "",
-      "source": {
-        "collection": "tasks",
-        "slug": "denis-decisions-manual",
-        "listItemId": 122
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 76,
-      "slug": "input-task-vibe-inbox-channel",
-      "title": "#vibe-inbox channel",
-      "kind": "input",
-      "role": "pm",
-      "priority": 2,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "Update: #vibe-inbox channel",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "Denis manual task from launch path",
-      "inputLabel": "",
-      "inputExample": "",
-      "source": {
-        "collection": "tasks",
-        "slug": "denis-decisions-manual",
-        "listItemId": 125
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 78,
-      "slug": "input-task-automations-02-04-in-cursor-ui",
-      "title": "Automations 02–04 in Cursor UI",
-      "kind": "input",
-      "role": "pm",
-      "priority": 2,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "Update: Automations 02–04 in Cursor UI",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "Denis manual task from launch path",
-      "inputLabel": "",
-      "inputExample": "",
-      "source": {
-        "collection": "tasks",
-        "slug": "denis-decisions-manual",
-        "listItemId": 127
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 77,
-      "slug": "input-task-mcps-slack-exa-setup",
-      "title": "MCPs: Slack + Exa (setup)",
-      "kind": "input",
-      "role": "pm",
-      "priority": 2,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "Update: MCPs: Slack + Exa (setup)",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "Denis manual task from launch path",
-      "inputLabel": "",
-      "inputExample": "",
-      "source": {
-        "collection": "tasks",
-        "slug": "denis-decisions-manual",
-        "listItemId": 126
-      },
-      "updatedAt": "2026-05-28 04:02:48"
+      "updatedAt": "2026-05-28 11:48:10"
     },
     {
       "id": 81,
@@ -480,7 +173,7 @@
         "collection": "automations",
         "slug": "automation-business-plan-assistant"
       },
-      "updatedAt": "2026-05-28 04:02:48"
+      "updatedAt": "2026-05-28 11:48:10"
     },
     {
       "id": 80,
@@ -501,7 +194,7 @@
         "collection": "automations",
         "slug": "automation-competitor-research"
       },
-      "updatedAt": "2026-05-28 04:02:48"
+      "updatedAt": "2026-05-28 11:48:10"
     },
     {
       "id": 79,
@@ -522,7 +215,7 @@
         "collection": "automations",
         "slug": "automation-morning-standup-prep"
       },
-      "updatedAt": "2026-05-28 04:02:48"
+      "updatedAt": "2026-05-28 11:48:10"
     },
     {
       "id": 82,
@@ -543,173 +236,113 @@
         "collection": "automations",
         "slug": "automation-social-content-draft-only"
       },
-      "updatedAt": "2026-05-28 04:02:48"
+      "updatedAt": "2026-05-28 11:48:10"
+    },
+    {
+      "id": 64,
+      "slug": "input-blocker-po-apply-method-publish-channels",
+      "title": "PO apply method + publish channels",
+      "kind": "input",
+      "role": "pm",
+      "priority": 1,
+      "status": "in_progress",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "PO apply: email | form URL | LinkedIn Easy Apply — publish first on: ",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Denis handling publish channels — keep in progress",
+      "inputLabel": "Your answer",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "blockers",
+        "listItemId": 353
+      },
+      "updatedAt": "2026-05-28 11:48:10"
+    },
+    {
+      "id": 71,
+      "slug": "input-task-1-office-plovdiv-budget-area-constraints-visit-shortlist",
+      "title": "#1 Office Plovdiv — budget/area constraints; visit shortlist",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "in_progress",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Update: #1 Office Plovdiv — budget/area constraints; visit shortlist",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Budget <800 EUR; agent researching alo.bg + imot.bg",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 346
+      },
+      "updatedAt": "2026-05-28 11:48:10"
+    },
+    {
+      "id": 70,
+      "slug": "input-task-2-publish-share-po-position-linkedin-boards-network",
+      "title": "#2 Publish & share PO position (LinkedIn, boards, network)",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "in_progress",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Done: #2 Publish & share PO position (LinkedIn, boards, network)",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Denis will publish — no duplicate agent task",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 345
+      },
+      "updatedAt": "2026-05-28 11:48:10"
+    },
+    {
+      "id": 72,
+      "slug": "input-task-4-create-social-accounts-after-name-bios-approved",
+      "title": "#4 Create social accounts (after name + bios approved)",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "in_progress",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Update: #4 Create social accounts (after name + bios approved)",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Current TODO for Denis",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 347
+      },
+      "updatedAt": "2026-05-28 11:48:10"
     }
   ],
+  "inboxBatch": {
+    "channel": "#vibe-standup",
+    "count": 6,
+    "slackReply": "standup batch — reply in #vibe-code or #vibe-standup with numbered answers:\n\n1. PO apply method + publish channels\n   PO apply: email | form URL | LinkedIn Easy Apply — publish first on:\n\n2. #1 Office Plovdiv — budget/area constraints; visit shortlist\n   Update: #1 Office Plovdiv — budget/area constraints; visit shortlist\n\n3. #2 Publish & share PO position (LinkedIn, boards, network)\n   Done: #2 Publish & share PO position (LinkedIn, boards, network)\n\n4. #4 Create social accounts (after name + bios approved)\n   Update: #4 Create social accounts (after name + bios approved)\n\n5. Landing page on vibe-coders.academy (Denis TODO)\n   Update: Landing page on vibe-coders.academy (Denis TODO)\n\n6. Presentation document (Denis TODO)\n   Update: Presentation document (Denis TODO)"
+  },
   "actions": [
     {
-      "id": 67,
-      "slug": "input-blocker-brand-direction-not-set",
-      "title": "Brand direction not set",
-      "kind": "input",
-      "role": "pm",
-      "priority": 1,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "Brand direction: colors= | logo style= | DIY or hire designer= ",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "blocks logo/flyer final designs",
-      "inputLabel": "Brand direction",
-      "inputExample": "",
-      "source": {
-        "collection": "tasks",
-        "slug": "blockers",
-        "listItemId": 160
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 66,
-      "slug": "input-blocker-early-bird-terms-not-approved",
-      "title": "Early bird terms not approved",
-      "kind": "input",
-      "role": "pm",
-      "priority": 1,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "Early bird: price= | end date= | max seats= | legal line= ",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "blocks live pricing on site",
-      "inputLabel": "Early bird terms",
-      "inputExample": "price=299 BGN | end=2026-07-15 | seats=20 | legal=Terms on site",
-      "source": {
-        "collection": "tasks",
-        "slug": "blockers",
-        "listItemId": 159
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 65,
-      "slug": "input-blocker-one-liner-tbd-in-approved-messaging-md",
-      "title": "One-liner TBD in approved-messaging.md",
-      "kind": "input",
-      "role": "pm",
-      "priority": 1,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "One-liner: ",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "blocks customer-facing copy",
-      "inputLabel": "Approved one-liner",
-      "inputExample": "Ship real projects with Cursor and AI agents — not theory slides.",
-      "source": {
-        "collection": "tasks",
-        "slug": "blockers",
-        "listItemId": 158
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 64,
-      "slug": "input-blocker-po-apply-method-publish-channels",
-      "title": "PO apply method + publish channels",
-      "kind": "input",
-      "role": "pm",
-      "priority": 1,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "PO apply: email | form URL | LinkedIn Easy Apply — publish first on: ",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "blocks agent publish pack",
-      "inputLabel": "Your answer",
-      "inputExample": "",
-      "source": {
-        "collection": "tasks",
-        "slug": "blockers",
-        "listItemId": 157
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 69,
-      "slug": "input-blocker-positioning-vs-softuni-overlap",
-      "title": "Positioning vs SoftUni overlap",
-      "kind": "input",
-      "role": "pm",
-      "priority": 1,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "Positioning vs SoftUni: ",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "confirm differentiation before public launch",
-      "inputLabel": "Your answer",
-      "inputExample": "",
-      "source": {
-        "collection": "tasks",
-        "slug": "blockers",
-        "listItemId": 162
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 83,
-      "slug": "input-one-liner",
-      "title": "Provide course one-liner",
-      "kind": "input",
-      "role": "business",
-      "priority": 1,
-      "status": "open",
-      "slackChannel": "#vibe-business",
-      "slackReply": "One-liner: ",
-      "slackTrigger": "plan",
-      "prompt": "",
-      "hint": "Blocks customer-facing copy and social drafts",
-      "inputLabel": "One-liner",
-      "inputExample": "Ship real projects with Cursor and AI agents — practitioner-first.",
-      "source": {
-        "collection": "business",
-        "slug": "messaging"
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 68,
-      "slug": "input-blocker-vibe-coders-academy-not-active-yet",
-      "title": "vibe-coders.academy not active yet",
-      "kind": "input",
-      "role": "pm",
-      "priority": 1,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "Domain: vibe-coders.academy status= (registrar/DNS notes) ",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "blocks public domain launch",
-      "inputLabel": "Your answer",
-      "inputExample": "",
-      "source": {
-        "collection": "tasks",
-        "slug": "blockers",
-        "listItemId": 161
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 71,
-      "slug": "input-task-1-office-plovdiv-budget-area-constraints-visit-shortlist",
-      "title": "#1 Office Plovdiv — budget/area constraints; visit shortlist",
+      "id": 252,
+      "slug": "input-task-landing-page-on-vibe-coders-academy-denis-todo",
+      "title": "Landing page on vibe-coders.academy (Denis TODO)",
       "kind": "input",
       "role": "pm",
       "priority": 2,
       "status": "open",
       "slackChannel": "#vibe-standup",
-      "slackReply": "Update: #1 Office Plovdiv — budget/area constraints; visit shortlist",
+      "slackReply": "Update: Landing page on vibe-coders.academy (Denis TODO)",
       "slackTrigger": "standup",
       "prompt": "",
       "hint": "Denis manual task from launch path",
@@ -718,20 +351,20 @@
       "source": {
         "collection": "tasks",
         "slug": "denis-decisions-manual",
-        "listItemId": 120
+        "listItemId": 351
       },
-      "updatedAt": "2026-05-28 04:02:48"
+      "updatedAt": "2026-05-28 11:48:10"
     },
     {
-      "id": 74,
-      "slug": "input-task-11-approve-early-bird-price-date-seats-legal-line",
-      "title": "#11 Approve early bird: price, date, seats, legal line",
+      "id": 253,
+      "slug": "input-task-presentation-document-denis-todo",
+      "title": "Presentation document (Denis TODO)",
       "kind": "input",
       "role": "pm",
       "priority": 2,
       "status": "open",
       "slackChannel": "#vibe-standup",
-      "slackReply": "Update: #11 Approve early bird: price, date, seats, legal line",
+      "slackReply": "Update: Presentation document (Denis TODO)",
       "slackTrigger": "standup",
       "prompt": "",
       "hint": "Denis manual task from launch path",
@@ -740,163 +373,9 @@
       "source": {
         "collection": "tasks",
         "slug": "denis-decisions-manual",
-        "listItemId": 123
+        "listItemId": 352
       },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 75,
-      "slug": "input-task-12-record-video-presentation-after-script-approved",
-      "title": "#12 Record video presentation (after script approved)",
-      "kind": "input",
-      "role": "pm",
-      "priority": 2,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "Update: #12 Record video presentation (after script approved)",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "Denis manual task from launch path",
-      "inputLabel": "",
-      "inputExample": "",
-      "source": {
-        "collection": "tasks",
-        "slug": "denis-decisions-manual",
-        "listItemId": 124
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 70,
-      "slug": "input-task-2-publish-share-po-position-linkedin-boards-network",
-      "title": "#2 Publish & share PO position (LinkedIn, boards, network)",
-      "kind": "input",
-      "role": "pm",
-      "priority": 2,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "Done: #2 Publish & share PO position (LinkedIn, boards, network)",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "Denis manual task from launch path",
-      "inputLabel": "",
-      "inputExample": "",
-      "source": {
-        "collection": "tasks",
-        "slug": "denis-decisions-manual",
-        "listItemId": 119
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 72,
-      "slug": "input-task-4-create-social-accounts-after-name-bios-approved",
-      "title": "#4 Create social accounts (after name + bios approved)",
-      "kind": "input",
-      "role": "pm",
-      "priority": 2,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "Update: #4 Create social accounts (after name + bios approved)",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "Denis manual task from launch path",
-      "inputLabel": "",
-      "inputExample": "",
-      "source": {
-        "collection": "tasks",
-        "slug": "denis-decisions-manual",
-        "listItemId": 121
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 73,
-      "slug": "input-task-5-approve-brand-direction-colors-logo-direction",
-      "title": "#5 Approve brand direction (colors, logo direction)",
-      "kind": "input",
-      "role": "pm",
-      "priority": 2,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "Update: #5 Approve brand direction (colors, logo direction)",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "Denis manual task from launch path",
-      "inputLabel": "",
-      "inputExample": "",
-      "source": {
-        "collection": "tasks",
-        "slug": "denis-decisions-manual",
-        "listItemId": 122
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 76,
-      "slug": "input-task-vibe-inbox-channel",
-      "title": "#vibe-inbox channel",
-      "kind": "input",
-      "role": "pm",
-      "priority": 2,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "Update: #vibe-inbox channel",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "Denis manual task from launch path",
-      "inputLabel": "",
-      "inputExample": "",
-      "source": {
-        "collection": "tasks",
-        "slug": "denis-decisions-manual",
-        "listItemId": 125
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 78,
-      "slug": "input-task-automations-02-04-in-cursor-ui",
-      "title": "Automations 02–04 in Cursor UI",
-      "kind": "input",
-      "role": "pm",
-      "priority": 2,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "Update: Automations 02–04 in Cursor UI",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "Denis manual task from launch path",
-      "inputLabel": "",
-      "inputExample": "",
-      "source": {
-        "collection": "tasks",
-        "slug": "denis-decisions-manual",
-        "listItemId": 127
-      },
-      "updatedAt": "2026-05-28 04:02:48"
-    },
-    {
-      "id": 77,
-      "slug": "input-task-mcps-slack-exa-setup",
-      "title": "MCPs: Slack + Exa (setup)",
-      "kind": "input",
-      "role": "pm",
-      "priority": 2,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "Update: MCPs: Slack + Exa (setup)",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "Denis manual task from launch path",
-      "inputLabel": "",
-      "inputExample": "",
-      "source": {
-        "collection": "tasks",
-        "slug": "denis-decisions-manual",
-        "listItemId": 126
-      },
-      "updatedAt": "2026-05-28 04:02:48"
+      "updatedAt": "2026-05-28 11:48:10"
     },
     {
       "id": 81,
@@ -917,7 +396,7 @@
         "collection": "automations",
         "slug": "automation-business-plan-assistant"
       },
-      "updatedAt": "2026-05-28 04:02:48"
+      "updatedAt": "2026-05-28 11:48:10"
     },
     {
       "id": 80,
@@ -938,7 +417,7 @@
         "collection": "automations",
         "slug": "automation-competitor-research"
       },
-      "updatedAt": "2026-05-28 04:02:48"
+      "updatedAt": "2026-05-28 11:48:10"
     },
     {
       "id": 79,
@@ -959,7 +438,7 @@
         "collection": "automations",
         "slug": "automation-morning-standup-prep"
       },
-      "updatedAt": "2026-05-28 04:02:48"
+      "updatedAt": "2026-05-28 11:48:10"
     },
     {
       "id": 82,
@@ -980,7 +459,7 @@
         "collection": "automations",
         "slug": "automation-social-content-draft-only"
       },
-      "updatedAt": "2026-05-28 04:02:48"
+      "updatedAt": "2026-05-28 11:48:10"
     },
     {
       "id": 61,
@@ -998,7 +477,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-28 04:02:48"
+      "updatedAt": "2026-05-28 11:48:10"
     },
     {
       "id": 63,
@@ -1016,7 +495,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-28 04:02:48"
+      "updatedAt": "2026-05-28 11:48:10"
     },
     {
       "id": 59,
@@ -1034,7 +513,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-28 04:02:48"
+      "updatedAt": "2026-05-28 11:48:10"
     },
     {
       "id": 60,
@@ -1052,7 +531,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-28 04:02:48"
+      "updatedAt": "2026-05-28 11:48:10"
     },
     {
       "id": 62,
@@ -1070,7 +549,95 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-28 04:02:48"
+      "updatedAt": "2026-05-28 11:48:10"
+    },
+    {
+      "id": 64,
+      "slug": "input-blocker-po-apply-method-publish-channels",
+      "title": "PO apply method + publish channels",
+      "kind": "input",
+      "role": "pm",
+      "priority": 1,
+      "status": "in_progress",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "PO apply: email | form URL | LinkedIn Easy Apply — publish first on: ",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Denis handling publish channels — keep in progress",
+      "inputLabel": "Your answer",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "blockers",
+        "listItemId": 353
+      },
+      "updatedAt": "2026-05-28 11:48:10"
+    },
+    {
+      "id": 71,
+      "slug": "input-task-1-office-plovdiv-budget-area-constraints-visit-shortlist",
+      "title": "#1 Office Plovdiv — budget/area constraints; visit shortlist",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "in_progress",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Update: #1 Office Plovdiv — budget/area constraints; visit shortlist",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Budget <800 EUR; agent researching alo.bg + imot.bg",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 346
+      },
+      "updatedAt": "2026-05-28 11:48:10"
+    },
+    {
+      "id": 70,
+      "slug": "input-task-2-publish-share-po-position-linkedin-boards-network",
+      "title": "#2 Publish & share PO position (LinkedIn, boards, network)",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "in_progress",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Done: #2 Publish & share PO position (LinkedIn, boards, network)",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Denis will publish — no duplicate agent task",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 345
+      },
+      "updatedAt": "2026-05-28 11:48:10"
+    },
+    {
+      "id": 72,
+      "slug": "input-task-4-create-social-accounts-after-name-bios-approved",
+      "title": "#4 Create social accounts (after name + bios approved)",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "in_progress",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Update: #4 Create social accounts (after name + bios approved)",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Current TODO for Denis",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 347
+      },
+      "updatedAt": "2026-05-28 11:48:10"
     }
   ],
   "roles": {
@@ -1082,147 +649,15 @@
       },
       "actions": [
         {
-          "id": 67,
-          "slug": "input-blocker-brand-direction-not-set",
-          "title": "Brand direction not set",
-          "kind": "input",
-          "role": "pm",
-          "priority": 1,
-          "status": "open",
-          "slackChannel": "#vibe-standup",
-          "slackReply": "Brand direction: colors= | logo style= | DIY or hire designer= ",
-          "slackTrigger": "standup",
-          "prompt": "",
-          "hint": "blocks logo/flyer final designs",
-          "inputLabel": "Brand direction",
-          "inputExample": "",
-          "source": {
-            "collection": "tasks",
-            "slug": "blockers",
-            "listItemId": 160
-          },
-          "updatedAt": "2026-05-28 04:02:48"
-        },
-        {
-          "id": 66,
-          "slug": "input-blocker-early-bird-terms-not-approved",
-          "title": "Early bird terms not approved",
-          "kind": "input",
-          "role": "pm",
-          "priority": 1,
-          "status": "open",
-          "slackChannel": "#vibe-standup",
-          "slackReply": "Early bird: price= | end date= | max seats= | legal line= ",
-          "slackTrigger": "standup",
-          "prompt": "",
-          "hint": "blocks live pricing on site",
-          "inputLabel": "Early bird terms",
-          "inputExample": "price=299 BGN | end=2026-07-15 | seats=20 | legal=Terms on site",
-          "source": {
-            "collection": "tasks",
-            "slug": "blockers",
-            "listItemId": 159
-          },
-          "updatedAt": "2026-05-28 04:02:48"
-        },
-        {
-          "id": 65,
-          "slug": "input-blocker-one-liner-tbd-in-approved-messaging-md",
-          "title": "One-liner TBD in approved-messaging.md",
-          "kind": "input",
-          "role": "pm",
-          "priority": 1,
-          "status": "open",
-          "slackChannel": "#vibe-standup",
-          "slackReply": "One-liner: ",
-          "slackTrigger": "standup",
-          "prompt": "",
-          "hint": "blocks customer-facing copy",
-          "inputLabel": "Approved one-liner",
-          "inputExample": "Ship real projects with Cursor and AI agents — not theory slides.",
-          "source": {
-            "collection": "tasks",
-            "slug": "blockers",
-            "listItemId": 158
-          },
-          "updatedAt": "2026-05-28 04:02:48"
-        },
-        {
-          "id": 64,
-          "slug": "input-blocker-po-apply-method-publish-channels",
-          "title": "PO apply method + publish channels",
-          "kind": "input",
-          "role": "pm",
-          "priority": 1,
-          "status": "open",
-          "slackChannel": "#vibe-standup",
-          "slackReply": "PO apply: email | form URL | LinkedIn Easy Apply — publish first on: ",
-          "slackTrigger": "standup",
-          "prompt": "",
-          "hint": "blocks agent publish pack",
-          "inputLabel": "Your answer",
-          "inputExample": "",
-          "source": {
-            "collection": "tasks",
-            "slug": "blockers",
-            "listItemId": 157
-          },
-          "updatedAt": "2026-05-28 04:02:48"
-        },
-        {
-          "id": 69,
-          "slug": "input-blocker-positioning-vs-softuni-overlap",
-          "title": "Positioning vs SoftUni overlap",
-          "kind": "input",
-          "role": "pm",
-          "priority": 1,
-          "status": "open",
-          "slackChannel": "#vibe-standup",
-          "slackReply": "Positioning vs SoftUni: ",
-          "slackTrigger": "standup",
-          "prompt": "",
-          "hint": "confirm differentiation before public launch",
-          "inputLabel": "Your answer",
-          "inputExample": "",
-          "source": {
-            "collection": "tasks",
-            "slug": "blockers",
-            "listItemId": 162
-          },
-          "updatedAt": "2026-05-28 04:02:48"
-        },
-        {
-          "id": 68,
-          "slug": "input-blocker-vibe-coders-academy-not-active-yet",
-          "title": "vibe-coders.academy not active yet",
-          "kind": "input",
-          "role": "pm",
-          "priority": 1,
-          "status": "open",
-          "slackChannel": "#vibe-standup",
-          "slackReply": "Domain: vibe-coders.academy status= (registrar/DNS notes) ",
-          "slackTrigger": "standup",
-          "prompt": "",
-          "hint": "blocks public domain launch",
-          "inputLabel": "Your answer",
-          "inputExample": "",
-          "source": {
-            "collection": "tasks",
-            "slug": "blockers",
-            "listItemId": 161
-          },
-          "updatedAt": "2026-05-28 04:02:48"
-        },
-        {
-          "id": 71,
-          "slug": "input-task-1-office-plovdiv-budget-area-constraints-visit-shortlist",
-          "title": "#1 Office Plovdiv — budget/area constraints; visit shortlist",
+          "id": 252,
+          "slug": "input-task-landing-page-on-vibe-coders-academy-denis-todo",
+          "title": "Landing page on vibe-coders.academy (Denis TODO)",
           "kind": "input",
           "role": "pm",
           "priority": 2,
           "status": "open",
           "slackChannel": "#vibe-standup",
-          "slackReply": "Update: #1 Office Plovdiv — budget/area constraints; visit shortlist",
+          "slackReply": "Update: Landing page on vibe-coders.academy (Denis TODO)",
           "slackTrigger": "standup",
           "prompt": "",
           "hint": "Denis manual task from launch path",
@@ -1231,20 +666,20 @@
           "source": {
             "collection": "tasks",
             "slug": "denis-decisions-manual",
-            "listItemId": 120
+            "listItemId": 351
           },
-          "updatedAt": "2026-05-28 04:02:48"
+          "updatedAt": "2026-05-28 11:48:10"
         },
         {
-          "id": 74,
-          "slug": "input-task-11-approve-early-bird-price-date-seats-legal-line",
-          "title": "#11 Approve early bird: price, date, seats, legal line",
+          "id": 253,
+          "slug": "input-task-presentation-document-denis-todo",
+          "title": "Presentation document (Denis TODO)",
           "kind": "input",
           "role": "pm",
           "priority": 2,
           "status": "open",
           "slackChannel": "#vibe-standup",
-          "slackReply": "Update: #11 Approve early bird: price, date, seats, legal line",
+          "slackReply": "Update: Presentation document (Denis TODO)",
           "slackTrigger": "standup",
           "prompt": "",
           "hint": "Denis manual task from launch path",
@@ -1253,163 +688,9 @@
           "source": {
             "collection": "tasks",
             "slug": "denis-decisions-manual",
-            "listItemId": 123
+            "listItemId": 352
           },
-          "updatedAt": "2026-05-28 04:02:48"
-        },
-        {
-          "id": 75,
-          "slug": "input-task-12-record-video-presentation-after-script-approved",
-          "title": "#12 Record video presentation (after script approved)",
-          "kind": "input",
-          "role": "pm",
-          "priority": 2,
-          "status": "open",
-          "slackChannel": "#vibe-standup",
-          "slackReply": "Update: #12 Record video presentation (after script approved)",
-          "slackTrigger": "standup",
-          "prompt": "",
-          "hint": "Denis manual task from launch path",
-          "inputLabel": "",
-          "inputExample": "",
-          "source": {
-            "collection": "tasks",
-            "slug": "denis-decisions-manual",
-            "listItemId": 124
-          },
-          "updatedAt": "2026-05-28 04:02:48"
-        },
-        {
-          "id": 70,
-          "slug": "input-task-2-publish-share-po-position-linkedin-boards-network",
-          "title": "#2 Publish & share PO position (LinkedIn, boards, network)",
-          "kind": "input",
-          "role": "pm",
-          "priority": 2,
-          "status": "open",
-          "slackChannel": "#vibe-standup",
-          "slackReply": "Done: #2 Publish & share PO position (LinkedIn, boards, network)",
-          "slackTrigger": "standup",
-          "prompt": "",
-          "hint": "Denis manual task from launch path",
-          "inputLabel": "",
-          "inputExample": "",
-          "source": {
-            "collection": "tasks",
-            "slug": "denis-decisions-manual",
-            "listItemId": 119
-          },
-          "updatedAt": "2026-05-28 04:02:48"
-        },
-        {
-          "id": 72,
-          "slug": "input-task-4-create-social-accounts-after-name-bios-approved",
-          "title": "#4 Create social accounts (after name + bios approved)",
-          "kind": "input",
-          "role": "pm",
-          "priority": 2,
-          "status": "open",
-          "slackChannel": "#vibe-standup",
-          "slackReply": "Update: #4 Create social accounts (after name + bios approved)",
-          "slackTrigger": "standup",
-          "prompt": "",
-          "hint": "Denis manual task from launch path",
-          "inputLabel": "",
-          "inputExample": "",
-          "source": {
-            "collection": "tasks",
-            "slug": "denis-decisions-manual",
-            "listItemId": 121
-          },
-          "updatedAt": "2026-05-28 04:02:48"
-        },
-        {
-          "id": 73,
-          "slug": "input-task-5-approve-brand-direction-colors-logo-direction",
-          "title": "#5 Approve brand direction (colors, logo direction)",
-          "kind": "input",
-          "role": "pm",
-          "priority": 2,
-          "status": "open",
-          "slackChannel": "#vibe-standup",
-          "slackReply": "Update: #5 Approve brand direction (colors, logo direction)",
-          "slackTrigger": "standup",
-          "prompt": "",
-          "hint": "Denis manual task from launch path",
-          "inputLabel": "",
-          "inputExample": "",
-          "source": {
-            "collection": "tasks",
-            "slug": "denis-decisions-manual",
-            "listItemId": 122
-          },
-          "updatedAt": "2026-05-28 04:02:48"
-        },
-        {
-          "id": 76,
-          "slug": "input-task-vibe-inbox-channel",
-          "title": "#vibe-inbox channel",
-          "kind": "input",
-          "role": "pm",
-          "priority": 2,
-          "status": "open",
-          "slackChannel": "#vibe-standup",
-          "slackReply": "Update: #vibe-inbox channel",
-          "slackTrigger": "standup",
-          "prompt": "",
-          "hint": "Denis manual task from launch path",
-          "inputLabel": "",
-          "inputExample": "",
-          "source": {
-            "collection": "tasks",
-            "slug": "denis-decisions-manual",
-            "listItemId": 125
-          },
-          "updatedAt": "2026-05-28 04:02:48"
-        },
-        {
-          "id": 78,
-          "slug": "input-task-automations-02-04-in-cursor-ui",
-          "title": "Automations 02–04 in Cursor UI",
-          "kind": "input",
-          "role": "pm",
-          "priority": 2,
-          "status": "open",
-          "slackChannel": "#vibe-standup",
-          "slackReply": "Update: Automations 02–04 in Cursor UI",
-          "slackTrigger": "standup",
-          "prompt": "",
-          "hint": "Denis manual task from launch path",
-          "inputLabel": "",
-          "inputExample": "",
-          "source": {
-            "collection": "tasks",
-            "slug": "denis-decisions-manual",
-            "listItemId": 127
-          },
-          "updatedAt": "2026-05-28 04:02:48"
-        },
-        {
-          "id": 77,
-          "slug": "input-task-mcps-slack-exa-setup",
-          "title": "MCPs: Slack + Exa (setup)",
-          "kind": "input",
-          "role": "pm",
-          "priority": 2,
-          "status": "open",
-          "slackChannel": "#vibe-standup",
-          "slackReply": "Update: MCPs: Slack + Exa (setup)",
-          "slackTrigger": "standup",
-          "prompt": "",
-          "hint": "Denis manual task from launch path",
-          "inputLabel": "",
-          "inputExample": "",
-          "source": {
-            "collection": "tasks",
-            "slug": "denis-decisions-manual",
-            "listItemId": 126
-          },
-          "updatedAt": "2026-05-28 04:02:48"
+          "updatedAt": "2026-05-28 11:48:10"
         },
         {
           "id": 79,
@@ -1430,7 +711,95 @@
             "collection": "automations",
             "slug": "automation-morning-standup-prep"
           },
-          "updatedAt": "2026-05-28 04:02:48"
+          "updatedAt": "2026-05-28 11:48:10"
+        },
+        {
+          "id": 64,
+          "slug": "input-blocker-po-apply-method-publish-channels",
+          "title": "PO apply method + publish channels",
+          "kind": "input",
+          "role": "pm",
+          "priority": 1,
+          "status": "in_progress",
+          "slackChannel": "#vibe-standup",
+          "slackReply": "PO apply: email | form URL | LinkedIn Easy Apply — publish first on: ",
+          "slackTrigger": "standup",
+          "prompt": "",
+          "hint": "Denis handling publish channels — keep in progress",
+          "inputLabel": "Your answer",
+          "inputExample": "",
+          "source": {
+            "collection": "tasks",
+            "slug": "blockers",
+            "listItemId": 353
+          },
+          "updatedAt": "2026-05-28 11:48:10"
+        },
+        {
+          "id": 71,
+          "slug": "input-task-1-office-plovdiv-budget-area-constraints-visit-shortlist",
+          "title": "#1 Office Plovdiv — budget/area constraints; visit shortlist",
+          "kind": "input",
+          "role": "pm",
+          "priority": 2,
+          "status": "in_progress",
+          "slackChannel": "#vibe-standup",
+          "slackReply": "Update: #1 Office Plovdiv — budget/area constraints; visit shortlist",
+          "slackTrigger": "standup",
+          "prompt": "",
+          "hint": "Budget <800 EUR; agent researching alo.bg + imot.bg",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {
+            "collection": "tasks",
+            "slug": "denis-decisions-manual",
+            "listItemId": 346
+          },
+          "updatedAt": "2026-05-28 11:48:10"
+        },
+        {
+          "id": 70,
+          "slug": "input-task-2-publish-share-po-position-linkedin-boards-network",
+          "title": "#2 Publish & share PO position (LinkedIn, boards, network)",
+          "kind": "input",
+          "role": "pm",
+          "priority": 2,
+          "status": "in_progress",
+          "slackChannel": "#vibe-standup",
+          "slackReply": "Done: #2 Publish & share PO position (LinkedIn, boards, network)",
+          "slackTrigger": "standup",
+          "prompt": "",
+          "hint": "Denis will publish — no duplicate agent task",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {
+            "collection": "tasks",
+            "slug": "denis-decisions-manual",
+            "listItemId": 345
+          },
+          "updatedAt": "2026-05-28 11:48:10"
+        },
+        {
+          "id": 72,
+          "slug": "input-task-4-create-social-accounts-after-name-bios-approved",
+          "title": "#4 Create social accounts (after name + bios approved)",
+          "kind": "input",
+          "role": "pm",
+          "priority": 2,
+          "status": "in_progress",
+          "slackChannel": "#vibe-standup",
+          "slackReply": "Update: #4 Create social accounts (after name + bios approved)",
+          "slackTrigger": "standup",
+          "prompt": "",
+          "hint": "Current TODO for Denis",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {
+            "collection": "tasks",
+            "slug": "denis-decisions-manual",
+            "listItemId": 347
+          },
+          "updatedAt": "2026-05-28 11:48:10"
         }
       ],
       "prompts": [
@@ -1450,7 +819,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-28 04:02:48"
+          "updatedAt": "2026-05-28 11:48:10"
         }
       ]
     },
@@ -1480,7 +849,7 @@
             "collection": "automations",
             "slug": "automation-competitor-research"
           },
-          "updatedAt": "2026-05-28 04:02:48"
+          "updatedAt": "2026-05-28 11:48:10"
         }
       ],
       "prompts": [
@@ -1500,7 +869,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-28 04:02:48"
+          "updatedAt": "2026-05-28 11:48:10"
         }
       ]
     },
@@ -1511,27 +880,6 @@
         "prefix": "📊 *Business Agent* |"
       },
       "actions": [
-        {
-          "id": 83,
-          "slug": "input-one-liner",
-          "title": "Provide course one-liner",
-          "kind": "input",
-          "role": "business",
-          "priority": 1,
-          "status": "open",
-          "slackChannel": "#vibe-business",
-          "slackReply": "One-liner: ",
-          "slackTrigger": "plan",
-          "prompt": "",
-          "hint": "Blocks customer-facing copy and social drafts",
-          "inputLabel": "One-liner",
-          "inputExample": "Ship real projects with Cursor and AI agents — practitioner-first.",
-          "source": {
-            "collection": "business",
-            "slug": "messaging"
-          },
-          "updatedAt": "2026-05-28 04:02:48"
-        },
         {
           "id": 81,
           "slug": "approve-automation-business-plan-assistant",
@@ -1551,7 +899,7 @@
             "collection": "automations",
             "slug": "automation-business-plan-assistant"
           },
-          "updatedAt": "2026-05-28 04:02:48"
+          "updatedAt": "2026-05-28 11:48:10"
         }
       ],
       "prompts": [
@@ -1571,7 +919,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-28 04:02:48"
+          "updatedAt": "2026-05-28 11:48:10"
         }
       ]
     },
@@ -1601,7 +949,7 @@
             "collection": "automations",
             "slug": "automation-social-content-draft-only"
           },
-          "updatedAt": "2026-05-28 04:02:48"
+          "updatedAt": "2026-05-28 11:48:10"
         }
       ],
       "prompts": [
@@ -1621,7 +969,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-28 04:02:48"
+          "updatedAt": "2026-05-28 11:48:10"
         }
       ]
     },
@@ -1649,7 +997,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-28 04:02:48"
+          "updatedAt": "2026-05-28 11:48:10"
         }
       ]
     }
@@ -1762,6 +1110,24 @@
               "name": "New Horizons Bulgaria",
               "url": "https://newhorizons.bg/course-outline/course/ai-3025-work-smarter-with-ai",
               "notes": "Corporate Microsoft Copilot / AI productivity training; adjacent B2B budget competitor.",
+              "priority": "low"
+            },
+            {
+              "name": "IT STEP Plovdiv — Software development",
+              "url": "https://plovdiv.itstep.org/razrabotka-na-softuer",
+              "notes": "Plovdiv campus; 2-year diploma incl. Python AI; offline/online.",
+              "priority": "high"
+            },
+            {
+              "name": "Plovdiv University — AI (bachelor)",
+              "url": "https://uni-plovdiv.bg/pages/index/2987/",
+              "notes": "Degree program; academic AI/ML — adjacent, long cycle.",
+              "priority": "medium"
+            },
+            {
+              "name": "GIKN Plovdiv — Programming for AI (high school)",
+              "url": "https://gikn.eu/priem/",
+              "notes": "Teen pipeline in Plovdiv; not pro developer upskill.",
               "priority": "low"
             }
           ]
@@ -1877,17 +1243,18 @@
       "slug": "messaging",
       "title": "Approved messaging",
       "status": null,
-      "body": "# Approved messaging\n\nOnly claims listed here may appear in social posts, landing copy, or automations.\n\n## Course (fill in with Denis)\n\n- **Working title:** Vibe Coders Academy\n- **One-liner:** _TBD_\n- **Who it's for:** Developers using Cursor to ship real projects\n- **Planned domain:** `vibe-coders.academy` — not active yet\n\n## Pricing & launch\n\n| Item | Approved text | Status |\n|------|---------------|--------|\n| Price | _Not approved yet_ | draft |\n| Launch date | _Not approved yet_ | draft |\n| Waitlist URL | _Not approved yet_ | draft |\n| Public domain | `vibe-coders.academy` — not active yet | draft |\n\n## Claims we allow\n\n- Teaching Cursor, MCP, and automations for real workflows\n- Solo-founder / practitioner perspective\n\n## Claims we do NOT allow (until approved)\n\n- Income guarantees\n- Job placement\n- \"Best\" or \"#1\" without source\n",
+      "body": "# Approved messaging\n\nOnly claims listed here may appear in social posts, landing copy, or automations.\n\n## Course (fill in with Denis)\n\n- **Working title:** Vibe Coders Academy\n- **One-liner:** Стани част от AI революцията\n- **Sub-one-liner:** Бъдещето е сега\n- **Who it's for:** Developers using Cursor to ship real projects\n- **Planned domain:** `vibe-coders.academy` — domain purchased; landing page not live yet\n\n## Pricing & launch\n\n| Item | Approved text | Status |\n|------|---------------|--------|\n| Price | _Not approved yet_ | draft |\n| Launch date | _Not approved yet_ | draft |\n| Waitlist URL | _Not approved yet_ | draft |\n| Public domain | `vibe-coders.academy` — domain purchased; landing page not live yet | draft |\n\n## Claims we allow\n\n- Teaching Cursor, MCP, and automations for real workflows\n- Solo-founder / practitioner perspective\n\n## Claims we do NOT allow (until approved)\n\n- Income guarantees\n- Job placement\n- \"Best\" or \"#1\" without source\n",
       "props": {
         "course": {
           "working-title": "Vibe Coders Academy",
-          "one-liner": "TBD",
+          "one-liner": "Стани част от AI революцията",
           "who-it-s-for": "Developers using Cursor to ship real projects",
-          "planned-domain": "vibe-coders.academy — not active yet"
+          "planned-domain": "vibe-coders.academy — registered; landing page TODO (Denis)",
+          "sub-one-liner": "Бъдещето е сега"
         }
       },
       "sortOrder": 0,
-      "updatedAt": "2026-05-27 13:09:38",
+      "updatedAt": "2026-05-28 11:47:17",
       "listItems": [
         {
           "entryId": 21,
