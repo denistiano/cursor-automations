@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generatedAt": "2026-05-28T13:47:26.528428+00:00",
+    "generatedAt": "2026-05-28T14:11:46.866889+00:00",
     "generator": "scripts/build_site.py",
-    "gitSha": "f647a7260bff1387d01655804e0d91ccd4b19096",
+    "gitSha": "baecccd857feffe781bad20bb2c4abe54f29acc0",
     "schemaVersion": "1",
     "dataModel": "hq-sections-v3"
   },
@@ -25,75 +25,34 @@
   "ui": {
     "nav": [
       {
-        "id": "overview",
-        "label": "Overview",
+        "id": "home",
+        "label": "Home",
         "icon": "home",
-        "view": "overview"
+        "view": "home"
       },
       {
-        "id": "tasks",
-        "label": "Tasks",
-        "icon": "board",
-        "view": "tasks"
+        "id": "inbox",
+        "label": "Inbox",
+        "icon": "inbox",
+        "view": "inbox"
       },
       {
-        "id": "planning",
-        "label": "Planning",
+        "id": "office",
+        "label": "Office search",
+        "icon": "building",
+        "view": "office"
+      },
+      {
+        "id": "work",
+        "label": "Work plan",
         "icon": "calendar",
-        "view": "planning"
+        "view": "work"
       },
       {
         "id": "research",
         "label": "Research",
         "icon": "search",
         "view": "research"
-      },
-      {
-        "id": "inbox",
-        "label": "Inbox",
-        "icon": "inbox",
-        "filter": "open"
-      },
-      {
-        "id": "pm",
-        "label": "PM",
-        "icon": "target",
-        "role": "pm",
-        "navGroup": "Agents"
-      },
-      {
-        "id": "agent-research",
-        "label": "Research",
-        "icon": "microscope",
-        "role": "research",
-        "navGroup": "Agents"
-      },
-      {
-        "id": "business",
-        "label": "Business",
-        "icon": "briefcase",
-        "role": "business",
-        "navGroup": "Agents"
-      },
-      {
-        "id": "social",
-        "label": "Social",
-        "icon": "share",
-        "role": "social",
-        "navGroup": "Agents"
-      },
-      {
-        "id": "developer",
-        "label": "Developer",
-        "icon": "code",
-        "role": "developer",
-        "navGroup": "Agents"
-      },
-      {
-        "id": "prompts",
-        "label": "Prompts",
-        "icon": "copy",
-        "filter": "prompts"
       }
     ],
     "taskColumns": [
@@ -114,40 +73,66 @@
         "label": "Done"
       }
     ],
+    "officeListings": {
+      "maxBudgetEur": 800,
+      "defaultSort": "price-asc",
+      "sortOptions": [
+        {
+          "id": "price-asc",
+          "label": "Price ↑"
+        },
+        {
+          "id": "price-desc",
+          "label": "Price ↓"
+        },
+        {
+          "id": "sqm-desc",
+          "label": "Size ↓"
+        },
+        {
+          "id": "sqm-asc",
+          "label": "Size ↑"
+        },
+        {
+          "id": "pricePerSqm-asc",
+          "label": "€/m² ↑"
+        }
+      ]
+    },
     "roles": {
       "pm": {
-        "label": "PM Agent",
+        "label": "PM",
         "channel": "#vibe-standup",
         "prefix": "🎯 *PM Agent* |"
       },
       "research": {
-        "label": "Research Agent",
+        "label": "Research",
         "channel": "#vibe-research",
         "prefix": "🔍 *Research Agent* |"
       },
       "business": {
-        "label": "Business Agent",
+        "label": "Business",
         "channel": "#vibe-business",
         "prefix": "📊 *Business Agent* |"
       },
       "social": {
-        "label": "Social Agent",
+        "label": "Social",
         "channel": "#vibe-social",
         "prefix": "📣 *Social Agent* |"
       },
       "developer": {
-        "label": "Developer Agent",
+        "label": "Developer",
         "channel": "#vibe-code",
         "prefix": "🛠 *Dev Agent* |"
       }
     },
     "actionKinds": {
       "input": {
-        "label": "Needs your input",
+        "label": "Needs your reply",
         "badge": "input"
       },
       "approve": {
-        "label": "Green-light agent",
+        "label": "Approve to run",
         "badge": "approve"
       },
       "prompt": {
@@ -177,7 +162,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 351
       },
-      "updatedAt": "2026-05-28 13:47:26"
+      "updatedAt": "2026-05-28 14:11:46"
     },
     {
       "id": 253,
@@ -199,7 +184,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 352
       },
-      "updatedAt": "2026-05-28 13:47:26"
+      "updatedAt": "2026-05-28 14:11:46"
     },
     {
       "id": 81,
@@ -220,7 +205,7 @@
         "collection": "automations",
         "slug": "automation-business-plan-assistant"
       },
-      "updatedAt": "2026-05-28 13:47:26"
+      "updatedAt": "2026-05-28 14:11:46"
     },
     {
       "id": 80,
@@ -241,7 +226,7 @@
         "collection": "automations",
         "slug": "automation-competitor-research"
       },
-      "updatedAt": "2026-05-28 13:47:26"
+      "updatedAt": "2026-05-28 14:11:46"
     },
     {
       "id": 79,
@@ -262,7 +247,7 @@
         "collection": "automations",
         "slug": "automation-morning-standup-prep"
       },
-      "updatedAt": "2026-05-28 13:47:26"
+      "updatedAt": "2026-05-28 14:11:46"
     },
     {
       "id": 82,
@@ -283,7 +268,7 @@
         "collection": "automations",
         "slug": "automation-social-content-draft-only"
       },
-      "updatedAt": "2026-05-28 13:47:26"
+      "updatedAt": "2026-05-28 14:11:46"
     },
     {
       "id": 64,
@@ -305,7 +290,7 @@
         "slug": "blockers",
         "listItemId": 353
       },
-      "updatedAt": "2026-05-28 13:47:26"
+      "updatedAt": "2026-05-28 14:11:46"
     },
     {
       "id": 71,
@@ -327,7 +312,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 346
       },
-      "updatedAt": "2026-05-28 13:47:26"
+      "updatedAt": "2026-05-28 14:11:46"
     },
     {
       "id": 70,
@@ -349,7 +334,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 345
       },
-      "updatedAt": "2026-05-28 13:47:26"
+      "updatedAt": "2026-05-28 14:11:46"
     },
     {
       "id": 72,
@@ -371,7 +356,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 347
       },
-      "updatedAt": "2026-05-28 13:47:26"
+      "updatedAt": "2026-05-28 14:11:46"
     }
   ],
   "inboxBatch": {
@@ -400,7 +385,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 351
       },
-      "updatedAt": "2026-05-28 13:47:26"
+      "updatedAt": "2026-05-28 14:11:46"
     },
     {
       "id": 253,
@@ -422,7 +407,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 352
       },
-      "updatedAt": "2026-05-28 13:47:26"
+      "updatedAt": "2026-05-28 14:11:46"
     },
     {
       "id": 81,
@@ -443,7 +428,7 @@
         "collection": "automations",
         "slug": "automation-business-plan-assistant"
       },
-      "updatedAt": "2026-05-28 13:47:26"
+      "updatedAt": "2026-05-28 14:11:46"
     },
     {
       "id": 80,
@@ -464,7 +449,7 @@
         "collection": "automations",
         "slug": "automation-competitor-research"
       },
-      "updatedAt": "2026-05-28 13:47:26"
+      "updatedAt": "2026-05-28 14:11:46"
     },
     {
       "id": 79,
@@ -485,7 +470,7 @@
         "collection": "automations",
         "slug": "automation-morning-standup-prep"
       },
-      "updatedAt": "2026-05-28 13:47:26"
+      "updatedAt": "2026-05-28 14:11:46"
     },
     {
       "id": 82,
@@ -506,7 +491,7 @@
         "collection": "automations",
         "slug": "automation-social-content-draft-only"
       },
-      "updatedAt": "2026-05-28 13:47:26"
+      "updatedAt": "2026-05-28 14:11:46"
     },
     {
       "id": 61,
@@ -524,7 +509,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-28 13:47:26"
+      "updatedAt": "2026-05-28 14:11:46"
     },
     {
       "id": 63,
@@ -542,7 +527,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-28 13:47:26"
+      "updatedAt": "2026-05-28 14:11:46"
     },
     {
       "id": 59,
@@ -560,7 +545,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-28 13:47:26"
+      "updatedAt": "2026-05-28 14:11:46"
     },
     {
       "id": 60,
@@ -578,7 +563,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-28 13:47:26"
+      "updatedAt": "2026-05-28 14:11:46"
     },
     {
       "id": 62,
@@ -596,7 +581,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-28 13:47:26"
+      "updatedAt": "2026-05-28 14:11:46"
     },
     {
       "id": 64,
@@ -618,7 +603,7 @@
         "slug": "blockers",
         "listItemId": 353
       },
-      "updatedAt": "2026-05-28 13:47:26"
+      "updatedAt": "2026-05-28 14:11:46"
     },
     {
       "id": 71,
@@ -640,7 +625,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 346
       },
-      "updatedAt": "2026-05-28 13:47:26"
+      "updatedAt": "2026-05-28 14:11:46"
     },
     {
       "id": 70,
@@ -662,7 +647,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 345
       },
-      "updatedAt": "2026-05-28 13:47:26"
+      "updatedAt": "2026-05-28 14:11:46"
     },
     {
       "id": 72,
@@ -684,13 +669,13 @@
         "slug": "denis-decisions-manual",
         "listItemId": 347
       },
-      "updatedAt": "2026-05-28 13:47:26"
+      "updatedAt": "2026-05-28 14:11:46"
     }
   ],
   "roles": {
     "pm": {
       "meta": {
-        "label": "PM Agent",
+        "label": "PM",
         "channel": "#vibe-standup",
         "prefix": "🎯 *PM Agent* |"
       },
@@ -715,7 +700,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 351
           },
-          "updatedAt": "2026-05-28 13:47:26"
+          "updatedAt": "2026-05-28 14:11:46"
         },
         {
           "id": 253,
@@ -737,7 +722,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 352
           },
-          "updatedAt": "2026-05-28 13:47:26"
+          "updatedAt": "2026-05-28 14:11:46"
         },
         {
           "id": 79,
@@ -758,7 +743,7 @@
             "collection": "automations",
             "slug": "automation-morning-standup-prep"
           },
-          "updatedAt": "2026-05-28 13:47:26"
+          "updatedAt": "2026-05-28 14:11:46"
         },
         {
           "id": 64,
@@ -780,7 +765,7 @@
             "slug": "blockers",
             "listItemId": 353
           },
-          "updatedAt": "2026-05-28 13:47:26"
+          "updatedAt": "2026-05-28 14:11:46"
         },
         {
           "id": 71,
@@ -802,7 +787,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 346
           },
-          "updatedAt": "2026-05-28 13:47:26"
+          "updatedAt": "2026-05-28 14:11:46"
         },
         {
           "id": 70,
@@ -824,7 +809,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 345
           },
-          "updatedAt": "2026-05-28 13:47:26"
+          "updatedAt": "2026-05-28 14:11:46"
         },
         {
           "id": 72,
@@ -846,7 +831,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 347
           },
-          "updatedAt": "2026-05-28 13:47:26"
+          "updatedAt": "2026-05-28 14:11:46"
         }
       ],
       "prompts": [
@@ -866,13 +851,13 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-28 13:47:26"
+          "updatedAt": "2026-05-28 14:11:46"
         }
       ]
     },
     "research": {
       "meta": {
-        "label": "Research Agent",
+        "label": "Research",
         "channel": "#vibe-research",
         "prefix": "🔍 *Research Agent* |"
       },
@@ -896,7 +881,7 @@
             "collection": "automations",
             "slug": "automation-competitor-research"
           },
-          "updatedAt": "2026-05-28 13:47:26"
+          "updatedAt": "2026-05-28 14:11:46"
         }
       ],
       "prompts": [
@@ -916,13 +901,13 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-28 13:47:26"
+          "updatedAt": "2026-05-28 14:11:46"
         }
       ]
     },
     "business": {
       "meta": {
-        "label": "Business Agent",
+        "label": "Business",
         "channel": "#vibe-business",
         "prefix": "📊 *Business Agent* |"
       },
@@ -946,7 +931,7 @@
             "collection": "automations",
             "slug": "automation-business-plan-assistant"
           },
-          "updatedAt": "2026-05-28 13:47:26"
+          "updatedAt": "2026-05-28 14:11:46"
         }
       ],
       "prompts": [
@@ -966,13 +951,13 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-28 13:47:26"
+          "updatedAt": "2026-05-28 14:11:46"
         }
       ]
     },
     "social": {
       "meta": {
-        "label": "Social Agent",
+        "label": "Social",
         "channel": "#vibe-social",
         "prefix": "📣 *Social Agent* |"
       },
@@ -996,7 +981,7 @@
             "collection": "automations",
             "slug": "automation-social-content-draft-only"
           },
-          "updatedAt": "2026-05-28 13:47:26"
+          "updatedAt": "2026-05-28 14:11:46"
         }
       ],
       "prompts": [
@@ -1016,13 +1001,13 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-28 13:47:26"
+          "updatedAt": "2026-05-28 14:11:46"
         }
       ]
     },
     "developer": {
       "meta": {
-        "label": "Developer Agent",
+        "label": "Developer",
         "channel": "#vibe-code",
         "prefix": "🛠 *Dev Agent* |"
       },
@@ -1044,7 +1029,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-28 13:47:26"
+          "updatedAt": "2026-05-28 14:11:46"
         }
       ]
     }
@@ -2046,59 +2031,113 @@
       "listItems": []
     },
     "officeBrief": "# Office Plovdiv — search brief\n\n**Budget:** under **800 EUR / month** (incl. VAT assumptions TBD per listing)  \n**City:** Plovdiv  \n**Use:** small team / studio + occasional meetings  \n\n## Sources (automated + manual)\n\n| Source | URL | Notes |\n|--------|-----|-------|\n| alo.bg search | https://www.alo.bg/searchq/?q=офис%20под%20наем%20пловdiv | Scraped weekly → `data/office-listings.json` |\n| alo.bg category | https://www.alo.bg/obiavi/imoti-naemi/magazini-ofisi/?location_ids=3333&region_id=16 | Filter by price in UI |\n| imot.bg | https://www.imot.bg/obiavi/prodazhbi-imoti/naemi/plovdiv/ofisi/ | Manual shortlist; sample 400 EUR / 50 m² center |\n\n## Agent output\n\n- GitHub Action: `.github/workflows/office-listings.yml` (Mondays 06:00 UTC)\n- Run locally: `python3 scripts/fetch_office_listings.py`\n\n## Denis next steps\n\n1. Review `data/office-listings.json` after each run.\n2. Shortlist 3–5 for visits (Kapana, center, Dondukov garden area).\n3. Confirm deposit / VAT / fit-out before signing.\n\n_Last updated: 2026-05-28 (batched inbox)_\n",
+    "officeCriteria": {
+      "name": "criteria",
+      "columns": [
+        "field",
+        "value"
+      ],
+      "rows": [
+        {
+          "field": "Areas / neighborhoods",
+          "value": ""
+        },
+        {
+          "field": "Monthly budget (BGN/EUR)",
+          "value": ""
+        },
+        {
+          "field": "Size (m²) / desks",
+          "value": ""
+        },
+        {
+          "field": "Move-in date",
+          "value": ""
+        },
+        {
+          "field": "Must-haves (parking, fiber, meeting room)",
+          "value": ""
+        }
+      ]
+    },
+    "officeShortlist": {
+      "name": "shortlist",
+      "columns": [
+        "num",
+        "address",
+        "rent",
+        "notes",
+        "visit"
+      ],
+      "rows": []
+    },
     "officeListings": {
-      "generatedAt": "2026-05-28T11:47:42.397035+00:00",
+      "generatedAt": "2026-05-28T14:11:46.822927+00:00",
       "maxBudgetEur": 800,
       "city": "Plovdiv",
       "searchUrls": [
         "https://www.alo.bg/obiavi/imoti-naemi/magazini-ofisi/?location_ids=3333&region_id=16",
-        "https://www.alo.bg/searchq/?q=%D0%BE%D1%84%D0%B8%D1%81%20%D0%BF%D0%BE%D0%B4%20%D0%BD%D0%B0%D0%B5%D0%BC%20%D0%BF%D0%BB%D0%BE%D0%B2div"
+        "https://www.alo.bg/searchq/?q=%D0%BE%D1%84%D0%B8%D1%81%20%D0%BF%D0%BE%D0%B4%20%D0%BD%D0%B0%D0%B5%D0%BC%20%D0%BF%D0%BB%D0%BE%D0%B2%D0%B4%D0%B8%D0%B2"
       ],
       "alsoCheck": [
-        "https://www.imot.bg/obiavi/prodazhbi-imoti/naemi/plovdiv/ofisi/",
-        "https://www.alo.bg/obiavi/imoti-naemi/magazini-ofisi/?location_ids=3333&region_id=16"
+        {
+          "label": "imot.bg — Plovdiv offices",
+          "url": "https://www.imot.bg/obiavi/prodazhbi-imoti/naemi/plovdiv/ofisi/"
+        },
+        {
+          "label": "alo.bg — offices Plovdiv",
+          "url": "https://www.alo.bg/obiavi/imoti-naemi/magazini-ofisi/?location_ids=3333&region_id=16"
+        },
+        {
+          "label": "alo.bg — search",
+          "url": "https://www.alo.bg/searchq/?q=%D0%BE%D1%84%D0%B8%D1%81%20%D0%BF%D0%BE%D0%B4%20%D0%BD%D0%B0%D0%B5%D0%BC%20%D0%BF%D0%BB%D0%BE%D0%B2%D0%B4%D0%B8%D0%B2"
+        }
       ],
       "ok": true,
-      "scrapeErrors": [
-        "https://www.alo.bg/searchq/?q=%D0%BE%D1%84%D0%B8%D1%81%20%D0%BF%D0%BE%D0%B4%20%D0%BD%D0%B0%D0%B5%D0%BC%20%D0%BF%D0%BB%D0%BE%D0%B2div: HTTP Error 410: Gone"
-      ],
+      "scrapeErrors": [],
       "includesManualSamples": false,
-      "count": 5,
+      "count": 4,
+      "countWithinBudget": 4,
       "listings": [
         {
-          "title": "Office listing",
-          "priceEur": 0.0,
-          "sqm": 130.0,
+          "title": "Светъл и функционален",
+          "priceEur": 270.0,
+          "sqm": 70.0,
+          "pricePerSqm": 3.86,
+          "location": "Южен, Пловдив",
+          "url": "",
           "source": "alo.bg",
-          "snippet": "🏢 №20125 | Трейд Хаус недвижими имоти предлага под наем модерен офис в идеален център на Пловдив, до Пловдивски университет. \r\n\r\n📐 130 кв.м функционално разпределение: \r\n✔ Open space зона\r\n✔ Отделен к.. \n\t\t\t\t \n\n\t\t\t \n\t\t\t \n\t\t\t \t\n\t\t \n\t \n\t\t \n\n\t  \n\t \n\t \n\t    \n\t\tТова е обявата спечелила търга \"Банер от обява\" за Позиция&nbsp;2 днес с 2.00 €\t\t  \n\t\t \n\t\t\tСъздай сам свои банери (рекламни блокове) в alo.bg с"
-        },
-        {
-          "title": "Светъл и функционален офис под наем - гр. Пловдив, до Дондукова градина ​Предлагаме под наем отличен офис в самостоятелна биз",
-          "priceEur": 150.0,
-          "sqm": 30.0,
-          "source": "alo.bg",
-          "snippet": "🏢 Светъл и функционален офис под наем - гр. Пловдив, до Дондукова градина\r\n​Предлагаме под наем отличен офис в самостоятелна бизнес сграда на топ локация в центъра на Пловдив - бул. „Шести септември“.. \n\t\t\t\t \n\n\t\t\t \n\t\t\t \n\t\t\t \t\n\t\t  \n\t\t\t\n\t\t\t   преди 4 дни  \n\t\t\t\n\t\t\t   \n\t\t\t\t\t    \n\t\t\t \n\n\t\t\t \n\n\t\t\t\t \n\t\t\t\t\t  Място за маникюр под наем / Стол под наем  \n\t\t\t\t\t    Мараша, Пловдив  \n\t\t\t\t\t\n\t\t\t\t \n\t\t\t\t   Месечен н"
-        },
-        {
-          "title": "Office listing",
-          "priceEur": 350.0,
-          "sqm": 15.0,
-          "source": "alo.bg",
-          "snippet": "🏢 Тип имот: Подходящ за офис, аптека, магазин, шоурум и др. \r\n📦 Допълнително помещение: Включено складово помещение\r\n.. \n\t\t\t\t \n\n\t\t\t \n\t\t\t \n\t\t\t \t\n\t\t  \n\t\t\t\n\t\t\t     NL Consult Real Estate   вчера  \n\t\t\t\n\t\t\t   \n\t\t\t\t\t    \n\t\t\t \n\n\t\t\t \n\n\t\t\t\t \n\t\t\t\t\t  Помещение за бърза закуска, палачинки, тостери, бургери, пици.  \n\t\t\t\t\t    Център, Пловдив  \n\t\t\t\t\t\n\t\t\t\t \n\t\t\t\t   Месечен наем :  350 €  ( 684.54 лв. ) \n    23.33"
+          "snippet": "🏢 Светъл и функционален  офис под наем  - гр.  Пловдив , до Дондукова градина … Предлагаме  под наем  отличен  офис  в самостоятелна бизнес сграда на топ локация в центъра на  Пловдив  - бул. „Шести септември“ 145. Имотът е разположен точно срещу … Самостоятелност:  Офисът  се намира в поддържана бизнес сграда с професионална атмосфера … подходящ за адвокатска или нотариална кантора, счетоводна къ"
         },
         {
           "title": "Офис под наем - ул “Авксентий Велешки”",
           "priceEur": 420.0,
           "sqm": 37.0,
+          "pricePerSqm": 11.35,
+          "location": "Център, Пловдив",
+          "url": "https://www.alo.bg/pomeshtenie-pod-naem-10987233",
           "source": "alo.bg",
           "snippet": "Офис под наем - ул “Авксентий Велешки”  \n\t\t\t\t\t    Център, Пловдив  \n\t\t\t\t\t\n\t\t\t\t \n\t\t\t\t   Месечен наем :  420 €  ( 821.45 лв. ) \n    11.35 €/кв.м  ( 22.20 лв./кв.м )  \n Офис \n 37 кв.м \n Партер \n\t Предлагаме под наем светло и функционално офис помещение, разположено на партерно ниво в идеалния център на гр. Пловдив. \r\nИмотът се намира на ъглова позиция с лице към оживена улица, което осигурява .."
         },
         {
-          "title": "ОФИС под наем - супер комуникативно място, Кършияка, Герджика\">",
+          "title": "ОФИС под наем - супер комуникативно място, Кършияка, Герджика",
           "priceEur": 445.0,
           "sqm": 75.0,
+          "pricePerSqm": 5.93,
+          "location": "Кършияка, Пловдив",
+          "url": "https://www.alo.bg/ofis-v-biznes-sgrada-10736120",
           "source": "alo.bg",
           "snippet": "🏢 Отдават се под наем помещения с отлична локация в Пловдив\r\n\r\nПредлагаме под наем функционален имот с площ от 75 кв.м, разположен на висок партер, в изключително комуникативен район - в близост до Це.. \n\t\t\t\t \n\n\t\t\t \n\t\t\t \n\t\t\t \t\n\t\t  \n\t\t\t\n\t\t\t     Гаранти   преди 2 дни  \n\t\t\t\n\t\t\t   \n\t\t\t\t\t    \n\t\t\t \n\n\t\t\t \n\n\t\t\t\t \n\t\t\t\t\t  Офис в бизнес сграда  \n\t\t\t\t\t    Кършияка, Пловдив  \n\t\t\t\t\t\n\t\t\t\t \n\t\t\t\t   Месечен наем :"
+        },
+        {
+          "title": "Office listing",
+          "priceEur": 550.0,
+          "sqm": 130.0,
+          "pricePerSqm": 4.23,
+          "location": "Христо Смирненски, Пловдив",
+          "url": "https://www.alo.bg/targovsko-pomeshtenie-ul-solunska-chovekopotok-11135332",
+          "source": "alo.bg",
+          "snippet": "🏢 №20125 | Трейд Хаус недвижими имоти предлага под наем модерен офис в идеален център на Пловдив, до Пловдивски университет. \r\n\r\n📐 130 кв.м функционално разпределение: \r\n✔ Open space зона\r\n✔ Отделен к.. \n\t\t\t\t \n\n\t\t\t \n\t\t\t \n\t\t\t \t\n\t\t  \n\t\t\t\n\t\t\t     Контракт имоти   днешна обява  \n\t\t\t\n\t\t\t   \n\t\t\t\t\t    \n\t\t\t \n\n\t\t\t \n\n\t\t\t\t \n\t\t\t\t\t  Търговско помещение, ул. Солунска, човекопоток  \n\t\t\t\t\t    Христо Смирненски, П"
         }
       ]
     },

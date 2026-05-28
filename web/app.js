@@ -1,6 +1,17 @@
 const DATA_URL = "data/site.json";
 
-const state = { data: null, section: "overview", query: "", filterKind: "all", taskBoard: "all" };
+const state = {
+  data: null,
+  section: "home",
+  query: "",
+  filterKind: "all",
+  filterRole: "all",
+  taskBoard: "all",
+  officeSort: "price-asc",
+  officeMaxPrice: null,
+  officeMinSqm: 0,
+  officeLocalQuery: "",
+};
 
 const app = document.getElementById("app");
 const sidebarNav = document.getElementById("sidebarNav");
@@ -14,8 +25,10 @@ async function init() {
     const res = await fetch(DATA_URL, { cache: "no-store" });
     if (!res.ok) throw new Error(`Could not load ${DATA_URL}`);
     state.data = await res.json();
+    state.officeMaxPrice = state.data.ui?.officeListings?.maxBudgetEur ?? 800;
+    state.officeSort = state.data.ui?.officeListings?.defaultSort ?? "price-asc";
     renderChrome();
-    navigate(getHash() || "overview");
+    navigate(getHash() || "home");
   } catch (err) {
     app.innerHTML = `<section class="empty-state"><h2>Could not load HQ</h2><p>${escapeHtml(err.message)}</p></section>`;
   }
@@ -34,7 +47,7 @@ function wireControls() {
     renderSection();
   });
 
-  window.addEventListener("hashchange", () => navigate(getHash() || "overview", { hash: false }));
+  window.addEventListener("hashchange", () => navigate(getHash() || "home", { hash: false }));
 
   document.getElementById("sidebarToggle").addEventListener("click", () => {
     document.body.classList.toggle("sidebar-open");
@@ -42,28 +55,58 @@ function wireControls() {
 
   app.addEventListener("click", (e) => {
     const btn = e.target.closest("[data-copy]");
-    if (!btn) return;
-    copyText(btn.dataset.copy, btn);
+    if (btn) copyText(btn.dataset.copy, btn);
   });
 
   app.addEventListener("click", (e) => {
     const tab = e.target.closest("[data-filter-kind]");
     if (tab) {
       state.filterKind = tab.dataset.filterKind;
-      document.querySelectorAll("[data-filter-kind]").forEach((el) => {
-        el.classList.toggle("is-active", el.dataset.filterKind === state.filterKind);
-      });
+      syncTabState("[data-filter-kind]", "filterKind");
+      renderSection();
+      return;
+    }
+    const roleTab = e.target.closest("[data-filter-role]");
+    if (roleTab) {
+      state.filterRole = roleTab.dataset.filterRole;
+      syncTabState("[data-filter-role]", "filterRole");
       renderSection();
       return;
     }
     const boardTab = e.target.closest("[data-task-board]");
     if (boardTab) {
       state.taskBoard = boardTab.dataset.taskBoard;
-      document.querySelectorAll("[data-task-board]").forEach((el) => {
-        el.classList.toggle("is-active", el.dataset.taskBoard === state.taskBoard);
-      });
+      syncTabState("[data-task-board]", "taskBoard");
+      renderSection();
+      return;
+    }
+    const sortBtn = e.target.closest("[data-office-sort]");
+    if (sortBtn) {
+      state.officeSort = sortBtn.dataset.officeSort;
+      syncTabState("[data-office-sort]", "officeSort", "officeSort");
       renderSection();
     }
+  });
+
+  app.addEventListener("input", (e) => {
+    if (e.target.matches("[data-office-max-price]")) {
+      state.officeMaxPrice = Number(e.target.value) || 800;
+      renderSection();
+    }
+    if (e.target.matches("[data-office-min-sqm]")) {
+      state.officeMinSqm = Number(e.target.value) || 0;
+      renderSection();
+    }
+    if (e.target.matches("[data-office-local-query]")) {
+      state.officeLocalQuery = e.target.value.trim().toLowerCase();
+      renderSection();
+    }
+  });
+}
+
+function syncTabState(selector, key, datasetKey = key) {
+  document.querySelectorAll(selector).forEach((el) => {
+    el.classList.toggle("is-active", el.dataset[datasetKey] === state[key]);
   });
 }
 
@@ -73,7 +116,10 @@ function getHash() {
 
 function navigate(section, opts = {}) {
   state.section = section;
-  state.filterKind = "all";
+  if (section !== "inbox") {
+    state.filterKind = "all";
+    state.filterRole = "all";
+  }
   if (opts.hash !== false) window.location.hash = section;
   document.querySelectorAll(".nav-link").forEach((l) => l.classList.toggle("is-active", l.dataset.section === section));
   renderSection();
@@ -85,22 +131,15 @@ function renderChrome() {
   document.getElementById("generatedAt").textContent = `Updated ${new Date(data.meta.generatedAt).toLocaleString([], { dateStyle: "medium", timeStyle: "short" })}`;
 
   const m = data.metrics;
-  const tt = m.tasks || {};
   document.getElementById("topbarMetrics").innerHTML = [
-    pill(`${m.needsInput} inputs`, "warn"),
-    pill(`${tt.todo ?? 0} tasks`, "accent"),
+    pill(`${m.needsInput} waiting on you`, "warn"),
+    pill(`${m.needsApproval} to approve`, "accent"),
   ].join("");
 
-  let lastGroup = null;
   sidebarNav.innerHTML = data.ui.nav
     .map((item) => {
-      const groupHdr =
-        item.navGroup && item.navGroup !== lastGroup
-          ? `<p class="nav-group-label">${escapeHtml(item.navGroup)}</p>`
-          : "";
-      if (item.navGroup) lastGroup = item.navGroup;
       const count = navCount(item, data);
-      return `${groupHdr}
+      return `
         <a class="nav-link" href="#${item.id}" data-section="${item.id}">
           <span class="nav-icon">${icon(item.icon)}</span>
           <span>${escapeHtml(item.label)}</span>
@@ -112,57 +151,66 @@ function renderChrome() {
 
 function navCount(item, data) {
   if (item.id === "inbox") return data.inbox.length;
-  if (item.id === "tasks") return (data.metrics.tasks?.todo ?? 0) + (data.metrics.tasks?.in_progress ?? 0);
-  if (item.role) {
-    return (data.roles[item.role]?.actions || []).filter((a) => a.status === "open").length;
-  }
+  if (item.id === "office") return data.planning?.officeListings?.countWithinBudget ?? data.planning?.officeListings?.count ?? 0;
+  if (item.id === "work") return (data.metrics.tasks?.todo ?? 0) + (data.metrics.tasks?.in_progress ?? 0);
   return 0;
 }
 
 function renderSection() {
   const { data, section } = state;
   const navItem = data.ui.nav.find((n) => n.id === section) || data.ui.nav[0];
+  const view = navItem.view || "home";
 
-  let html = "";
-  const view = navItem.view || navItem.filter || (navItem.role ? "role" : "inbox");
-  if (view === "overview") html = renderOverview();
-  else if (view === "tasks") html = renderTasks();
-  else if (view === "planning") html = renderPlanning();
-  else if (view === "research") html = renderResearch();
-  else if (view === "reference") html = renderReference();
-  else if (navItem.filter === "prompts") html = renderPrompts();
-  else if (navItem.filter === "open" || section === "inbox") html = renderInbox();
-  else if (navItem.role) html = renderRole(navItem.role);
-  else html = renderOverview();
+  const renderers = {
+    home: renderHome,
+    inbox: renderInbox,
+    office: renderOffice,
+    work: renderWork,
+    research: renderResearch,
+  };
 
-  app.innerHTML = html;
+  app.innerHTML = (renderers[view] || renderHome)();
   applySearch();
 }
 
-function renderOverview() {
+/* ── Home ── */
+
+function renderHome() {
   const { data } = state;
   const m = data.metrics;
-  const tt = m.tasks || {};
+  const open = data.inbox.filter((a) => a.status === "open" || a.status === "in_progress");
   const standup = data.planning?.standups?.[0];
   const blockers = (data.tasks?.boards || []).find((b) => b.slug === "blockers");
+  const openBlockers = blockers
+    ? [...(blockers.columns.todo || []), ...(blockers.columns.in_progress || [])]
+    : [];
 
   return `
-    ${pageHeader("Overview", data.project.description || "Course business HQ — tasks, planning, research, and agent inbox.")}
+    ${pageHeader("Home", "What needs your attention today.")}
     <div class="stat-grid">
-      ${statCard("Inbox", m.needsInput, "inputs waiting", "#inbox")}
-      ${statCard("Approvals", m.needsApproval, "green-lights", "#inbox")}
-      ${statCard("Tasks", (tt.todo ?? 0) + (tt.in_progress ?? 0), "active items", "#tasks")}
-      ${statCard("Listings", data.planning?.officeListings?.count ?? 0, "office under €800", "#planning")}
+      ${statCard("Waiting on you", m.needsInput, "replies needed", "#inbox")}
+      ${statCard("To approve", m.needsApproval, "agent runs", "#inbox")}
+      ${statCard("Office listings", data.planning?.officeListings?.countWithinBudget ?? 0, "under budget", "#office")}
+      ${statCard("Active tasks", (m.tasks?.todo ?? 0) + (m.tasks?.in_progress ?? 0), "in progress", "#work")}
     </div>
+    ${open.length ? priorityActionsPanel(open.slice(0, 4)) : ""}
     ${standup ? standupPanel(standup) : ""}
-    ${blockers ? blockersPanel(blockers) : ""}
-    <section class="section-block">
-      <h2 class="section-title">Quick links</h2>
-      <div class="quick-links">
-        <a class="quick-link" href="#tasks">Task boards</a>
-        <a class="quick-link" href="#planning">Planning & office</a>
-        <a class="quick-link" href="#research">Research hub</a>
-        <a class="quick-link" href="#inbox">Action inbox</a>
+    ${openBlockers.length ? blockersPanel(openBlockers) : ""}`;
+}
+
+function priorityActionsPanel(actions) {
+  return `
+    <section class="panel-card">
+      <div class="panel-head">
+        <h2>Needs you now</h2>
+        <a class="text-link" href="#inbox">Open inbox →</a>
+      </div>
+      <div class="priority-list">
+        ${actions.map((a) => `
+          <a class="priority-row" href="#inbox" data-search-text="${searchAttr(a)}">
+            <span class="badge kind">${escapeHtml((state.data.ui.actionKinds[a.kind] || {}).label || a.kind)}</span>
+            <span>${escapeHtml(a.title)}</span>
+          </a>`).join("")}
       </div>
     </section>`;
 }
@@ -178,12 +226,12 @@ function statCard(label, value, sub, hash) {
 
 function standupPanel(standup) {
   const today = (standup.sections.today || []).slice(0, 3);
-  const blockers = (standup.sections.blockers || []).slice(0, 4);
+  const blockers = (standup.sections.blockers || []).slice(0, 3);
   return `
     <section class="panel-card">
       <div class="panel-head">
         <h2>Latest standup · ${escapeHtml(standup.slug)}</h2>
-        <a class="text-link" href="#planning">All standups</a>
+        <a class="text-link" href="#work">All standups</a>
       </div>
       <div class="standup-cols">
         <div>
@@ -198,16 +246,268 @@ function standupPanel(standup) {
     </section>`;
 }
 
-function blockersPanel(board) {
-  const open = [...(board.columns.todo || []), ...(board.columns.in_progress || [])];
+function blockersPanel(items) {
   return `
     <section class="panel-card panel-warn">
-      <div class="panel-head"><h2>Blockers (${open.length} open)</h2><a class="text-link" href="#tasks">Task board</a></div>
-      <ul class="compact-list">${open.map((i) => `<li>${escapeHtml(i.text)}</li>`).join("")}</ul>
+      <div class="panel-head"><h2>Blockers (${items.length})</h2><a class="text-link" href="#work">Task boards</a></div>
+      <ul class="compact-list">${items.map((i) => `<li>${escapeHtml(i.text)}</li>`).join("")}</ul>
     </section>`;
 }
 
-function renderTasks() {
+/* ── Inbox (unified: all roles + prompts) ── */
+
+function renderInbox() {
+  const allOpen = filterInboxActions(state.data.inbox);
+  const prompts = filterInboxActions(state.data.actions.filter((a) => a.kind === "prompt"));
+  const showingPrompts = state.filterKind === "prompt";
+
+  return `
+    ${pageHeader("Inbox", "Everything waiting on you — copy a Slack reply or agent prompt.")}
+    ${inboxBatchBlock()}
+    ${inboxFilterTabs()}
+    ${roleFilterTabs()}
+    ${showingPrompts
+      ? actionList(prompts, "No prompts found.")
+      : actionList(allOpen, "Nothing waiting on you right now.")}`;
+}
+
+function inboxFilterTabs() {
+  return `
+    <div class="filter-tabs" role="tablist">
+      <button type="button" class="filter-tab ${state.filterKind === "all" ? "is-active" : ""}" data-filter-kind="all">All</button>
+      <button type="button" class="filter-tab ${state.filterKind === "input" ? "is-active" : ""}" data-filter-kind="input">Needs reply</button>
+      <button type="button" class="filter-tab ${state.filterKind === "approve" ? "is-active" : ""}" data-filter-kind="approve">Approve</button>
+      <button type="button" class="filter-tab ${state.filterKind === "prompt" ? "is-active" : ""}" data-filter-kind="prompt">Prompts</button>
+    </div>`;
+}
+
+function roleFilterTabs() {
+  if (state.filterKind === "prompt") return "";
+  const roles = state.data.ui.roles || {};
+  const tabs = [
+    `<button type="button" class="filter-tab filter-tab-sm ${state.filterRole === "all" ? "is-active" : ""}" data-filter-role="all">All roles</button>`,
+    ...Object.entries(roles).map(
+      ([id, meta]) =>
+        `<button type="button" class="filter-tab filter-tab-sm ${state.filterRole === id ? "is-active" : ""}" data-filter-role="${escapeAttr(id)}">${escapeHtml(meta.label)}</button>`
+    ),
+  ];
+  return `<div class="filter-tabs filter-tabs-secondary" role="tablist">${tabs.join("")}</div>`;
+}
+
+function inboxBatchBlock() {
+  const batch = state.data.inboxBatch;
+  if (!batch?.slackReply || !batch.count) return "";
+  const channel = batch.channel || "#vibe-standup";
+  return `
+    <section class="batch-block copy-block">
+      <div class="copy-head">
+        <span class="copy-label">Batched standup (${batch.count} items) → ${escapeHtml(channel)}</span>
+      </div>
+      <p class="hint">Paste one numbered reply in Slack; agents map answers to inbox cards.</p>
+      <div class="copy-row">
+        <pre class="copy-text batch-text">${escapeHtml(batch.slackReply)}</pre>
+        <button type="button" class="copy-btn copy-btn-primary" data-copy="${escapeAttr(batch.slackReply)}">Copy batch</button>
+      </div>
+    </section>`;
+}
+
+function filterInboxActions(actions) {
+  let list = actions;
+  if (state.filterKind === "prompt") {
+    list = list.filter((a) => a.kind === "prompt");
+  } else if (state.filterKind !== "all") {
+    list = list.filter((a) => a.kind === state.filterKind);
+  } else {
+    list = list.filter((a) => a.kind !== "prompt");
+  }
+  if (state.filterRole !== "all") list = list.filter((a) => a.role === state.filterRole);
+  if (state.query) list = list.filter((a) => searchBlob(a).includes(state.query));
+  return list;
+}
+
+/* ── Office search ── */
+
+function renderOffice() {
+  const p = state.data.planning || {};
+  const listings = p.officeListings || {};
+  const cfg = state.data.ui.officeListings || {};
+  const maxBudget = cfg.maxBudgetEur ?? 800;
+  const filtered = filterOfficeListings(listings.listings || [], maxBudget);
+  const sorted = sortOfficeListings(filtered);
+  const alsoCheck = listings.alsoCheck || [];
+  const criteria = parseOfficeBrief(p.officeBrief || "");
+
+  return `
+    ${pageHeader("Office search — Plovdiv", `Find a studio under €${maxBudget}/mo. Click any listing to open it on the source site.`)}
+    ${criteriaPanel(criteria, maxBudget)}
+    ${alsoCheck.length ? externalLinksBar(alsoCheck) : ""}
+    ${officeControls(cfg, maxBudget, sorted.length, listings)}
+    <div class="office-grid">
+      ${sorted.length
+        ? sorted.map(officeCard).join("")
+        : `<p class="empty-inline">No listings match your filters. Try raising the budget or clearing filters.</p>`}
+    </div>
+    ${p.officeShortlist?.rows?.length ? shortlistSection(p.officeShortlist) : ""}`;
+}
+
+function parseOfficeBrief(brief) {
+  const lines = brief.split("\n").filter(Boolean);
+  const criteria = [];
+  for (const line of lines) {
+    const m = line.match(/^\*\*(.+?):\*\*\s*(.+)/);
+    if (m) criteria.push({ label: m[1], value: m[2].replace(/\*\*/g, "") });
+  }
+  return criteria;
+}
+
+function criteriaPanel(criteria, maxBudget) {
+  const defaults = [
+    { label: "Budget", value: `under €${maxBudget} / month` },
+    { label: "City", value: "Plovdiv" },
+    { label: "Use", value: "Small team / studio + occasional meetings" },
+  ];
+  const items = criteria.length ? criteria : defaults;
+  return `
+    <section class="criteria-panel">
+      ${items.map((c) => `
+        <div class="criteria-item">
+          <span class="criteria-label">${escapeHtml(c.label)}</span>
+          <span class="criteria-value">${escapeHtml(c.value)}</span>
+        </div>`).join("")}
+    </section>`;
+}
+
+function externalLinksBar(links) {
+  const items = links.map((l) => {
+    const label = typeof l === "string" ? l.replace(/^https?:\/\/(www\.)?/, "") : l.label;
+    const url = typeof l === "string" ? l : l.url;
+    return `<a class="ext-link" href="${escapeAttr(url)}" target="_blank" rel="noopener">${escapeHtml(label)} ↗</a>`;
+  });
+  return `
+    <section class="ext-links-bar">
+      <span class="ext-links-label">Search more:</span>
+      ${items.join("")}
+    </section>`;
+}
+
+function officeControls(cfg, maxBudget, count, listingsMeta) {
+  const sortOpts = cfg.sortOptions || [
+    { id: "price-asc", label: "Price ↑" },
+    { id: "price-desc", label: "Price ↓" },
+    { id: "sqm-desc", label: "Size ↓" },
+  ];
+  const updated = listingsMeta.generatedAt
+    ? new Date(listingsMeta.generatedAt).toLocaleDateString()
+    : "—";
+
+  return `
+    <section class="office-controls">
+      <div class="office-filters">
+        <label class="filter-field">
+          <span>Max €/mo</span>
+          <input type="range" min="200" max="1200" step="50" value="${state.officeMaxPrice ?? maxBudget}" data-office-max-price />
+          <strong>€${state.officeMaxPrice ?? maxBudget}</strong>
+        </label>
+        <label class="filter-field">
+          <span>Min m²</span>
+          <input type="number" min="0" max="200" value="${state.officeMinSqm}" data-office-min-sqm />
+        </label>
+        <label class="filter-field filter-field-grow">
+          <span>Search listings</span>
+          <input type="search" placeholder="Neighborhood, street…" value="${escapeAttr(state.officeLocalQuery)}" data-office-local-query />
+        </label>
+      </div>
+      <div class="filter-tabs" role="tablist">
+        ${sortOpts.map((o) => `
+          <button type="button" class="filter-tab ${state.officeSort === o.id ? "is-active" : ""}" data-office-sort="${escapeAttr(o.id)}">${escapeHtml(o.label)}</button>`).join("")}
+      </div>
+      <p class="hint">${count} listing${count === 1 ? "" : "s"} · updated ${updated}${listingsMeta.scrapeErrors?.length ? ` · ${listingsMeta.scrapeErrors.length} source warning(s)` : ""}</p>
+    </section>`;
+}
+
+function filterOfficeListings(listings, maxBudget) {
+  const max = state.officeMaxPrice ?? maxBudget;
+  const minSqm = state.officeMinSqm || 0;
+  const q = state.officeLocalQuery || state.query;
+
+  return listings.filter((l) => {
+    const price = l.priceEur;
+    if (price != null && price > max) return false;
+    if (minSqm && (l.sqm || 0) < minSqm) return false;
+    if (q) {
+      const blob = [l.title, l.location, l.snippet, l.source].join(" ").toLowerCase();
+      if (!blob.includes(q)) return false;
+    }
+    return true;
+  });
+}
+
+function sortOfficeListings(listings) {
+  const s = state.officeSort;
+  const copy = [...listings];
+  const num = (v) => (v == null ? Infinity : v);
+  copy.sort((a, b) => {
+    if (s === "price-desc") return num(b.priceEur) - num(a.priceEur);
+    if (s === "sqm-desc") return num(b.sqm) - num(a.sqm);
+    if (s === "sqm-asc") return num(a.sqm) - num(b.sqm);
+    if (s === "pricePerSqm-asc") return num(a.pricePerSqm) - num(b.pricePerSqm);
+    return num(a.priceEur) - num(b.priceEur);
+  });
+  return copy;
+}
+
+function officeCard(l) {
+  const price = l.priceEur != null ? `€${l.priceEur}` : "Price TBD";
+  const sqm = l.sqm ? `${l.sqm} m²` : "—";
+  const perSqm = l.pricePerSqm ? `€${l.pricePerSqm}/m²` : "";
+  const location = l.location || "Plovdiv";
+  const title = (l.title || "Office listing").replace(/">$/, "");
+  const link = l.url
+    ? `<a class="office-card-link" href="${escapeAttr(l.url)}" target="_blank" rel="noopener">View on ${escapeHtml(l.source || "site")} ↗</a>`
+    : `<span class="office-card-link muted">No direct link — search ${escapeHtml(l.source || "alo.bg")}</span>`;
+
+  return `
+    <article class="office-card" data-search-text="${escapeAttr([title, location, l.snippet].join(" "))}">
+      <header class="office-card-head">
+        <h3>${escapeHtml(title)}</h3>
+        <span class="office-card-location">${escapeHtml(location)}</span>
+      </header>
+      <div class="office-card-stats">
+        <span class="office-stat office-stat-price">${price}<small>/mo</small></span>
+        <span class="office-stat">${sqm}</span>
+        ${perSqm ? `<span class="office-stat office-stat-muted">${perSqm}</span>` : ""}
+      </div>
+      ${l.snippet ? `<details class="office-details"><summary>Details</summary><p>${escapeHtml(cleanSnippet(l.snippet))}</p></details>` : ""}
+      <footer class="office-card-foot">${link}</footer>
+    </article>`;
+}
+
+function cleanSnippet(s) {
+  return s.replace(/\s+/g, " ").slice(0, 280) + (s.length > 280 ? "…" : "");
+}
+
+function shortlistSection(table) {
+  return `
+    <section class="section-block">
+      <h2 class="section-title">Your shortlist</h2>
+      <div class="data-table-wrap">${renderTableHtml(table, { linkColumns: ["address"] })}</div>
+    </section>`;
+}
+
+/* ── Work plan (tasks + roadmap + standups) ── */
+
+function renderWork() {
+  const p = state.data.planning || {};
+  return `
+    ${pageHeader("Work plan", "Tasks, roadmap, and standup history.")}
+    ${renderTasksContent()}
+    ${p.nearTerm ? nearTermSection(p.nearTerm) : ""}
+    ${p.tracks?.tables?.length ? roadmapTable("Launch tracks", p.tracks.tables[0]) : ""}
+    ${p.phases?.tables?.length ? roadmapTable("Phases", p.phases.tables[0]) : ""}
+    ${standupsSection(p.standups || [])}`;
+}
+
+function renderTasksContent() {
   const boards = state.data.tasks?.boards || [];
   const cols = state.data.ui.taskColumns || [];
   const activeBoards =
@@ -220,9 +520,53 @@ function renderTasks() {
     </div>`;
 
   return `
-    ${pageHeader("Tasks", "Jira-style boards — status from checklist state and inbox metadata.")}
-    ${boardTabs}
-    ${activeBoards.map((b) => taskBoardHtml(b, cols)).join("")}`;
+    <section class="section-block">
+      <h2 class="section-title">Task boards</h2>
+      ${boardTabs}
+      ${activeBoards.map((b) => taskBoardHtml(b, cols)).join("")}
+    </section>`;
+}
+
+function nearTermSection(entry) {
+  const items = (entry.listItems || []).filter((i) => !i.done);
+  return `
+    <section class="section-block">
+      <h2 class="section-title">Near-term queue</h2>
+      <ul class="numbered-list">${items.map((i) => `<li data-search-text="${escapeAttr(i.text)}">${escapeHtml(i.text)}</li>`).join("")}</ul>
+    </section>`;
+}
+
+function roadmapTable(title, table) {
+  return `
+    <section class="section-block">
+      <h2 class="section-title">${escapeHtml(title)}</h2>
+      <div class="data-table-wrap">${renderTableHtml(table)}</div>
+    </section>`;
+}
+
+function standupsSection(standups) {
+  return `
+    <section class="section-block">
+      <h2 class="section-title">Standups</h2>
+      <div class="standup-stack">
+        ${standups.map(standupExpand).join("")}
+      </div>
+    </section>`;
+}
+
+function standupExpand(standup) {
+  const order = ["done", "today", "blockers", "agent_next"];
+  return `
+    <details class="standup-details" data-search-text="${escapeAttr(standup.slug)}">
+      <summary>${escapeHtml(standup.slug)}</summary>
+      <div class="standup-sections">
+        ${order.filter((s) => standup.sections[s]?.length).map((s) => `
+          <div class="standup-block">
+            <h4>${escapeHtml(s.replace("_", " "))}</h4>
+            <ul>${standup.sections[s].map((t) => `<li>${escapeHtml(t)}</li>`).join("")}</ul>
+          </div>`).join("")}
+      </div>
+    </details>`;
 }
 
 function taskBoardHtml(board, cols) {
@@ -261,89 +605,7 @@ function kanbanCard(item) {
     </article>`;
 }
 
-function renderPlanning() {
-  const p = state.data.planning || {};
-  const listings = p.officeListings || {};
-  const maxBudget = listings.maxBudgetEur ?? 800;
-
-  return `
-    ${pageHeader("Planning", "Roadmap, near-term queue, standups, and Plovdiv office search.")}
-    ${p.nearTerm ? nearTermSection(p.nearTerm) : ""}
-    ${p.tracks?.tables?.length ? roadmapTable("Launch tracks", p.tracks.tables[0]) : ""}
-    ${p.phases?.tables?.length ? roadmapTable("Phases", p.phases.tables[0]) : ""}
-    ${officeSection(p, listings, maxBudget)}
-    ${standupsSection(p.standups || [])}`;
-}
-
-function nearTermSection(entry) {
-  const items = (entry.listItems || []).filter((i) => !i.done);
-  return `
-    <section class="section-block">
-      <h2 class="section-title">Near-term queue</h2>
-      <ul class="numbered-list">${items.map((i, n) => `<li data-search-text="${escapeAttr(i.text)}">${escapeHtml(i.text)}</li>`).join("")}</ul>
-    </section>`;
-}
-
-function roadmapTable(title, table) {
-  return `
-    <section class="section-block">
-      <h2 class="section-title">${escapeHtml(title)}</h2>
-      <div class="data-table-wrap">${renderTableHtml(table)}</div>
-    </section>`;
-}
-
-function officeSection(planning, listings, maxBudget) {
-  const brief = planning.officeBrief || planning.office?.body || "";
-  const rows = (listings.listings || []).filter((l) => (l.priceEur || 0) <= maxBudget || l.priceEur === 0);
-  const errors = listings.scrapeErrors || [];
-
-  return `
-    <section class="section-block office-section">
-      <h2 class="section-title">Office · Plovdiv (under €${maxBudget}/mo)</h2>
-      ${brief ? `<div class="brief-block"><pre class="brief-text">${escapeHtml(brief.slice(0, 800))}</pre></div>` : ""}
-      ${errors.length ? `<p class="hint warn-hint">Scrape notes: ${escapeHtml(errors.join("; "))}</p>` : ""}
-      <p class="hint">${rows.length} listings · updated ${listings.generatedAt ? new Date(listings.generatedAt).toLocaleDateString() : "—"}</p>
-      <div class="data-table-wrap">
-        <table class="data-table office-table">
-          <thead><tr><th>Title</th><th>€/mo</th><th>m²</th><th>Source</th></tr></thead>
-          <tbody>
-            ${rows.map((l) => `
-              <tr data-search-text="${escapeAttr([l.title, l.snippet].join(" "))}">
-                <td><strong>${escapeHtml((l.title || "").slice(0, 72))}</strong>${l.snippet ? `<div class="cell-sub">${escapeHtml((l.snippet || "").slice(0, 120))}…</div>` : ""}</td>
-                <td>${l.priceEur ? l.priceEur : "—"}</td>
-                <td>${l.sqm || "—"}</td>
-                <td>${escapeHtml(l.source || "")}</td>
-              </tr>`).join("")}
-          </tbody>
-        </table>
-      </div>
-    </section>`;
-}
-
-function standupsSection(standups) {
-  return `
-    <section class="section-block">
-      <h2 class="section-title">Standups</h2>
-      <div class="standup-stack">
-        ${standups.map(standupExpand).join("")}
-      </div>
-    </section>`;
-}
-
-function standupExpand(standup) {
-  const order = ["done", "today", "blockers", "agent_next"];
-  return `
-    <details class="standup-details" data-search-text="${escapeAttr(standup.slug)}">
-      <summary>${escapeHtml(standup.slug)}</summary>
-      <div class="standup-sections">
-        ${order.filter((s) => standup.sections[s]?.length).map((s) => `
-          <div class="standup-block">
-            <h4>${escapeHtml(s.replace("_", " "))}</h4>
-            <ul>${standup.sections[s].map((t) => `<li>${escapeHtml(t)}</li>`).join("")}</ul>
-          </div>`).join("")}
-      </div>
-    </details>`;
-}
+/* ── Research ── */
 
 function renderResearch() {
   const hub = state.data.researchHub || {};
@@ -352,7 +614,7 @@ function renderResearch() {
   const reports = entries.filter((e) => e.slug !== "competitors");
 
   return `
-    ${pageHeader("Research", "Market scans, competitor watchlist, and landscape reports.")}
+    ${pageHeader("Research", "Competitors and market reports — click any link to open the source.")}
     ${competitors ? researchCompetitors(competitors) : ""}
     <section class="section-block">
       <h2 class="section-title">Reports</h2>
@@ -368,20 +630,8 @@ function researchCompetitors(entry) {
   return `
     <section class="section-block">
       <h2 class="section-title">Competitor watchlist</h2>
-      <div class="data-table-wrap">${renderTableHtml(table)}</div>
+      <div class="data-table-wrap">${renderTableHtml(table, { linkColumns: ["url"] })}</div>
     </section>`;
-}
-
-function renderTableHtml(table) {
-  const cols = table.columns || [];
-  const rows = table.rows || [];
-  return `
-    <table class="data-table">
-      <thead><tr>${cols.map((c) => `<th>${escapeHtml(c)}</th>`).join("")}</tr></thead>
-      <tbody>
-        ${rows.map((r) => `<tr data-search-text="${escapeAttr(cols.map((c) => r[c]).join(" "))}">${cols.map((c) => `<td>${escapeHtml(r[c] || "")}</td>`).join("")}</tr>`).join("")}
-      </tbody>
-    </table>`;
 }
 
 function researchReportCard(entry) {
@@ -392,113 +642,36 @@ function researchReportCard(entry) {
         <h3>${escapeHtml(entry.title)}</h3>
         ${date ? `<span class="research-date">${escapeHtml(date)}</span>` : ""}
       </header>
-      <pre class="research-excerpt">${escapeHtml(entry.excerpt)}</pre>
-      <footer class="research-meta">${entry.bodyLength} chars in hq.db · slug <code>${escapeHtml(entry.slug)}</code></footer>
+      <p class="research-excerpt">${escapeHtml(entry.excerpt)}</p>
     </article>`;
 }
 
-function renderInbox() {
-  const actions = filterActions(state.data.inbox);
-  return `
-    ${pageHeader("Inbox", "Everything waiting on you — copy the batch reply once, or use per-card templates.")}
-    ${inboxBatchBlock()}
-    ${filterTabs()}
-    ${actionList(actions, "No open actions. Check Prompts for role kits.")}`;
-}
+/* ── Shared components ── */
 
-function inboxBatchBlock() {
-  const batch = state.data.inboxBatch;
-  if (!batch?.slackReply || !batch.count) return "";
-  const channel = batch.channel || "#vibe-standup";
-  return `
-    <section class="batch-block copy-block">
-      <div class="copy-head">
-        <span class="copy-label">Batched standup (${batch.count} items) → ${escapeHtml(channel)}</span>
-      </div>
-      <p class="hint">Paste one numbered reply in Slack; agents map answers to inbox cards.</p>
-      <div class="copy-row">
-        <pre class="copy-text batch-text">${escapeHtml(batch.slackReply)}</pre>
-        <button type="button" class="copy-btn copy-btn-primary" data-copy="${escapeAttr(batch.slackReply)}">Copy batch</button>
-      </div>
-    </section>`;
-}
-
-function renderRole(role) {
-  const roleData = state.data.roles[role] || { meta: {}, actions: [], prompts: [] };
-  const meta = roleData.meta || {};
-  const open = filterActions((roleData.actions || []).filter((a) => a.status === "open"));
-  const prompts = roleData.prompts || [];
-
-  return `
-    ${pageHeader(meta.label || role, `Post in ${meta.channel || "Slack"} — copy a reply or prompt below.`)}
-    ${prompts.length ? `<section class="section-block"><h2 class="section-title">Role prompt kit</h2>${actionList(prompts)}</section>` : ""}
-    <section class="section-block">
-      <h2 class="section-title">Your inputs & approvals</h2>
-      ${filterTabs()}
-      ${actionList(open, `Nothing open for ${meta.label}.`)}
-    </section>`;
-}
-
-function renderPrompts() {
-  const prompts = filterActions(state.data.actions.filter((a) => a.kind === "prompt"));
-  return `
-    ${pageHeader("Prompts", "Copy-paste agent instructions by role.")}
-    ${actionList(prompts, "No prompts found.")}`;
-}
-
-function renderReference() {
-  const ref = state.data.reference || {};
-  const watchlist = ref.competitors?.tables?.find((t) => t.name === "watchlist");
-  const tracks = ref.roadmapTracks?.tables?.find((t) => t.name === "tracks");
-  const course = ref.messaging?.props?.course || {};
-
-  return `
-    ${pageHeader("Reference", "Background context — use Research and Planning for live data.")}
-    <div class="action-grid">
-      ${actionCard({
-        slug: "ref-messaging",
-        title: "Approved messaging",
-        kind: "reference",
-        role: "business",
-        hint: "Source of truth for copy",
-        slackReply: "",
-        prompt: `Working title: ${course["working-title"] || "TBD"}\nOne-liner: ${course["one-liner"] || "TBD"}\nWho it's for: ${course["who-it-s-for"] || course["who-its-for"] || "TBD"}`,
-      })}
-      ${watchlist ? referenceTableCard("Competitor watchlist", watchlist) : ""}
-      ${tracks ? referenceTableCard("Roadmap tracks", tracks) : ""}
-    </div>`;
-}
-
-function referenceTableCard(title, table) {
+function renderTableHtml(table, opts = {}) {
   const cols = table.columns || [];
-  const preview = (table.rows || [])
-    .slice(0, 5)
-    .map((r) => cols.map((c) => `${c}: ${r[c] || ""}`).join(" | "))
-    .join("\n");
-  return actionCard({
-    slug: `ref-${title}`,
-    title,
-    kind: "reference",
-    role: "research",
-    hint: `${(table.rows || []).length} rows`,
-    prompt: preview,
-  });
-}
-
-function filterTabs() {
+  const rows = table.rows || [];
+  const linkCols = new Set(opts.linkColumns || []);
   return `
-    <div class="filter-tabs" role="tablist">
-      <button type="button" class="filter-tab ${state.filterKind === "all" ? "is-active" : ""}" data-filter-kind="all">All</button>
-      <button type="button" class="filter-tab ${state.filterKind === "input" ? "is-active" : ""}" data-filter-kind="input">Needs input</button>
-      <button type="button" class="filter-tab ${state.filterKind === "approve" ? "is-active" : ""}" data-filter-kind="approve">Green-light</button>
-    </div>`;
+    <table class="data-table">
+      <thead><tr>${cols.map((c) => `<th>${escapeHtml(c)}</th>`).join("")}</tr></thead>
+      <tbody>
+        ${rows.map((r) => `
+          <tr data-search-text="${escapeAttr(cols.map((c) => r[c]).join(" "))}">
+            ${cols.map((c) => `<td>${cellHtml(r[c], linkCols.has(c))}</td>`).join("")}
+          </tr>`).join("")}
+      </tbody>
+    </table>`;
 }
 
-function filterActions(actions) {
-  let list = actions;
-  if (state.filterKind !== "all") list = list.filter((a) => a.kind === state.filterKind);
-  if (state.query) list = list.filter((a) => searchBlob(a).includes(state.query));
-  return list;
+function cellHtml(value, isLink) {
+  const v = String(value ?? "");
+  if (!v) return "";
+  if (isLink && /^https?:\/\//i.test(v)) {
+    const label = v.replace(/^https?:\/\/(www\.)?/, "").slice(0, 48);
+    return `<a class="table-link" href="${escapeAttr(v)}" target="_blank" rel="noopener">${escapeHtml(label)} ↗</a>`;
+  }
+  return escapeHtml(v);
 }
 
 function actionList(actions, emptyMsg = "Nothing here.") {
@@ -514,7 +687,7 @@ function actionCard(a) {
 
   const showSlack = a.kind !== "prompt" && a.slackReply;
   const showPrompt = a.prompt && a.kind !== "reference";
-  const priority = a.priority === 1 ? `<span class="priority">P1</span>` : "";
+  const priority = a.priority === 1 ? `<span class="priority">Priority</span>` : "";
 
   return `
     <article class="action-card kind-${escapeAttr(a.kind)}" data-search-text="${searchAttr(a)}">
@@ -530,7 +703,6 @@ function actionCard(a) {
       ${a.inputLabel ? `<p class="input-label"><strong>${escapeHtml(a.inputLabel)}</strong>${a.inputExample ? ` — e.g. ${escapeHtml(a.inputExample)}` : ""}</p>` : ""}
       ${showSlack ? slackBlock(a, roleMeta) : ""}
       ${showPrompt ? promptBlock(a, a.kind === "prompt") : ""}
-      ${a.kind === "reference" && a.prompt ? promptBlock(a, false) : ""}
     </article>`;
 }
 
@@ -562,20 +734,22 @@ function promptBlock(a, expanded) {
 }
 
 function pageHeader(title, desc) {
+  const navItem = state.data.ui.nav.find((n) => n.id === state.section);
+  const eyebrow = navItem?.label || state.section;
   return `
     <header class="page-header">
-      <p class="eyebrow">${escapeHtml(state.section)}</p>
+      <p class="eyebrow">${escapeHtml(eyebrow)}</p>
       <h1>${escapeHtml(title)}</h1>
       <p class="lede">${escapeHtml(desc)}</p>
     </header>`;
 }
 
 function applySearch() {
+  if (state.section === "office") return;
   const q = state.query;
-  document.querySelectorAll("[data-search-text], .action-card, .kanban-card, .research-card, .data-table tbody tr, .numbered-list li, .standup-details").forEach((el) => {
+  document.querySelectorAll("[data-search-text], .action-card, .kanban-card, .research-card, .office-card, .data-table tbody tr, .numbered-list li, .standup-details, .priority-row").forEach((el) => {
     const text = (el.dataset.searchText || el.textContent || "").toLowerCase();
-    const match = !q || text.includes(q);
-    el.classList.toggle("hidden", !match);
+    el.classList.toggle("hidden", q && !text.includes(q));
   });
 }
 
@@ -613,6 +787,7 @@ function icon(name) {
     code: "🛠",
     copy: "📋",
     book: "📚",
+    building: "🏢",
   }[name] || "•";
 }
 
