@@ -1,13 +1,22 @@
 {
   "nav": [
+    { "id": "overview", "label": "Overview", "icon": "home", "view": "overview" },
+    { "id": "tasks", "label": "Tasks", "icon": "board", "view": "tasks" },
+    { "id": "planning", "label": "Planning", "icon": "calendar", "view": "planning" },
+    { "id": "research", "label": "Research", "icon": "search", "view": "research" },
     { "id": "inbox", "label": "Inbox", "icon": "inbox", "filter": "open" },
-    { "id": "pm", "label": "PM", "icon": "calendar", "role": "pm" },
-    { "id": "research", "label": "Research", "icon": "search", "role": "research" },
-    { "id": "business", "label": "Business", "icon": "briefcase", "role": "business" },
-    { "id": "social", "label": "Social", "icon": "share", "role": "social" },
-    { "id": "developer", "label": "Developer", "icon": "code", "role": "developer" },
-    { "id": "prompts", "label": "All prompts", "icon": "copy", "filter": "prompts" },
-    { "id": "reference", "label": "Reference", "icon": "book", "view": "reference" }
+    { "id": "pm", "label": "PM", "icon": "target", "role": "pm", "navGroup": "Agents" },
+    { "id": "agent-research", "label": "Research", "icon": "microscope", "role": "research", "navGroup": "Agents" },
+    { "id": "business", "label": "Business", "icon": "briefcase", "role": "business", "navGroup": "Agents" },
+    { "id": "social", "label": "Social", "icon": "share", "role": "social", "navGroup": "Agents" },
+    { "id": "developer", "label": "Developer", "icon": "code", "role": "developer", "navGroup": "Agents" },
+    { "id": "prompts", "label": "Prompts", "icon": "copy", "filter": "prompts" }
+  ],
+  "taskColumns": [
+    { "id": "backlog", "label": "Backlog" },
+    { "id": "todo", "label": "To do" },
+    { "id": "in_progress", "label": "In progress" },
+    { "id": "done", "label": "Done" }
   ],
   "roles": {
     "pm": { "label": "PM Agent", "channel": "#vibe-standup", "prefix": "🎯 *PM Agent* |" },
