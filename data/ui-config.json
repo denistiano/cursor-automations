@@ -1,16 +1,10 @@
 {
   "nav": [
-    { "id": "overview", "label": "Overview", "icon": "home", "view": "overview" },
-    { "id": "tasks", "label": "Tasks", "icon": "board", "view": "tasks" },
-    { "id": "planning", "label": "Planning", "icon": "calendar", "view": "planning" },
-    { "id": "research", "label": "Research", "icon": "search", "view": "research" },
-    { "id": "inbox", "label": "Inbox", "icon": "inbox", "filter": "open" },
-    { "id": "pm", "label": "PM", "icon": "target", "role": "pm", "navGroup": "Agents" },
-    { "id": "agent-research", "label": "Research", "icon": "microscope", "role": "research", "navGroup": "Agents" },
-    { "id": "business", "label": "Business", "icon": "briefcase", "role": "business", "navGroup": "Agents" },
-    { "id": "social", "label": "Social", "icon": "share", "role": "social", "navGroup": "Agents" },
-    { "id": "developer", "label": "Developer", "icon": "code", "role": "developer", "navGroup": "Agents" },
-    { "id": "prompts", "label": "Prompts", "icon": "copy", "filter": "prompts" }
+    { "id": "home", "label": "Home", "icon": "home", "view": "home" },
+    { "id": "inbox", "label": "Inbox", "icon": "inbox", "view": "inbox" },
+    { "id": "office", "label": "Office search", "icon": "building", "view": "office" },
+    { "id": "work", "label": "Work plan", "icon": "calendar", "view": "work" },
+    { "id": "research", "label": "Research", "icon": "search", "view": "research" }
   ],
   "taskColumns": [
     { "id": "backlog", "label": "Backlog" },
@@ -18,16 +12,27 @@
     { "id": "in_progress", "label": "In progress" },
     { "id": "done", "label": "Done" }
   ],
+  "officeListings": {
+    "maxBudgetEur": 800,
+    "defaultSort": "price-asc",
+    "sortOptions": [
+      { "id": "price-asc", "label": "Price ↑" },
+      { "id": "price-desc", "label": "Price ↓" },
+      { "id": "sqm-desc", "label": "Size ↓" },
+      { "id": "sqm-asc", "label": "Size ↑" },
+      { "id": "pricePerSqm-asc", "label": "€/m² ↑" }
+    ]
+  },
   "roles": {
-    "pm": { "label": "PM Agent", "channel": "#vibe-standup", "prefix": "🎯 *PM Agent* |" },
-    "research": { "label": "Research Agent", "channel": "#vibe-research", "prefix": "🔍 *Research Agent* |" },
-    "business": { "label": "Business Agent", "channel": "#vibe-business", "prefix": "📊 *Business Agent* |" },
-    "social": { "label": "Social Agent", "channel": "#vibe-social", "prefix": "📣 *Social Agent* |" },
-    "developer": { "label": "Developer Agent", "channel": "#vibe-code", "prefix": "🛠 *Dev Agent* |" }
+    "pm": { "label": "PM", "channel": "#vibe-standup", "prefix": "🎯 *PM Agent* |" },
+    "research": { "label": "Research", "channel": "#vibe-research", "prefix": "🔍 *Research Agent* |" },
+    "business": { "label": "Business", "channel": "#vibe-business", "prefix": "📊 *Business Agent* |" },
+    "social": { "label": "Social", "channel": "#vibe-social", "prefix": "📣 *Social Agent* |" },
+    "developer": { "label": "Developer", "channel": "#vibe-code", "prefix": "🛠 *Dev Agent* |" }
   },
   "actionKinds": {
-    "input": { "label": "Needs your input", "badge": "input" },
-    "approve": { "label": "Green-light agent", "badge": "approve" },
+    "input": { "label": "Needs your reply", "badge": "input" },
+    "approve": { "label": "Approve to run", "badge": "approve" },
     "prompt": { "label": "Copy-paste prompt", "badge": "prompt" }
   }
 }

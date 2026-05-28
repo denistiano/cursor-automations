@@ -234,6 +234,10 @@ def build_planning(by_collection: dict, tables_by_entry: dict[int, list]) -> dic
         if brief_path.exists():
             office_brief = brief_path.read_text(encoding="utf-8")
 
+    office_tables = tables_by_entry.get(office_entry["id"], []) if office_entry else []
+    criteria = next((t for t in office_tables if t["name"] == "criteria"), None)
+    shortlist = next((t for t in office_tables if t["name"] == "shortlist"), None)
+
     return {
         "overview": overview,
         "tracks": with_tables(tracks),
@@ -241,6 +245,8 @@ def build_planning(by_collection: dict, tables_by_entry: dict[int, list]) -> dic
         "nearTerm": near_term,
         "office": office_entry,
         "officeBrief": office_brief,
+        "officeCriteria": criteria,
+        "officeShortlist": shortlist,
         "officeListings": office_listings,
         "standups": build_standups(by_collection.get("standups", [])),
     }
