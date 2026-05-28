@@ -68,13 +68,32 @@ class TestOfficeParsers(unittest.TestCase):
         self.assertTrue(fits_criteria({"priceEur": None}, 800))
         self.assertFalse(fits_criteria({"priceEur": 1200}, 800))
 
-    def test_merge_prefers_url(self) -> None:
+    def test_merge_prefers_location(self) -> None:
+        url = "https://www.alo.bg/ofis-test-11111111"
         merged = merge_listings(
-            [{"title": "A", "priceEur": 400, "url": "", "source": "alo.bg"}],
-            [{"title": "A longer", "priceEur": 400, "url": "https://www.alo.bg/x", "source": "alo.bg"}],
+            [
+                {
+                    "title": "Same office",
+                    "priceEur": 400,
+                    "sqm": 50,
+                    "url": url,
+                    "source": "alo.bg",
+                    "location": "",
+                }
+            ],
+            [
+                {
+                    "title": "Same office",
+                    "priceEur": 400,
+                    "sqm": 50,
+                    "url": url,
+                    "source": "alo.bg",
+                    "location": "Center, Plovdiv",
+                }
+            ],
         )
         self.assertEqual(len(merged), 1)
-        self.assertTrue(merged[0]["url"])
+        self.assertEqual(merged[0]["location"], "Center, Plovdiv")
 
 
 if __name__ == "__main__":

@@ -71,9 +71,18 @@ def fetch_html(url: str) -> str:
 
 def parse_eur(text: str) -> float | None:
     text = text.replace(",", "").replace("\xa0", " ")
-    m = re.search(r"(\d[\d\s]{1,6})\s*€", text)
-    if m:
-        return float(m.group(1).replace(" ", ""))
+    for pat in (
+        r"Месечен наем\s*:?\s*(\d[\d\s]*(?:[.,]\d+)?)\s*€",
+        r"наем\s*:?\s*(\d[\d\s]*(?:[.,]\d+)?)\s*€",
+        r"(\d[\d\s]*(?:[.,]\d+)?)\s*€",
+    ):
+        m = re.search(pat, text, re.I)
+        if m:
+            raw = m.group(1).replace(" ", "").replace(",", ".")
+            try:
+                return float(raw)
+            except ValueError:
+                continue
     m = re.search(r"(\d{2,4})\s*евро", text, re.I)
     return float(m.group(1)) if m else None
 
@@ -255,19 +264,13 @@ def alo_page_url(base_url: str, page: int) -> str:
     return f"{base_url}{sep}page={page}"
 
 
-def discover_alo_last_page(html: str) -> int:
-    pages = [int(p) for p in re.findall(r"page=(\d+)", html)]
-    return max(pages) if pages else 1
-
-
 def fetch_alo_source(base_url: str) -> tuple[list[dict], list[str]]:
     listings: list[dict] = []
     errors: list[str] = []
     seen_ids: set[str] = set()
-    last_page_hint = 1
 
     page = 1
-    while page <= max(last_page_hint, 1) + 2:
+    while True:
         url = alo_page_url(base_url, page)
         try:
             html = fetch_html(url)
@@ -275,20 +278,15 @@ def fetch_alo_source(base_url: str) -> tuple[list[dict], list[str]]:
             if page == 1:
                 errors.append(f"{url}: {exc}")
             break
-        if page == 1:
-            last_page_hint = discover_alo_last_page(html)
 
         page_ids = set(re.findall(r'id="adrows_(\d+)"', html))
         if not page_ids:
             break
         new_ids = page_ids - seen_ids
-        if not new_ids and page > 1:
+        if not new_ids:
             break
         seen_ids |= page_ids
         listings.extend(parse_alo_page(html))
-
-        if page >= last_page_hint and not new_ids:
-            break
         page += 1
         time.sleep(FETCH_DELAY_SEC)
 
@@ -337,24 +335,13 @@ def imot_page_url(base_url: str, page: int) -> str:
     return base_url.rstrip("/") + f"/p-{page}"
 
 
-def discover_imot_last_page(html: str, base_url: str) -> int:
-    pages = [1]
-    prefix = base_url.rstrip("/")
-    for m in re.finditer(rf'href="(?:https:)?//www\.imot\.bg{re.escape(prefix)}/p-(\d+)"', html):
-        pages.append(int(m.group(1)))
-    for m in re.finditer(rf'href="{re.escape(prefix)}/p-(\d+)"', html):
-        pages.append(int(m.group(1)))
-    return max(pages) if pages else 1
-
-
 def fetch_imot_source(base_url: str) -> tuple[list[dict], list[str]]:
     listings: list[dict] = []
     errors: list[str] = []
     seen_slugs: set[str] = set()
-    last_page_hint = 1
 
     page = 1
-    while page <= max(last_page_hint, 1) + 1:
+    while True:
         url = imot_page_url(base_url, page)
         try:
             html = fetch_html(url)
@@ -362,20 +349,15 @@ def fetch_imot_source(base_url: str) -> tuple[list[dict], list[str]]:
             if page == 1:
                 errors.append(f"{url}: {exc}")
             break
-        if page == 1:
-            last_page_hint = discover_imot_last_page(html, base_url)
 
         slugs = set(IMOT_OFFICE_SLUG_RE.findall(html))
         if not slugs:
             break
         new_slugs = slugs - seen_slugs
-        if not new_slugs and page > 1:
+        if not new_slugs:
             break
         seen_slugs |= slugs
         listings.extend(parse_imot_page(html))
-
-        if page >= last_page_hint and not new_slugs:
-            break
         page += 1
         time.sleep(FETCH_DELAY_SEC)
 
