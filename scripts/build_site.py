@@ -149,6 +149,119 @@ def compute_metrics(actions: list[dict]) -> dict:
     }
 
 
+def task_column(done: bool, meta: dict) -> str:
+    status = (meta or {}).get("inbox_status")
+    if done or status == "done":
+        return "done"
+    if status == "backlog":
+        return "backlog"
+    if status == "in_progress":
+        return "in_progress"
+    return "todo"
+
+
+def list_item_card(item: dict, group: dict) -> dict:
+    meta = item.get("meta") or {}
+    col = task_column(item["done"], meta)
+    return {
+        "id": item.get("id"),
+        "text": item["text"],
+        "done": item["done"],
+        "column": col,
+        "owner": meta.get("owner", group.get("owner", "")),
+        "meta": meta,
+    }
+
+
+def build_task_boards(task_entries: list[dict]) -> list[dict]:
+    boards = []
+    for entry in sorted(task_entries, key=lambda e: e.get("sortOrder", 0)):
+        items = [list_item_card(i, entry) for i in entry.get("listItems", []) if i["section"] == "items"]
+        columns: dict[str, list] = {"backlog": [], "todo": [], "in_progress": [], "done": []}
+        for item in items:
+            columns.setdefault(item["column"], []).append(item)
+        boards.append(
+            {
+                "slug": entry["slug"],
+                "title": entry["title"],
+                "owner": entry.get("owner"),
+                "kind": (entry.get("props") or {}).get("kind", "group"),
+                "columns": columns,
+                "counts": {k: len(v) for k, v in columns.items()},
+            }
+        )
+    return boards
+
+
+def build_standups(standup_entries: list[dict], limit: int = 5) -> list[dict]:
+    ordered = sorted(standup_entries, key=lambda e: e["slug"], reverse=True)[:limit]
+    result = []
+    for entry in ordered:
+        sections: dict[str, list[str]] = {}
+        for item in entry.get("listItems", []):
+            sections.setdefault(item["section"], []).append(item["text"])
+        result.append({"slug": entry["slug"], "title": entry["title"], "sections": sections})
+    return result
+
+
+def build_planning(by_collection: dict, tables_by_entry: dict[int, list]) -> dict:
+    roadmap_entries = by_collection.get("roadmap", [])
+    office_entries = by_collection.get("office", [])
+    office_entry = office_entries[0] if office_entries else None
+
+    tracks = next((e for e in roadmap_entries if e["slug"] == "tracks"), None)
+    phases = next((e for e in roadmap_entries if e["slug"] == "phases"), None)
+    near_term = next((e for e in roadmap_entries if e["slug"] == "near-term"), None)
+    overview = next((e for e in roadmap_entries if e["slug"] == "overview"), None)
+
+    def with_tables(entry: dict | None) -> dict | None:
+        if not entry:
+            return None
+        out = dict(entry)
+        out["tables"] = tables_by_entry.get(entry["id"], [])
+        return out
+
+    listings_path = ROOT / "data" / "office-listings.json"
+    office_listings = {}
+    if listings_path.exists():
+        office_listings = json.loads(listings_path.read_text(encoding="utf-8"))
+
+    office_brief = ""
+    if office_entry and office_entry.get("body"):
+        office_brief = office_entry["body"]
+    else:
+        brief_path = ROOT / "planning" / "office-plovdiv.md"
+        if brief_path.exists():
+            office_brief = brief_path.read_text(encoding="utf-8")
+
+    return {
+        "overview": overview,
+        "tracks": with_tables(tracks),
+        "phases": with_tables(phases),
+        "nearTerm": near_term,
+        "office": office_entry,
+        "officeBrief": office_brief,
+        "officeListings": office_listings,
+        "standups": build_standups(by_collection.get("standups", [])),
+    }
+
+
+def build_research_export(by_collection: dict, tables_by_entry: dict[int, list]) -> dict:
+    entries = []
+    for entry in sorted(by_collection.get("research", []), key=lambda e: e["slug"]):
+        body = entry.get("body") or ""
+        enriched = {
+            "slug": entry["slug"],
+            "title": entry["title"],
+            "props": entry.get("props") or {},
+            "excerpt": body[:1200] + ("…" if len(body) > 1200 else ""),
+            "bodyLength": len(body),
+            "tables": tables_by_entry.get(entry["id"], []),
+        }
+        entries.append(enriched)
+    return {"entries": entries}
+
+
 def build_payload() -> dict:
     init_db()
     from sync_actions import sync_actions
@@ -192,25 +305,34 @@ def build_payload() -> dict:
         inbox = [a for a in actions if a["kind"] != "prompt" and a["status"] in ("open", "in_progress")]
         inbox_batch = __import__("sync_actions", fromlist=["build_inbox_batch"]).build_inbox_batch(actions)
 
+        task_boards = build_task_boards(by_collection.get("tasks", []))
+        task_totals = {
+            col: sum(b["counts"].get(col, 0) for b in task_boards)
+            for col in ("backlog", "todo", "in_progress", "done")
+        }
+
         return {
             "meta": {
                 "generatedAt": datetime.now(timezone.utc).isoformat(),
                 "generator": "scripts/build_site.py",
                 "gitSha": git_sha(),
                 "schemaVersion": meta.get("schema_version"),
-                "dataModel": "generic-actions-v2",
+                "dataModel": "hq-sections-v3",
             },
             "project": {
                 "title": meta.get("project.title", "Course Business HQ"),
                 "description": meta.get("project.description", ""),
             },
-            "metrics": compute_metrics(actions),
+            "metrics": {**compute_metrics(actions), "tasks": task_totals},
             "ui": ui_config,
             "inbox": inbox,
             "inboxBatch": inbox_batch,
             "actions": actions,
             "roles": roles,
             "reference": build_reference(by_collection, tables_by_entry),
+            "tasks": {"boards": task_boards, "totals": task_totals},
+            "planning": build_planning(by_collection, tables_by_entry),
+            "researchHub": build_research_export(by_collection, tables_by_entry),
         }
 
 
