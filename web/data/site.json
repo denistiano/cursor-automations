@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generatedAt": "2026-05-28T13:45:43.308886+00:00",
+    "generatedAt": "2026-05-28T13:47:26.528428+00:00",
     "generator": "scripts/build_site.py",
-    "gitSha": "5f3ee80befecf29c3aa4bf9841c4cd860691d66e",
+    "gitSha": "f647a7260bff1387d01655804e0d91ccd4b19096",
     "schemaVersion": "1",
     "dataModel": "hq-sections-v3"
   },
@@ -177,7 +177,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 351
       },
-      "updatedAt": "2026-05-28 13:45:43"
+      "updatedAt": "2026-05-28 13:47:26"
     },
     {
       "id": 253,
@@ -199,7 +199,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 352
       },
-      "updatedAt": "2026-05-28 13:45:43"
+      "updatedAt": "2026-05-28 13:47:26"
     },
     {
       "id": 81,
@@ -220,7 +220,7 @@
         "collection": "automations",
         "slug": "automation-business-plan-assistant"
       },
-      "updatedAt": "2026-05-28 13:45:43"
+      "updatedAt": "2026-05-28 13:47:26"
     },
     {
       "id": 80,
@@ -241,7 +241,7 @@
         "collection": "automations",
         "slug": "automation-competitor-research"
       },
-      "updatedAt": "2026-05-28 13:45:43"
+      "updatedAt": "2026-05-28 13:47:26"
     },
     {
       "id": 79,
@@ -262,7 +262,7 @@
         "collection": "automations",
         "slug": "automation-morning-standup-prep"
       },
-      "updatedAt": "2026-05-28 13:45:43"
+      "updatedAt": "2026-05-28 13:47:26"
     },
     {
       "id": 82,
@@ -283,7 +283,7 @@
         "collection": "automations",
         "slug": "automation-social-content-draft-only"
       },
-      "updatedAt": "2026-05-28 13:45:43"
+      "updatedAt": "2026-05-28 13:47:26"
     },
     {
       "id": 64,
@@ -305,7 +305,7 @@
         "slug": "blockers",
         "listItemId": 353
       },
-      "updatedAt": "2026-05-28 13:45:43"
+      "updatedAt": "2026-05-28 13:47:26"
     },
     {
       "id": 71,
@@ -327,7 +327,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 346
       },
-      "updatedAt": "2026-05-28 13:45:43"
+      "updatedAt": "2026-05-28 13:47:26"
     },
     {
       "id": 70,
@@ -349,7 +349,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 345
       },
-      "updatedAt": "2026-05-28 13:45:43"
+      "updatedAt": "2026-05-28 13:47:26"
     },
     {
       "id": 72,
@@ -371,7 +371,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 347
       },
-      "updatedAt": "2026-05-28 13:45:43"
+      "updatedAt": "2026-05-28 13:47:26"
     }
   ],
   "inboxBatch": {
@@ -400,7 +400,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 351
       },
-      "updatedAt": "2026-05-28 13:45:43"
+      "updatedAt": "2026-05-28 13:47:26"
     },
     {
       "id": 253,
@@ -422,7 +422,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 352
       },
-      "updatedAt": "2026-05-28 13:45:43"
+      "updatedAt": "2026-05-28 13:47:26"
     },
     {
       "id": 81,
@@ -443,7 +443,7 @@
         "collection": "automations",
         "slug": "automation-business-plan-assistant"
       },
-      "updatedAt": "2026-05-28 13:45:43"
+      "updatedAt": "2026-05-28 13:47:26"
     },
     {
       "id": 80,
@@ -464,7 +464,7 @@
         "collection": "automations",
         "slug": "automation-competitor-research"
       },
-      "updatedAt": "2026-05-28 13:45:43"
+      "updatedAt": "2026-05-28 13:47:26"
     },
     {
       "id": 79,
@@ -485,7 +485,7 @@
         "collection": "automations",
         "slug": "automation-morning-standup-prep"
       },
-      "updatedAt": "2026-05-28 13:45:43"
+      "updatedAt": "2026-05-28 13:47:26"
     },
     {
       "id": 82,
@@ -506,7 +506,7 @@
         "collection": "automations",
         "slug": "automation-social-content-draft-only"
       },
-      "updatedAt": "2026-05-28 13:45:43"
+      "updatedAt": "2026-05-28 13:47:26"
     },
     {
       "id": 61,
@@ -524,7 +524,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-28 13:45:43"
+      "updatedAt": "2026-05-28 13:47:26"
     },
     {
       "id": 63,
@@ -542,7 +542,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-28 13:45:43"
+      "updatedAt": "2026-05-28 13:47:26"
     },
     {
       "id": 59,
@@ -560,7 +560,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-28 13:45:43"
+      "updatedAt": "2026-05-28 13:47:26"
     },
     {
       "id": 60,
@@ -578,7 +578,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-28 13:45:43"
+      "updatedAt": "2026-05-28 13:47:26"
     },
     {
       "id": 62,
@@ -596,7 +596,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-28 13:45:43"
+      "updatedAt": "2026-05-28 13:47:26"
     },
     {
       "id": 64,
@@ -618,7 +618,7 @@
         "slug": "blockers",
         "listItemId": 353
       },
-      "updatedAt": "2026-05-28 13:45:43"
+      "updatedAt": "2026-05-28 13:47:26"
     },
     {
       "id": 71,
@@ -640,7 +640,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 346
       },
-      "updatedAt": "2026-05-28 13:45:43"
+      "updatedAt": "2026-05-28 13:47:26"
     },
     {
       "id": 70,
@@ -662,7 +662,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 345
       },
-      "updatedAt": "2026-05-28 13:45:43"
+      "updatedAt": "2026-05-28 13:47:26"
     },
     {
       "id": 72,
@@ -684,7 +684,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 347
       },
-      "updatedAt": "2026-05-28 13:45:43"
+      "updatedAt": "2026-05-28 13:47:26"
     }
   ],
   "roles": {
@@ -715,7 +715,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 351
           },
-          "updatedAt": "2026-05-28 13:45:43"
+          "updatedAt": "2026-05-28 13:47:26"
         },
         {
           "id": 253,
@@ -737,7 +737,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 352
           },
-          "updatedAt": "2026-05-28 13:45:43"
+          "updatedAt": "2026-05-28 13:47:26"
         },
         {
           "id": 79,
@@ -758,7 +758,7 @@
             "collection": "automations",
             "slug": "automation-morning-standup-prep"
           },
-          "updatedAt": "2026-05-28 13:45:43"
+          "updatedAt": "2026-05-28 13:47:26"
         },
         {
           "id": 64,
@@ -780,7 +780,7 @@
             "slug": "blockers",
             "listItemId": 353
           },
-          "updatedAt": "2026-05-28 13:45:43"
+          "updatedAt": "2026-05-28 13:47:26"
         },
         {
           "id": 71,
@@ -802,7 +802,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 346
           },
-          "updatedAt": "2026-05-28 13:45:43"
+          "updatedAt": "2026-05-28 13:47:26"
         },
         {
           "id": 70,
@@ -824,7 +824,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 345
           },
-          "updatedAt": "2026-05-28 13:45:43"
+          "updatedAt": "2026-05-28 13:47:26"
         },
         {
           "id": 72,
@@ -846,7 +846,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 347
           },
-          "updatedAt": "2026-05-28 13:45:43"
+          "updatedAt": "2026-05-28 13:47:26"
         }
       ],
       "prompts": [
@@ -866,7 +866,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-28 13:45:43"
+          "updatedAt": "2026-05-28 13:47:26"
         }
       ]
     },
@@ -896,7 +896,7 @@
             "collection": "automations",
             "slug": "automation-competitor-research"
           },
-          "updatedAt": "2026-05-28 13:45:43"
+          "updatedAt": "2026-05-28 13:47:26"
         }
       ],
       "prompts": [
@@ -916,7 +916,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-28 13:45:43"
+          "updatedAt": "2026-05-28 13:47:26"
         }
       ]
     },
@@ -946,7 +946,7 @@
             "collection": "automations",
             "slug": "automation-business-plan-assistant"
           },
-          "updatedAt": "2026-05-28 13:45:43"
+          "updatedAt": "2026-05-28 13:47:26"
         }
       ],
       "prompts": [
@@ -966,7 +966,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-28 13:45:43"
+          "updatedAt": "2026-05-28 13:47:26"
         }
       ]
     },
@@ -996,7 +996,7 @@
             "collection": "automations",
             "slug": "automation-social-content-draft-only"
           },
-          "updatedAt": "2026-05-28 13:45:43"
+          "updatedAt": "2026-05-28 13:47:26"
         }
       ],
       "prompts": [
@@ -1016,7 +1016,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-28 13:45:43"
+          "updatedAt": "2026-05-28 13:47:26"
         }
       ]
     },
@@ -1044,7 +1044,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-28 13:45:43"
+          "updatedAt": "2026-05-28 13:47:26"
         }
       ]
     }
@@ -2045,6 +2045,7 @@
       "updatedAt": "2026-05-27 13:09:38",
       "listItems": []
     },
+    "officeBrief": "# Office Plovdiv — search brief\n\n**Budget:** under **800 EUR / month** (incl. VAT assumptions TBD per listing)  \n**City:** Plovdiv  \n**Use:** small team / studio + occasional meetings  \n\n## Sources (automated + manual)\n\n| Source | URL | Notes |\n|--------|-----|-------|\n| alo.bg search | https://www.alo.bg/searchq/?q=офис%20под%20наем%20пловdiv | Scraped weekly → `data/office-listings.json` |\n| alo.bg category | https://www.alo.bg/obiavi/imoti-naemi/magazini-ofisi/?location_ids=3333&region_id=16 | Filter by price in UI |\n| imot.bg | https://www.imot.bg/obiavi/prodazhbi-imoti/naemi/plovdiv/ofisi/ | Manual shortlist; sample 400 EUR / 50 m² center |\n\n## Agent output\n\n- GitHub Action: `.github/workflows/office-listings.yml` (Mondays 06:00 UTC)\n- Run locally: `python3 scripts/fetch_office_listings.py`\n\n## Denis next steps\n\n1. Review `data/office-listings.json` after each run.\n2. Shortlist 3–5 for visits (Kapana, center, Dondukov garden area).\n3. Confirm deposit / VAT / fit-out before signing.\n\n_Last updated: 2026-05-28 (batched inbox)_\n",
     "officeListings": {
       "generatedAt": "2026-05-28T11:47:42.397035+00:00",
       "maxBudgetEur": 800,

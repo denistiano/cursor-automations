@@ -226,12 +226,21 @@ def build_planning(by_collection: dict, tables_by_entry: dict[int, list]) -> dic
     if listings_path.exists():
         office_listings = json.loads(listings_path.read_text(encoding="utf-8"))
 
+    office_brief = ""
+    if office_entry and office_entry.get("body"):
+        office_brief = office_entry["body"]
+    else:
+        brief_path = ROOT / "planning" / "office-plovdiv.md"
+        if brief_path.exists():
+            office_brief = brief_path.read_text(encoding="utf-8")
+
     return {
         "overview": overview,
         "tracks": with_tables(tracks),
         "phases": with_tables(phases),
         "nearTerm": near_term,
         "office": office_entry,
+        "officeBrief": office_brief,
         "officeListings": office_listings,
         "standups": build_standups(by_collection.get("standups", [])),
     }
