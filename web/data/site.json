@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generatedAt": "2026-05-28T15:14:35.184040+00:00",
+    "generatedAt": "2026-05-29T11:10:22.717706+00:00",
     "generator": "scripts/build_site.py",
-    "gitSha": "4c460437a587326e0d87844d9593d68b06bc534e",
+    "gitSha": "6f9d3797f2e0d4eea6262838e4dfdc4631f46fa2",
     "schemaVersion": "1",
     "dataModel": "hq-sections-v3"
   },
@@ -17,8 +17,8 @@
     "prompts": 5,
     "tasks": {
       "backlog": 3,
-      "todo": 15,
-      "in_progress": 4,
+      "todo": 13,
+      "in_progress": 6,
       "done": 18
     }
   },
@@ -143,50 +143,6 @@
   },
   "inbox": [
     {
-      "id": 252,
-      "slug": "input-task-landing-page-on-vibe-coders-academy-denis-todo",
-      "title": "Landing page on vibe-coders.academy (Denis TODO)",
-      "kind": "input",
-      "role": "pm",
-      "priority": 2,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "Update: Landing page on vibe-coders.academy (Denis TODO)",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "Denis manual task from launch path",
-      "inputLabel": "",
-      "inputExample": "",
-      "source": {
-        "collection": "tasks",
-        "slug": "denis-decisions-manual",
-        "listItemId": 351
-      },
-      "updatedAt": "2026-05-28 15:14:35"
-    },
-    {
-      "id": 253,
-      "slug": "input-task-presentation-document-denis-todo",
-      "title": "Presentation document (Denis TODO)",
-      "kind": "input",
-      "role": "pm",
-      "priority": 2,
-      "status": "open",
-      "slackChannel": "#vibe-standup",
-      "slackReply": "Update: Presentation document (Denis TODO)",
-      "slackTrigger": "standup",
-      "prompt": "",
-      "hint": "Denis manual task from launch path",
-      "inputLabel": "",
-      "inputExample": "",
-      "source": {
-        "collection": "tasks",
-        "slug": "denis-decisions-manual",
-        "listItemId": 352
-      },
-      "updatedAt": "2026-05-28 15:14:35"
-    },
-    {
       "id": 81,
       "slug": "approve-automation-business-plan-assistant",
       "title": "Vibe Coders Academy — Business plan",
@@ -205,7 +161,7 @@
         "collection": "automations",
         "slug": "automation-business-plan-assistant"
       },
-      "updatedAt": "2026-05-28 15:14:35"
+      "updatedAt": "2026-05-29 11:10:22"
     },
     {
       "id": 80,
@@ -226,7 +182,7 @@
         "collection": "automations",
         "slug": "automation-competitor-research"
       },
-      "updatedAt": "2026-05-28 15:14:35"
+      "updatedAt": "2026-05-29 11:10:22"
     },
     {
       "id": 79,
@@ -247,7 +203,7 @@
         "collection": "automations",
         "slug": "automation-morning-standup-prep"
       },
-      "updatedAt": "2026-05-28 15:14:35"
+      "updatedAt": "2026-05-29 11:10:22"
     },
     {
       "id": 82,
@@ -268,7 +224,7 @@
         "collection": "automations",
         "slug": "automation-social-content-draft-only"
       },
-      "updatedAt": "2026-05-28 15:14:35"
+      "updatedAt": "2026-05-29 11:10:22"
     },
     {
       "id": 430,
@@ -282,15 +238,15 @@
       "slackReply": "PO apply: email | form URL | LinkedIn Easy Apply — publish first on: ",
       "slackTrigger": "standup",
       "prompt": "",
-      "hint": "Denis handling publish channels — keep in progress",
+      "hint": "In progress — standup ongoing; method/channels still via HQ Inbox",
       "inputLabel": "Your answer",
       "inputExample": "",
       "source": {
         "collection": "tasks",
         "slug": "blockers",
-        "listItemId": 388
+        "listItemId": 442
       },
-      "updatedAt": "2026-05-28 15:14:35"
+      "updatedAt": "2026-05-29 11:10:22"
     },
     {
       "id": 71,
@@ -310,9 +266,9 @@
       "source": {
         "collection": "tasks",
         "slug": "denis-decisions-manual",
-        "listItemId": 346
+        "listItemId": 435
       },
-      "updatedAt": "2026-05-28 15:14:35"
+      "updatedAt": "2026-05-29 11:10:22"
     },
     {
       "id": 70,
@@ -332,9 +288,9 @@
       "source": {
         "collection": "tasks",
         "slug": "denis-decisions-manual",
-        "listItemId": 345
+        "listItemId": 434
       },
-      "updatedAt": "2026-05-28 15:14:35"
+      "updatedAt": "2026-05-29 11:10:22"
     },
     {
       "id": 72,
@@ -354,17 +310,10 @@
       "source": {
         "collection": "tasks",
         "slug": "denis-decisions-manual",
-        "listItemId": 347
+        "listItemId": 436
       },
-      "updatedAt": "2026-05-28 15:14:35"
-    }
-  ],
-  "inboxBatch": {
-    "channel": "#vibe-standup",
-    "count": 6,
-    "slackReply": "standup batch — reply in #vibe-code or #vibe-standup with numbered answers:\n\n1. PO apply method + publish channels\n   PO apply: email | form URL | LinkedIn Easy Apply — publish first on:\n\n2. #1 Office Plovdiv — budget/area constraints; visit shortlist\n   Update: #1 Office Plovdiv — budget/area constraints; visit shortlist\n\n3. #2 Publish & share PO position (LinkedIn, boards, network)\n   Done: #2 Publish & share PO position (LinkedIn, boards, network)\n\n4. #4 Create social accounts (after name + bios approved)\n   Update: #4 Create social accounts (after name + bios approved)\n\n5. Landing page on vibe-coders.academy (Denis TODO)\n   Update: Landing page on vibe-coders.academy (Denis TODO)\n\n6. Presentation document (Denis TODO)\n   Update: Presentation document (Denis TODO)"
-  },
-  "actions": [
+      "updatedAt": "2026-05-29 11:10:22"
+    },
     {
       "id": 252,
       "slug": "input-task-landing-page-on-vibe-coders-academy-denis-todo",
@@ -372,20 +321,20 @@
       "kind": "input",
       "role": "pm",
       "priority": 2,
-      "status": "open",
+      "status": "in_progress",
       "slackChannel": "#vibe-standup",
       "slackReply": "Update: Landing page on vibe-coders.academy (Denis TODO)",
       "slackTrigger": "standup",
       "prompt": "",
-      "hint": "Denis manual task from launch path",
+      "hint": "Ongoing — in progress (2026-05-29)",
       "inputLabel": "",
       "inputExample": "",
       "source": {
         "collection": "tasks",
         "slug": "denis-decisions-manual",
-        "listItemId": 351
+        "listItemId": 440
       },
-      "updatedAt": "2026-05-28 15:14:35"
+      "updatedAt": "2026-05-29 11:10:22"
     },
     {
       "id": 253,
@@ -394,21 +343,28 @@
       "kind": "input",
       "role": "pm",
       "priority": 2,
-      "status": "open",
+      "status": "in_progress",
       "slackChannel": "#vibe-standup",
       "slackReply": "Update: Presentation document (Denis TODO)",
       "slackTrigger": "standup",
       "prompt": "",
-      "hint": "Denis manual task from launch path",
+      "hint": "Ongoing — in progress (2026-05-29)",
       "inputLabel": "",
       "inputExample": "",
       "source": {
         "collection": "tasks",
         "slug": "denis-decisions-manual",
-        "listItemId": 352
+        "listItemId": 441
       },
-      "updatedAt": "2026-05-28 15:14:35"
-    },
+      "updatedAt": "2026-05-29 11:10:22"
+    }
+  ],
+  "inboxBatch": {
+    "channel": "#vibe-standup",
+    "count": 6,
+    "slackReply": "standup batch — reply in #vibe-code or #vibe-standup with numbered answers:\n\n1. PO apply method + publish channels\n   PO apply: email | form URL | LinkedIn Easy Apply — publish first on:\n\n2. #1 Office Plovdiv — budget/area constraints; visit shortlist\n   Update: #1 Office Plovdiv — budget/area constraints; visit shortlist\n\n3. #2 Publish & share PO position (LinkedIn, boards, network)\n   Done: #2 Publish & share PO position (LinkedIn, boards, network)\n\n4. #4 Create social accounts (after name + bios approved)\n   Update: #4 Create social accounts (after name + bios approved)\n\n5. Landing page on vibe-coders.academy (Denis TODO)\n   Update: Landing page on vibe-coders.academy (Denis TODO)\n\n6. Presentation document (Denis TODO)\n   Update: Presentation document (Denis TODO)"
+  },
+  "actions": [
     {
       "id": 81,
       "slug": "approve-automation-business-plan-assistant",
@@ -428,7 +384,7 @@
         "collection": "automations",
         "slug": "automation-business-plan-assistant"
       },
-      "updatedAt": "2026-05-28 15:14:35"
+      "updatedAt": "2026-05-29 11:10:22"
     },
     {
       "id": 80,
@@ -449,7 +405,7 @@
         "collection": "automations",
         "slug": "automation-competitor-research"
       },
-      "updatedAt": "2026-05-28 15:14:35"
+      "updatedAt": "2026-05-29 11:10:22"
     },
     {
       "id": 79,
@@ -470,7 +426,7 @@
         "collection": "automations",
         "slug": "automation-morning-standup-prep"
       },
-      "updatedAt": "2026-05-28 15:14:35"
+      "updatedAt": "2026-05-29 11:10:22"
     },
     {
       "id": 82,
@@ -491,7 +447,7 @@
         "collection": "automations",
         "slug": "automation-social-content-draft-only"
       },
-      "updatedAt": "2026-05-28 15:14:35"
+      "updatedAt": "2026-05-29 11:10:22"
     },
     {
       "id": 61,
@@ -509,7 +465,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-28 15:14:35"
+      "updatedAt": "2026-05-29 11:10:22"
     },
     {
       "id": 63,
@@ -527,7 +483,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-28 15:14:35"
+      "updatedAt": "2026-05-29 11:10:22"
     },
     {
       "id": 59,
@@ -545,7 +501,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-28 15:14:35"
+      "updatedAt": "2026-05-29 11:10:22"
     },
     {
       "id": 60,
@@ -563,7 +519,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-28 15:14:35"
+      "updatedAt": "2026-05-29 11:10:22"
     },
     {
       "id": 62,
@@ -581,7 +537,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-28 15:14:35"
+      "updatedAt": "2026-05-29 11:10:22"
     },
     {
       "id": 430,
@@ -595,15 +551,15 @@
       "slackReply": "PO apply: email | form URL | LinkedIn Easy Apply — publish first on: ",
       "slackTrigger": "standup",
       "prompt": "",
-      "hint": "Denis handling publish channels — keep in progress",
+      "hint": "In progress — standup ongoing; method/channels still via HQ Inbox",
       "inputLabel": "Your answer",
       "inputExample": "",
       "source": {
         "collection": "tasks",
         "slug": "blockers",
-        "listItemId": 388
+        "listItemId": 442
       },
-      "updatedAt": "2026-05-28 15:14:35"
+      "updatedAt": "2026-05-29 11:10:22"
     },
     {
       "id": 71,
@@ -623,9 +579,9 @@
       "source": {
         "collection": "tasks",
         "slug": "denis-decisions-manual",
-        "listItemId": 346
+        "listItemId": 435
       },
-      "updatedAt": "2026-05-28 15:14:35"
+      "updatedAt": "2026-05-29 11:10:22"
     },
     {
       "id": 70,
@@ -645,9 +601,9 @@
       "source": {
         "collection": "tasks",
         "slug": "denis-decisions-manual",
-        "listItemId": 345
+        "listItemId": 434
       },
-      "updatedAt": "2026-05-28 15:14:35"
+      "updatedAt": "2026-05-29 11:10:22"
     },
     {
       "id": 72,
@@ -667,9 +623,53 @@
       "source": {
         "collection": "tasks",
         "slug": "denis-decisions-manual",
-        "listItemId": 347
+        "listItemId": 436
       },
-      "updatedAt": "2026-05-28 15:14:35"
+      "updatedAt": "2026-05-29 11:10:22"
+    },
+    {
+      "id": 252,
+      "slug": "input-task-landing-page-on-vibe-coders-academy-denis-todo",
+      "title": "Landing page on vibe-coders.academy (Denis TODO)",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "in_progress",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Update: Landing page on vibe-coders.academy (Denis TODO)",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Ongoing — in progress (2026-05-29)",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 440
+      },
+      "updatedAt": "2026-05-29 11:10:22"
+    },
+    {
+      "id": 253,
+      "slug": "input-task-presentation-document-denis-todo",
+      "title": "Presentation document (Denis TODO)",
+      "kind": "input",
+      "role": "pm",
+      "priority": 2,
+      "status": "in_progress",
+      "slackChannel": "#vibe-standup",
+      "slackReply": "Update: Presentation document (Denis TODO)",
+      "slackTrigger": "standup",
+      "prompt": "",
+      "hint": "Ongoing — in progress (2026-05-29)",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 441
+      },
+      "updatedAt": "2026-05-29 11:10:22"
     }
   ],
   "roles": {
@@ -680,50 +680,6 @@
         "prefix": "🎯 *PM Agent* |"
       },
       "actions": [
-        {
-          "id": 252,
-          "slug": "input-task-landing-page-on-vibe-coders-academy-denis-todo",
-          "title": "Landing page on vibe-coders.academy (Denis TODO)",
-          "kind": "input",
-          "role": "pm",
-          "priority": 2,
-          "status": "open",
-          "slackChannel": "#vibe-standup",
-          "slackReply": "Update: Landing page on vibe-coders.academy (Denis TODO)",
-          "slackTrigger": "standup",
-          "prompt": "",
-          "hint": "Denis manual task from launch path",
-          "inputLabel": "",
-          "inputExample": "",
-          "source": {
-            "collection": "tasks",
-            "slug": "denis-decisions-manual",
-            "listItemId": 351
-          },
-          "updatedAt": "2026-05-28 15:14:35"
-        },
-        {
-          "id": 253,
-          "slug": "input-task-presentation-document-denis-todo",
-          "title": "Presentation document (Denis TODO)",
-          "kind": "input",
-          "role": "pm",
-          "priority": 2,
-          "status": "open",
-          "slackChannel": "#vibe-standup",
-          "slackReply": "Update: Presentation document (Denis TODO)",
-          "slackTrigger": "standup",
-          "prompt": "",
-          "hint": "Denis manual task from launch path",
-          "inputLabel": "",
-          "inputExample": "",
-          "source": {
-            "collection": "tasks",
-            "slug": "denis-decisions-manual",
-            "listItemId": 352
-          },
-          "updatedAt": "2026-05-28 15:14:35"
-        },
         {
           "id": 79,
           "slug": "approve-automation-morning-standup-prep",
@@ -743,7 +699,7 @@
             "collection": "automations",
             "slug": "automation-morning-standup-prep"
           },
-          "updatedAt": "2026-05-28 15:14:35"
+          "updatedAt": "2026-05-29 11:10:22"
         },
         {
           "id": 430,
@@ -757,15 +713,15 @@
           "slackReply": "PO apply: email | form URL | LinkedIn Easy Apply — publish first on: ",
           "slackTrigger": "standup",
           "prompt": "",
-          "hint": "Denis handling publish channels — keep in progress",
+          "hint": "In progress — standup ongoing; method/channels still via HQ Inbox",
           "inputLabel": "Your answer",
           "inputExample": "",
           "source": {
             "collection": "tasks",
             "slug": "blockers",
-            "listItemId": 388
+            "listItemId": 442
           },
-          "updatedAt": "2026-05-28 15:14:35"
+          "updatedAt": "2026-05-29 11:10:22"
         },
         {
           "id": 71,
@@ -785,9 +741,9 @@
           "source": {
             "collection": "tasks",
             "slug": "denis-decisions-manual",
-            "listItemId": 346
+            "listItemId": 435
           },
-          "updatedAt": "2026-05-28 15:14:35"
+          "updatedAt": "2026-05-29 11:10:22"
         },
         {
           "id": 70,
@@ -807,9 +763,9 @@
           "source": {
             "collection": "tasks",
             "slug": "denis-decisions-manual",
-            "listItemId": 345
+            "listItemId": 434
           },
-          "updatedAt": "2026-05-28 15:14:35"
+          "updatedAt": "2026-05-29 11:10:22"
         },
         {
           "id": 72,
@@ -829,9 +785,53 @@
           "source": {
             "collection": "tasks",
             "slug": "denis-decisions-manual",
-            "listItemId": 347
+            "listItemId": 436
           },
-          "updatedAt": "2026-05-28 15:14:35"
+          "updatedAt": "2026-05-29 11:10:22"
+        },
+        {
+          "id": 252,
+          "slug": "input-task-landing-page-on-vibe-coders-academy-denis-todo",
+          "title": "Landing page on vibe-coders.academy (Denis TODO)",
+          "kind": "input",
+          "role": "pm",
+          "priority": 2,
+          "status": "in_progress",
+          "slackChannel": "#vibe-standup",
+          "slackReply": "Update: Landing page on vibe-coders.academy (Denis TODO)",
+          "slackTrigger": "standup",
+          "prompt": "",
+          "hint": "Ongoing — in progress (2026-05-29)",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {
+            "collection": "tasks",
+            "slug": "denis-decisions-manual",
+            "listItemId": 440
+          },
+          "updatedAt": "2026-05-29 11:10:22"
+        },
+        {
+          "id": 253,
+          "slug": "input-task-presentation-document-denis-todo",
+          "title": "Presentation document (Denis TODO)",
+          "kind": "input",
+          "role": "pm",
+          "priority": 2,
+          "status": "in_progress",
+          "slackChannel": "#vibe-standup",
+          "slackReply": "Update: Presentation document (Denis TODO)",
+          "slackTrigger": "standup",
+          "prompt": "",
+          "hint": "Ongoing — in progress (2026-05-29)",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {
+            "collection": "tasks",
+            "slug": "denis-decisions-manual",
+            "listItemId": 441
+          },
+          "updatedAt": "2026-05-29 11:10:22"
         }
       ],
       "prompts": [
@@ -851,7 +851,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-28 15:14:35"
+          "updatedAt": "2026-05-29 11:10:22"
         }
       ]
     },
@@ -881,7 +881,7 @@
             "collection": "automations",
             "slug": "automation-competitor-research"
           },
-          "updatedAt": "2026-05-28 15:14:35"
+          "updatedAt": "2026-05-29 11:10:22"
         }
       ],
       "prompts": [
@@ -901,7 +901,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-28 15:14:35"
+          "updatedAt": "2026-05-29 11:10:22"
         }
       ]
     },
@@ -931,7 +931,7 @@
             "collection": "automations",
             "slug": "automation-business-plan-assistant"
           },
-          "updatedAt": "2026-05-28 15:14:35"
+          "updatedAt": "2026-05-29 11:10:22"
         }
       ],
       "prompts": [
@@ -951,7 +951,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-28 15:14:35"
+          "updatedAt": "2026-05-29 11:10:22"
         }
       ]
     },
@@ -981,7 +981,7 @@
             "collection": "automations",
             "slug": "automation-social-content-draft-only"
           },
-          "updatedAt": "2026-05-28 15:14:35"
+          "updatedAt": "2026-05-29 11:10:22"
         }
       ],
       "prompts": [
@@ -1001,7 +1001,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-28 15:14:35"
+          "updatedAt": "2026-05-29 11:10:22"
         }
       ]
     },
@@ -1029,7 +1029,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-28 15:14:35"
+          "updatedAt": "2026-05-29 11:10:22"
         }
       ]
     }
@@ -1147,30 +1147,7 @@
               }
             }
           ],
-          "todo": [
-            {
-              "id": null,
-              "text": "Landing page on vibe-coders.academy (Denis TODO)",
-              "done": false,
-              "column": "todo",
-              "owner": "Denis",
-              "meta": {
-                "inbox_status": "open",
-                "owner": "Denis"
-              }
-            },
-            {
-              "id": null,
-              "text": "Presentation document (Denis TODO)",
-              "done": false,
-              "column": "todo",
-              "owner": "Denis",
-              "meta": {
-                "inbox_status": "open",
-                "owner": "Denis"
-              }
-            }
-          ],
+          "todo": [],
           "in_progress": [
             {
               "id": null,
@@ -1204,6 +1181,30 @@
                 "inbox_status": "in_progress",
                 "reply": "Current TODO for Denis"
               }
+            },
+            {
+              "id": null,
+              "text": "Landing page on vibe-coders.academy (Denis TODO)",
+              "done": false,
+              "column": "in_progress",
+              "owner": "Denis",
+              "meta": {
+                "inbox_status": "in_progress",
+                "owner": "Denis",
+                "reply": "Ongoing — in progress (2026-05-29)"
+              }
+            },
+            {
+              "id": null,
+              "text": "Presentation document (Denis TODO)",
+              "done": false,
+              "column": "in_progress",
+              "owner": "Denis",
+              "meta": {
+                "inbox_status": "in_progress",
+                "owner": "Denis",
+                "reply": "Ongoing — in progress (2026-05-29)"
+              }
             }
           ],
           "done": [
@@ -1227,8 +1228,8 @@
         },
         "counts": {
           "backlog": 3,
-          "todo": 2,
-          "in_progress": 3,
+          "todo": 0,
+          "in_progress": 5,
           "done": 2
         }
       },
@@ -1502,7 +1503,7 @@
               "meta": {
                 "owner": "Denis → in progress",
                 "inbox_status": "in_progress",
-                "reply": "Denis handling publish channels — keep in progress"
+                "reply": "In progress — standup ongoing; method/channels still via HQ Inbox"
               }
             }
           ],
@@ -1536,8 +1537,8 @@
     ],
     "totals": {
       "backlog": 3,
-      "todo": 15,
-      "in_progress": 4,
+      "todo": 13,
+      "in_progress": 6,
       "done": 18
     }
   },
@@ -8617,6 +8618,31 @@
       ]
     },
     "standups": [
+      {
+        "slug": "2026-05-29",
+        "title": "Standup — 2026-05-29",
+        "sections": {
+          "agent_next": [
+            "After PO channels → careers page copy + LinkedIn announcement draft",
+            "Office: keep planning/office-plovdiv.md brief aligned with Denis budget (<800 EUR) filters",
+            "Public landing scaffold in web/ when Denis picks landing vs deck-first"
+          ],
+          "done": [
+            "Denis triaged priorities in #vibe-code — PO, office, landing, social moved off Today into ongoing"
+          ],
+          "ongoing": [
+            "Denis: PO apply method + first publish channel — in progress",
+            "Denis: #1 Office Plovdiv — budget/area constraints; visit shortlist (HQ listings)",
+            "Denis: Landing page on vibe-coders.academy OR presentation document — in progress",
+            "Denis: #4 Create social accounts (after name + bios approved) — in progress"
+          ],
+          "today": [
+            "Agent: Presentation outline + slide copy (content/presentation/) — one-liner approved",
+            "Denis: HQ Inbox — approve automations (standup prep, competitor research, business plan, social drafts)",
+            "Agent: Social page bios + first-post pack (draft) — supports Denis social setup"
+          ]
+        }
+      },
       {
         "slug": "2026-05-28",
         "title": "Standup — 2026-05-28",

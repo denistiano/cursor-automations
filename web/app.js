@@ -225,6 +225,7 @@ function statCard(label, value, sub, hash) {
 }
 
 function standupPanel(standup) {
+  const ongoing = (standup.sections.ongoing || []).slice(0, 4);
   const today = (standup.sections.today || []).slice(0, 3);
   const blockers = (standup.sections.blockers || []).slice(0, 3);
   return `
@@ -234,6 +235,10 @@ function standupPanel(standup) {
         <a class="text-link" href="#work">All standups</a>
       </div>
       <div class="standup-cols">
+        <div>
+          <h3>Ongoing</h3>
+          <ul>${ongoing.map((t) => `<li>${escapeHtml(t)}</li>`).join("") || "<li class='muted'>—</li>"}</ul>
+        </div>
         <div>
           <h3>Today</h3>
           <ul>${today.map((t) => `<li>${escapeHtml(t)}</li>`).join("") || "<li class='muted'>—</li>"}</ul>
@@ -555,7 +560,7 @@ function standupsSection(standups) {
 }
 
 function standupExpand(standup) {
-  const order = ["done", "today", "blockers", "agent_next"];
+  const order = ["done", "ongoing", "today", "blockers", "agent_next"];
   return `
     <details class="standup-details" data-search-text="${escapeAttr(standup.slug)}">
       <summary>${escapeHtml(standup.slug)}</summary>
