@@ -286,7 +286,9 @@ def seed_standups(conn) -> None:
             "agent-next-actions": "agent_next",
         }
         for src, dest in mapping.items():
-            content = sections.get(src, {}).get("content", "")
+            if src not in sections:
+                continue
+            content = sections[src].get("content", "")
             items = parse_list_items(content) if dest != "today" else []
             if dest == "today":
                 for line in content.split("\n"):
