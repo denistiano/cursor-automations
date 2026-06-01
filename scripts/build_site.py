@@ -59,6 +59,7 @@ def action_card(entry: dict) -> dict:
         "slackReply": p.get("slack_reply", ""),
         "slackTrigger": p.get("slack_trigger", ""),
         "prompt": p.get("prompt") or entry.get("body", ""),
+        "batchPrompt": p.get("batch_prompt", ""),
         "hint": p.get("hint", ""),
         "inputLabel": p.get("input_label", ""),
         "inputExample": p.get("input_example", ""),

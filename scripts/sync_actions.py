@@ -16,6 +16,46 @@ ROLE_CHANNELS = {
     "developer": "#vibe-code",
 }
 
+DENIS_BATCH_PROMPT = """You are helping Denis (founder, Vibe Coders Academy) unblock launch work. Context: practitioner-first AI/Cursor course in Bulgaria; one-liner approved ("Стани част от AI революцията" / sub "Бъдещето е сега"); domain vibe-coders.academy registered; PO job draft in repo; 689 Plovdiv office listings in HQ (<800 EUR/mo). Denis owes updates — fill in [BRACKETS] from his replies, then update matching hq.db actions (props.status=done, props.reply=...) and unblock agent tasks. Run: python3 scripts/sync_actions.py && python3 scripts/build_site.py; post ≤15-line summary to #vibe-standup.
+
+1. PO hiring — apply method = [email | form URL | LinkedIn Easy Apply]; publish first on = [LinkedIn | job board | network]
+2. Office Plovdiv — shortlist/visits = [listing URLs or "none yet"]; area = [Kapana | center | other]; budget = [<800 EUR/mo confirmed?]
+3. Landing vs deck — priority = [landing first | presentation first | both]; status = [not started | in progress | blocked on X]
+4. Presentation doc — status = [not started | in progress | blocked]; deck-first? [yes/no]
+5. Social accounts — platforms = [LinkedIn | FB | IG | ...]; bios approved = [yes/no]; blocker = [if any]
+6. PO published — [Done: link] or [Update: blocker]
+
+Missing input only: Denis's bracketed answers. After capture, unblock agent: presentation outline (content/presentation/), social bios draft, careers copy after PO channels."""
+
+INPUT_PROMPTS: dict[str, str] = {
+    "input-blocker-po-apply-method-publish-channels": (
+        "Denis chooses PO apply method + first publish channel. "
+        "Slack: PO apply: [email | form URL | LinkedIn Easy Apply] — publish first on: [channel]. "
+        "Unblocks careers page copy and LinkedIn PO announcement."
+    ),
+    "input-task-1-office-plovdiv-budget-area-constraints-visit-shortlist": (
+        "Denis reviews Plovdiv office listings in HQ Office tab (<800 EUR/mo). "
+        "Slack: Update: #1 Office Plovdiv — [shortlist URLs; area preference; budget confirm]."
+    ),
+    "input-task-landing-page-on-vibe-coders-academy-denis-todo": (
+        "Denis landing vs deck priority. "
+        "Slack: Update: Landing page — [status]; priority vs presentation = [landing | deck | both]. "
+        "Unblocks web/ landing scaffold when landing-first."
+    ),
+    "input-task-presentation-document-denis-todo": (
+        "Denis presentation document status. "
+        "Slack: Update: Presentation document — [status]; deck-first? [yes/no]."
+    ),
+    "input-task-4-create-social-accounts-after-name-bios-approved": (
+        "Denis social account setup after bios. "
+        "Slack: Update: #4 Create social accounts — platforms=[...]; bios approved=[yes/no]; blocker=[if any]."
+    ),
+    "input-task-2-publish-share-po-position-linkedin-boards-network": (
+        "Denis publishes PO after apply method set. "
+        "Slack: Done: #2 Publish & share PO position — [link] OR Update: [blocker]."
+    ),
+}
+
 ROLE_PROMPTS = {
     "pm": """You are the PM Agent for Vibe Coders Academy. Prefix Slack output with: 🎯 *PM Agent* |
 
@@ -134,10 +174,17 @@ def build_inbox_batch(actions: list[dict]) -> dict:
         lines.append("")
     if len(inputs) == 1:
         lines.append("(Or reply with a single line using the template above.)")
+    agent_prompt = ""
+    for action in inputs:
+        bp = action.get("batchPrompt") or action.get("batch_prompt")
+        if bp:
+            agent_prompt = bp.strip()
+            break
     return {
         "channel": "#vibe-standup",
         "count": len(inputs),
         "slackReply": "\n".join(lines).rstrip(),
+        "agentPrompt": agent_prompt,
     }
 
 
@@ -344,6 +391,24 @@ def sync_actions(conn: sqlite3.Connection) -> None:
             active_slugs.add("input-one-liner")
 
     _prune_stale_actions(conn, active_slugs)
+    _patch_denis_input_prompts(conn)
+
+
+def _patch_denis_input_prompts(conn: sqlite3.Connection) -> None:
+    for slug, prompt in INPUT_PROMPTS.items():
+        row = conn.execute(
+            "SELECT id, props FROM entries WHERE collection='actions' AND slug=?",
+            (slug,),
+        ).fetchone()
+        if not row:
+            continue
+        props = json_loads(row["props"])
+        props["prompt"] = prompt
+        props["batch_prompt"] = DENIS_BATCH_PROMPT
+        conn.execute(
+            "UPDATE entries SET props=?, updated_at=datetime('now') WHERE id=?",
+            (json_dumps(props), row["id"]),
+        )
 
 
 def _role_trigger(role: str) -> str:

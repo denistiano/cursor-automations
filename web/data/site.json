@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generatedAt": "2026-05-29T12:31:54.748488+00:00",
+    "generatedAt": "2026-06-01T04:02:47.340022+00:00",
     "generator": "scripts/build_site.py",
-    "gitSha": "654f6533a2641ac67cd41f1732e9336369e4afc0",
+    "gitSha": "ef8c4a71bbf50d7688c1d5336e8b9ecefdbb7d41",
     "schemaVersion": "1",
     "dataModel": "hq-sections-v3"
   },
@@ -154,6 +154,7 @@
       "slackReply": "plan update positioning",
       "slackTrigger": "Scheduled — 1st of month 10:00 (plan vs reality)",
       "prompt": "You are the Business Agent for Vibe Coders Academy. Prefix Slack output with: 📊 *Business Agent* |\n\n## On Slack trigger\nIf message contains \"update\" or \"draft\":\n- Read business/plan and business/messaging entries in data/hq.db, plus tasks and research.\n- Update business collection entries (preserve Denis manual edits; note changes in reply).\n- Run python3 scripts/build_site.py\n- Reply with: what changed + open questions for Denis.\n\nIf message contains \"review\" or \"reality\":\n- Compare tasks + last 30 days standups to business/plan roadmap section.\n- Add variance note as new entry in business collection.\n\nRules:\n- State assumptions for market size numbers.\n- No pricing/launch claims unless in messaging entry.\n- Follow .cursor/rules/brand-voice.mdc.",
+      "batchPrompt": "",
       "hint": "Green-light: Slack → #vibe-business → filter: plan or business",
       "inputLabel": "",
       "inputExample": "",
@@ -161,7 +162,7 @@
         "collection": "automations",
         "slug": "automation-business-plan-assistant"
       },
-      "updatedAt": "2026-05-29 12:31:54"
+      "updatedAt": "2026-06-01 04:02:47"
     },
     {
       "id": 80,
@@ -175,6 +176,7 @@
       "slackReply": "competitor: SoftUni AI",
       "slackTrigger": "Scheduled — Monday 09:00 (weekly batch)",
       "prompt": "You are the Research Agent for Vibe Coders Academy. Prefix Slack output with: 🔍 *Research Agent* |\n\n## On Slack trigger (competitor: NAME or research: NAME)\n1. Parse the competitor name from the message.\n2. Read research/competitors watchlist table in data/hq.db.\n3. Research using web search / Exa MCP. Cite URLs with dates.\n4. Insert child entry under research/competitors with report body.\n5. Run python3 scripts/build_site.py\n6. Reply in thread with: 3-bullet summary + entry slug.\n\n## On weekly schedule\n1. Read watchlist priority column from hq.db.\n2. For each high-priority competitor not covered in 7 days, append to a weekly report entry.\n3. End with Strategic recommendations (max 3 bullets).\n\nRules:\n- Do not invent pricing or features. Mark unknowns explicitly.\n- Follow .cursor/rules/competitor-research.mdc.",
+      "batchPrompt": "",
       "hint": "Green-light: Slack → #vibe-research → New message → regex: ^(competitor|research):\\s*.+",
       "inputLabel": "",
       "inputExample": "",
@@ -182,7 +184,7 @@
         "collection": "automations",
         "slug": "automation-competitor-research"
       },
-      "updatedAt": "2026-05-29 12:31:54"
+      "updatedAt": "2026-06-01 04:02:47"
     },
     {
       "id": 79,
@@ -196,6 +198,7 @@
       "slackReply": "standup",
       "slackTrigger": "Slack → #vibe-standup → New message → filter: standup",
       "prompt": "You are the PM Agent for Vibe Coders Academy. Prefix Slack output with: 🎯 *PM Agent* |\n\n1. Read data/hq.db — collections: standups (last 7 days), tasks.\n2. Read recent git commits if repo is available.\n3. Upsert standups entry for YYYY-MM-DD with list_items sections: done, today (max 3), blockers, agent_next.\n4. Update tasks collection if priorities changed; do not delete completed items without evidence.\n5. Run: python3 scripts/build_site.py\n6. If Send to Slack is enabled, post a ≤15 line summary to #vibe-standup.\n\nRules:\n- Never invent completed work.\n- Ask Denis explicit questions for blockers.\n- Follow .cursor/rules/pm-assistant.mdc conventions.",
+      "batchPrompt": "",
       "hint": "Green-light: Scheduled — weekdays 08:00 (adjust timezone)",
       "inputLabel": "",
       "inputExample": "",
@@ -203,7 +206,7 @@
         "collection": "automations",
         "slug": "automation-morning-standup-prep"
       },
-      "updatedAt": "2026-05-29 12:31:54"
+      "updatedAt": "2026-06-01 04:02:47"
     },
     {
       "id": 82,
@@ -217,6 +220,7 @@
       "slackReply": "draft: 2 linkedin posts about Cursor automations",
       "slackTrigger": "Scheduled — Wednesday 14:00",
       "prompt": "You are the Social Agent for Vibe Coders Academy. Prefix Slack output with: 📣 *Social Agent* |\n\n1. Read business/messaging and business/plan entries in data/hq.db.\n2. Create 3 draft entries in social collection with props.approved=false.\n3. Run python3 scripts/build_site.py\n4. Reply in #vibe-social with previews and: \"Reply approve 1,2,3 or edit in DB.\"\n\nPublish automation (separate): only Buffer MCP when props.approved=true.\n\nRules:\n- Follow .cursor/rules/social-guardrails.mdc strictly.\n- NEVER publish in this automation.",
+      "batchPrompt": "",
       "hint": "Green-light: Slack → #vibe-social → filter: draft",
       "inputLabel": "",
       "inputExample": "",
@@ -224,7 +228,7 @@
         "collection": "automations",
         "slug": "automation-social-content-draft-only"
       },
-      "updatedAt": "2026-05-29 12:31:54"
+      "updatedAt": "2026-06-01 04:02:47"
     },
     {
       "id": 430,
@@ -237,7 +241,8 @@
       "slackChannel": "#vibe-standup",
       "slackReply": "PO apply: email | form URL | LinkedIn Easy Apply — publish first on: ",
       "slackTrigger": "standup",
-      "prompt": "",
+      "prompt": "Denis chooses PO apply method + first publish channel. Slack: PO apply: [email | form URL | LinkedIn Easy Apply] — publish first on: [channel]. Unblocks careers page copy and LinkedIn PO announcement.",
+      "batchPrompt": "You are helping Denis (founder, Vibe Coders Academy) unblock launch work. Context: practitioner-first AI/Cursor course in Bulgaria; one-liner approved (\"Стани част от AI революцията\" / sub \"Бъдещето е сега\"); domain vibe-coders.academy registered; PO job draft in repo; 689 Plovdiv office listings in HQ (<800 EUR/mo). Denis owes updates — fill in [BRACKETS] from his replies, then update matching hq.db actions (props.status=done, props.reply=...) and unblock agent tasks. Run: python3 scripts/sync_actions.py && python3 scripts/build_site.py; post ≤15-line summary to #vibe-standup.\n\n1. PO hiring — apply method = [email | form URL | LinkedIn Easy Apply]; publish first on = [LinkedIn | job board | network]\n2. Office Plovdiv — shortlist/visits = [listing URLs or \"none yet\"]; area = [Kapana | center | other]; budget = [<800 EUR/mo confirmed?]\n3. Landing vs deck — priority = [landing first | presentation first | both]; status = [not started | in progress | blocked on X]\n4. Presentation doc — status = [not started | in progress | blocked]; deck-first? [yes/no]\n5. Social accounts — platforms = [LinkedIn | FB | IG | ...]; bios approved = [yes/no]; blocker = [if any]\n6. PO published — [Done: link] or [Update: blocker]\n\nMissing input only: Denis's bracketed answers. After capture, unblock agent: presentation outline (content/presentation/), social bios draft, careers copy after PO channels.",
       "hint": "In progress — standup ongoing; method/channels still via HQ Inbox",
       "inputLabel": "Your answer",
       "inputExample": "",
@@ -246,7 +251,7 @@
         "slug": "blockers",
         "listItemId": 442
       },
-      "updatedAt": "2026-05-29 12:31:54"
+      "updatedAt": "2026-06-01 04:02:47"
     },
     {
       "id": 71,
@@ -259,7 +264,8 @@
       "slackChannel": "#vibe-standup",
       "slackReply": "Update: #1 Office Plovdiv — budget/area constraints; visit shortlist",
       "slackTrigger": "standup",
-      "prompt": "",
+      "prompt": "Denis reviews Plovdiv office listings in HQ Office tab (<800 EUR/mo). Slack: Update: #1 Office Plovdiv — [shortlist URLs; area preference; budget confirm].",
+      "batchPrompt": "You are helping Denis (founder, Vibe Coders Academy) unblock launch work. Context: practitioner-first AI/Cursor course in Bulgaria; one-liner approved (\"Стани част от AI революцията\" / sub \"Бъдещето е сега\"); domain vibe-coders.academy registered; PO job draft in repo; 689 Plovdiv office listings in HQ (<800 EUR/mo). Denis owes updates — fill in [BRACKETS] from his replies, then update matching hq.db actions (props.status=done, props.reply=...) and unblock agent tasks. Run: python3 scripts/sync_actions.py && python3 scripts/build_site.py; post ≤15-line summary to #vibe-standup.\n\n1. PO hiring — apply method = [email | form URL | LinkedIn Easy Apply]; publish first on = [LinkedIn | job board | network]\n2. Office Plovdiv — shortlist/visits = [listing URLs or \"none yet\"]; area = [Kapana | center | other]; budget = [<800 EUR/mo confirmed?]\n3. Landing vs deck — priority = [landing first | presentation first | both]; status = [not started | in progress | blocked on X]\n4. Presentation doc — status = [not started | in progress | blocked]; deck-first? [yes/no]\n5. Social accounts — platforms = [LinkedIn | FB | IG | ...]; bios approved = [yes/no]; blocker = [if any]\n6. PO published — [Done: link] or [Update: blocker]\n\nMissing input only: Denis's bracketed answers. After capture, unblock agent: presentation outline (content/presentation/), social bios draft, careers copy after PO channels.",
       "hint": "Budget <800 EUR; agent researching alo.bg + imot.bg",
       "inputLabel": "",
       "inputExample": "",
@@ -268,7 +274,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 435
       },
-      "updatedAt": "2026-05-29 12:31:54"
+      "updatedAt": "2026-06-01 04:02:47"
     },
     {
       "id": 70,
@@ -281,7 +287,8 @@
       "slackChannel": "#vibe-standup",
       "slackReply": "Done: #2 Publish & share PO position (LinkedIn, boards, network)",
       "slackTrigger": "standup",
-      "prompt": "",
+      "prompt": "Denis publishes PO after apply method set. Slack: Done: #2 Publish & share PO position — [link] OR Update: [blocker].",
+      "batchPrompt": "You are helping Denis (founder, Vibe Coders Academy) unblock launch work. Context: practitioner-first AI/Cursor course in Bulgaria; one-liner approved (\"Стани част от AI революцията\" / sub \"Бъдещето е сега\"); domain vibe-coders.academy registered; PO job draft in repo; 689 Plovdiv office listings in HQ (<800 EUR/mo). Denis owes updates — fill in [BRACKETS] from his replies, then update matching hq.db actions (props.status=done, props.reply=...) and unblock agent tasks. Run: python3 scripts/sync_actions.py && python3 scripts/build_site.py; post ≤15-line summary to #vibe-standup.\n\n1. PO hiring — apply method = [email | form URL | LinkedIn Easy Apply]; publish first on = [LinkedIn | job board | network]\n2. Office Plovdiv — shortlist/visits = [listing URLs or \"none yet\"]; area = [Kapana | center | other]; budget = [<800 EUR/mo confirmed?]\n3. Landing vs deck — priority = [landing first | presentation first | both]; status = [not started | in progress | blocked on X]\n4. Presentation doc — status = [not started | in progress | blocked]; deck-first? [yes/no]\n5. Social accounts — platforms = [LinkedIn | FB | IG | ...]; bios approved = [yes/no]; blocker = [if any]\n6. PO published — [Done: link] or [Update: blocker]\n\nMissing input only: Denis's bracketed answers. After capture, unblock agent: presentation outline (content/presentation/), social bios draft, careers copy after PO channels.",
       "hint": "Denis will publish — no duplicate agent task",
       "inputLabel": "",
       "inputExample": "",
@@ -290,7 +297,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 434
       },
-      "updatedAt": "2026-05-29 12:31:54"
+      "updatedAt": "2026-06-01 04:02:47"
     },
     {
       "id": 72,
@@ -303,7 +310,8 @@
       "slackChannel": "#vibe-standup",
       "slackReply": "Update: #4 Create social accounts (after name + bios approved)",
       "slackTrigger": "standup",
-      "prompt": "",
+      "prompt": "Denis social account setup after bios. Slack: Update: #4 Create social accounts — platforms=[...]; bios approved=[yes/no]; blocker=[if any].",
+      "batchPrompt": "You are helping Denis (founder, Vibe Coders Academy) unblock launch work. Context: practitioner-first AI/Cursor course in Bulgaria; one-liner approved (\"Стани част от AI революцията\" / sub \"Бъдещето е сега\"); domain vibe-coders.academy registered; PO job draft in repo; 689 Plovdiv office listings in HQ (<800 EUR/mo). Denis owes updates — fill in [BRACKETS] from his replies, then update matching hq.db actions (props.status=done, props.reply=...) and unblock agent tasks. Run: python3 scripts/sync_actions.py && python3 scripts/build_site.py; post ≤15-line summary to #vibe-standup.\n\n1. PO hiring — apply method = [email | form URL | LinkedIn Easy Apply]; publish first on = [LinkedIn | job board | network]\n2. Office Plovdiv — shortlist/visits = [listing URLs or \"none yet\"]; area = [Kapana | center | other]; budget = [<800 EUR/mo confirmed?]\n3. Landing vs deck — priority = [landing first | presentation first | both]; status = [not started | in progress | blocked on X]\n4. Presentation doc — status = [not started | in progress | blocked]; deck-first? [yes/no]\n5. Social accounts — platforms = [LinkedIn | FB | IG | ...]; bios approved = [yes/no]; blocker = [if any]\n6. PO published — [Done: link] or [Update: blocker]\n\nMissing input only: Denis's bracketed answers. After capture, unblock agent: presentation outline (content/presentation/), social bios draft, careers copy after PO channels.",
       "hint": "Current TODO for Denis",
       "inputLabel": "",
       "inputExample": "",
@@ -312,7 +320,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 436
       },
-      "updatedAt": "2026-05-29 12:31:54"
+      "updatedAt": "2026-06-01 04:02:47"
     },
     {
       "id": 252,
@@ -325,7 +333,8 @@
       "slackChannel": "#vibe-standup",
       "slackReply": "Update: Landing page on vibe-coders.academy (Denis TODO)",
       "slackTrigger": "standup",
-      "prompt": "",
+      "prompt": "Denis landing vs deck priority. Slack: Update: Landing page — [status]; priority vs presentation = [landing | deck | both]. Unblocks web/ landing scaffold when landing-first.",
+      "batchPrompt": "You are helping Denis (founder, Vibe Coders Academy) unblock launch work. Context: practitioner-first AI/Cursor course in Bulgaria; one-liner approved (\"Стани част от AI революцията\" / sub \"Бъдещето е сега\"); domain vibe-coders.academy registered; PO job draft in repo; 689 Plovdiv office listings in HQ (<800 EUR/mo). Denis owes updates — fill in [BRACKETS] from his replies, then update matching hq.db actions (props.status=done, props.reply=...) and unblock agent tasks. Run: python3 scripts/sync_actions.py && python3 scripts/build_site.py; post ≤15-line summary to #vibe-standup.\n\n1. PO hiring — apply method = [email | form URL | LinkedIn Easy Apply]; publish first on = [LinkedIn | job board | network]\n2. Office Plovdiv — shortlist/visits = [listing URLs or \"none yet\"]; area = [Kapana | center | other]; budget = [<800 EUR/mo confirmed?]\n3. Landing vs deck — priority = [landing first | presentation first | both]; status = [not started | in progress | blocked on X]\n4. Presentation doc — status = [not started | in progress | blocked]; deck-first? [yes/no]\n5. Social accounts — platforms = [LinkedIn | FB | IG | ...]; bios approved = [yes/no]; blocker = [if any]\n6. PO published — [Done: link] or [Update: blocker]\n\nMissing input only: Denis's bracketed answers. After capture, unblock agent: presentation outline (content/presentation/), social bios draft, careers copy after PO channels.",
       "hint": "Ongoing — in progress (2026-05-29)",
       "inputLabel": "",
       "inputExample": "",
@@ -334,7 +343,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 440
       },
-      "updatedAt": "2026-05-29 12:31:54"
+      "updatedAt": "2026-06-01 04:02:47"
     },
     {
       "id": 253,
@@ -347,7 +356,8 @@
       "slackChannel": "#vibe-standup",
       "slackReply": "Update: Presentation document (Denis TODO)",
       "slackTrigger": "standup",
-      "prompt": "",
+      "prompt": "Denis presentation document status. Slack: Update: Presentation document — [status]; deck-first? [yes/no].",
+      "batchPrompt": "You are helping Denis (founder, Vibe Coders Academy) unblock launch work. Context: practitioner-first AI/Cursor course in Bulgaria; one-liner approved (\"Стани част от AI революцията\" / sub \"Бъдещето е сега\"); domain vibe-coders.academy registered; PO job draft in repo; 689 Plovdiv office listings in HQ (<800 EUR/mo). Denis owes updates — fill in [BRACKETS] from his replies, then update matching hq.db actions (props.status=done, props.reply=...) and unblock agent tasks. Run: python3 scripts/sync_actions.py && python3 scripts/build_site.py; post ≤15-line summary to #vibe-standup.\n\n1. PO hiring — apply method = [email | form URL | LinkedIn Easy Apply]; publish first on = [LinkedIn | job board | network]\n2. Office Plovdiv — shortlist/visits = [listing URLs or \"none yet\"]; area = [Kapana | center | other]; budget = [<800 EUR/mo confirmed?]\n3. Landing vs deck — priority = [landing first | presentation first | both]; status = [not started | in progress | blocked on X]\n4. Presentation doc — status = [not started | in progress | blocked]; deck-first? [yes/no]\n5. Social accounts — platforms = [LinkedIn | FB | IG | ...]; bios approved = [yes/no]; blocker = [if any]\n6. PO published — [Done: link] or [Update: blocker]\n\nMissing input only: Denis's bracketed answers. After capture, unblock agent: presentation outline (content/presentation/), social bios draft, careers copy after PO channels.",
       "hint": "Ongoing — in progress (2026-05-29)",
       "inputLabel": "",
       "inputExample": "",
@@ -356,13 +366,14 @@
         "slug": "denis-decisions-manual",
         "listItemId": 441
       },
-      "updatedAt": "2026-05-29 12:31:54"
+      "updatedAt": "2026-06-01 04:02:47"
     }
   ],
   "inboxBatch": {
     "channel": "#vibe-standup",
     "count": 6,
-    "slackReply": "standup batch — reply in #vibe-code or #vibe-standup with numbered answers:\n\n1. PO apply method + publish channels\n   PO apply: email | form URL | LinkedIn Easy Apply — publish first on:\n\n2. #1 Office Plovdiv — budget/area constraints; visit shortlist\n   Update: #1 Office Plovdiv — budget/area constraints; visit shortlist\n\n3. #2 Publish & share PO position (LinkedIn, boards, network)\n   Done: #2 Publish & share PO position (LinkedIn, boards, network)\n\n4. #4 Create social accounts (after name + bios approved)\n   Update: #4 Create social accounts (after name + bios approved)\n\n5. Landing page on vibe-coders.academy (Denis TODO)\n   Update: Landing page on vibe-coders.academy (Denis TODO)\n\n6. Presentation document (Denis TODO)\n   Update: Presentation document (Denis TODO)"
+    "slackReply": "standup batch — reply in #vibe-code or #vibe-standup with numbered answers:\n\n1. PO apply method + publish channels\n   PO apply: email | form URL | LinkedIn Easy Apply — publish first on:\n\n2. #1 Office Plovdiv — budget/area constraints; visit shortlist\n   Update: #1 Office Plovdiv — budget/area constraints; visit shortlist\n\n3. #2 Publish & share PO position (LinkedIn, boards, network)\n   Done: #2 Publish & share PO position (LinkedIn, boards, network)\n\n4. #4 Create social accounts (after name + bios approved)\n   Update: #4 Create social accounts (after name + bios approved)\n\n5. Landing page on vibe-coders.academy (Denis TODO)\n   Update: Landing page on vibe-coders.academy (Denis TODO)\n\n6. Presentation document (Denis TODO)\n   Update: Presentation document (Denis TODO)",
+    "agentPrompt": "You are helping Denis (founder, Vibe Coders Academy) unblock launch work. Context: practitioner-first AI/Cursor course in Bulgaria; one-liner approved (\"Стани част от AI революцията\" / sub \"Бъдещето е сега\"); domain vibe-coders.academy registered; PO job draft in repo; 689 Plovdiv office listings in HQ (<800 EUR/mo). Denis owes updates — fill in [BRACKETS] from his replies, then update matching hq.db actions (props.status=done, props.reply=...) and unblock agent tasks. Run: python3 scripts/sync_actions.py && python3 scripts/build_site.py; post ≤15-line summary to #vibe-standup.\n\n1. PO hiring — apply method = [email | form URL | LinkedIn Easy Apply]; publish first on = [LinkedIn | job board | network]\n2. Office Plovdiv — shortlist/visits = [listing URLs or \"none yet\"]; area = [Kapana | center | other]; budget = [<800 EUR/mo confirmed?]\n3. Landing vs deck — priority = [landing first | presentation first | both]; status = [not started | in progress | blocked on X]\n4. Presentation doc — status = [not started | in progress | blocked]; deck-first? [yes/no]\n5. Social accounts — platforms = [LinkedIn | FB | IG | ...]; bios approved = [yes/no]; blocker = [if any]\n6. PO published — [Done: link] or [Update: blocker]\n\nMissing input only: Denis's bracketed answers. After capture, unblock agent: presentation outline (content/presentation/), social bios draft, careers copy after PO channels."
   },
   "actions": [
     {
@@ -377,6 +388,7 @@
       "slackReply": "plan update positioning",
       "slackTrigger": "Scheduled — 1st of month 10:00 (plan vs reality)",
       "prompt": "You are the Business Agent for Vibe Coders Academy. Prefix Slack output with: 📊 *Business Agent* |\n\n## On Slack trigger\nIf message contains \"update\" or \"draft\":\n- Read business/plan and business/messaging entries in data/hq.db, plus tasks and research.\n- Update business collection entries (preserve Denis manual edits; note changes in reply).\n- Run python3 scripts/build_site.py\n- Reply with: what changed + open questions for Denis.\n\nIf message contains \"review\" or \"reality\":\n- Compare tasks + last 30 days standups to business/plan roadmap section.\n- Add variance note as new entry in business collection.\n\nRules:\n- State assumptions for market size numbers.\n- No pricing/launch claims unless in messaging entry.\n- Follow .cursor/rules/brand-voice.mdc.",
+      "batchPrompt": "",
       "hint": "Green-light: Slack → #vibe-business → filter: plan or business",
       "inputLabel": "",
       "inputExample": "",
@@ -384,7 +396,7 @@
         "collection": "automations",
         "slug": "automation-business-plan-assistant"
       },
-      "updatedAt": "2026-05-29 12:31:54"
+      "updatedAt": "2026-06-01 04:02:47"
     },
     {
       "id": 80,
@@ -398,6 +410,7 @@
       "slackReply": "competitor: SoftUni AI",
       "slackTrigger": "Scheduled — Monday 09:00 (weekly batch)",
       "prompt": "You are the Research Agent for Vibe Coders Academy. Prefix Slack output with: 🔍 *Research Agent* |\n\n## On Slack trigger (competitor: NAME or research: NAME)\n1. Parse the competitor name from the message.\n2. Read research/competitors watchlist table in data/hq.db.\n3. Research using web search / Exa MCP. Cite URLs with dates.\n4. Insert child entry under research/competitors with report body.\n5. Run python3 scripts/build_site.py\n6. Reply in thread with: 3-bullet summary + entry slug.\n\n## On weekly schedule\n1. Read watchlist priority column from hq.db.\n2. For each high-priority competitor not covered in 7 days, append to a weekly report entry.\n3. End with Strategic recommendations (max 3 bullets).\n\nRules:\n- Do not invent pricing or features. Mark unknowns explicitly.\n- Follow .cursor/rules/competitor-research.mdc.",
+      "batchPrompt": "",
       "hint": "Green-light: Slack → #vibe-research → New message → regex: ^(competitor|research):\\s*.+",
       "inputLabel": "",
       "inputExample": "",
@@ -405,7 +418,7 @@
         "collection": "automations",
         "slug": "automation-competitor-research"
       },
-      "updatedAt": "2026-05-29 12:31:54"
+      "updatedAt": "2026-06-01 04:02:47"
     },
     {
       "id": 79,
@@ -419,6 +432,7 @@
       "slackReply": "standup",
       "slackTrigger": "Slack → #vibe-standup → New message → filter: standup",
       "prompt": "You are the PM Agent for Vibe Coders Academy. Prefix Slack output with: 🎯 *PM Agent* |\n\n1. Read data/hq.db — collections: standups (last 7 days), tasks.\n2. Read recent git commits if repo is available.\n3. Upsert standups entry for YYYY-MM-DD with list_items sections: done, today (max 3), blockers, agent_next.\n4. Update tasks collection if priorities changed; do not delete completed items without evidence.\n5. Run: python3 scripts/build_site.py\n6. If Send to Slack is enabled, post a ≤15 line summary to #vibe-standup.\n\nRules:\n- Never invent completed work.\n- Ask Denis explicit questions for blockers.\n- Follow .cursor/rules/pm-assistant.mdc conventions.",
+      "batchPrompt": "",
       "hint": "Green-light: Scheduled — weekdays 08:00 (adjust timezone)",
       "inputLabel": "",
       "inputExample": "",
@@ -426,7 +440,7 @@
         "collection": "automations",
         "slug": "automation-morning-standup-prep"
       },
-      "updatedAt": "2026-05-29 12:31:54"
+      "updatedAt": "2026-06-01 04:02:47"
     },
     {
       "id": 82,
@@ -440,6 +454,7 @@
       "slackReply": "draft: 2 linkedin posts about Cursor automations",
       "slackTrigger": "Scheduled — Wednesday 14:00",
       "prompt": "You are the Social Agent for Vibe Coders Academy. Prefix Slack output with: 📣 *Social Agent* |\n\n1. Read business/messaging and business/plan entries in data/hq.db.\n2. Create 3 draft entries in social collection with props.approved=false.\n3. Run python3 scripts/build_site.py\n4. Reply in #vibe-social with previews and: \"Reply approve 1,2,3 or edit in DB.\"\n\nPublish automation (separate): only Buffer MCP when props.approved=true.\n\nRules:\n- Follow .cursor/rules/social-guardrails.mdc strictly.\n- NEVER publish in this automation.",
+      "batchPrompt": "",
       "hint": "Green-light: Slack → #vibe-social → filter: draft",
       "inputLabel": "",
       "inputExample": "",
@@ -447,7 +462,7 @@
         "collection": "automations",
         "slug": "automation-social-content-draft-only"
       },
-      "updatedAt": "2026-05-29 12:31:54"
+      "updatedAt": "2026-06-01 04:02:47"
     },
     {
       "id": 61,
@@ -461,11 +476,12 @@
       "slackReply": "",
       "slackTrigger": "plan update",
       "prompt": "You are the Business Agent for Vibe Coders Academy. Prefix Slack output with: 📊 *Business Agent* |\n\nTrigger: post `plan update` or `business update` in #vibe-business.\n\n1. Read business/plan, business/messaging, tasks, research in data/hq.db.\n2. Update relevant entries; note assumptions.\n3. Run python3 scripts/build_site.py\n4. Reply: what changed + open questions for Denis.\n\nRules: no pricing/launch claims unless in messaging entry; follow brand-voice rule.",
+      "batchPrompt": "",
       "hint": "",
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-29 12:31:54"
+      "updatedAt": "2026-06-01 04:02:47"
     },
     {
       "id": 63,
@@ -479,11 +495,12 @@
       "slackReply": "",
       "slackTrigger": "@Cursor {task} in #vibe-code",
       "prompt": "You are the Developer Agent for Vibe Coders Academy. Prefix Slack output with: 🛠 *Dev Agent* |\n\nTrigger: @Cursor or post in #vibe-code with a dev task (repo must be attached).\n\n1. Read the request and relevant entries in data/hq.db for context.\n2. Implement in the vibe-coding-101 repo — minimal focused diffs.\n3. Run python3 scripts/build_site.py if data/UI changed.\n4. Reply with: what changed, how to test, any blockers.\n\nScope: web/, scripts/, data/ — landing page, HQ UI, build pipeline, SQLite helpers.\nRules: match existing conventions; no scope creep; ask before destructive changes.",
+      "batchPrompt": "",
       "hint": "",
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-29 12:31:54"
+      "updatedAt": "2026-06-01 04:02:47"
     },
     {
       "id": 59,
@@ -497,11 +514,12 @@
       "slackReply": "",
       "slackTrigger": "standup",
       "prompt": "You are the PM Agent for Vibe Coders Academy. Prefix Slack output with: 🎯 *PM Agent* |\n\nRead data/hq.db (collections: standups, tasks, actions). After Denis replies in Slack with inputs:\n1. Update the matching action(s) in actions collection — set props.status=done, store reply in props.reply.\n2. Upsert today's standup with Done / Today (max 3) / Blockers / Agent next actions.\n3. Sync tasks collection from roadmap priorities.\n4. Run: python3 scripts/build_site.py\n5. Post ≤15 line summary to #vibe-standup listing what unblocked and next agent steps.\n\nRules: never invent completed work; ask explicit questions only when still blocked.",
+      "batchPrompt": "",
       "hint": "",
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-29 12:31:54"
+      "updatedAt": "2026-06-01 04:02:47"
     },
     {
       "id": 60,
@@ -515,11 +533,12 @@
       "slackReply": "",
       "slackTrigger": "competitor: {name}",
       "prompt": "You are the Research Agent for Vibe Coders Academy. Prefix Slack output with: 🔍 *Research Agent* |\n\nTrigger: post `competitor: {name}` or `research: {topic}` in #vibe-research.\n\n1. Read research/competitors watchlist in data/hq.db.\n2. Research with web / Exa MCP — cite URLs and dates.\n3. Insert child entry under research/competitors with full report body.\n4. Run python3 scripts/build_site.py\n5. Reply in thread: 3-bullet summary + entry slug.\n\nRules: no invented pricing; mark unknowns; follow .cursor/rules/competitor-research.mdc.",
+      "batchPrompt": "",
       "hint": "",
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-29 12:31:54"
+      "updatedAt": "2026-06-01 04:02:47"
     },
     {
       "id": 62,
@@ -533,11 +552,12 @@
       "slackReply": "",
       "slackTrigger": "draft: {brief}",
       "prompt": "You are the Social Agent for Vibe Coders Academy. Prefix Slack output with: 📣 *Social Agent* |\n\nTrigger: post `draft: {brief}` in #vibe-social.\n\n1. Read business/messaging and business/plan in data/hq.db.\n2. Create draft entries in social collection with props.approved=false.\n3. Run python3 scripts/build_site.py\n4. Reply with previews; Denis approves via `approve: {slug}` in Slack.\n\nRules: NEVER publish here; follow .cursor/rules/social-guardrails.mdc.",
+      "batchPrompt": "",
       "hint": "",
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-05-29 12:31:54"
+      "updatedAt": "2026-06-01 04:02:47"
     },
     {
       "id": 430,
@@ -550,7 +570,8 @@
       "slackChannel": "#vibe-standup",
       "slackReply": "PO apply: email | form URL | LinkedIn Easy Apply — publish first on: ",
       "slackTrigger": "standup",
-      "prompt": "",
+      "prompt": "Denis chooses PO apply method + first publish channel. Slack: PO apply: [email | form URL | LinkedIn Easy Apply] — publish first on: [channel]. Unblocks careers page copy and LinkedIn PO announcement.",
+      "batchPrompt": "You are helping Denis (founder, Vibe Coders Academy) unblock launch work. Context: practitioner-first AI/Cursor course in Bulgaria; one-liner approved (\"Стани част от AI революцията\" / sub \"Бъдещето е сега\"); domain vibe-coders.academy registered; PO job draft in repo; 689 Plovdiv office listings in HQ (<800 EUR/mo). Denis owes updates — fill in [BRACKETS] from his replies, then update matching hq.db actions (props.status=done, props.reply=...) and unblock agent tasks. Run: python3 scripts/sync_actions.py && python3 scripts/build_site.py; post ≤15-line summary to #vibe-standup.\n\n1. PO hiring — apply method = [email | form URL | LinkedIn Easy Apply]; publish first on = [LinkedIn | job board | network]\n2. Office Plovdiv — shortlist/visits = [listing URLs or \"none yet\"]; area = [Kapana | center | other]; budget = [<800 EUR/mo confirmed?]\n3. Landing vs deck — priority = [landing first | presentation first | both]; status = [not started | in progress | blocked on X]\n4. Presentation doc — status = [not started | in progress | blocked]; deck-first? [yes/no]\n5. Social accounts — platforms = [LinkedIn | FB | IG | ...]; bios approved = [yes/no]; blocker = [if any]\n6. PO published — [Done: link] or [Update: blocker]\n\nMissing input only: Denis's bracketed answers. After capture, unblock agent: presentation outline (content/presentation/), social bios draft, careers copy after PO channels.",
       "hint": "In progress — standup ongoing; method/channels still via HQ Inbox",
       "inputLabel": "Your answer",
       "inputExample": "",
@@ -559,7 +580,7 @@
         "slug": "blockers",
         "listItemId": 442
       },
-      "updatedAt": "2026-05-29 12:31:54"
+      "updatedAt": "2026-06-01 04:02:47"
     },
     {
       "id": 71,
@@ -572,7 +593,8 @@
       "slackChannel": "#vibe-standup",
       "slackReply": "Update: #1 Office Plovdiv — budget/area constraints; visit shortlist",
       "slackTrigger": "standup",
-      "prompt": "",
+      "prompt": "Denis reviews Plovdiv office listings in HQ Office tab (<800 EUR/mo). Slack: Update: #1 Office Plovdiv — [shortlist URLs; area preference; budget confirm].",
+      "batchPrompt": "You are helping Denis (founder, Vibe Coders Academy) unblock launch work. Context: practitioner-first AI/Cursor course in Bulgaria; one-liner approved (\"Стани част от AI революцията\" / sub \"Бъдещето е сега\"); domain vibe-coders.academy registered; PO job draft in repo; 689 Plovdiv office listings in HQ (<800 EUR/mo). Denis owes updates — fill in [BRACKETS] from his replies, then update matching hq.db actions (props.status=done, props.reply=...) and unblock agent tasks. Run: python3 scripts/sync_actions.py && python3 scripts/build_site.py; post ≤15-line summary to #vibe-standup.\n\n1. PO hiring — apply method = [email | form URL | LinkedIn Easy Apply]; publish first on = [LinkedIn | job board | network]\n2. Office Plovdiv — shortlist/visits = [listing URLs or \"none yet\"]; area = [Kapana | center | other]; budget = [<800 EUR/mo confirmed?]\n3. Landing vs deck — priority = [landing first | presentation first | both]; status = [not started | in progress | blocked on X]\n4. Presentation doc — status = [not started | in progress | blocked]; deck-first? [yes/no]\n5. Social accounts — platforms = [LinkedIn | FB | IG | ...]; bios approved = [yes/no]; blocker = [if any]\n6. PO published — [Done: link] or [Update: blocker]\n\nMissing input only: Denis's bracketed answers. After capture, unblock agent: presentation outline (content/presentation/), social bios draft, careers copy after PO channels.",
       "hint": "Budget <800 EUR; agent researching alo.bg + imot.bg",
       "inputLabel": "",
       "inputExample": "",
@@ -581,7 +603,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 435
       },
-      "updatedAt": "2026-05-29 12:31:54"
+      "updatedAt": "2026-06-01 04:02:47"
     },
     {
       "id": 70,
@@ -594,7 +616,8 @@
       "slackChannel": "#vibe-standup",
       "slackReply": "Done: #2 Publish & share PO position (LinkedIn, boards, network)",
       "slackTrigger": "standup",
-      "prompt": "",
+      "prompt": "Denis publishes PO after apply method set. Slack: Done: #2 Publish & share PO position — [link] OR Update: [blocker].",
+      "batchPrompt": "You are helping Denis (founder, Vibe Coders Academy) unblock launch work. Context: practitioner-first AI/Cursor course in Bulgaria; one-liner approved (\"Стани част от AI революцията\" / sub \"Бъдещето е сега\"); domain vibe-coders.academy registered; PO job draft in repo; 689 Plovdiv office listings in HQ (<800 EUR/mo). Denis owes updates — fill in [BRACKETS] from his replies, then update matching hq.db actions (props.status=done, props.reply=...) and unblock agent tasks. Run: python3 scripts/sync_actions.py && python3 scripts/build_site.py; post ≤15-line summary to #vibe-standup.\n\n1. PO hiring — apply method = [email | form URL | LinkedIn Easy Apply]; publish first on = [LinkedIn | job board | network]\n2. Office Plovdiv — shortlist/visits = [listing URLs or \"none yet\"]; area = [Kapana | center | other]; budget = [<800 EUR/mo confirmed?]\n3. Landing vs deck — priority = [landing first | presentation first | both]; status = [not started | in progress | blocked on X]\n4. Presentation doc — status = [not started | in progress | blocked]; deck-first? [yes/no]\n5. Social accounts — platforms = [LinkedIn | FB | IG | ...]; bios approved = [yes/no]; blocker = [if any]\n6. PO published — [Done: link] or [Update: blocker]\n\nMissing input only: Denis's bracketed answers. After capture, unblock agent: presentation outline (content/presentation/), social bios draft, careers copy after PO channels.",
       "hint": "Denis will publish — no duplicate agent task",
       "inputLabel": "",
       "inputExample": "",
@@ -603,7 +626,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 434
       },
-      "updatedAt": "2026-05-29 12:31:54"
+      "updatedAt": "2026-06-01 04:02:47"
     },
     {
       "id": 72,
@@ -616,7 +639,8 @@
       "slackChannel": "#vibe-standup",
       "slackReply": "Update: #4 Create social accounts (after name + bios approved)",
       "slackTrigger": "standup",
-      "prompt": "",
+      "prompt": "Denis social account setup after bios. Slack: Update: #4 Create social accounts — platforms=[...]; bios approved=[yes/no]; blocker=[if any].",
+      "batchPrompt": "You are helping Denis (founder, Vibe Coders Academy) unblock launch work. Context: practitioner-first AI/Cursor course in Bulgaria; one-liner approved (\"Стани част от AI революцията\" / sub \"Бъдещето е сега\"); domain vibe-coders.academy registered; PO job draft in repo; 689 Plovdiv office listings in HQ (<800 EUR/mo). Denis owes updates — fill in [BRACKETS] from his replies, then update matching hq.db actions (props.status=done, props.reply=...) and unblock agent tasks. Run: python3 scripts/sync_actions.py && python3 scripts/build_site.py; post ≤15-line summary to #vibe-standup.\n\n1. PO hiring — apply method = [email | form URL | LinkedIn Easy Apply]; publish first on = [LinkedIn | job board | network]\n2. Office Plovdiv — shortlist/visits = [listing URLs or \"none yet\"]; area = [Kapana | center | other]; budget = [<800 EUR/mo confirmed?]\n3. Landing vs deck — priority = [landing first | presentation first | both]; status = [not started | in progress | blocked on X]\n4. Presentation doc — status = [not started | in progress | blocked]; deck-first? [yes/no]\n5. Social accounts — platforms = [LinkedIn | FB | IG | ...]; bios approved = [yes/no]; blocker = [if any]\n6. PO published — [Done: link] or [Update: blocker]\n\nMissing input only: Denis's bracketed answers. After capture, unblock agent: presentation outline (content/presentation/), social bios draft, careers copy after PO channels.",
       "hint": "Current TODO for Denis",
       "inputLabel": "",
       "inputExample": "",
@@ -625,7 +649,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 436
       },
-      "updatedAt": "2026-05-29 12:31:54"
+      "updatedAt": "2026-06-01 04:02:47"
     },
     {
       "id": 252,
@@ -638,7 +662,8 @@
       "slackChannel": "#vibe-standup",
       "slackReply": "Update: Landing page on vibe-coders.academy (Denis TODO)",
       "slackTrigger": "standup",
-      "prompt": "",
+      "prompt": "Denis landing vs deck priority. Slack: Update: Landing page — [status]; priority vs presentation = [landing | deck | both]. Unblocks web/ landing scaffold when landing-first.",
+      "batchPrompt": "You are helping Denis (founder, Vibe Coders Academy) unblock launch work. Context: practitioner-first AI/Cursor course in Bulgaria; one-liner approved (\"Стани част от AI революцията\" / sub \"Бъдещето е сега\"); domain vibe-coders.academy registered; PO job draft in repo; 689 Plovdiv office listings in HQ (<800 EUR/mo). Denis owes updates — fill in [BRACKETS] from his replies, then update matching hq.db actions (props.status=done, props.reply=...) and unblock agent tasks. Run: python3 scripts/sync_actions.py && python3 scripts/build_site.py; post ≤15-line summary to #vibe-standup.\n\n1. PO hiring — apply method = [email | form URL | LinkedIn Easy Apply]; publish first on = [LinkedIn | job board | network]\n2. Office Plovdiv — shortlist/visits = [listing URLs or \"none yet\"]; area = [Kapana | center | other]; budget = [<800 EUR/mo confirmed?]\n3. Landing vs deck — priority = [landing first | presentation first | both]; status = [not started | in progress | blocked on X]\n4. Presentation doc — status = [not started | in progress | blocked]; deck-first? [yes/no]\n5. Social accounts — platforms = [LinkedIn | FB | IG | ...]; bios approved = [yes/no]; blocker = [if any]\n6. PO published — [Done: link] or [Update: blocker]\n\nMissing input only: Denis's bracketed answers. After capture, unblock agent: presentation outline (content/presentation/), social bios draft, careers copy after PO channels.",
       "hint": "Ongoing — in progress (2026-05-29)",
       "inputLabel": "",
       "inputExample": "",
@@ -647,7 +672,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 440
       },
-      "updatedAt": "2026-05-29 12:31:54"
+      "updatedAt": "2026-06-01 04:02:47"
     },
     {
       "id": 253,
@@ -660,7 +685,8 @@
       "slackChannel": "#vibe-standup",
       "slackReply": "Update: Presentation document (Denis TODO)",
       "slackTrigger": "standup",
-      "prompt": "",
+      "prompt": "Denis presentation document status. Slack: Update: Presentation document — [status]; deck-first? [yes/no].",
+      "batchPrompt": "You are helping Denis (founder, Vibe Coders Academy) unblock launch work. Context: practitioner-first AI/Cursor course in Bulgaria; one-liner approved (\"Стани част от AI революцията\" / sub \"Бъдещето е сега\"); domain vibe-coders.academy registered; PO job draft in repo; 689 Plovdiv office listings in HQ (<800 EUR/mo). Denis owes updates — fill in [BRACKETS] from his replies, then update matching hq.db actions (props.status=done, props.reply=...) and unblock agent tasks. Run: python3 scripts/sync_actions.py && python3 scripts/build_site.py; post ≤15-line summary to #vibe-standup.\n\n1. PO hiring — apply method = [email | form URL | LinkedIn Easy Apply]; publish first on = [LinkedIn | job board | network]\n2. Office Plovdiv — shortlist/visits = [listing URLs or \"none yet\"]; area = [Kapana | center | other]; budget = [<800 EUR/mo confirmed?]\n3. Landing vs deck — priority = [landing first | presentation first | both]; status = [not started | in progress | blocked on X]\n4. Presentation doc — status = [not started | in progress | blocked]; deck-first? [yes/no]\n5. Social accounts — platforms = [LinkedIn | FB | IG | ...]; bios approved = [yes/no]; blocker = [if any]\n6. PO published — [Done: link] or [Update: blocker]\n\nMissing input only: Denis's bracketed answers. After capture, unblock agent: presentation outline (content/presentation/), social bios draft, careers copy after PO channels.",
       "hint": "Ongoing — in progress (2026-05-29)",
       "inputLabel": "",
       "inputExample": "",
@@ -669,7 +695,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 441
       },
-      "updatedAt": "2026-05-29 12:31:54"
+      "updatedAt": "2026-06-01 04:02:47"
     }
   ],
   "roles": {
@@ -692,6 +718,7 @@
           "slackReply": "standup",
           "slackTrigger": "Slack → #vibe-standup → New message → filter: standup",
           "prompt": "You are the PM Agent for Vibe Coders Academy. Prefix Slack output with: 🎯 *PM Agent* |\n\n1. Read data/hq.db — collections: standups (last 7 days), tasks.\n2. Read recent git commits if repo is available.\n3. Upsert standups entry for YYYY-MM-DD with list_items sections: done, today (max 3), blockers, agent_next.\n4. Update tasks collection if priorities changed; do not delete completed items without evidence.\n5. Run: python3 scripts/build_site.py\n6. If Send to Slack is enabled, post a ≤15 line summary to #vibe-standup.\n\nRules:\n- Never invent completed work.\n- Ask Denis explicit questions for blockers.\n- Follow .cursor/rules/pm-assistant.mdc conventions.",
+          "batchPrompt": "",
           "hint": "Green-light: Scheduled — weekdays 08:00 (adjust timezone)",
           "inputLabel": "",
           "inputExample": "",
@@ -699,7 +726,7 @@
             "collection": "automations",
             "slug": "automation-morning-standup-prep"
           },
-          "updatedAt": "2026-05-29 12:31:54"
+          "updatedAt": "2026-06-01 04:02:47"
         },
         {
           "id": 430,
@@ -712,7 +739,8 @@
           "slackChannel": "#vibe-standup",
           "slackReply": "PO apply: email | form URL | LinkedIn Easy Apply — publish first on: ",
           "slackTrigger": "standup",
-          "prompt": "",
+          "prompt": "Denis chooses PO apply method + first publish channel. Slack: PO apply: [email | form URL | LinkedIn Easy Apply] — publish first on: [channel]. Unblocks careers page copy and LinkedIn PO announcement.",
+          "batchPrompt": "You are helping Denis (founder, Vibe Coders Academy) unblock launch work. Context: practitioner-first AI/Cursor course in Bulgaria; one-liner approved (\"Стани част от AI революцията\" / sub \"Бъдещето е сега\"); domain vibe-coders.academy registered; PO job draft in repo; 689 Plovdiv office listings in HQ (<800 EUR/mo). Denis owes updates — fill in [BRACKETS] from his replies, then update matching hq.db actions (props.status=done, props.reply=...) and unblock agent tasks. Run: python3 scripts/sync_actions.py && python3 scripts/build_site.py; post ≤15-line summary to #vibe-standup.\n\n1. PO hiring — apply method = [email | form URL | LinkedIn Easy Apply]; publish first on = [LinkedIn | job board | network]\n2. Office Plovdiv — shortlist/visits = [listing URLs or \"none yet\"]; area = [Kapana | center | other]; budget = [<800 EUR/mo confirmed?]\n3. Landing vs deck — priority = [landing first | presentation first | both]; status = [not started | in progress | blocked on X]\n4. Presentation doc — status = [not started | in progress | blocked]; deck-first? [yes/no]\n5. Social accounts — platforms = [LinkedIn | FB | IG | ...]; bios approved = [yes/no]; blocker = [if any]\n6. PO published — [Done: link] or [Update: blocker]\n\nMissing input only: Denis's bracketed answers. After capture, unblock agent: presentation outline (content/presentation/), social bios draft, careers copy after PO channels.",
           "hint": "In progress — standup ongoing; method/channels still via HQ Inbox",
           "inputLabel": "Your answer",
           "inputExample": "",
@@ -721,7 +749,7 @@
             "slug": "blockers",
             "listItemId": 442
           },
-          "updatedAt": "2026-05-29 12:31:54"
+          "updatedAt": "2026-06-01 04:02:47"
         },
         {
           "id": 71,
@@ -734,7 +762,8 @@
           "slackChannel": "#vibe-standup",
           "slackReply": "Update: #1 Office Plovdiv — budget/area constraints; visit shortlist",
           "slackTrigger": "standup",
-          "prompt": "",
+          "prompt": "Denis reviews Plovdiv office listings in HQ Office tab (<800 EUR/mo). Slack: Update: #1 Office Plovdiv — [shortlist URLs; area preference; budget confirm].",
+          "batchPrompt": "You are helping Denis (founder, Vibe Coders Academy) unblock launch work. Context: practitioner-first AI/Cursor course in Bulgaria; one-liner approved (\"Стани част от AI революцията\" / sub \"Бъдещето е сега\"); domain vibe-coders.academy registered; PO job draft in repo; 689 Plovdiv office listings in HQ (<800 EUR/mo). Denis owes updates — fill in [BRACKETS] from his replies, then update matching hq.db actions (props.status=done, props.reply=...) and unblock agent tasks. Run: python3 scripts/sync_actions.py && python3 scripts/build_site.py; post ≤15-line summary to #vibe-standup.\n\n1. PO hiring — apply method = [email | form URL | LinkedIn Easy Apply]; publish first on = [LinkedIn | job board | network]\n2. Office Plovdiv — shortlist/visits = [listing URLs or \"none yet\"]; area = [Kapana | center | other]; budget = [<800 EUR/mo confirmed?]\n3. Landing vs deck — priority = [landing first | presentation first | both]; status = [not started | in progress | blocked on X]\n4. Presentation doc — status = [not started | in progress | blocked]; deck-first? [yes/no]\n5. Social accounts — platforms = [LinkedIn | FB | IG | ...]; bios approved = [yes/no]; blocker = [if any]\n6. PO published — [Done: link] or [Update: blocker]\n\nMissing input only: Denis's bracketed answers. After capture, unblock agent: presentation outline (content/presentation/), social bios draft, careers copy after PO channels.",
           "hint": "Budget <800 EUR; agent researching alo.bg + imot.bg",
           "inputLabel": "",
           "inputExample": "",
@@ -743,7 +772,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 435
           },
-          "updatedAt": "2026-05-29 12:31:54"
+          "updatedAt": "2026-06-01 04:02:47"
         },
         {
           "id": 70,
@@ -756,7 +785,8 @@
           "slackChannel": "#vibe-standup",
           "slackReply": "Done: #2 Publish & share PO position (LinkedIn, boards, network)",
           "slackTrigger": "standup",
-          "prompt": "",
+          "prompt": "Denis publishes PO after apply method set. Slack: Done: #2 Publish & share PO position — [link] OR Update: [blocker].",
+          "batchPrompt": "You are helping Denis (founder, Vibe Coders Academy) unblock launch work. Context: practitioner-first AI/Cursor course in Bulgaria; one-liner approved (\"Стани част от AI революцията\" / sub \"Бъдещето е сега\"); domain vibe-coders.academy registered; PO job draft in repo; 689 Plovdiv office listings in HQ (<800 EUR/mo). Denis owes updates — fill in [BRACKETS] from his replies, then update matching hq.db actions (props.status=done, props.reply=...) and unblock agent tasks. Run: python3 scripts/sync_actions.py && python3 scripts/build_site.py; post ≤15-line summary to #vibe-standup.\n\n1. PO hiring — apply method = [email | form URL | LinkedIn Easy Apply]; publish first on = [LinkedIn | job board | network]\n2. Office Plovdiv — shortlist/visits = [listing URLs or \"none yet\"]; area = [Kapana | center | other]; budget = [<800 EUR/mo confirmed?]\n3. Landing vs deck — priority = [landing first | presentation first | both]; status = [not started | in progress | blocked on X]\n4. Presentation doc — status = [not started | in progress | blocked]; deck-first? [yes/no]\n5. Social accounts — platforms = [LinkedIn | FB | IG | ...]; bios approved = [yes/no]; blocker = [if any]\n6. PO published — [Done: link] or [Update: blocker]\n\nMissing input only: Denis's bracketed answers. After capture, unblock agent: presentation outline (content/presentation/), social bios draft, careers copy after PO channels.",
           "hint": "Denis will publish — no duplicate agent task",
           "inputLabel": "",
           "inputExample": "",
@@ -765,7 +795,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 434
           },
-          "updatedAt": "2026-05-29 12:31:54"
+          "updatedAt": "2026-06-01 04:02:47"
         },
         {
           "id": 72,
@@ -778,7 +808,8 @@
           "slackChannel": "#vibe-standup",
           "slackReply": "Update: #4 Create social accounts (after name + bios approved)",
           "slackTrigger": "standup",
-          "prompt": "",
+          "prompt": "Denis social account setup after bios. Slack: Update: #4 Create social accounts — platforms=[...]; bios approved=[yes/no]; blocker=[if any].",
+          "batchPrompt": "You are helping Denis (founder, Vibe Coders Academy) unblock launch work. Context: practitioner-first AI/Cursor course in Bulgaria; one-liner approved (\"Стани част от AI революцията\" / sub \"Бъдещето е сега\"); domain vibe-coders.academy registered; PO job draft in repo; 689 Plovdiv office listings in HQ (<800 EUR/mo). Denis owes updates — fill in [BRACKETS] from his replies, then update matching hq.db actions (props.status=done, props.reply=...) and unblock agent tasks. Run: python3 scripts/sync_actions.py && python3 scripts/build_site.py; post ≤15-line summary to #vibe-standup.\n\n1. PO hiring — apply method = [email | form URL | LinkedIn Easy Apply]; publish first on = [LinkedIn | job board | network]\n2. Office Plovdiv — shortlist/visits = [listing URLs or \"none yet\"]; area = [Kapana | center | other]; budget = [<800 EUR/mo confirmed?]\n3. Landing vs deck — priority = [landing first | presentation first | both]; status = [not started | in progress | blocked on X]\n4. Presentation doc — status = [not started | in progress | blocked]; deck-first? [yes/no]\n5. Social accounts — platforms = [LinkedIn | FB | IG | ...]; bios approved = [yes/no]; blocker = [if any]\n6. PO published — [Done: link] or [Update: blocker]\n\nMissing input only: Denis's bracketed answers. After capture, unblock agent: presentation outline (content/presentation/), social bios draft, careers copy after PO channels.",
           "hint": "Current TODO for Denis",
           "inputLabel": "",
           "inputExample": "",
@@ -787,7 +818,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 436
           },
-          "updatedAt": "2026-05-29 12:31:54"
+          "updatedAt": "2026-06-01 04:02:47"
         },
         {
           "id": 252,
@@ -800,7 +831,8 @@
           "slackChannel": "#vibe-standup",
           "slackReply": "Update: Landing page on vibe-coders.academy (Denis TODO)",
           "slackTrigger": "standup",
-          "prompt": "",
+          "prompt": "Denis landing vs deck priority. Slack: Update: Landing page — [status]; priority vs presentation = [landing | deck | both]. Unblocks web/ landing scaffold when landing-first.",
+          "batchPrompt": "You are helping Denis (founder, Vibe Coders Academy) unblock launch work. Context: practitioner-first AI/Cursor course in Bulgaria; one-liner approved (\"Стани част от AI революцията\" / sub \"Бъдещето е сега\"); domain vibe-coders.academy registered; PO job draft in repo; 689 Plovdiv office listings in HQ (<800 EUR/mo). Denis owes updates — fill in [BRACKETS] from his replies, then update matching hq.db actions (props.status=done, props.reply=...) and unblock agent tasks. Run: python3 scripts/sync_actions.py && python3 scripts/build_site.py; post ≤15-line summary to #vibe-standup.\n\n1. PO hiring — apply method = [email | form URL | LinkedIn Easy Apply]; publish first on = [LinkedIn | job board | network]\n2. Office Plovdiv — shortlist/visits = [listing URLs or \"none yet\"]; area = [Kapana | center | other]; budget = [<800 EUR/mo confirmed?]\n3. Landing vs deck — priority = [landing first | presentation first | both]; status = [not started | in progress | blocked on X]\n4. Presentation doc — status = [not started | in progress | blocked]; deck-first? [yes/no]\n5. Social accounts — platforms = [LinkedIn | FB | IG | ...]; bios approved = [yes/no]; blocker = [if any]\n6. PO published — [Done: link] or [Update: blocker]\n\nMissing input only: Denis's bracketed answers. After capture, unblock agent: presentation outline (content/presentation/), social bios draft, careers copy after PO channels.",
           "hint": "Ongoing — in progress (2026-05-29)",
           "inputLabel": "",
           "inputExample": "",
@@ -809,7 +841,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 440
           },
-          "updatedAt": "2026-05-29 12:31:54"
+          "updatedAt": "2026-06-01 04:02:47"
         },
         {
           "id": 253,
@@ -822,7 +854,8 @@
           "slackChannel": "#vibe-standup",
           "slackReply": "Update: Presentation document (Denis TODO)",
           "slackTrigger": "standup",
-          "prompt": "",
+          "prompt": "Denis presentation document status. Slack: Update: Presentation document — [status]; deck-first? [yes/no].",
+          "batchPrompt": "You are helping Denis (founder, Vibe Coders Academy) unblock launch work. Context: practitioner-first AI/Cursor course in Bulgaria; one-liner approved (\"Стани част от AI революцията\" / sub \"Бъдещето е сега\"); domain vibe-coders.academy registered; PO job draft in repo; 689 Plovdiv office listings in HQ (<800 EUR/mo). Denis owes updates — fill in [BRACKETS] from his replies, then update matching hq.db actions (props.status=done, props.reply=...) and unblock agent tasks. Run: python3 scripts/sync_actions.py && python3 scripts/build_site.py; post ≤15-line summary to #vibe-standup.\n\n1. PO hiring — apply method = [email | form URL | LinkedIn Easy Apply]; publish first on = [LinkedIn | job board | network]\n2. Office Plovdiv — shortlist/visits = [listing URLs or \"none yet\"]; area = [Kapana | center | other]; budget = [<800 EUR/mo confirmed?]\n3. Landing vs deck — priority = [landing first | presentation first | both]; status = [not started | in progress | blocked on X]\n4. Presentation doc — status = [not started | in progress | blocked]; deck-first? [yes/no]\n5. Social accounts — platforms = [LinkedIn | FB | IG | ...]; bios approved = [yes/no]; blocker = [if any]\n6. PO published — [Done: link] or [Update: blocker]\n\nMissing input only: Denis's bracketed answers. After capture, unblock agent: presentation outline (content/presentation/), social bios draft, careers copy after PO channels.",
           "hint": "Ongoing — in progress (2026-05-29)",
           "inputLabel": "",
           "inputExample": "",
@@ -831,7 +864,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 441
           },
-          "updatedAt": "2026-05-29 12:31:54"
+          "updatedAt": "2026-06-01 04:02:47"
         }
       ],
       "prompts": [
@@ -847,11 +880,12 @@
           "slackReply": "",
           "slackTrigger": "standup",
           "prompt": "You are the PM Agent for Vibe Coders Academy. Prefix Slack output with: 🎯 *PM Agent* |\n\nRead data/hq.db (collections: standups, tasks, actions). After Denis replies in Slack with inputs:\n1. Update the matching action(s) in actions collection — set props.status=done, store reply in props.reply.\n2. Upsert today's standup with Done / Today (max 3) / Blockers / Agent next actions.\n3. Sync tasks collection from roadmap priorities.\n4. Run: python3 scripts/build_site.py\n5. Post ≤15 line summary to #vibe-standup listing what unblocked and next agent steps.\n\nRules: never invent completed work; ask explicit questions only when still blocked.",
+          "batchPrompt": "",
           "hint": "",
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-29 12:31:54"
+          "updatedAt": "2026-06-01 04:02:47"
         }
       ]
     },
@@ -874,6 +908,7 @@
           "slackReply": "competitor: SoftUni AI",
           "slackTrigger": "Scheduled — Monday 09:00 (weekly batch)",
           "prompt": "You are the Research Agent for Vibe Coders Academy. Prefix Slack output with: 🔍 *Research Agent* |\n\n## On Slack trigger (competitor: NAME or research: NAME)\n1. Parse the competitor name from the message.\n2. Read research/competitors watchlist table in data/hq.db.\n3. Research using web search / Exa MCP. Cite URLs with dates.\n4. Insert child entry under research/competitors with report body.\n5. Run python3 scripts/build_site.py\n6. Reply in thread with: 3-bullet summary + entry slug.\n\n## On weekly schedule\n1. Read watchlist priority column from hq.db.\n2. For each high-priority competitor not covered in 7 days, append to a weekly report entry.\n3. End with Strategic recommendations (max 3 bullets).\n\nRules:\n- Do not invent pricing or features. Mark unknowns explicitly.\n- Follow .cursor/rules/competitor-research.mdc.",
+          "batchPrompt": "",
           "hint": "Green-light: Slack → #vibe-research → New message → regex: ^(competitor|research):\\s*.+",
           "inputLabel": "",
           "inputExample": "",
@@ -881,7 +916,7 @@
             "collection": "automations",
             "slug": "automation-competitor-research"
           },
-          "updatedAt": "2026-05-29 12:31:54"
+          "updatedAt": "2026-06-01 04:02:47"
         }
       ],
       "prompts": [
@@ -897,11 +932,12 @@
           "slackReply": "",
           "slackTrigger": "competitor: {name}",
           "prompt": "You are the Research Agent for Vibe Coders Academy. Prefix Slack output with: 🔍 *Research Agent* |\n\nTrigger: post `competitor: {name}` or `research: {topic}` in #vibe-research.\n\n1. Read research/competitors watchlist in data/hq.db.\n2. Research with web / Exa MCP — cite URLs and dates.\n3. Insert child entry under research/competitors with full report body.\n4. Run python3 scripts/build_site.py\n5. Reply in thread: 3-bullet summary + entry slug.\n\nRules: no invented pricing; mark unknowns; follow .cursor/rules/competitor-research.mdc.",
+          "batchPrompt": "",
           "hint": "",
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-29 12:31:54"
+          "updatedAt": "2026-06-01 04:02:47"
         }
       ]
     },
@@ -924,6 +960,7 @@
           "slackReply": "plan update positioning",
           "slackTrigger": "Scheduled — 1st of month 10:00 (plan vs reality)",
           "prompt": "You are the Business Agent for Vibe Coders Academy. Prefix Slack output with: 📊 *Business Agent* |\n\n## On Slack trigger\nIf message contains \"update\" or \"draft\":\n- Read business/plan and business/messaging entries in data/hq.db, plus tasks and research.\n- Update business collection entries (preserve Denis manual edits; note changes in reply).\n- Run python3 scripts/build_site.py\n- Reply with: what changed + open questions for Denis.\n\nIf message contains \"review\" or \"reality\":\n- Compare tasks + last 30 days standups to business/plan roadmap section.\n- Add variance note as new entry in business collection.\n\nRules:\n- State assumptions for market size numbers.\n- No pricing/launch claims unless in messaging entry.\n- Follow .cursor/rules/brand-voice.mdc.",
+          "batchPrompt": "",
           "hint": "Green-light: Slack → #vibe-business → filter: plan or business",
           "inputLabel": "",
           "inputExample": "",
@@ -931,7 +968,7 @@
             "collection": "automations",
             "slug": "automation-business-plan-assistant"
           },
-          "updatedAt": "2026-05-29 12:31:54"
+          "updatedAt": "2026-06-01 04:02:47"
         }
       ],
       "prompts": [
@@ -947,11 +984,12 @@
           "slackReply": "",
           "slackTrigger": "plan update",
           "prompt": "You are the Business Agent for Vibe Coders Academy. Prefix Slack output with: 📊 *Business Agent* |\n\nTrigger: post `plan update` or `business update` in #vibe-business.\n\n1. Read business/plan, business/messaging, tasks, research in data/hq.db.\n2. Update relevant entries; note assumptions.\n3. Run python3 scripts/build_site.py\n4. Reply: what changed + open questions for Denis.\n\nRules: no pricing/launch claims unless in messaging entry; follow brand-voice rule.",
+          "batchPrompt": "",
           "hint": "",
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-29 12:31:54"
+          "updatedAt": "2026-06-01 04:02:47"
         }
       ]
     },
@@ -974,6 +1012,7 @@
           "slackReply": "draft: 2 linkedin posts about Cursor automations",
           "slackTrigger": "Scheduled — Wednesday 14:00",
           "prompt": "You are the Social Agent for Vibe Coders Academy. Prefix Slack output with: 📣 *Social Agent* |\n\n1. Read business/messaging and business/plan entries in data/hq.db.\n2. Create 3 draft entries in social collection with props.approved=false.\n3. Run python3 scripts/build_site.py\n4. Reply in #vibe-social with previews and: \"Reply approve 1,2,3 or edit in DB.\"\n\nPublish automation (separate): only Buffer MCP when props.approved=true.\n\nRules:\n- Follow .cursor/rules/social-guardrails.mdc strictly.\n- NEVER publish in this automation.",
+          "batchPrompt": "",
           "hint": "Green-light: Slack → #vibe-social → filter: draft",
           "inputLabel": "",
           "inputExample": "",
@@ -981,7 +1020,7 @@
             "collection": "automations",
             "slug": "automation-social-content-draft-only"
           },
-          "updatedAt": "2026-05-29 12:31:54"
+          "updatedAt": "2026-06-01 04:02:47"
         }
       ],
       "prompts": [
@@ -997,11 +1036,12 @@
           "slackReply": "",
           "slackTrigger": "draft: {brief}",
           "prompt": "You are the Social Agent for Vibe Coders Academy. Prefix Slack output with: 📣 *Social Agent* |\n\nTrigger: post `draft: {brief}` in #vibe-social.\n\n1. Read business/messaging and business/plan in data/hq.db.\n2. Create draft entries in social collection with props.approved=false.\n3. Run python3 scripts/build_site.py\n4. Reply with previews; Denis approves via `approve: {slug}` in Slack.\n\nRules: NEVER publish here; follow .cursor/rules/social-guardrails.mdc.",
+          "batchPrompt": "",
           "hint": "",
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-29 12:31:54"
+          "updatedAt": "2026-06-01 04:02:47"
         }
       ]
     },
@@ -1025,11 +1065,12 @@
           "slackReply": "",
           "slackTrigger": "@Cursor {task} in #vibe-code",
           "prompt": "You are the Developer Agent for Vibe Coders Academy. Prefix Slack output with: 🛠 *Dev Agent* |\n\nTrigger: @Cursor or post in #vibe-code with a dev task (repo must be attached).\n\n1. Read the request and relevant entries in data/hq.db for context.\n2. Implement in the vibe-coding-101 repo — minimal focused diffs.\n3. Run python3 scripts/build_site.py if data/UI changed.\n4. Reply with: what changed, how to test, any blockers.\n\nScope: web/, scripts/, data/ — landing page, HQ UI, build pipeline, SQLite helpers.\nRules: match existing conventions; no scope creep; ask before destructive changes.",
+          "batchPrompt": "",
           "hint": "",
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-05-29 12:31:54"
+          "updatedAt": "2026-06-01 04:02:47"
         }
       ]
     }
@@ -8619,6 +8660,36 @@
     },
     "standups": [
       {
+        "slug": "2026-06-01",
+        "title": "Standup — 2026-06-01",
+        "sections": {
+          "agent_next": [
+            "Ship presentation outline + social bios (Today)",
+            "After PO channels → careers page copy + LinkedIn announcement draft",
+            "Office: Monday scrape may refresh data/office-listings.json",
+            "Public landing scaffold in web/ when Denis picks landing vs deck-first"
+          ],
+          "blockers": [
+            "PO apply: How candidates apply + where to publish first → input-blocker-po-apply-method-publish-channels"
+          ],
+          "done": [
+            "_(none on master since 2026-05-29 — no merged repo commits)_",
+            "Scheduled: Morning standup prep automation ran (cron 04:00 UTC)"
+          ],
+          "ongoing": [
+            "Denis: PO apply method + first publish channel — in progress",
+            "Denis: #1 Office Plovdiv — budget/area constraints; visit shortlist (689 listings in HQ)",
+            "Denis: Landing page on vibe-coders.academy OR presentation document — in progress",
+            "Denis: #4 Create social accounts (after name + bios approved) — in progress"
+          ],
+          "today": [
+            "Agent: Presentation outline + slide copy (content/presentation/) — open since 2026-05-29",
+            "Denis: HQ Inbox — approve automations + reply PO apply blocker (P1)",
+            "Agent: Social page bios + first-post pack (draft)"
+          ]
+        }
+      },
+      {
         "slug": "2026-05-29",
         "title": "Standup — 2026-05-29",
         "sections": {
@@ -8725,28 +8796,6 @@
             "PM restructure: planning/roadmap.md — 13-topic launch path; Denis vs PM/Agent ownership",
             "Course names: draft options in business/course-name-options.md (not approved)",
             "planning/TODO.md reorganized by owner (Denis / PM Agent)"
-          ]
-        }
-      },
-      {
-        "slug": "2026-05-22",
-        "title": "Standup — 2026-05-22",
-        "sections": {
-          "agent_next": [
-            "After Denis fills COMPETITORS.md → run first competitor: research on top priority",
-            "Expand business/plan-v1.md once positioning is set",
-            "Draft 3 LinkedIn posts (draft-only) when messaging approved"
-          ],
-          "blockers": [
-            "Course positioning: working title + one-liner → update business/approved-messaging.md",
-            "Competitors: add 5–10 names to research/competitors/COMPETITORS.md",
-            "Social MCP: Buffer token now or draft-only for 2 weeks?"
-          ],
-          "done": [
-            "Initialized git repo and business HQ structure",
-            "Wrote Cursor Automations playbook (docs/cursor-automations-playbook.md)",
-            "Implemented .cursor/rules/, mcp.json, templates, automation prompt docs",
-            "Researched Slack-as-UI and MCP platform integrations"
           ]
         }
       }

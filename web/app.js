@@ -303,6 +303,7 @@ function inboxBatchBlock() {
   const batch = state.data.inboxBatch;
   if (!batch?.slackReply || !batch.count) return "";
   const channel = batch.channel || "#vibe-standup";
+  const agentPrompt = batch.agentPrompt || "";
   return `
     <section class="batch-block copy-block">
       <div class="copy-head">
@@ -313,6 +314,16 @@ function inboxBatchBlock() {
         <pre class="copy-text batch-text">${escapeHtml(batch.slackReply)}</pre>
         <button type="button" class="copy-btn copy-btn-primary" data-copy="${escapeAttr(batch.slackReply)}">Copy batch</button>
       </div>
+      ${
+        agentPrompt
+          ? `
+      <p class="hint">Or paste this into a Cursor agent — only Denis’s bracketed answers are missing.</p>
+      <div class="copy-row">
+        <pre class="copy-text batch-text">${escapeHtml(agentPrompt)}</pre>
+        <button type="button" class="copy-btn" data-copy="${escapeAttr(agentPrompt)}">Copy agent prompt</button>
+      </div>`
+          : ""
+      }
     </section>`;
 }
 
