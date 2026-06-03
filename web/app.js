@@ -380,8 +380,8 @@ function renderOffice() {
     ${criteriaPanel(criteria, maxBudget, rankCriteria)}
     ${alsoCheck.length ? externalLinksBar(alsoCheck) : ""}
     ${officeViewTabs(cfg)}
-    ${state.officeView === "rankings" && activeRankList.length
-      ? officeRankingsSection(rankTabs, activeRankList, state.officeRankTab)
+    ${state.officeView === "rankings"
+      ? officeAllRankingsSections(rankTabs, top10)
       : ""}
     ${state.officeView === "all"
       ? `${officeControls(cfg, maxBudget, sorted.length, listings)}
@@ -416,18 +416,25 @@ function officeViewTabs(cfg) {
     </div>`;
 }
 
-function officeRankingsSection(rankTabs, rows, activeId) {
-  const scoreKey = activeId === "price" ? "priceValue" : activeId;
+function officeAllRankingsSections(rankTabs, top10) {
+  const total = rankTabs.reduce((n, t) => n + (top10[t.id]?.length || 0), 0);
   return `
-    <section class="section-block office-rankings">
-      <h2 class="section-title">Top 10 — automated shortlist</h2>
-      <p class="hint">Heuristic scores from scraped alo.bg + imot.bg data. Visit before deciding — photos and capacity are not verified.</p>
-      <div class="filter-tabs" role="tablist">
-        ${rankTabs.map((t) => `
-          <button type="button" class="filter-tab ${state.officeRankTab === t.id ? "is-active" : ""}" data-office-rank-tab="${escapeAttr(t.id)}">${escapeHtml(t.label)}</button>`).join("")}
-      </div>
+    <section class="section-block office-rankings-all">
+      <h2 class="section-title">Top 10 × 4 — ${total} suggestions</h2>
+      <p class="hint">All four ranked lists below (some overlap). Click titles for listing links. 🍳 / ☕ = kitchen / leisure room mentioned in text.</p>
+      ${rankTabs.map((t) => officeRankingsBlock(t, top10[t.id] || [])).join("")}
+    </section>`;
+}
+
+function officeRankingsBlock(tab, rows) {
+  const scoreKey = tab.id === "price" ? "priceValue" : tab.id;
+  return `
+    <section class="section-block office-rankings" id="office-rank-${escapeAttr(tab.id)}">
+      <h3 class="section-subtitle">${escapeHtml(tab.label)}</h3>
       <ol class="office-rank-list">
-        ${rows.map((l) => officeRankRow(l, scoreKey)).join("")}
+        ${rows.length
+          ? rows.map((l) => officeRankRow(l, scoreKey)).join("")
+          : `<li class="empty-inline">No listings in this category.</li>`}
       </ol>
     </section>`;
 }
@@ -442,15 +449,21 @@ function officeRankRow(l, scoreKey) {
   const budgetBadge = l.withinSoftBudget === false
     ? `<span class="badge badge-warn">Over €800</span>`
     : "";
-  const link = l.url
-    ? `<a class="office-card-link" href="${escapeAttr(l.url)}" target="_blank" rel="noopener">${escapeHtml(l.source || "listing")} ↗</a>`
-    : "";
+  const am = l.amenities || {};
+  const amenityBadges = [
+    am.hasKitchen ? `<span class="badge badge-good" title="Kitchen mentioned">🍳 kitchen</span>` : "",
+    am.hasLeisureRoom ? `<span class="badge badge-good" title="Leisure room mentioned">☕ leisure</span>` : "",
+  ].filter(Boolean).join(" ");
+  const titleHtml = l.url
+    ? `<a class="office-rank-title" href="${escapeAttr(l.url)}" target="_blank" rel="noopener">${escapeHtml(title)} ↗</a>`
+    : `<strong>${escapeHtml(title)}</strong>`;
   return `
     <li class="office-rank-item" data-search-text="${escapeAttr([title, location, l.snippet].join(" "))}">
       <span class="office-rank-num">#${l.rank ?? "—"}</span>
       <div class="office-rank-body">
         <div class="office-rank-head">
-          <strong>${escapeHtml(title)}</strong>
+          ${titleHtml}
+          ${amenityBadges}
           ${budgetBadge}
           <span class="office-rank-score" title="Match score">${scoreLabel}</span>
         </div>
@@ -458,8 +471,8 @@ function officeRankRow(l, scoreKey) {
           <span>${escapeHtml(location)}</span>
           <span>${escapeHtml(price)}</span>
           <span>${escapeHtml(sqm)}</span>
+          <span class="office-rank-source">${escapeHtml(l.source || "")}</span>
         </div>
-        ${link}
       </div>
     </li>`;
 }

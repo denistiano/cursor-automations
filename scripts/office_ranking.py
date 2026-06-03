@@ -51,6 +51,17 @@ TRAINING_HINTS: list[tuple[str, float]] = [
     (r"школа|school|академ", 0.15),
 ]
 
+KITCHEN_RE = re.compile(
+    r"малка\s+кухн|кухнен|кухня|kitchenette|kitchen\b|мини\s*кухн",
+    re.I,
+)
+LEISURE_RE = re.compile(
+    r"leisure\s*room|почивн\w*\s*зала|зала\s*за\s*почивк|"
+    r"релакс|relaxation\s*room|lounge\s*room|стая\s*за\s*отдих|"
+    r"зона\s*за\s*отдих|recreation\s*room|wellness\s*room|масажна\s*зала",
+    re.I,
+)
+
 EXCLUDE_RE = re.compile(
     r"фризьор|маникюр|салон за красота|бърза закуска|палачинк|бургер|пица|склад|storage|"
     r"търговско\s*помещение|хале|складов",
@@ -58,6 +69,10 @@ EXCLUDE_RE = re.compile(
 )
 
 SHOP_ONLY_RE = re.compile(r"^магазин\b|магазин\s+\d+\s*кв", re.I)
+APARTMENT_RE = re.compile(
+    r"apartament|апартамент|двустаен|тристаен|четиристаен|едностаен|стаен\b",
+    re.I,
+)
 
 
 def listing_blob(row: dict) -> str:
@@ -76,9 +91,29 @@ def location_score(row: dict) -> float:
     return best
 
 
+def amenity_flags(row: dict) -> dict[str, bool]:
+    blob = listing_blob(row)
+    return {
+        "hasKitchen": bool(KITCHEN_RE.search(blob)),
+        "hasLeisureRoom": bool(LEISURE_RE.search(blob)),
+    }
+
+
+def amenity_score(row: dict) -> float:
+    flags = amenity_flags(row)
+    score = 0.0
+    if flags["hasKitchen"]:
+        score += 0.35
+    if flags["hasLeisureRoom"]:
+        score += 0.35
+    if flags["hasKitchen"] and flags["hasLeisureRoom"]:
+        score += 0.25
+    return min(score, 1.0)
+
+
 def luxury_score(row: dict) -> float:
     blob = listing_blob(row)
-    score = 0.0
+    score = amenity_score(row) * 0.4
     price = row.get("priceEur")
     sqm = row.get("sqm")
     if price and sqm and sqm > 0:
@@ -112,6 +147,10 @@ def training_fit_score(row: dict) -> float:
         return 0.0
     if SHOP_ONLY_RE.search(row.get("title") or "") and not re.search(
         r"зала|обучен|семинар|офис", blob, re.I
+    ):
+        return 0.0
+    if APARTMENT_RE.search(blob) and not re.search(
+        r"зала|обучен|семинар|клас|офис", blob, re.I
     ):
         return 0.0
     score = 0.25
@@ -163,9 +202,10 @@ def overall_score(row: dict) -> float:
     lux = luxury_score(row)
     fit = training_fit_score(row)
     price = price_value_score(row)
+    amen = amenity_score(row)
     if fit <= 0:
         return 0.0
-    score = fit * 0.35 + loc * 0.3 + lux * 0.15 + price * 0.2
+    score = fit * 0.3 + loc * 0.28 + lux * 0.12 + price * 0.18 + amen * 0.12
     rent = row.get("priceEur")
     if rent and rent > SOFT_BUDGET_EUR:
         over = min(1.0, (rent - SOFT_BUDGET_EUR) / SOFT_BUDGET_EUR)
@@ -184,11 +224,14 @@ def is_candidate(row: dict) -> bool:
 
 def enrich_listing(row: dict) -> dict:
     out = dict(row)
+    flags = amenity_flags(row)
+    out["amenities"] = flags
     out["scores"] = {
         "location": round(location_score(row), 3),
         "luxury": round(luxury_score(row), 3),
         "trainingFit": round(training_fit_score(row), 3),
         "priceValue": round(price_value_score(row), 3),
+        "amenity": round(amenity_score(row), 3),
         "overall": round(overall_score(row), 3),
     }
     price = row.get("priceEur")
@@ -207,8 +250,29 @@ def top_n(listings: list[dict], key: str, n: int = TOP_N) -> list[dict]:
     return result
 
 
+def collect_urls_for_detail_enrichment(rankings: dict[str, list[dict]], limit: int = 80) -> list[str]:
+    seen: set[str] = set()
+    urls: list[str] = []
+    for group in rankings.values():
+        for row in group:
+            url = row.get("url")
+            if url and url not in seen:
+                seen.add(url)
+                urls.append(url)
+            if len(urls) >= limit:
+                return urls
+    return urls
+
+
 def build_rankings(listings: list[dict]) -> dict[str, Any]:
     enriched = [enrich_listing(r) for r in listings if is_candidate(r)]
+    top10 = {
+        "luxury": top_n(listings, "luxury"),
+        "location": top_n(listings, "location"),
+        "price": top_n(listings, "priceValue"),
+        "overall": top_n(listings, "overall"),
+    }
+    unique_urls = {r.get("url") for cat in top10.values() for r in cat if r.get("url")}
     return {
         "criteria": {
             "minSqm": MIN_SQM,
@@ -216,11 +280,8 @@ def build_rankings(listings: list[dict]) -> dict[str, Any]:
             "softBudgetEur": SOFT_BUDGET_EUR,
             "use": "Training space for ~20 students (classroom / hall)",
             "candidateCount": len(enriched),
+            "top10UniqueUrls": len(unique_urls),
+            "amenityBonus": "Kitchen and/or leisure room mentioned in listing text",
         },
-        "top10": {
-            "luxury": top_n(listings, "luxury"),
-            "location": top_n(listings, "location"),
-            "price": top_n(listings, "priceValue"),
-            "overall": top_n(listings, "overall"),
-        },
+        "top10": top10,
     }

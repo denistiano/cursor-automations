@@ -31,6 +31,8 @@ Heuristic scores on scraped listings (not visit-verified):
 | Luxury | Higher €/m², premium keywords, larger polished spaces |
 | Best price | Low rent with usable m² (still ≥40 m² candidates) |
 
+**Amenity boost:** listings that explicitly mention a **kitchen** and/or **leisure room** in the description rank higher (detail pages scraped for top picks).
+
 ## Denis next steps
 
 1. Open HQ → **Office search** → review the four top-10 lists.
