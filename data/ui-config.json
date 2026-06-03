@@ -14,8 +14,17 @@
   ],
   "officeListings": {
     "maxBudgetEur": 800,
-    "defaultSort": "price-asc",
+    "minSqmDefault": 40,
+    "defaultSort": "overall",
+    "defaultView": "rankings",
+    "rankTabs": [
+      { "id": "overall", "label": "Overall" },
+      { "id": "location", "label": "Best location" },
+      { "id": "luxury", "label": "Most luxurious" },
+      { "id": "price", "label": "Best price" }
+    ],
     "sortOptions": [
+      { "id": "overall", "label": "Overall score" },
       { "id": "price-asc", "label": "Price ↑" },
       { "id": "price-desc", "label": "Price ↓" },
       { "id": "sqm-desc", "label": "Size ↓" },

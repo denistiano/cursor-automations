@@ -7,10 +7,12 @@ const state = {
   filterKind: "all",
   filterRole: "all",
   taskBoard: "all",
-  officeSort: "price-asc",
+  officeSort: "overall",
   officeMaxPrice: null,
-  officeMinSqm: 0,
+  officeMinSqm: 40,
   officeLocalQuery: "",
+  officeView: "rankings",
+  officeRankTab: "overall",
 };
 
 const app = document.getElementById("app");
@@ -25,8 +27,12 @@ async function init() {
     const res = await fetch(DATA_URL, { cache: "no-store" });
     if (!res.ok) throw new Error(`Could not load ${DATA_URL}`);
     state.data = await res.json();
-    state.officeMaxPrice = state.data.ui?.officeListings?.maxBudgetEur ?? 800;
-    state.officeSort = state.data.ui?.officeListings?.defaultSort ?? "price-asc";
+    const officeCfg = state.data.ui?.officeListings || {};
+    state.officeMaxPrice = officeCfg.maxBudgetEur ?? 800;
+    state.officeMinSqm = officeCfg.minSqmDefault ?? 40;
+    state.officeSort = officeCfg.defaultSort ?? "overall";
+    state.officeView = officeCfg.defaultView ?? "rankings";
+    state.officeRankTab = officeCfg.rankTabs?.[0]?.id ?? "overall";
     renderChrome();
     navigate(getHash() || "home");
   } catch (err) {
@@ -84,6 +90,20 @@ function wireControls() {
     if (sortBtn) {
       state.officeSort = sortBtn.dataset.officeSort;
       syncTabState("[data-office-sort]", "officeSort", "officeSort");
+      renderSection();
+      return;
+    }
+    const viewBtn = e.target.closest("[data-office-view]");
+    if (viewBtn) {
+      state.officeView = viewBtn.dataset.officeView;
+      syncTabState("[data-office-view]", "officeView", "officeView");
+      renderSection();
+      return;
+    }
+    const rankTab = e.target.closest("[data-office-rank-tab]");
+    if (rankTab) {
+      state.officeRankTab = rankTab.dataset.officeRankTab;
+      syncTabState("[data-office-rank-tab]", "officeRankTab", "officeRankTab");
       renderSection();
     }
   });
@@ -337,21 +357,40 @@ function renderOffice() {
   const listings = p.officeListings || {};
   const cfg = state.data.ui.officeListings || {};
   const maxBudget = cfg.maxBudgetEur ?? 800;
+  const rankings = listings.rankings || {};
+  const rankTabs = cfg.rankTabs || [
+    { id: "overall", label: "Overall" },
+    { id: "location", label: "Best location" },
+    { id: "luxury", label: "Most luxurious" },
+    { id: "price", label: "Best price" },
+  ];
   const filtered = filterOfficeListings(listings.listings || [], maxBudget);
   const sorted = sortOfficeListings(filtered);
   const alsoCheck = listings.alsoCheck || [];
   const criteria = parseOfficeBrief(p.officeBrief || "");
+  const rankCriteria = rankings.criteria || {};
+  const top10 = rankings.top10 || {};
+  const activeRankList = top10[state.officeRankTab] || top10.overall || [];
 
   return `
-    ${pageHeader("Office search — Plovdiv", `Find a studio under €${maxBudget}/mo. Click any listing to open it on the source site.`)}
-    ${criteriaPanel(criteria, maxBudget)}
+    ${pageHeader(
+      "Office search — Plovdiv",
+      `Training space for ~20 students. Soft budget ~€${maxBudget}/mo — rankings include premium options.`
+    )}
+    ${criteriaPanel(criteria, maxBudget, rankCriteria)}
     ${alsoCheck.length ? externalLinksBar(alsoCheck) : ""}
-    ${officeControls(cfg, maxBudget, sorted.length, listings)}
+    ${officeViewTabs(cfg)}
+    ${state.officeView === "rankings" && activeRankList.length
+      ? officeRankingsSection(rankTabs, activeRankList, state.officeRankTab)
+      : ""}
+    ${state.officeView === "all"
+      ? `${officeControls(cfg, maxBudget, sorted.length, listings)}
     <div class="office-grid">
       ${sorted.length
-        ? sorted.map(officeCard).join("")
+        ? sorted.map((l) => officeCard(l)).join("")
         : `<p class="empty-inline">No listings match your filters. Try raising the budget or clearing filters.</p>`}
-    </div>
+    </div>`
+      : ""}
     ${p.officeShortlist?.rows?.length ? shortlistSection(p.officeShortlist) : ""}`;
 }
 
@@ -365,11 +404,80 @@ function parseOfficeBrief(brief) {
   return criteria;
 }
 
-function criteriaPanel(criteria, maxBudget) {
+function officeViewTabs(cfg) {
+  const views = [
+    { id: "rankings", label: "Top 10 rankings" },
+    { id: "all", label: "All listings" },
+  ];
+  return `
+    <div class="filter-tabs filter-tabs-secondary" role="tablist">
+      ${views.map((v) => `
+        <button type="button" class="filter-tab filter-tab-sm ${state.officeView === v.id ? "is-active" : ""}" data-office-view="${escapeAttr(v.id)}">${escapeHtml(v.label)}</button>`).join("")}
+    </div>`;
+}
+
+function officeRankingsSection(rankTabs, rows, activeId) {
+  const scoreKey = activeId === "price" ? "priceValue" : activeId;
+  return `
+    <section class="section-block office-rankings">
+      <h2 class="section-title">Top 10 — automated shortlist</h2>
+      <p class="hint">Heuristic scores from scraped alo.bg + imot.bg data. Visit before deciding — photos and capacity are not verified.</p>
+      <div class="filter-tabs" role="tablist">
+        ${rankTabs.map((t) => `
+          <button type="button" class="filter-tab ${state.officeRankTab === t.id ? "is-active" : ""}" data-office-rank-tab="${escapeAttr(t.id)}">${escapeHtml(t.label)}</button>`).join("")}
+      </div>
+      <ol class="office-rank-list">
+        ${rows.map((l) => officeRankRow(l, scoreKey)).join("")}
+      </ol>
+    </section>`;
+}
+
+function officeRankRow(l, scoreKey) {
+  const score = l.scores?.[scoreKey] ?? l.scores?.overall;
+  const scoreLabel = score != null ? `${Math.round(score * 100)}%` : "—";
+  const price = l.priceEur != null ? `€${l.priceEur}/mo` : "Price TBD";
+  const sqm = l.sqm ? `${l.sqm} m²` : "—";
+  const location = l.location || "Plovdiv";
+  const title = (l.title || "Office listing").replace(/">$/, "");
+  const budgetBadge = l.withinSoftBudget === false
+    ? `<span class="badge badge-warn">Over €800</span>`
+    : "";
+  const link = l.url
+    ? `<a class="office-card-link" href="${escapeAttr(l.url)}" target="_blank" rel="noopener">${escapeHtml(l.source || "listing")} ↗</a>`
+    : "";
+  return `
+    <li class="office-rank-item" data-search-text="${escapeAttr([title, location, l.snippet].join(" "))}">
+      <span class="office-rank-num">#${l.rank ?? "—"}</span>
+      <div class="office-rank-body">
+        <div class="office-rank-head">
+          <strong>${escapeHtml(title)}</strong>
+          ${budgetBadge}
+          <span class="office-rank-score" title="Match score">${scoreLabel}</span>
+        </div>
+        <div class="office-rank-meta">
+          <span>${escapeHtml(location)}</span>
+          <span>${escapeHtml(price)}</span>
+          <span>${escapeHtml(sqm)}</span>
+        </div>
+        ${link}
+      </div>
+    </li>`;
+}
+
+function criteriaPanel(criteria, maxBudget, rankCriteria = {}) {
   const defaults = [
-    { label: "Budget", value: `under €${maxBudget} / month` },
-    { label: "City", value: "Plovdiv" },
-    { label: "Use", value: "Small team / studio + occasional meetings" },
+    { label: "Budget", value: `~€${maxBudget} / month (flexible for exceptional spaces)` },
+    { label: "City", value: "Plovdiv — central preferred" },
+    {
+      label: "Use",
+      value: rankCriteria.use || "Training room ~20 students (≥40 m²)",
+    },
+    {
+      label: "Size",
+      value: rankCriteria.targetSqm
+        ? `${rankCriteria.minSqm || 40}–${rankCriteria.targetSqm}+ m² target`
+        : "≥40 m² (exclude tiny listings)",
+    },
   ];
   const items = criteria.length ? criteria : defaults;
   return `
@@ -451,7 +559,9 @@ function sortOfficeListings(listings) {
   const s = state.officeSort;
   const copy = [...listings];
   const num = (v) => (v == null ? Infinity : v);
+  const score = (r, key) => r.scores?.[key] ?? 0;
   copy.sort((a, b) => {
+    if (s === "overall") return score(b, "overall") - score(a, "overall");
     if (s === "price-desc") return num(b.priceEur) - num(a.priceEur);
     if (s === "sqm-desc") return num(b.sqm) - num(a.sqm);
     if (s === "sqm-asc") return num(a.sqm) - num(b.sqm);

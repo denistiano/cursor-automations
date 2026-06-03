@@ -177,10 +177,17 @@ def normalize_listing(row: dict) -> dict | None:
 
 
 def fits_criteria(row: dict, max_eur: int) -> bool:
+    """Legacy budget filter; listings above max_eur are still kept in the dataset."""
     price = row.get("priceEur")
     if price is not None and price > max_eur:
         return False
     return True
+
+
+def tag_budget(row: dict, max_eur: int) -> dict:
+    price = row.get("priceEur")
+    row["withinSoftBudget"] = price is None or price <= max_eur
+    return row
 
 
 def merge_listings(*groups: list[dict]) -> list[dict]:
@@ -396,11 +403,13 @@ def main() -> int:
     normalized = [
         r for r in (normalize_listing(r) for r in merge_listings(all_raw)) if r
     ]
-    matching = [r for r in normalized if fits_criteria(r, MAX_EUR)]
-    within, unknown_price = filter_by_budget(matching, MAX_EUR)
+    for row in normalized:
+        tag_budget(row, MAX_EUR)
+    within, over_budget = filter_by_budget(normalized, MAX_EUR)
+    unknown_price = [r for r in within if r.get("priceEur") is None]
 
     listings = sorted(
-        matching,
+        normalized,
         key=lambda x: (
             x["priceEur"] if x.get("priceEur") is not None else 99999,
             -(x.get("sqm") or 0),
@@ -437,14 +446,26 @@ def main() -> int:
         "includesManualSamples": not ok,
         "count": len(listings),
         "countWithinBudget": len(within),
+        "countOverBudget": len(over_budget),
         "countUnknownPrice": len(unknown_price),
         "listings": listings,
     }
+
+    try:
+        from office_ranking import build_rankings
+
+        payload["rankings"] = build_rankings(listings)
+    except ImportError:
+        pass
+
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT.write_text(json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    top = (payload.get("rankings") or {}).get("top10", {})
+    overall_n = len(top.get("overall") or [])
     print(
         f"Wrote {OUTPUT.relative_to(ROOT)} ({len(listings)} listings, "
-        f"{len(within)} priced ≤{MAX_EUR} EUR, {len(unknown_price)} unknown price)"
+        f"{len(within)} priced ≤{MAX_EUR} EUR, {len(over_budget)} over budget, "
+        f"{overall_n} in overall top-10)"
     )
     return 0
 
