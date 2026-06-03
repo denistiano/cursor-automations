@@ -23,4 +23,4 @@
 2. Shortlist 3–5 for visits (Kapana, center, Dondukov garden area).
 3. Confirm deposit / VAT / fit-out before signing.
 
-_Last updated: 2026-05-28 (batched inbox)_
+_Last updated: 2026-06-01 (listings refresh under 800 EUR)_

@@ -286,13 +286,18 @@ def seed_standups(conn) -> None:
             "agent-next-actions": "agent_next",
         }
         for src, dest in mapping.items():
-            content = sections.get(src, {}).get("content", "")
+            section = sections.get(src)
+            if not section:
+                continue
+            content = section.get("content", "")
             items = parse_list_items(content) if dest != "today" else []
             if dest == "today":
                 for line in content.split("\n"):
                     match = re.match(r"^\d+\.\s+(.*)$", line.strip())
                     if match:
                         items.append(clean_inline(match.group(1)))
+            if not items:
+                continue
             replace_list_items(conn, entry_id, dest, [{"text": t} for t in items])
 
 
