@@ -18,8 +18,10 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Fetch alo.bg listings under budget
-        run: python3 scripts/fetch_office_listings.py
+      - name: Fetch and rank Plovdiv office listings
+        run: |
+          python3 scripts/fetch_office_listings.py
+          python3 scripts/rank_office_listings.py
         continue-on-error: true
 
       - name: Commit updated listings

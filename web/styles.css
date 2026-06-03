@@ -705,6 +705,88 @@ body {
 
 .office-card-foot { margin-top: auto; padding-top: 4px; }
 
+.office-rankings-all { margin-bottom: 24px; }
+
+.section-subtitle {
+  font-size: 1rem;
+  margin: 0 0 10px;
+  color: var(--text);
+}
+
+.office-rank-title {
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.92rem;
+  text-decoration: none;
+  flex: 1;
+  min-width: 140px;
+}
+
+.office-rank-title:hover { text-decoration: underline; }
+
+.badge-good {
+  font-size: 0.7rem;
+  background: rgba(52, 211, 153, 0.15);
+  color: var(--good);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+}
+
+.office-rank-source { font-size: 0.72rem; color: var(--faint); }
+
+.office-rankings { margin-bottom: 20px; }
+
+.office-rank-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.office-rank-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.office-rank-num {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 2rem;
+}
+
+.office-rank-body { flex: 1; min-width: 0; }
+
+.office-rank-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.office-rank-head strong { font-size: 0.92rem; flex: 1; min-width: 140px; }
+
+.office-rank-score {
+  font-size: 0.78rem;
+  color: var(--good);
+  font-weight: 600;
+}
+
+.office-rank-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
 .filter-tabs-secondary { margin-top: -8px; margin-bottom: 16px; }
 .filter-tab-sm { font-size: 0.76rem !important; padding: 4px 10px !important; }
 
