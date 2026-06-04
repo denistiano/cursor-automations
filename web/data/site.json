@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generatedAt": "2026-06-03T14:14:23.336066+00:00",
+    "generatedAt": "2026-06-04T04:02:35.373592+00:00",
     "generator": "scripts/build_site.py",
-    "gitSha": "ebb9541072c59953fcd9314b2342e5fa9888642f",
+    "gitSha": "98b60b7d0d6e965690b8462d2a314f580bb06ab7",
     "schemaVersion": "1",
     "dataModel": "hq-sections-v3"
   },
@@ -185,7 +185,7 @@
         "collection": "automations",
         "slug": "automation-business-plan-assistant"
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-04 04:02:35"
     },
     {
       "id": 80,
@@ -206,7 +206,7 @@
         "collection": "automations",
         "slug": "automation-competitor-research"
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-04 04:02:35"
     },
     {
       "id": 79,
@@ -227,7 +227,7 @@
         "collection": "automations",
         "slug": "automation-morning-standup-prep"
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-04 04:02:35"
     },
     {
       "id": 82,
@@ -248,7 +248,7 @@
         "collection": "automations",
         "slug": "automation-social-content-draft-only"
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-04 04:02:35"
     },
     {
       "id": 430,
@@ -270,7 +270,7 @@
         "slug": "blockers",
         "listItemId": 442
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-04 04:02:35"
     },
     {
       "id": 71,
@@ -292,7 +292,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 435
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-04 04:02:35"
     },
     {
       "id": 70,
@@ -314,7 +314,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 434
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-04 04:02:35"
     },
     {
       "id": 72,
@@ -336,7 +336,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 436
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-04 04:02:35"
     },
     {
       "id": 252,
@@ -358,7 +358,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 440
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-04 04:02:35"
     },
     {
       "id": 253,
@@ -380,7 +380,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 441
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-04 04:02:35"
     }
   ],
   "inboxBatch": {
@@ -408,7 +408,7 @@
         "collection": "automations",
         "slug": "automation-business-plan-assistant"
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-04 04:02:35"
     },
     {
       "id": 80,
@@ -429,7 +429,7 @@
         "collection": "automations",
         "slug": "automation-competitor-research"
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-04 04:02:35"
     },
     {
       "id": 79,
@@ -450,7 +450,7 @@
         "collection": "automations",
         "slug": "automation-morning-standup-prep"
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-04 04:02:35"
     },
     {
       "id": 82,
@@ -471,7 +471,7 @@
         "collection": "automations",
         "slug": "automation-social-content-draft-only"
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-04 04:02:35"
     },
     {
       "id": 61,
@@ -489,7 +489,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-04 04:02:35"
     },
     {
       "id": 63,
@@ -507,7 +507,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-04 04:02:35"
     },
     {
       "id": 59,
@@ -525,7 +525,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-04 04:02:35"
     },
     {
       "id": 60,
@@ -543,7 +543,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-04 04:02:35"
     },
     {
       "id": 62,
@@ -561,7 +561,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-04 04:02:35"
     },
     {
       "id": 430,
@@ -583,7 +583,7 @@
         "slug": "blockers",
         "listItemId": 442
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-04 04:02:35"
     },
     {
       "id": 71,
@@ -605,7 +605,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 435
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-04 04:02:35"
     },
     {
       "id": 70,
@@ -627,7 +627,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 434
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-04 04:02:35"
     },
     {
       "id": 72,
@@ -649,7 +649,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 436
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-04 04:02:35"
     },
     {
       "id": 252,
@@ -671,7 +671,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 440
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-04 04:02:35"
     },
     {
       "id": 253,
@@ -693,7 +693,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 441
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-04 04:02:35"
     }
   ],
   "roles": {
@@ -723,7 +723,7 @@
             "collection": "automations",
             "slug": "automation-morning-standup-prep"
           },
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-04 04:02:35"
         },
         {
           "id": 430,
@@ -745,7 +745,7 @@
             "slug": "blockers",
             "listItemId": 442
           },
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-04 04:02:35"
         },
         {
           "id": 71,
@@ -767,7 +767,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 435
           },
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-04 04:02:35"
         },
         {
           "id": 70,
@@ -789,7 +789,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 434
           },
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-04 04:02:35"
         },
         {
           "id": 72,
@@ -811,7 +811,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 436
           },
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-04 04:02:35"
         },
         {
           "id": 252,
@@ -833,7 +833,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 440
           },
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-04 04:02:35"
         },
         {
           "id": 253,
@@ -855,7 +855,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 441
           },
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-04 04:02:35"
         }
       ],
       "prompts": [
@@ -875,7 +875,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-04 04:02:35"
         }
       ]
     },
@@ -905,7 +905,7 @@
             "collection": "automations",
             "slug": "automation-competitor-research"
           },
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-04 04:02:35"
         }
       ],
       "prompts": [
@@ -925,7 +925,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-04 04:02:35"
         }
       ]
     },
@@ -955,7 +955,7 @@
             "collection": "automations",
             "slug": "automation-business-plan-assistant"
           },
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-04 04:02:35"
         }
       ],
       "prompts": [
@@ -975,7 +975,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-04 04:02:35"
         }
       ]
     },
@@ -1005,7 +1005,7 @@
             "collection": "automations",
             "slug": "automation-social-content-draft-only"
           },
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-04 04:02:35"
         }
       ],
       "prompts": [
@@ -1025,7 +1025,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-04 04:02:35"
         }
       ]
     },
@@ -1053,7 +1053,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-04 04:02:35"
         }
       ]
     }
@@ -1279,7 +1279,9 @@
               "done": false,
               "column": "todo",
               "owner": "",
-              "meta": {}
+              "meta": {
+                "reply": "Draft at content/presentation/outline.md (2026-06-04 standup)"
+              }
             },
             {
               "id": null,
@@ -1295,7 +1297,9 @@
               "done": false,
               "column": "todo",
               "owner": "",
-              "meta": {}
+              "meta": {
+                "reply": "Draft at content/social/bios-and-first-posts.md (2026-06-04 standup)"
+              }
             },
             {
               "id": null,
@@ -1319,7 +1323,9 @@
               "done": false,
               "column": "todo",
               "owner": "",
-              "meta": {}
+              "meta": {
+                "reply": "Top-10 + top-40 rankings live in HQ; Denis visit shortlist pending"
+              }
             },
             {
               "id": null,
@@ -25527,6 +25533,31 @@
     },
     "standups": [
       {
+        "slug": "2026-06-04",
+        "title": "Standup — 2026-06-04",
+        "sections": {
+          "agent_next": [
+            "After PO channels → careers page copy + LinkedIn announcement draft (jobs/product-owner body still empty)",
+            "After Denis picks landing vs deck-first → scaffold public page in web/ or export deck from content/presentation/",
+            "Syllabus v1 polish now that one-liner is approved"
+          ],
+          "blockers": [
+            "PO apply unblocks careers copy, LinkedIn PO post, and publish checklist"
+          ],
+          "done": [
+            "Office search (agent): Listings refresh under 800 EUR; top-10 ranking tabs + top-40 detail enrichment (PR #24 merged) — planning/office-plovdiv.md updated 2026-06-03",
+            "Presentation (agent): Draft outline + slide copy in content/presentation/outline.md (was empty since 2026-05-29)",
+            "Social (agent): Draft bios + first-post pack in content/social/bios-and-first-posts.md (was empty since 2026-05-29)",
+            "Scheduled PM run: Morning standup cron fired (this run)"
+          ],
+          "today": [
+            "Denis: PO apply: email | form URL | LinkedIn Easy Apply — publish first on: (HQ Inbox)",
+            "Denis: Office — open HQ Office search → pick 3–5 visit targets; reply with shortlist",
+            "Denis: HQ Inbox — approve automations (competitor research, business plan, social drafts) + review presentation/social drafts"
+          ]
+        }
+      },
+      {
         "slug": "2026-05-29",
         "title": "Standup — 2026-05-29",
         "sections": {
@@ -25633,28 +25664,6 @@
             "PM restructure: planning/roadmap.md — 13-topic launch path; Denis vs PM/Agent ownership",
             "Course names: draft options in business/course-name-options.md (not approved)",
             "planning/TODO.md reorganized by owner (Denis / PM Agent)"
-          ]
-        }
-      },
-      {
-        "slug": "2026-05-22",
-        "title": "Standup — 2026-05-22",
-        "sections": {
-          "agent_next": [
-            "After Denis fills COMPETITORS.md → run first competitor: research on top priority",
-            "Expand business/plan-v1.md once positioning is set",
-            "Draft 3 LinkedIn posts (draft-only) when messaging approved"
-          ],
-          "blockers": [
-            "Course positioning: working title + one-liner → update business/approved-messaging.md",
-            "Competitors: add 5–10 names to research/competitors/COMPETITORS.md",
-            "Social MCP: Buffer token now or draft-only for 2 weeks?"
-          ],
-          "done": [
-            "Initialized git repo and business HQ structure",
-            "Wrote Cursor Automations playbook (docs/cursor-automations-playbook.md)",
-            "Implemented .cursor/rules/, mcp.json, templates, automation prompt docs",
-            "Researched Slack-as-UI and MCP platform integrations"
           ]
         }
       }
