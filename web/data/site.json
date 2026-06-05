@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generatedAt": "2026-06-03T14:14:23.336066+00:00",
+    "generatedAt": "2026-06-05T04:05:13.636374+00:00",
     "generator": "scripts/build_site.py",
-    "gitSha": "ebb9541072c59953fcd9314b2342e5fa9888642f",
+    "gitSha": "98b60b7d0d6e965690b8462d2a314f580bb06ab7",
     "schemaVersion": "1",
     "dataModel": "hq-sections-v3"
   },
@@ -11,9 +11,9 @@
     "description": "Central workspace for building a course program business from scratch: planning, business analysis, landing pages, automations, content, and project management."
   },
   "metrics": {
-    "openActions": 10,
+    "openActions": 13,
     "needsInput": 6,
-    "needsApproval": 4,
+    "needsApproval": 7,
     "prompts": 5,
     "tasks": {
       "backlog": 3,
@@ -167,6 +167,69 @@
   },
   "inbox": [
     {
+      "id": 600,
+      "slug": "approve-social-linkedin-first-post",
+      "title": "Approve: LinkedIn — first post (draft)",
+      "kind": "approve",
+      "role": "social",
+      "priority": 2,
+      "status": "open",
+      "slackChannel": "#vibe-social",
+      "slackReply": "approve: linkedin-first-post",
+      "slackTrigger": "draft",
+      "prompt": "",
+      "hint": "Approves draft for publish automation",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "social",
+        "slug": "linkedin-first-post"
+      },
+      "updatedAt": "2026-06-05 04:05:13"
+    },
+    {
+      "id": 599,
+      "slug": "approve-social-linkedin-page-bio",
+      "title": "Approve: LinkedIn — page bio (draft)",
+      "kind": "approve",
+      "role": "social",
+      "priority": 2,
+      "status": "open",
+      "slackChannel": "#vibe-social",
+      "slackReply": "approve: linkedin-page-bio",
+      "slackTrigger": "draft",
+      "prompt": "",
+      "hint": "Approves draft for publish automation",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "social",
+        "slug": "linkedin-page-bio"
+      },
+      "updatedAt": "2026-06-05 04:05:13"
+    },
+    {
+      "id": 601,
+      "slug": "approve-social-x-bio-and-first-post",
+      "title": "Approve: X — bio + first post (draft)",
+      "kind": "approve",
+      "role": "social",
+      "priority": 2,
+      "status": "open",
+      "slackChannel": "#vibe-social",
+      "slackReply": "approve: x-bio-and-first-post",
+      "slackTrigger": "draft",
+      "prompt": "",
+      "hint": "Approves draft for publish automation",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "social",
+        "slug": "x-bio-and-first-post"
+      },
+      "updatedAt": "2026-06-05 04:05:13"
+    },
+    {
       "id": 81,
       "slug": "approve-automation-business-plan-assistant",
       "title": "Vibe Coders Academy — Business plan",
@@ -185,7 +248,7 @@
         "collection": "automations",
         "slug": "automation-business-plan-assistant"
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-05 04:05:13"
     },
     {
       "id": 80,
@@ -206,7 +269,7 @@
         "collection": "automations",
         "slug": "automation-competitor-research"
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-05 04:05:13"
     },
     {
       "id": 79,
@@ -227,7 +290,7 @@
         "collection": "automations",
         "slug": "automation-morning-standup-prep"
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-05 04:05:13"
     },
     {
       "id": 82,
@@ -248,7 +311,7 @@
         "collection": "automations",
         "slug": "automation-social-content-draft-only"
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-05 04:05:13"
     },
     {
       "id": 430,
@@ -270,7 +333,7 @@
         "slug": "blockers",
         "listItemId": 442
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-05 04:05:13"
     },
     {
       "id": 71,
@@ -292,7 +355,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 435
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-05 04:05:13"
     },
     {
       "id": 70,
@@ -314,7 +377,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 434
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-05 04:05:13"
     },
     {
       "id": 72,
@@ -336,7 +399,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 436
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-05 04:05:13"
     },
     {
       "id": 252,
@@ -358,7 +421,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 440
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-05 04:05:13"
     },
     {
       "id": 253,
@@ -380,7 +443,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 441
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-05 04:05:13"
     }
   ],
   "inboxBatch": {
@@ -389,6 +452,69 @@
     "slackReply": "standup batch — reply in #vibe-code or #vibe-standup with numbered answers:\n\n1. PO apply method + publish channels\n   PO apply: email | form URL | LinkedIn Easy Apply — publish first on:\n\n2. #1 Office Plovdiv — budget/area constraints; visit shortlist\n   Update: #1 Office Plovdiv — budget/area constraints; visit shortlist\n\n3. #2 Publish & share PO position (LinkedIn, boards, network)\n   Done: #2 Publish & share PO position (LinkedIn, boards, network)\n\n4. #4 Create social accounts (after name + bios approved)\n   Update: #4 Create social accounts (after name + bios approved)\n\n5. Landing page on vibe-coders.academy (Denis TODO)\n   Update: Landing page on vibe-coders.academy (Denis TODO)\n\n6. Presentation document (Denis TODO)\n   Update: Presentation document (Denis TODO)"
   },
   "actions": [
+    {
+      "id": 600,
+      "slug": "approve-social-linkedin-first-post",
+      "title": "Approve: LinkedIn — first post (draft)",
+      "kind": "approve",
+      "role": "social",
+      "priority": 2,
+      "status": "open",
+      "slackChannel": "#vibe-social",
+      "slackReply": "approve: linkedin-first-post",
+      "slackTrigger": "draft",
+      "prompt": "",
+      "hint": "Approves draft for publish automation",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "social",
+        "slug": "linkedin-first-post"
+      },
+      "updatedAt": "2026-06-05 04:05:13"
+    },
+    {
+      "id": 599,
+      "slug": "approve-social-linkedin-page-bio",
+      "title": "Approve: LinkedIn — page bio (draft)",
+      "kind": "approve",
+      "role": "social",
+      "priority": 2,
+      "status": "open",
+      "slackChannel": "#vibe-social",
+      "slackReply": "approve: linkedin-page-bio",
+      "slackTrigger": "draft",
+      "prompt": "",
+      "hint": "Approves draft for publish automation",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "social",
+        "slug": "linkedin-page-bio"
+      },
+      "updatedAt": "2026-06-05 04:05:13"
+    },
+    {
+      "id": 601,
+      "slug": "approve-social-x-bio-and-first-post",
+      "title": "Approve: X — bio + first post (draft)",
+      "kind": "approve",
+      "role": "social",
+      "priority": 2,
+      "status": "open",
+      "slackChannel": "#vibe-social",
+      "slackReply": "approve: x-bio-and-first-post",
+      "slackTrigger": "draft",
+      "prompt": "",
+      "hint": "Approves draft for publish automation",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "social",
+        "slug": "x-bio-and-first-post"
+      },
+      "updatedAt": "2026-06-05 04:05:13"
+    },
     {
       "id": 81,
       "slug": "approve-automation-business-plan-assistant",
@@ -408,7 +534,7 @@
         "collection": "automations",
         "slug": "automation-business-plan-assistant"
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-05 04:05:13"
     },
     {
       "id": 80,
@@ -429,7 +555,7 @@
         "collection": "automations",
         "slug": "automation-competitor-research"
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-05 04:05:13"
     },
     {
       "id": 79,
@@ -450,7 +576,7 @@
         "collection": "automations",
         "slug": "automation-morning-standup-prep"
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-05 04:05:13"
     },
     {
       "id": 82,
@@ -471,7 +597,7 @@
         "collection": "automations",
         "slug": "automation-social-content-draft-only"
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-05 04:05:13"
     },
     {
       "id": 61,
@@ -489,7 +615,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-05 04:05:13"
     },
     {
       "id": 63,
@@ -507,7 +633,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-05 04:05:13"
     },
     {
       "id": 59,
@@ -525,7 +651,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-05 04:05:13"
     },
     {
       "id": 60,
@@ -543,7 +669,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-05 04:05:13"
     },
     {
       "id": 62,
@@ -561,7 +687,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-05 04:05:13"
     },
     {
       "id": 430,
@@ -583,7 +709,7 @@
         "slug": "blockers",
         "listItemId": 442
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-05 04:05:13"
     },
     {
       "id": 71,
@@ -605,7 +731,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 435
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-05 04:05:13"
     },
     {
       "id": 70,
@@ -627,7 +753,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 434
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-05 04:05:13"
     },
     {
       "id": 72,
@@ -649,7 +775,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 436
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-05 04:05:13"
     },
     {
       "id": 252,
@@ -671,7 +797,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 440
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-05 04:05:13"
     },
     {
       "id": 253,
@@ -693,7 +819,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 441
       },
-      "updatedAt": "2026-06-03 14:14:23"
+      "updatedAt": "2026-06-05 04:05:13"
     }
   ],
   "roles": {
@@ -723,7 +849,7 @@
             "collection": "automations",
             "slug": "automation-morning-standup-prep"
           },
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-05 04:05:13"
         },
         {
           "id": 430,
@@ -745,7 +871,7 @@
             "slug": "blockers",
             "listItemId": 442
           },
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-05 04:05:13"
         },
         {
           "id": 71,
@@ -767,7 +893,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 435
           },
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-05 04:05:13"
         },
         {
           "id": 70,
@@ -789,7 +915,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 434
           },
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-05 04:05:13"
         },
         {
           "id": 72,
@@ -811,7 +937,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 436
           },
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-05 04:05:13"
         },
         {
           "id": 252,
@@ -833,7 +959,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 440
           },
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-05 04:05:13"
         },
         {
           "id": 253,
@@ -855,7 +981,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 441
           },
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-05 04:05:13"
         }
       ],
       "prompts": [
@@ -875,7 +1001,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-05 04:05:13"
         }
       ]
     },
@@ -905,7 +1031,7 @@
             "collection": "automations",
             "slug": "automation-competitor-research"
           },
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-05 04:05:13"
         }
       ],
       "prompts": [
@@ -925,7 +1051,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-05 04:05:13"
         }
       ]
     },
@@ -955,7 +1081,7 @@
             "collection": "automations",
             "slug": "automation-business-plan-assistant"
           },
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-05 04:05:13"
         }
       ],
       "prompts": [
@@ -975,7 +1101,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-05 04:05:13"
         }
       ]
     },
@@ -986,6 +1112,69 @@
         "prefix": "📣 *Social Agent* |"
       },
       "actions": [
+        {
+          "id": 600,
+          "slug": "approve-social-linkedin-first-post",
+          "title": "Approve: LinkedIn — first post (draft)",
+          "kind": "approve",
+          "role": "social",
+          "priority": 2,
+          "status": "open",
+          "slackChannel": "#vibe-social",
+          "slackReply": "approve: linkedin-first-post",
+          "slackTrigger": "draft",
+          "prompt": "",
+          "hint": "Approves draft for publish automation",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {
+            "collection": "social",
+            "slug": "linkedin-first-post"
+          },
+          "updatedAt": "2026-06-05 04:05:13"
+        },
+        {
+          "id": 599,
+          "slug": "approve-social-linkedin-page-bio",
+          "title": "Approve: LinkedIn — page bio (draft)",
+          "kind": "approve",
+          "role": "social",
+          "priority": 2,
+          "status": "open",
+          "slackChannel": "#vibe-social",
+          "slackReply": "approve: linkedin-page-bio",
+          "slackTrigger": "draft",
+          "prompt": "",
+          "hint": "Approves draft for publish automation",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {
+            "collection": "social",
+            "slug": "linkedin-page-bio"
+          },
+          "updatedAt": "2026-06-05 04:05:13"
+        },
+        {
+          "id": 601,
+          "slug": "approve-social-x-bio-and-first-post",
+          "title": "Approve: X — bio + first post (draft)",
+          "kind": "approve",
+          "role": "social",
+          "priority": 2,
+          "status": "open",
+          "slackChannel": "#vibe-social",
+          "slackReply": "approve: x-bio-and-first-post",
+          "slackTrigger": "draft",
+          "prompt": "",
+          "hint": "Approves draft for publish automation",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {
+            "collection": "social",
+            "slug": "x-bio-and-first-post"
+          },
+          "updatedAt": "2026-06-05 04:05:13"
+        },
         {
           "id": 82,
           "slug": "approve-automation-social-content-draft-only",
@@ -1005,7 +1194,7 @@
             "collection": "automations",
             "slug": "automation-social-content-draft-only"
           },
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-05 04:05:13"
         }
       ],
       "prompts": [
@@ -1025,7 +1214,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-05 04:05:13"
         }
       ]
     },
@@ -1053,7 +1242,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-06-03 14:14:23"
+          "updatedAt": "2026-06-05 04:05:13"
         }
       ]
     }
@@ -25527,6 +25716,36 @@
     },
     "standups": [
       {
+        "slug": "2026-06-05",
+        "title": "Standup — 2026-06-05",
+        "sections": {
+          "agent_next": [
+            "After PO channels → PO job text in repo + careers page + LinkedIn announcement draft",
+            "After social copy approved → Denis creates profiles; agent can repurpose deck → posts",
+            "Landing scaffold in web/ when Denis picks landing-first vs deck-first"
+          ],
+          "blockers": [
+            "PO apply method + publish channels → input-blocker-po-apply-method-publish-channels"
+          ],
+          "done": [
+            "Office: PR #24 — top-40 rankings, kitchen/leisure scoring, data/office-top40.md",
+            "Agent: Presentation outline → content/presentation/outline.md",
+            "Agent: Social bios + first-post pack → social collection (3 drafts, approved=false)"
+          ],
+          "ongoing": [
+            "Denis: PO apply method + first publish channel",
+            "Denis: Office Plovdiv — review top-40; shortlist 3–5 visits",
+            "Denis: Landing page OR presentation deck (outline ready)",
+            "Denis: Create social accounts after approving bios"
+          ],
+          "today": [
+            "Denis: HQ Inbox — approve automations (standup, research, business plan, social drafts)",
+            "Denis: PO apply method + publish channels",
+            "Denis: Office — pick 3–5 visit targets from Kapana/center top-10"
+          ]
+        }
+      },
+      {
         "slug": "2026-05-29",
         "title": "Standup — 2026-05-29",
         "sections": {
@@ -25633,28 +25852,6 @@
             "PM restructure: planning/roadmap.md — 13-topic launch path; Denis vs PM/Agent ownership",
             "Course names: draft options in business/course-name-options.md (not approved)",
             "planning/TODO.md reorganized by owner (Denis / PM Agent)"
-          ]
-        }
-      },
-      {
-        "slug": "2026-05-22",
-        "title": "Standup — 2026-05-22",
-        "sections": {
-          "agent_next": [
-            "After Denis fills COMPETITORS.md → run first competitor: research on top priority",
-            "Expand business/plan-v1.md once positioning is set",
-            "Draft 3 LinkedIn posts (draft-only) when messaging approved"
-          ],
-          "blockers": [
-            "Course positioning: working title + one-liner → update business/approved-messaging.md",
-            "Competitors: add 5–10 names to research/competitors/COMPETITORS.md",
-            "Social MCP: Buffer token now or draft-only for 2 weeks?"
-          ],
-          "done": [
-            "Initialized git repo and business HQ structure",
-            "Wrote Cursor Automations playbook (docs/cursor-automations-playbook.md)",
-            "Implemented .cursor/rules/, mcp.json, templates, automation prompt docs",
-            "Researched Slack-as-UI and MCP platform integrations"
           ]
         }
       }
