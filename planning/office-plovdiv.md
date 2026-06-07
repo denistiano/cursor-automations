@@ -45,7 +45,7 @@ _Picked 2026-06-06 from `data/office-top40.md` Kapana/center list. Verify monthl
 
 | # | Listing | €/mo | m² | Why shortlist |
 |---|---------|------|-----|---------------|
-| 1 | [Зала под наем за обучения и семинари](https://www.alo.bg/zala-pod-naem-za-provejdane-na-obucheniya-i-seminari-4734755) | 26 | 42 | Explicit training/seminar use; center |
+| 1 | [Зала под наем за обучения и семинари](https://www.alo.bg/zala-pod-naem-za-provejdane-na-obucheniya-i-seminari-4734755) | 26* | 42 | Explicit training/seminar use; center — *verify rent model (€26 likely hourly/daily promo, not monthly)* |
 | 2 | [Офис под наем на топ локация в Капана](https://www.alo.bg/ofis-pod-naem-na-top-lokaciya-v-kapana-11108782) | 400 | 50 | Kapana; kitchen mentioned |
 | 3 | [Дава се под наем офис в Капана!](https://www.alo.bg/dava-se-pod-naem-ofis-v-kapana-11136732) | 400 | 50 | Kapana; central |
 | 4 | [Офис в гр. Пловдив - Капана!](https://www.alo.bg/ofis-v-gr-plovdiv-kapana-10769362) | 450 | 76 | Kapana; kitchen; larger floor plate |
@@ -53,4 +53,4 @@ _Picked 2026-06-06 from `data/office-top40.md` Kapana/center list. Verify monthl
 
 **Denis reply template:** `Update: #1 Office Plovdiv — visit shortlist: 1,2,4` (or paste URLs / edits)
 
-_Last updated: 2026-06-06 (agent shortlist draft added)_
+_Last updated: 2026-06-07 (rent-model caveat on listing #1)_
