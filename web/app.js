@@ -171,6 +171,15 @@ function renderChrome() {
 
 function navCount(item, data) {
   if (item.id === "inbox") return data.inbox.length;
+  if (item.id === "brand") {
+    const sprint = data.planning?.brandSprint;
+    if (!sprint?.props?.current_day) return 0;
+    const day = sprint.props.current_day;
+    const sections = sprint.sections || {};
+    const key = `day${day}`;
+    const tasks = sections[key] || [];
+    return tasks.length;
+  }
   if (item.id === "office") return data.planning?.officeListings?.countWithinBudget ?? data.planning?.officeListings?.count ?? 0;
   if (item.id === "work") return (data.metrics.tasks?.todo ?? 0) + (data.metrics.tasks?.in_progress ?? 0);
   return 0;
@@ -185,6 +194,7 @@ function renderSection() {
     home: renderHome,
     inbox: renderInbox,
     office: renderOffice,
+    brand: renderBrand,
     work: renderWork,
     research: renderResearch,
   };
@@ -214,6 +224,7 @@ function renderHome() {
       ${statCard("Active tasks", (m.tasks?.todo ?? 0) + (m.tasks?.in_progress ?? 0), "in progress", "#work")}
     </div>
     ${open.length ? priorityActionsPanel(open.slice(0, 4)) : ""}
+    ${data.planning?.brandSprint ? brandSprintHomePanel(data.planning.brandSprint) : ""}
     ${standup ? standupPanel(standup) : ""}
     ${openBlockers.length ? blockersPanel(openBlockers) : ""}`;
 }
@@ -622,6 +633,138 @@ function shortlistSection(table) {
     </section>`;
 }
 
+/* ── Brand sprint ── */
+
+function renderBrand() {
+  const sprint = state.data.planning?.brandSprint;
+  if (!sprint) {
+    return `${pageHeader("Brand sprint", "No sprint configured.")}<p class="empty-inline">Run scripts/apply_brand_sprint_2026_06_19.py</p>`;
+  }
+  const props = sprint.props || {};
+  const day = props.current_day || 1;
+  const sections = sprint.sections || {};
+  const budget = (sprint.tables || []).find((t) => t.name === "budget_scenarios");
+  const brandActions = (state.data.inbox || []).filter((a) => /brand-sprint-day-\d/i.test(a.title || ""));
+  const dayLabels = { 1: "Positioning", 2: "Identity", 3: "Channels", 4: "Budget" };
+
+  return `
+    ${pageHeader(
+      "Brand sprint",
+      `4-day plan (${props.sprint_start || "?"} → ${props.sprint_end || "?"}). Complete one day at a time — copy Slack replies from Inbox.`
+    )}
+    <div class="stat-grid brand-stat-grid">
+      ${statCard("Current day", day, dayLabels[day] || "Focus", "#brand")}
+      ${statCard("Days left", Math.max(0, 4 - day), "until sign-off", "#brand")}
+      ${statCard("Inbox items", brandActions.filter((a) => a.status === "open").length, "brand replies", "#inbox")}
+    </div>
+    ${brandDayTabs(day)}
+    ${brandDayPanel(day, sections[`day${day}`] || [])}
+    ${budget ? brandBudgetSection(budget) : ""}
+    ${brandResourcesSection(sections.resources || [])}
+    ${brandPlanLink(props.plan_doc)}
+    ${brandAllDaysOverview(sections, day)}`;
+}
+
+function brandSprintHomePanel(sprint) {
+  const day = sprint.props?.current_day || 1;
+  const tasks = (sprint.sections?.[`day${day}`] || []).slice(0, 3);
+  return `
+    <section class="panel-card panel-brand">
+      <div class="panel-head">
+        <h2>Brand sprint · Day ${day}</h2>
+        <a class="text-link" href="#brand">Open sprint →</a>
+      </div>
+      <p class="hint">Complete your marketing plan by ${escapeHtml(sprint.props?.sprint_end || "22 Jun")}.</p>
+      <ul class="compact-list">${tasks.map((t) => `<li>${escapeHtml(t.text)}</li>`).join("")}</ul>
+    </section>`;
+}
+
+function brandDayTabs(currentDay) {
+  const labels = ["Day 1", "Day 2", "Day 3", "Day 4"];
+  return `
+    <div class="filter-tabs" role="tablist">
+      ${labels.map((label, i) => {
+        const d = i + 1;
+        const active = d === currentDay ? "is-active" : "";
+        return `<span class="filter-tab ${active}" title="Progress via inbox replies">${escapeHtml(label)}${d < currentDay ? " ✓" : ""}</span>`;
+      }).join("")}
+    </div>`;
+}
+
+function brandDayPanel(day, tasks) {
+  const brandActions = (state.data.inbox || []).filter((a) => /brand-sprint-day-\d/i.test(a.title || ""));
+  const action = brandActions.find((a) => new RegExp(`day\\s*${day}\\b`, "i").test(a.title || ""));
+  const slackBlock = action?.slackReply
+    ? `
+      <div class="copy-block brand-copy">
+        <div class="copy-head"><span class="copy-label">Slack reply → ${escapeHtml(action.slackChannel || "#vibe-code")}</span></div>
+        <div class="copy-row">
+          <pre class="copy-text">${escapeHtml(action.slackReply)}…</pre>
+          <button type="button" class="copy-btn" data-copy="${escapeAttr(action.slackReply)}">Copy prefix</button>
+        </div>
+      </div>`
+  : "";
+  return `
+    <section class="section-block brand-day-panel">
+      <h2 class="section-title">Today — Day ${day}</h2>
+      <ol class="numbered-list brand-task-list">
+        ${tasks.map((t) => `<li data-search-text="${escapeAttr(t.text)}">${escapeHtml(t.text)}</li>`).join("") || "<li class='muted'>—</li>"}
+      </ol>
+      ${slackBlock}
+      ${action ? `<p class="hint"><a class="text-link" href="#inbox">Open Inbox</a> for full reply template.</p>` : ""}
+    </section>`;
+}
+
+function brandBudgetSection(table) {
+  return `
+    <section class="section-block">
+      <h2 class="section-title">Budget scenarios (months 1–3)</h2>
+      <div class="data-table-wrap">${renderTableHtml(table)}</div>
+      <p class="hint">Lean recommended until waitlist landing is live. BG training ads often see €3–6 cost per inquiry at scale.</p>
+    </section>`;
+}
+
+function brandResourcesSection(resources) {
+  if (!resources.length) return "";
+  return `
+    <section class="section-block">
+      <h2 class="section-title">Prep resources</h2>
+      <ul class="resource-list">
+        ${resources.map((r) => {
+          const urlMatch = r.text.match(/https?:\/\/\S+/);
+          if (urlMatch) {
+            const label = r.text.split("—")[0].trim();
+            return `<li><a class="table-link" href="${escapeAttr(urlMatch[0])}" target="_blank" rel="noopener">${escapeHtml(label)} ↗</a></li>`;
+          }
+          return `<li>${escapeHtml(r.text)}</li>`;
+        }).join("")}
+      </ul>
+    </section>`;
+}
+
+function brandPlanLink(planDoc) {
+  if (!planDoc) return "";
+  return `
+    <section class="section-block">
+      <h2 class="section-title">Draft plan</h2>
+      <p class="hint">Full marketing plan: <code>${escapeHtml(planDoc)}</code> — agents merge your day 1–4 replies into business/plan after sign-off.</p>
+    </section>`;
+}
+
+function brandAllDaysOverview(sections, currentDay) {
+  const days = [1, 2, 3, 4];
+  const blocks = days
+    .filter((d) => d !== currentDay && (sections[`day${d}`] || []).length)
+    .map((d) => `
+      <details class="standup-details">
+        <summary>Day ${d} preview</summary>
+        <ul>${(sections[`day${d}`] || []).map((t) => `<li>${escapeHtml(t.text)}</li>`).join("")}</ul>
+      </details>`)
+    .join("");
+  if (!blocks) return "";
+  return `<section class="section-block"><h2 class="section-title">Upcoming days</h2><div class="standup-stack">${blocks}</div></section>`;
+}
+
 /* ── Work plan (tasks + roadmap + standups) ── */
 
 function renderWork() {
@@ -916,6 +1059,7 @@ function icon(name) {
     copy: "📋",
     book: "📚",
     building: "🏢",
+    sparkles: "✦",
   }[name] || "•";
 }
 

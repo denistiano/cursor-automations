@@ -239,6 +239,7 @@ def sync_actions(conn: sqlite3.Connection) -> None:
             continue
         text = row["text"]
         slug = f"input-task-{slugify(text)}"
+        brand = _brand_sprint_action(text, meta)
         upsert_entry(
             conn,
             "actions",
@@ -246,12 +247,14 @@ def sync_actions(conn: sqlite3.Connection) -> None:
             text,
             props=action_props(
                 "input",
-                "pm",
-                priority=2,
+                brand.get("role", "pm"),
+                priority=brand.get("priority", 2),
                 status=status if status in ("open", "in_progress") else "open",
-                slack_reply=f"Done: {text}" if "publish" in text.lower() else f"Update: {text}",
-                hint=meta.get("reply") or "Denis manual task from launch path",
-                trigger="standup",
+                slack_reply=brand.get("slack_reply")
+                or meta.get("slack_reply")
+                or (f"Done: {text}" if "publish" in text.lower() else f"Update: {text}"),
+                hint=brand.get("hint") or meta.get("reply") or "Denis manual task from launch path",
+                trigger=brand.get("trigger", "standup"),
                 source={"collection": "tasks", "slug": row["group_slug"], "listItemId": row["id"]},
             ),
             sort_order=order,
@@ -344,6 +347,35 @@ def sync_actions(conn: sqlite3.Connection) -> None:
             active_slugs.add("input-one-liner")
 
     _prune_stale_actions(conn, active_slugs)
+
+
+def _brand_sprint_action(text: str, meta: dict) -> dict:
+    """Custom inbox cards for the 4-day brand sprint tasks."""
+    if not text.lower().startswith("brand sprint day"):
+        return {}
+    day_match = re.search(r"day\s*(\d)", text, re.I)
+    day = int(day_match.group(1)) if day_match else 0
+    replies = {
+        1: "brand day1: ICP= — NOT for= — secret sauce= — ops=",
+        2: "brand day2: visual= — one-liner= — CTA= — tone OK=",
+        3: "brand day3: channels= — facebook= — rhythm= — path=",
+        4: "brand day4: budget= — early bird= — plan=",
+    }
+    hints = {
+        1: "Day 1 — ICP, anti-audience, secret sauce, PO/consultant model",
+        2: "Day 2 — visual A/B/C, one-liner, primary CTA",
+        3: "Day 3 — channel rank, Facebook strategy, deck/landing path",
+        4: "Day 4 — budget tier + 90-day calendar sign-off",
+    }
+    if day not in replies:
+        return {}
+    return {
+        "role": "business",
+        "priority": 1 if day == 1 else 2,
+        "slack_reply": replies[day],
+        "hint": hints[day],
+        "trigger": "brand sprint",
+    }
 
 
 def _role_trigger(role: str) -> str:

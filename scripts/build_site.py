@@ -213,6 +213,7 @@ def build_planning(by_collection: dict, tables_by_entry: dict[int, list]) -> dic
     phases = next((e for e in roadmap_entries if e["slug"] == "phases"), None)
     near_term = next((e for e in roadmap_entries if e["slug"] == "near-term"), None)
     overview = next((e for e in roadmap_entries if e["slug"] == "overview"), None)
+    brand_sprint = next((e for e in roadmap_entries if e["slug"] == "brand-sprint"), None)
 
     def with_tables(entry: dict | None) -> dict | None:
         if not entry:
@@ -238,6 +239,17 @@ def build_planning(by_collection: dict, tables_by_entry: dict[int, list]) -> dic
     criteria = next((t for t in office_tables if t["name"] == "criteria"), None)
     shortlist = next((t for t in office_tables if t["name"] == "shortlist"), None)
 
+    brand_sprint_out = None
+    if brand_sprint:
+        brand_sprint_out = dict(brand_sprint)
+        brand_sprint_out["tables"] = tables_by_entry.get(brand_sprint["id"], [])
+        sections: dict[str, list] = {}
+        for item in brand_sprint.get("listItems", []):
+            sections.setdefault(item["section"], []).append(
+                {"text": item["text"], "done": item["done"], "meta": item.get("meta") or {}}
+            )
+        brand_sprint_out["sections"] = sections
+
     return {
         "overview": overview,
         "tracks": with_tables(tracks),
@@ -249,6 +261,7 @@ def build_planning(by_collection: dict, tables_by_entry: dict[int, list]) -> dic
         "officeShortlist": shortlist,
         "officeListings": office_listings,
         "standups": build_standups(by_collection.get("standups", [])),
+        "brandSprint": brand_sprint_out,
     }
 
 
