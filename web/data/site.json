@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generatedAt": "2026-06-19T04:06:23.348452+00:00",
+    "generatedAt": "2026-06-19T19:19:49.556129+00:00",
     "generator": "scripts/build_site.py",
-    "gitSha": "9179346f11a2fac66ec6cdeb22ba870500e9224b",
+    "gitSha": "4c4dbafdf8861825fe92260c7982f4d3fc2f7f6e",
     "schemaVersion": "1",
     "dataModel": "hq-sections-v3"
   },
@@ -11,15 +11,15 @@
     "description": "Central workspace for building a course program business from scratch: planning, business analysis, landing pages, automations, content, and project management."
   },
   "metrics": {
-    "openActions": 13,
-    "needsInput": 6,
+    "openActions": 17,
+    "needsInput": 10,
     "needsApproval": 7,
     "prompts": 5,
     "tasks": {
       "backlog": 3,
       "todo": 13,
-      "in_progress": 6,
-      "done": 18
+      "in_progress": 10,
+      "done": 19
     }
   },
   "ui": {
@@ -41,6 +41,12 @@
         "label": "Office search",
         "icon": "building",
         "view": "office"
+      },
+      {
+        "id": "brand",
+        "label": "Brand sprint",
+        "icon": "sparkles",
+        "view": "brand"
       },
       {
         "id": "work",
@@ -185,7 +191,7 @@
         "collection": "social",
         "slug": "linkedin-first-post"
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 599,
@@ -206,7 +212,7 @@
         "collection": "social",
         "slug": "linkedin-page-bio"
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 601,
@@ -227,7 +233,7 @@
         "collection": "social",
         "slug": "x-bio-and-first-post"
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 81,
@@ -248,7 +254,7 @@
         "collection": "automations",
         "slug": "automation-business-plan-assistant"
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 80,
@@ -269,7 +275,7 @@
         "collection": "automations",
         "slug": "automation-competitor-research"
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 79,
@@ -290,7 +296,7 @@
         "collection": "automations",
         "slug": "automation-morning-standup-prep"
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 82,
@@ -311,7 +317,29 @@
         "collection": "automations",
         "slug": "automation-social-content-draft-only"
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
+    },
+    {
+      "id": 792,
+      "slug": "input-task-brand-sprint-day-1-positioning-secret-sauce-hq-brand-sprint",
+      "title": "Brand sprint day 1 — positioning & secret sauce (HQ → Brand sprint)",
+      "kind": "input",
+      "role": "business",
+      "priority": 1,
+      "status": "in_progress",
+      "slackChannel": "#vibe-business",
+      "slackReply": "brand day1: ICP= — NOT for= — secret sauce= — ops=",
+      "slackTrigger": "brand sprint",
+      "prompt": "",
+      "hint": "Day 1 — ICP, anti-audience, secret sauce, PO/consultant model",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 691
+      },
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 430,
@@ -333,7 +361,7 @@
         "slug": "blockers",
         "listItemId": 442
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 71,
@@ -353,9 +381,9 @@
       "source": {
         "collection": "tasks",
         "slug": "denis-decisions-manual",
-        "listItemId": 435
+        "listItemId": 684
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 70,
@@ -375,9 +403,9 @@
       "source": {
         "collection": "tasks",
         "slug": "denis-decisions-manual",
-        "listItemId": 434
+        "listItemId": 683
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 72,
@@ -397,9 +425,75 @@
       "source": {
         "collection": "tasks",
         "slug": "denis-decisions-manual",
-        "listItemId": 436
+        "listItemId": 685
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
+    },
+    {
+      "id": 793,
+      "slug": "input-task-brand-sprint-day-2-visual-identity-cta",
+      "title": "Brand sprint day 2 — visual identity + CTA",
+      "kind": "input",
+      "role": "business",
+      "priority": 2,
+      "status": "in_progress",
+      "slackChannel": "#vibe-business",
+      "slackReply": "brand day2: visual= — one-liner= — CTA= — tone OK=",
+      "slackTrigger": "brand sprint",
+      "prompt": "",
+      "hint": "Day 2 — visual A/B/C, one-liner, primary CTA",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 692
+      },
+      "updatedAt": "2026-06-19 19:19:49"
+    },
+    {
+      "id": 794,
+      "slug": "input-task-brand-sprint-day-3-channels-facebook-strategy-deck-landing-p",
+      "title": "Brand sprint day 3 — channels + Facebook strategy + deck/landing path",
+      "kind": "input",
+      "role": "business",
+      "priority": 2,
+      "status": "in_progress",
+      "slackChannel": "#vibe-business",
+      "slackReply": "brand day3: channels= — facebook= — rhythm= — path=",
+      "slackTrigger": "brand sprint",
+      "prompt": "",
+      "hint": "Day 3 — channel rank, Facebook strategy, deck/landing path",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 693
+      },
+      "updatedAt": "2026-06-19 19:19:49"
+    },
+    {
+      "id": 795,
+      "slug": "input-task-brand-sprint-day-4-budget-tier-90-day-calendar-sign-off",
+      "title": "Brand sprint day 4 — budget tier + 90-day calendar sign-off",
+      "kind": "input",
+      "role": "business",
+      "priority": 2,
+      "status": "in_progress",
+      "slackChannel": "#vibe-business",
+      "slackReply": "brand day4: budget= — early bird= — plan=",
+      "slackTrigger": "brand sprint",
+      "prompt": "",
+      "hint": "Day 4 — budget tier + 90-day calendar sign-off",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 694
+      },
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 252,
@@ -419,9 +513,9 @@
       "source": {
         "collection": "tasks",
         "slug": "denis-decisions-manual",
-        "listItemId": 440
+        "listItemId": 689
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 253,
@@ -441,15 +535,15 @@
       "source": {
         "collection": "tasks",
         "slug": "denis-decisions-manual",
-        "listItemId": 441
+        "listItemId": 690
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     }
   ],
   "inboxBatch": {
     "channel": "#vibe-standup",
-    "count": 6,
-    "slackReply": "standup batch — reply in #vibe-code or #vibe-standup with numbered answers:\n\n1. PO apply method + publish channels\n   PO apply: email | form URL | LinkedIn Easy Apply — publish first on:\n\n2. #1 Office Plovdiv — budget/area constraints; visit shortlist\n   Update: #1 Office Plovdiv — budget/area constraints; visit shortlist\n\n3. #2 Publish & share PO position (LinkedIn, boards, network)\n   Done: #2 Publish & share PO position (LinkedIn, boards, network)\n\n4. #4 Create social accounts (after name + bios approved)\n   Update: #4 Create social accounts (after name + bios approved)\n\n5. Landing page on vibe-coders.academy (Denis TODO)\n   Update: Landing page on vibe-coders.academy (Denis TODO)\n\n6. Presentation document (Denis TODO)\n   Update: Presentation document (Denis TODO)"
+    "count": 10,
+    "slackReply": "standup batch — reply in #vibe-code or #vibe-standup with numbered answers:\n\n1. Brand sprint day 1 — positioning & secret sauce (HQ → Brand sprint)\n   brand day1: ICP= — NOT for= — secret sauce= — ops=\n\n2. PO apply method + publish channels\n   PO apply: email | form URL | LinkedIn Easy Apply — publish first on:\n\n3. #1 Office Plovdiv — budget/area constraints; visit shortlist\n   Update: #1 Office Plovdiv — budget/area constraints; visit shortlist\n\n4. #2 Publish & share PO position (LinkedIn, boards, network)\n   Done: #2 Publish & share PO position (LinkedIn, boards, network)\n\n5. #4 Create social accounts (after name + bios approved)\n   Update: #4 Create social accounts (after name + bios approved)\n\n6. Brand sprint day 2 — visual identity + CTA\n   brand day2: visual= — one-liner= — CTA= — tone OK=\n\n7. Brand sprint day 3 — channels + Facebook strategy + deck/landing path\n   brand day3: channels= — facebook= — rhythm= — path=\n\n8. Brand sprint day 4 — budget tier + 90-day calendar sign-off\n   brand day4: budget= — early bird= — plan=\n\n9. Landing page on vibe-coders.academy (Denis TODO)\n   Update: Landing page on vibe-coders.academy (Denis TODO)\n\n10. Presentation document (Denis TODO)\n   Update: Presentation document (Denis TODO)"
   },
   "actions": [
     {
@@ -471,7 +565,7 @@
         "collection": "social",
         "slug": "linkedin-first-post"
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 599,
@@ -492,7 +586,7 @@
         "collection": "social",
         "slug": "linkedin-page-bio"
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 601,
@@ -513,7 +607,7 @@
         "collection": "social",
         "slug": "x-bio-and-first-post"
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 81,
@@ -534,7 +628,7 @@
         "collection": "automations",
         "slug": "automation-business-plan-assistant"
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 80,
@@ -555,7 +649,7 @@
         "collection": "automations",
         "slug": "automation-competitor-research"
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 79,
@@ -576,7 +670,7 @@
         "collection": "automations",
         "slug": "automation-morning-standup-prep"
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 82,
@@ -597,7 +691,7 @@
         "collection": "automations",
         "slug": "automation-social-content-draft-only"
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 61,
@@ -615,7 +709,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 63,
@@ -633,7 +727,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 59,
@@ -651,7 +745,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 60,
@@ -669,7 +763,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 62,
@@ -687,7 +781,29 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
+    },
+    {
+      "id": 792,
+      "slug": "input-task-brand-sprint-day-1-positioning-secret-sauce-hq-brand-sprint",
+      "title": "Brand sprint day 1 — positioning & secret sauce (HQ → Brand sprint)",
+      "kind": "input",
+      "role": "business",
+      "priority": 1,
+      "status": "in_progress",
+      "slackChannel": "#vibe-business",
+      "slackReply": "brand day1: ICP= — NOT for= — secret sauce= — ops=",
+      "slackTrigger": "brand sprint",
+      "prompt": "",
+      "hint": "Day 1 — ICP, anti-audience, secret sauce, PO/consultant model",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 691
+      },
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 430,
@@ -709,7 +825,7 @@
         "slug": "blockers",
         "listItemId": 442
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 71,
@@ -729,9 +845,9 @@
       "source": {
         "collection": "tasks",
         "slug": "denis-decisions-manual",
-        "listItemId": 435
+        "listItemId": 684
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 70,
@@ -751,9 +867,9 @@
       "source": {
         "collection": "tasks",
         "slug": "denis-decisions-manual",
-        "listItemId": 434
+        "listItemId": 683
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 72,
@@ -773,9 +889,75 @@
       "source": {
         "collection": "tasks",
         "slug": "denis-decisions-manual",
-        "listItemId": 436
+        "listItemId": 685
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
+    },
+    {
+      "id": 793,
+      "slug": "input-task-brand-sprint-day-2-visual-identity-cta",
+      "title": "Brand sprint day 2 — visual identity + CTA",
+      "kind": "input",
+      "role": "business",
+      "priority": 2,
+      "status": "in_progress",
+      "slackChannel": "#vibe-business",
+      "slackReply": "brand day2: visual= — one-liner= — CTA= — tone OK=",
+      "slackTrigger": "brand sprint",
+      "prompt": "",
+      "hint": "Day 2 — visual A/B/C, one-liner, primary CTA",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 692
+      },
+      "updatedAt": "2026-06-19 19:19:49"
+    },
+    {
+      "id": 794,
+      "slug": "input-task-brand-sprint-day-3-channels-facebook-strategy-deck-landing-p",
+      "title": "Brand sprint day 3 — channels + Facebook strategy + deck/landing path",
+      "kind": "input",
+      "role": "business",
+      "priority": 2,
+      "status": "in_progress",
+      "slackChannel": "#vibe-business",
+      "slackReply": "brand day3: channels= — facebook= — rhythm= — path=",
+      "slackTrigger": "brand sprint",
+      "prompt": "",
+      "hint": "Day 3 — channel rank, Facebook strategy, deck/landing path",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 693
+      },
+      "updatedAt": "2026-06-19 19:19:49"
+    },
+    {
+      "id": 795,
+      "slug": "input-task-brand-sprint-day-4-budget-tier-90-day-calendar-sign-off",
+      "title": "Brand sprint day 4 — budget tier + 90-day calendar sign-off",
+      "kind": "input",
+      "role": "business",
+      "priority": 2,
+      "status": "in_progress",
+      "slackChannel": "#vibe-business",
+      "slackReply": "brand day4: budget= — early bird= — plan=",
+      "slackTrigger": "brand sprint",
+      "prompt": "",
+      "hint": "Day 4 — budget tier + 90-day calendar sign-off",
+      "inputLabel": "",
+      "inputExample": "",
+      "source": {
+        "collection": "tasks",
+        "slug": "denis-decisions-manual",
+        "listItemId": 694
+      },
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 252,
@@ -795,9 +977,9 @@
       "source": {
         "collection": "tasks",
         "slug": "denis-decisions-manual",
-        "listItemId": 440
+        "listItemId": 689
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     },
     {
       "id": 253,
@@ -817,9 +999,9 @@
       "source": {
         "collection": "tasks",
         "slug": "denis-decisions-manual",
-        "listItemId": 441
+        "listItemId": 690
       },
-      "updatedAt": "2026-06-19 04:06:23"
+      "updatedAt": "2026-06-19 19:19:49"
     }
   ],
   "roles": {
@@ -849,7 +1031,7 @@
             "collection": "automations",
             "slug": "automation-morning-standup-prep"
           },
-          "updatedAt": "2026-06-19 04:06:23"
+          "updatedAt": "2026-06-19 19:19:49"
         },
         {
           "id": 430,
@@ -871,7 +1053,7 @@
             "slug": "blockers",
             "listItemId": 442
           },
-          "updatedAt": "2026-06-19 04:06:23"
+          "updatedAt": "2026-06-19 19:19:49"
         },
         {
           "id": 71,
@@ -891,9 +1073,9 @@
           "source": {
             "collection": "tasks",
             "slug": "denis-decisions-manual",
-            "listItemId": 435
+            "listItemId": 684
           },
-          "updatedAt": "2026-06-19 04:06:23"
+          "updatedAt": "2026-06-19 19:19:49"
         },
         {
           "id": 70,
@@ -913,9 +1095,9 @@
           "source": {
             "collection": "tasks",
             "slug": "denis-decisions-manual",
-            "listItemId": 434
+            "listItemId": 683
           },
-          "updatedAt": "2026-06-19 04:06:23"
+          "updatedAt": "2026-06-19 19:19:49"
         },
         {
           "id": 72,
@@ -935,9 +1117,9 @@
           "source": {
             "collection": "tasks",
             "slug": "denis-decisions-manual",
-            "listItemId": 436
+            "listItemId": 685
           },
-          "updatedAt": "2026-06-19 04:06:23"
+          "updatedAt": "2026-06-19 19:19:49"
         },
         {
           "id": 252,
@@ -957,9 +1139,9 @@
           "source": {
             "collection": "tasks",
             "slug": "denis-decisions-manual",
-            "listItemId": 440
+            "listItemId": 689
           },
-          "updatedAt": "2026-06-19 04:06:23"
+          "updatedAt": "2026-06-19 19:19:49"
         },
         {
           "id": 253,
@@ -979,9 +1161,9 @@
           "source": {
             "collection": "tasks",
             "slug": "denis-decisions-manual",
-            "listItemId": 441
+            "listItemId": 690
           },
-          "updatedAt": "2026-06-19 04:06:23"
+          "updatedAt": "2026-06-19 19:19:49"
         }
       ],
       "prompts": [
@@ -1001,7 +1183,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-06-19 04:06:23"
+          "updatedAt": "2026-06-19 19:19:49"
         }
       ]
     },
@@ -1031,7 +1213,7 @@
             "collection": "automations",
             "slug": "automation-competitor-research"
           },
-          "updatedAt": "2026-06-19 04:06:23"
+          "updatedAt": "2026-06-19 19:19:49"
         }
       ],
       "prompts": [
@@ -1051,7 +1233,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-06-19 04:06:23"
+          "updatedAt": "2026-06-19 19:19:49"
         }
       ]
     },
@@ -1081,7 +1263,95 @@
             "collection": "automations",
             "slug": "automation-business-plan-assistant"
           },
-          "updatedAt": "2026-06-19 04:06:23"
+          "updatedAt": "2026-06-19 19:19:49"
+        },
+        {
+          "id": 792,
+          "slug": "input-task-brand-sprint-day-1-positioning-secret-sauce-hq-brand-sprint",
+          "title": "Brand sprint day 1 — positioning & secret sauce (HQ → Brand sprint)",
+          "kind": "input",
+          "role": "business",
+          "priority": 1,
+          "status": "in_progress",
+          "slackChannel": "#vibe-business",
+          "slackReply": "brand day1: ICP= — NOT for= — secret sauce= — ops=",
+          "slackTrigger": "brand sprint",
+          "prompt": "",
+          "hint": "Day 1 — ICP, anti-audience, secret sauce, PO/consultant model",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {
+            "collection": "tasks",
+            "slug": "denis-decisions-manual",
+            "listItemId": 691
+          },
+          "updatedAt": "2026-06-19 19:19:49"
+        },
+        {
+          "id": 793,
+          "slug": "input-task-brand-sprint-day-2-visual-identity-cta",
+          "title": "Brand sprint day 2 — visual identity + CTA",
+          "kind": "input",
+          "role": "business",
+          "priority": 2,
+          "status": "in_progress",
+          "slackChannel": "#vibe-business",
+          "slackReply": "brand day2: visual= — one-liner= — CTA= — tone OK=",
+          "slackTrigger": "brand sprint",
+          "prompt": "",
+          "hint": "Day 2 — visual A/B/C, one-liner, primary CTA",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {
+            "collection": "tasks",
+            "slug": "denis-decisions-manual",
+            "listItemId": 692
+          },
+          "updatedAt": "2026-06-19 19:19:49"
+        },
+        {
+          "id": 794,
+          "slug": "input-task-brand-sprint-day-3-channels-facebook-strategy-deck-landing-p",
+          "title": "Brand sprint day 3 — channels + Facebook strategy + deck/landing path",
+          "kind": "input",
+          "role": "business",
+          "priority": 2,
+          "status": "in_progress",
+          "slackChannel": "#vibe-business",
+          "slackReply": "brand day3: channels= — facebook= — rhythm= — path=",
+          "slackTrigger": "brand sprint",
+          "prompt": "",
+          "hint": "Day 3 — channel rank, Facebook strategy, deck/landing path",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {
+            "collection": "tasks",
+            "slug": "denis-decisions-manual",
+            "listItemId": 693
+          },
+          "updatedAt": "2026-06-19 19:19:49"
+        },
+        {
+          "id": 795,
+          "slug": "input-task-brand-sprint-day-4-budget-tier-90-day-calendar-sign-off",
+          "title": "Brand sprint day 4 — budget tier + 90-day calendar sign-off",
+          "kind": "input",
+          "role": "business",
+          "priority": 2,
+          "status": "in_progress",
+          "slackChannel": "#vibe-business",
+          "slackReply": "brand day4: budget= — early bird= — plan=",
+          "slackTrigger": "brand sprint",
+          "prompt": "",
+          "hint": "Day 4 — budget tier + 90-day calendar sign-off",
+          "inputLabel": "",
+          "inputExample": "",
+          "source": {
+            "collection": "tasks",
+            "slug": "denis-decisions-manual",
+            "listItemId": 694
+          },
+          "updatedAt": "2026-06-19 19:19:49"
         }
       ],
       "prompts": [
@@ -1101,7 +1371,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-06-19 04:06:23"
+          "updatedAt": "2026-06-19 19:19:49"
         }
       ]
     },
@@ -1131,7 +1401,7 @@
             "collection": "social",
             "slug": "linkedin-first-post"
           },
-          "updatedAt": "2026-06-19 04:06:23"
+          "updatedAt": "2026-06-19 19:19:49"
         },
         {
           "id": 599,
@@ -1152,7 +1422,7 @@
             "collection": "social",
             "slug": "linkedin-page-bio"
           },
-          "updatedAt": "2026-06-19 04:06:23"
+          "updatedAt": "2026-06-19 19:19:49"
         },
         {
           "id": 601,
@@ -1173,7 +1443,7 @@
             "collection": "social",
             "slug": "x-bio-and-first-post"
           },
-          "updatedAt": "2026-06-19 04:06:23"
+          "updatedAt": "2026-06-19 19:19:49"
         },
         {
           "id": 82,
@@ -1194,7 +1464,7 @@
             "collection": "automations",
             "slug": "automation-social-content-draft-only"
           },
-          "updatedAt": "2026-06-19 04:06:23"
+          "updatedAt": "2026-06-19 19:19:49"
         }
       ],
       "prompts": [
@@ -1214,7 +1484,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-06-19 04:06:23"
+          "updatedAt": "2026-06-19 19:19:49"
         }
       ]
     },
@@ -1242,7 +1512,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-06-19 04:06:23"
+          "updatedAt": "2026-06-19 19:19:49"
         }
       ]
     }
@@ -1418,6 +1688,54 @@
                 "owner": "Denis",
                 "reply": "Ongoing — in progress (2026-05-29)"
               }
+            },
+            {
+              "id": null,
+              "text": "Brand sprint day 1 — positioning & secret sauce (HQ → Brand sprint)",
+              "done": false,
+              "column": "in_progress",
+              "owner": "Denis",
+              "meta": {
+                "owner": "Denis",
+                "inbox_status": "in_progress",
+                "sprint": "brand-2026-06-19"
+              }
+            },
+            {
+              "id": null,
+              "text": "Brand sprint day 2 — visual identity + CTA",
+              "done": false,
+              "column": "in_progress",
+              "owner": "Denis",
+              "meta": {
+                "owner": "Denis",
+                "inbox_status": "in_progress",
+                "sprint": "brand-2026-06-19"
+              }
+            },
+            {
+              "id": null,
+              "text": "Brand sprint day 3 — channels + Facebook strategy + deck/landing path",
+              "done": false,
+              "column": "in_progress",
+              "owner": "Denis",
+              "meta": {
+                "owner": "Denis",
+                "inbox_status": "in_progress",
+                "sprint": "brand-2026-06-19"
+              }
+            },
+            {
+              "id": null,
+              "text": "Brand sprint day 4 — budget tier + 90-day calendar sign-off",
+              "done": false,
+              "column": "in_progress",
+              "owner": "Denis",
+              "meta": {
+                "owner": "Denis",
+                "inbox_status": "in_progress",
+                "sprint": "brand-2026-06-19"
+              }
             }
           ],
           "done": [
@@ -1442,7 +1760,7 @@
         "counts": {
           "backlog": 3,
           "todo": 0,
-          "in_progress": 5,
+          "in_progress": 9,
           "done": 2
         }
       },
@@ -1688,6 +2006,16 @@
               "column": "done",
               "owner": "",
               "meta": {}
+            },
+            {
+              "id": null,
+              "text": "Brand sprint HQ tab + marketing plan draft (2026-06-19)",
+              "done": true,
+              "column": "done",
+              "owner": "agent",
+              "meta": {
+                "owner": "agent"
+              }
             }
           ]
         },
@@ -1695,7 +2023,7 @@
           "backlog": 0,
           "todo": 13,
           "in_progress": 0,
-          "done": 16
+          "done": 17
         }
       },
       {
@@ -1751,8 +2079,8 @@
     "totals": {
       "backlog": 3,
       "todo": 13,
-      "in_progress": 6,
-      "done": 18
+      "in_progress": 10,
+      "done": 19
     }
   },
   "planning": {
@@ -26099,32 +26427,31 @@
         "title": "Standup — 2026-06-19",
         "sections": {
           "agent_next": [
-            "After PO channels + JD approved → careers page + LinkedIn announcement draft",
-            "After office picks → lease comparison table in HQ",
-            "After path choice → landing scaffold OR deck export to slides"
+            "After brand day1 → refine positioning in business/plan",
+            "After brand day3 → FB page copy + channel-specific drafts",
+            "After brand day4 → merge approved plan; unlock landing/social CTA"
           ],
           "blockers": [
-            "PO apply → input-blocker-po-apply-method-publish-channels; jobs/product-owner body empty",
-            "Landing vs deck → planning/landing-vs-deck-decision-brief.md"
+            "Brand plan incomplete until sprint days 1–4 answered",
+            "Early bird pricing deferred until Denis legal line"
           ],
           "done": [
-            "Agent: Office re-scrape (1267 listings) + re-rank → data/office-top40.md",
-            "Agent: Office shortlist refresh → planning/office-shortlist-refresh-2026-06-19.md (Kapana 11108782 #1 @ €400)",
-            "Agent: PO expanded JD draft → planning/po-jd-expanded-draft-2026-06-19.md",
-            "Agent: Speaker notes export → content/presentation/speaker-notes.md",
-            "Agent: HQ Inbox unlocks + Denis action pack → planning/hq-inbox-unlocks-2026-06-19.md, denis-action-pack-2026-06-19.md"
+            "Agent: Brand sprint plan + marketing draft → planning/brand-marketing-plan-draft-2026-06-19.md",
+            "Agent: Brand positioning research → research/2026-06-19-brand-positioning-secret-sauce",
+            "Agent: Creative brief draft → content/brand/creative-brief.md",
+            "Agent: HQ Brand sprint tab + 4 daily inbox actions"
           ],
           "ongoing": [
-            "Denis: PO apply method + first publish channel (no reply since 2026-06-05 — day 14)",
-            "Denis: Office Plovdiv — revised shortlist ready; pick 3 + contact landlords",
-            "Denis: HQ Inbox — 4 automations + 3 social drafts open (day 9)",
-            "Denis: Landing page OR presentation deck (speaker notes ready; path not chosen)",
-            "Denis: Create social accounts after approving bios"
+            "Denis: Brand sprint days 1–4 (19–22 Jun) — complete marketing plan",
+            "Denis: PO interviews + ops model (consultant vs FT vs hybrid)",
+            "Denis: Facebook page (empty) — strategy in brand sprint day 3",
+            "Denis: Office Plovdiv — pick 3 visits",
+            "Denis: HQ Inbox — automations + social drafts still open"
           ],
           "today": [
-            "Denis: PO apply + channels (+ approve expanded JD or paste text)",
-            "Denis: Office — pick 3 from planning/office-shortlist-refresh-2026-06-19.md",
-            "Denis: HQ Inbox — approve automations + social copy"
+            "Denis: Brand sprint day 1 — ICP + secret sauce + ops model (HQ → Brand sprint)",
+            "Denis: PO apply + channels (if not done)",
+            "Denis: HQ Inbox — approve LinkedIn bio + first post when ready"
           ]
         }
       },
@@ -26256,7 +26583,468 @@
           ]
         }
       }
-    ]
+    ],
+    "brandSprint": {
+      "id": 768,
+      "collection": "roadmap",
+      "slug": "brand-sprint",
+      "title": "Brand sprint — 4 days",
+      "status": null,
+      "body": "# Brand & marketing sprint — 4 days (19–22 Jun 2026)\n\n**Goal:** Complete a founder-approved brand + marketing plan Denis can execute against.  \n**Owner:** Denis (decisions) · Agents (drafts, research, HQ updates)  \n**HQ:** Open **Brand sprint** tab for daily focus, copy-paste Slack replies, and resources.\n\n---\n\n## Why now\n\n- PO listing live + interviews → need consistent story for candidates and leads\n- Empty Facebook page → need channel strategy before posting\n- Consultant vs full-time PO vs hybrid ops → affects how brand shows up day-to-day\n- SoftUni owns “vibe coding for beginners / no-code” — we must own a **different wedge**\n\n---\n\n## Sprint schedule\n\n| Day | Date | Focus | Denis output (Slack) |\n|-----|------|-------|----------------------|\n| **1** | Thu 19 Jun | Positioning & secret sauce | `brand day1: …` |\n| **2** | Fri 20 Jun | Identity — how you appear | `brand day2: …` |\n| **3** | Sat 21 Jun | Channels & content rhythm | `brand day3: …` |\n| **4** | Sun 22 Jun | Budget + 90-day marketing calendar | `brand day4: …` |\n\nAfter day 4: agent merges answers into `planning/brand-marketing-plan-draft-2026-06-19.md` + `business/plan` sections in hq.db.\n\n---\n\n## Day 1 — Positioning & secret sauce\n\n**Read first:** `research/2026-06-19-brand-positioning-secret-sauce.md`\n\n**Denis tasks (60–90 min)**\n\n1. Pick **primary ICP** (one sentence): e.g. “Mid-level BG devs already using Cursor who want a shipped capstone + automation pack”\n2. Write **anti-audience** (who we turn away): e.g. “Career switchers with zero coding”\n3. Confirm or edit **secret sauce** draft (3 bullets max)\n4. Choose **PO / ops model** for next 90 days: full-time PO | consultant | hybrid (you + part-time)\n\n**Copy-paste reply**\n\n```\nbrand day1: ICP=[…] — NOT for=[…] — secret sauce=[bullet1; bullet2; bullet3] — ops=[full-time PO | consultant | hybrid]\n```\n\n---\n\n## Day 2 — Brand identity (how you appear)\n\n**Read first:** `content/brand/creative-brief.md`\n\n**Denis tasks (45–60 min)**\n\n1. Pick **visual direction** (A / B / C in creative brief) or paste references\n2. Confirm **one-liner** (BG + EN if needed) — current: “Стани част от AI революцията”\n3. Pick **primary CTA** for next 30 days: waitlist | LinkedIn DM | info session\n4. Approve or edit **tone** (practitioner / no hype — see brand-voice rule)\n\n**Copy-paste reply**\n\n```\nbrand day2: visual=[A|B|C|custom URL] — one-liner=[…] — CTA=[waitlist|LinkedIn|info session] — tone OK=[yes|edits: …]\n```\n\n---\n\n## Day 3 — Channels & content rhythm\n\n**Denis tasks (45–60 min)**\n\n1. Rank channels for **first 90 days** (1 = most effort): LinkedIn, Facebook, X, YouTube, local meetups, paid ads\n2. **Facebook page** — purpose: community hub | event announcements | repost LinkedIn | skip for now\n3. **Content rhythm** — pick one: 2×/week LinkedIn + 1×/month live | 3×/week short posts | minimal until cohort date set\n4. **Path:** deck-first | landing-first | hybrid (from `planning/landing-vs-deck-decision-brief.md`)\n\n**Copy-paste reply**\n\n```\nbrand day3: channels=[LI=#, FB=#, X=#, …] — facebook=[hub|events|repost|skip] — rhythm=[…] — path=[deck|landing|hybrid]\n```\n\n---\n\n## Day 4 — Budget & 90-day calendar\n\n**Read first:** budget scenarios table in HQ Brand sprint tab\n\n**Denis tasks (60 min)**\n\n1. Pick **budget tier**: lean (€500–1.5k/mo) | medium (€1.5–4k) | aggressive (€4k+) for months 1–3\n2. Approve **early bird placeholder** or defer: price range, seats, target month (no public claim until legal line OK)\n3. Sign off **week 1–4 marketing actions** (agent draft in plan doc)\n4. Final: `brand plan approved` or list edits\n\n**Copy-paste reply**\n\n```\nbrand day4: budget=[lean|medium|aggressive] — early bird=[defer | €X / N seats / month] — plan=[approved | edits: …]\n```\n\n---\n\n## Resources (prep reading)\n\n| Resource | Why |\n|----------|-----|\n| [SoftUni Vibe Coding program](https://ai.softuni.bg/application-vibe-coding) | See what “vibe coding” means in BG market — **no-code / beginners** |\n| [Telerik — Marketing budgets sprint](https://www.telerikacademy.com/sprint/marketing-budgets-that-drive-growth) | Budget allocation framework (BG-priced) |\n| `research/2026-05-27-bulgaria-ai-coding-market` | Competitor map in hq.db |\n| `planning/landing-vs-deck-decision-brief.md` | Deck vs landing tradeoffs |\n| `content/presentation/outline.md` | Existing narrative spine |\n| [Google Ads BG training case study](https://www.adwaycreative.bg/arlet-k-professional-training-center-case-study-google-ads-strategy/) | Local CPA benchmarks (~€3–6 per inquiry) |\n| *Obviously Awesome* (April Dunford) | Positioning workbook — 1-hour skim of “context + differentiation” |\n| [Indie Hackers — audience building](https://www.indiehackers.com/) | Practitioner-led brand examples |\n\n---\n\n## Agent follow-up after sprint\n\n1. Merge Denis replies → `planning/brand-marketing-plan-draft-2026-06-19.md`\n2. Update `business/plan-*` sections in hq.db\n3. Unlock social drafts + FB page copy aligned to chosen CTA\n4. PO/consultant decision → update hiring comms in careers draft\n",
+      "props": {
+        "sprint_start": "2026-06-19",
+        "sprint_end": "2026-06-22",
+        "current_day": 1,
+        "plan_doc": "planning/brand-marketing-plan-draft-2026-06-19.md"
+      },
+      "sortOrder": 4,
+      "updatedAt": "2026-06-19 19:19:49",
+      "listItems": [
+        {
+          "entryId": 768,
+          "section": "day1",
+          "text": "Read research/2026-06-19-brand-positioning-secret-sauce",
+          "done": false,
+          "meta": {
+            "owner": "Denis"
+          }
+        },
+        {
+          "entryId": 768,
+          "section": "day1",
+          "text": "Pick primary ICP (one sentence)",
+          "done": false,
+          "meta": {
+            "owner": "Denis"
+          }
+        },
+        {
+          "entryId": 768,
+          "section": "day1",
+          "text": "Confirm anti-audience + 3-bullet secret sauce",
+          "done": false,
+          "meta": {
+            "owner": "Denis"
+          }
+        },
+        {
+          "entryId": 768,
+          "section": "day1",
+          "text": "Choose ops model: full-time PO | consultant | hybrid",
+          "done": false,
+          "meta": {
+            "owner": "Denis"
+          }
+        },
+        {
+          "entryId": 768,
+          "section": "day1",
+          "text": "Slack: brand day1: ICP=… — NOT for=… — secret sauce=… — ops=…",
+          "done": false,
+          "meta": {
+            "owner": "Denis"
+          }
+        },
+        {
+          "entryId": 768,
+          "section": "day2",
+          "text": "Read content/brand/creative-brief.md — pick visual A/B/C",
+          "done": false,
+          "meta": {
+            "owner": "Denis"
+          }
+        },
+        {
+          "entryId": 768,
+          "section": "day2",
+          "text": "Confirm one-liner + sub-line",
+          "done": false,
+          "meta": {
+            "owner": "Denis"
+          }
+        },
+        {
+          "entryId": 768,
+          "section": "day2",
+          "text": "Pick primary CTA: waitlist | LinkedIn | info session",
+          "done": false,
+          "meta": {
+            "owner": "Denis"
+          }
+        },
+        {
+          "entryId": 768,
+          "section": "day2",
+          "text": "Approve tone (practitioner / no hype)",
+          "done": false,
+          "meta": {
+            "owner": "Denis"
+          }
+        },
+        {
+          "entryId": 768,
+          "section": "day2",
+          "text": "Slack: brand day2: visual=… — one-liner=… — CTA=… — tone OK=…",
+          "done": false,
+          "meta": {
+            "owner": "Denis"
+          }
+        },
+        {
+          "entryId": 768,
+          "section": "day3",
+          "text": "Rank channels for 90 days (LinkedIn, FB, X, YouTube, meetups, paid)",
+          "done": false,
+          "meta": {
+            "owner": "Denis"
+          }
+        },
+        {
+          "entryId": 768,
+          "section": "day3",
+          "text": "Facebook page purpose: hub | events | repost | skip",
+          "done": false,
+          "meta": {
+            "owner": "Denis"
+          }
+        },
+        {
+          "entryId": 768,
+          "section": "day3",
+          "text": "Pick content rhythm (2×/week LI, etc.)",
+          "done": false,
+          "meta": {
+            "owner": "Denis"
+          }
+        },
+        {
+          "entryId": 768,
+          "section": "day3",
+          "text": "Path: deck-first | landing-first | hybrid",
+          "done": false,
+          "meta": {
+            "owner": "Denis"
+          }
+        },
+        {
+          "entryId": 768,
+          "section": "day3",
+          "text": "Slack: brand day3: channels=… — facebook=… — rhythm=… — path=…",
+          "done": false,
+          "meta": {
+            "owner": "Denis"
+          }
+        },
+        {
+          "entryId": 768,
+          "section": "day4",
+          "text": "Pick budget tier: lean | medium | aggressive",
+          "done": false,
+          "meta": {
+            "owner": "Denis"
+          }
+        },
+        {
+          "entryId": 768,
+          "section": "day4",
+          "text": "Early bird: defer OR price/seats/month",
+          "done": false,
+          "meta": {
+            "owner": "Denis"
+          }
+        },
+        {
+          "entryId": 768,
+          "section": "day4",
+          "text": "Review 90-day calendar in brand-marketing-plan-draft",
+          "done": false,
+          "meta": {
+            "owner": "Denis"
+          }
+        },
+        {
+          "entryId": 768,
+          "section": "day4",
+          "text": "Slack: brand day4: budget=… — early bird=… — plan=approved|edits",
+          "done": false,
+          "meta": {
+            "owner": "Denis"
+          }
+        },
+        {
+          "entryId": 768,
+          "section": "resources",
+          "text": "SoftUni Vibe Coding — https://ai.softuni.bg/application-vibe-coding",
+          "done": false,
+          "meta": {
+            "tag": "competitor"
+          }
+        },
+        {
+          "entryId": 768,
+          "section": "resources",
+          "text": "Telerik marketing budgets sprint — https://www.telerikacademy.com/sprint/marketing-budgets-that-drive-growth",
+          "done": false,
+          "meta": {
+            "tag": "budget"
+          }
+        },
+        {
+          "entryId": 768,
+          "section": "resources",
+          "text": "BG Google Ads CPA case study — https://www.adwaycreative.bg/arlet-k-professional-training-center-case-study-google-ads-strategy/",
+          "done": false,
+          "meta": {
+            "tag": "paid"
+          }
+        },
+        {
+          "entryId": 768,
+          "section": "resources",
+          "text": "Internal: planning/brand-marketing-plan-draft-2026-06-19.md",
+          "done": false,
+          "meta": {
+            "tag": "plan"
+          }
+        },
+        {
+          "entryId": 768,
+          "section": "resources",
+          "text": "Internal: content/brand/creative-brief.md",
+          "done": false,
+          "meta": {
+            "tag": "brand"
+          }
+        },
+        {
+          "entryId": 768,
+          "section": "resources",
+          "text": "Internal: planning/landing-vs-deck-decision-brief.md",
+          "done": false,
+          "meta": {
+            "tag": "decision"
+          }
+        }
+      ],
+      "tables": [
+        {
+          "name": "budget_scenarios",
+          "columns": [
+            "tier",
+            "monthly_eur",
+            "best_for",
+            "includes"
+          ],
+          "rows": [
+            {
+              "tier": "Lean",
+              "monthly_eur": "€50–200",
+              "best_for": "Pre-waitlist; founder-led LI only",
+              "includes": "Tools only; no paid ads; DIY brand"
+            },
+            {
+              "tier": "Medium",
+              "monthly_eur": "€1–2.5k",
+              "best_for": "Landing live + part-time ops",
+              "includes": "Modest ads; design; PO/consultant partial"
+            },
+            {
+              "tier": "Aggressive",
+              "monthly_eur": "€4–8k",
+              "best_for": "Fast cohort fill",
+              "includes": "Always-on paid; video; events; FT ops"
+            }
+          ]
+        }
+      ],
+      "sections": {
+        "day1": [
+          {
+            "text": "Read research/2026-06-19-brand-positioning-secret-sauce",
+            "done": false,
+            "meta": {
+              "owner": "Denis"
+            }
+          },
+          {
+            "text": "Pick primary ICP (one sentence)",
+            "done": false,
+            "meta": {
+              "owner": "Denis"
+            }
+          },
+          {
+            "text": "Confirm anti-audience + 3-bullet secret sauce",
+            "done": false,
+            "meta": {
+              "owner": "Denis"
+            }
+          },
+          {
+            "text": "Choose ops model: full-time PO | consultant | hybrid",
+            "done": false,
+            "meta": {
+              "owner": "Denis"
+            }
+          },
+          {
+            "text": "Slack: brand day1: ICP=… — NOT for=… — secret sauce=… — ops=…",
+            "done": false,
+            "meta": {
+              "owner": "Denis"
+            }
+          }
+        ],
+        "day2": [
+          {
+            "text": "Read content/brand/creative-brief.md — pick visual A/B/C",
+            "done": false,
+            "meta": {
+              "owner": "Denis"
+            }
+          },
+          {
+            "text": "Confirm one-liner + sub-line",
+            "done": false,
+            "meta": {
+              "owner": "Denis"
+            }
+          },
+          {
+            "text": "Pick primary CTA: waitlist | LinkedIn | info session",
+            "done": false,
+            "meta": {
+              "owner": "Denis"
+            }
+          },
+          {
+            "text": "Approve tone (practitioner / no hype)",
+            "done": false,
+            "meta": {
+              "owner": "Denis"
+            }
+          },
+          {
+            "text": "Slack: brand day2: visual=… — one-liner=… — CTA=… — tone OK=…",
+            "done": false,
+            "meta": {
+              "owner": "Denis"
+            }
+          }
+        ],
+        "day3": [
+          {
+            "text": "Rank channels for 90 days (LinkedIn, FB, X, YouTube, meetups, paid)",
+            "done": false,
+            "meta": {
+              "owner": "Denis"
+            }
+          },
+          {
+            "text": "Facebook page purpose: hub | events | repost | skip",
+            "done": false,
+            "meta": {
+              "owner": "Denis"
+            }
+          },
+          {
+            "text": "Pick content rhythm (2×/week LI, etc.)",
+            "done": false,
+            "meta": {
+              "owner": "Denis"
+            }
+          },
+          {
+            "text": "Path: deck-first | landing-first | hybrid",
+            "done": false,
+            "meta": {
+              "owner": "Denis"
+            }
+          },
+          {
+            "text": "Slack: brand day3: channels=… — facebook=… — rhythm=… — path=…",
+            "done": false,
+            "meta": {
+              "owner": "Denis"
+            }
+          }
+        ],
+        "day4": [
+          {
+            "text": "Pick budget tier: lean | medium | aggressive",
+            "done": false,
+            "meta": {
+              "owner": "Denis"
+            }
+          },
+          {
+            "text": "Early bird: defer OR price/seats/month",
+            "done": false,
+            "meta": {
+              "owner": "Denis"
+            }
+          },
+          {
+            "text": "Review 90-day calendar in brand-marketing-plan-draft",
+            "done": false,
+            "meta": {
+              "owner": "Denis"
+            }
+          },
+          {
+            "text": "Slack: brand day4: budget=… — early bird=… — plan=approved|edits",
+            "done": false,
+            "meta": {
+              "owner": "Denis"
+            }
+          }
+        ],
+        "resources": [
+          {
+            "text": "SoftUni Vibe Coding — https://ai.softuni.bg/application-vibe-coding",
+            "done": false,
+            "meta": {
+              "tag": "competitor"
+            }
+          },
+          {
+            "text": "Telerik marketing budgets sprint — https://www.telerikacademy.com/sprint/marketing-budgets-that-drive-growth",
+            "done": false,
+            "meta": {
+              "tag": "budget"
+            }
+          },
+          {
+            "text": "BG Google Ads CPA case study — https://www.adwaycreative.bg/arlet-k-professional-training-center-case-study-google-ads-strategy/",
+            "done": false,
+            "meta": {
+              "tag": "paid"
+            }
+          },
+          {
+            "text": "Internal: planning/brand-marketing-plan-draft-2026-06-19.md",
+            "done": false,
+            "meta": {
+              "tag": "plan"
+            }
+          },
+          {
+            "text": "Internal: content/brand/creative-brief.md",
+            "done": false,
+            "meta": {
+              "tag": "brand"
+            }
+          },
+          {
+            "text": "Internal: planning/landing-vs-deck-decision-brief.md",
+            "done": false,
+            "meta": {
+              "tag": "decision"
+            }
+          }
+        ]
+      }
+    }
   },
   "researchHub": {
     "entries": [
@@ -26280,6 +27068,18 @@
         },
         "excerpt": "# Plovdiv IT / AI courses landscape\n\n**Date:** 2026-05-28  \n**Analyst:** Developer agent (batched inbox)  \n**Confidence:** medium  \n**Scope:** IT, programming, and AI-related education reachable from Plovdiv (on-site, hybrid, or national online with local presence).\n\n## Summary\n\nPlovdiv has university and high-school AI/informatics tracks, a local IT STEP campus for multi-year software development (including Python AI modules), and access to national brands (SoftUni, NobleProg, Telerik) that sell into the city online or via Sofia/Plovdiv classrooms. There is no obvious independent “Cursor-first academy” headquartered in Plovdiv; the competitive set is a mix of degree programs, teen coding schools, and national bootcamp brands.\n\n## Offer & positioning\n\n| Provider | Locality | Offer & positioning | Audience | Notes |\n|----------|----------|---------------------|----------|-------|\n| Plovdiv University — AI (bachelor) | Plovdiv on-site | Degree in AI, ML, intelligent systems | Students 18+ | Academic path, not practitioner bootcamp |\n| Plovdiv University — Informatics / ICE | Plovdiv on-site | CS / ICE engineering degrees | Students 18+ | Adjacent pipeline, long cycle |\n| PU AIU short…",
         "bodyLength": 4266,
+        "tables": []
+      },
+      {
+        "slug": "2026-06-19-brand-positioning-secret-sauce",
+        "title": "Brand positioning & secret sauce",
+        "props": {
+          "report_date": "2026-06-19",
+          "scope": "brand",
+          "confidence": "high"
+        },
+        "excerpt": "# Brand positioning & secret sauce — Bulgaria 2026\n\n**Date:** 2026-06-19  \n**Analyst:** Dev Agent (brand sprint)  \n**Confidence:** high on competitor positioning; medium on pricing (VCA pre-launch)\n\n## Summary\n\n“Vibe coding” in Bulgaria is **already claimed** by SoftUni AI as **no-code / beginner** software creation via Bolt, Lovable, and Replit ([SoftUni AI program](https://ai.softuni.bg/application-vibe-coding)). Vibe Coders Academy must **not** compete on that definition. The defensible position is **agentic engineering for developers who already code** — Cursor rules, skills, MCP integrations, and automations that ship production repos. Secondary competitors (Telerik GenAI sprint, NobleProg corporate Cursor training) validate demand but lack cohort + capstone + founder-led automation stack positioning.\n\n## Offer & positioning\n\n| Player | Positioning | Audience | Overlap with VCA |\n|--------|-------------|----------|------------------|\n| SoftUni AI Vibe Coding | No-code apps via AI prompts; large academy brand | Beginners, career explorers | **Name collision only** — different ICP |\n| SoftUni AI Agents / Copilot courses | Tool training at scale | Devs + business users | Adjacent…",
+        "bodyLength": 4592,
         "tables": []
       },
       {

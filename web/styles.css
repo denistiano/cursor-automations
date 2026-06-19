@@ -831,3 +831,25 @@ body {
 @media (max-width: 520px) {
   .kanban { grid-template-columns: 1fr; }
 }
+
+.panel-brand {
+  border-color: rgba(129, 140, 248, 0.35);
+  background: linear-gradient(135deg, rgba(129, 140, 248, 0.08), transparent 60%), var(--panel);
+}
+
+.brand-stat-grid { margin-bottom: 16px; }
+
+.brand-day-panel { border-left: 3px solid var(--accent); padding-left: 16px; }
+
+.brand-task-list li { margin-bottom: 8px; }
+
+.brand-copy { margin-top: 16px; }
+
+.resource-list {
+  margin: 0;
+  padding-left: 1.2rem;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.resource-list a { color: var(--accent); }

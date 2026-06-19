@@ -3,6 +3,7 @@
     { "id": "home", "label": "Home", "icon": "home", "view": "home" },
     { "id": "inbox", "label": "Inbox", "icon": "inbox", "view": "inbox" },
     { "id": "office", "label": "Office search", "icon": "building", "view": "office" },
+    { "id": "brand", "label": "Brand sprint", "icon": "sparkles", "view": "brand" },
     { "id": "work", "label": "Work plan", "icon": "calendar", "view": "work" },
     { "id": "research", "label": "Research", "icon": "search", "view": "research" }
   ],
