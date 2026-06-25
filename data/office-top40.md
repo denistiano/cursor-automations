@@ -1,7 +1,7 @@
 # Plovdiv office — top 10 × 4 (40 suggestions)
 
-Generated: 2026-06-19T04:04:46.256703+00:00
-Listings scraped: 1267 | Candidates ≥40 m²: 763
+Generated: 2026-06-22T08:28:53.542170+00:00
+Listings scraped: 1264 | Candidates ≥40 m²: 757
 
 Amenity bonus: kitchen and/or leisure room explicitly mentioned in listing text.
 
@@ -12,11 +12,11 @@ Amenity bonus: kitchen and/or leisure room explicitly mentioned in listing text.
 3. [Просторен офис от собственик](https://www.alo.bg/prostoren-ofis-ot-sobstvenik-10907726) — €650.0/mo, 109.0 m², Център, Пловдив · score 0.84 · **kitchen**
 4. [ПРОМО Coworking/Споделен/Виртуален офис/Коуъркинг/Plovdiv center/Grand/Гранд/Център](https://www.alo.bg/promo-coworking-spodelen-virtualen-ofis-kouarking-plovdiv-center-grand-grand-centar-8894450) — €52.99/mo, 67.0 m², Център, Пловдив · score 0.83
 5. [Офис под наем на топ локация в Капана](https://www.alo.bg/ofis-pod-naem-na-top-lokaciya-v-kapana-11108782) — €400.0/mo, 50.0 m², Plovdiv · score 0.81 · **kitchen**
-6. [Просторен офис с конферентна зала в центъра на Пловдив](https://www.alo.bg/prostoren-ofis-s-konferentna-zala-v-centara-na-plovdiv-10896437) — €580.0/mo, 100.0 m², Център, Пловдив · score 0.80
-7. [150кв.м в района на Бирената фабрика700евро. Чудесно за офис за обучение, занималня, езиков център](https://www.alo.bg/150kv-m-v-raiona-na-birenata-fabrika700evro-chudesno-za-ofis-za-obuchenie-zanimalnya-ezikov-centar-10885200) — €700.0/mo, 150.0 m², Каменица 1, Пловдив · score 0.79
-8. [Зала под наем за семинари, обучения, презентации в центъра на Пловдив](https://www.alo.bg/zala-pod-naem-za-seminari-obucheniya-prezentacii-v-centara-na-plovdiv-8038299) — €5.0/mo, 50.0 m², Център, Пловдив · score 0.79
+6. [Офис, Пловдив, Център, 150 кв.м., 700 €](https://www.alo.bg/ofis-plovdiv-centar-150-kv-m-700-9900941) — €700.0/mo, 150.0 m², Център, Пловдив · score 0.81 · **kitchen**
+7. [Просторен офис с конферентна зала в центъра на Пловдив](https://www.alo.bg/prostoren-ofis-s-konferentna-zala-v-centara-na-plovdiv-10896437) — €580.0/mo, 100.0 m², Център, Пловдив · score 0.80
+8. [150кв.м в района на Бирената фабрика700евро. Чудесно за офис за обучение, занималня, езиков център](https://www.alo.bg/150kv-m-v-raiona-na-birenata-fabrika700evro-chudesno-za-ofis-za-obuchenie-zanimalnya-ezikov-centar-10885200) — €700.0/mo, 150.0 m², Каменица 1, Пловдив · score 0.79
 9. [Зала под наем за провеждане на обучения и семинари](https://www.alo.bg/zala-pod-naem-za-provejdane-na-obucheniya-i-seminari-4734755) — €25.56/mo, 42.0 m², Център, Пловдив · score 0.79
-10. [Офис Топ Център](https://www.alo.bg/ofis-top-centar-11019484) — €520.0/mo, 75.0 m², Център, Пловдив · score 0.79 · **kitchen**
+10. [Офис 136 кв.м](https://www.alo.bg/ofis-136-kv-m-8538879) — €650.0/mo, 136.0 m², Център, Пловдив · score 0.79
 
 ## Best location (Kapana / center)
 
@@ -26,17 +26,17 @@ Amenity bonus: kitchen and/or leisure room explicitly mentioned in listing text.
 4. [Офис в гр. Пловдив - Капана!](https://www.alo.bg/ofis-v-gr-plovdiv-kapana-10769362) — €450.0/mo, 76.0 m², Център, Пловдив · score 1.00 · **kitchen**
 5. [ОФИС под наем в сърцето на Капана](https://www.alo.bg/ofis-pod-naem-v-sarceto-na-kapana-11086332) — €450.0/mo, 75.0 m², Център, Пловдив · score 1.00 · **kitchen**
 6. [Офис - Главната улица - Капана - Съда](https://www.alo.bg/ofis-glavnata-ulica-kapana-sada-10531956) — €550.0/mo, 90.0 m², Център, Пловдив · score 1.00 · **kitchen**
-7. [В сърцето на Капана - за първи наематели, за различни дейности / партер](https://www.alo.bg/v-sarceto-na-kapana-za-parvi-naemateli-za-razlichni-deinosti-parter-10915009) — €550.0/mo, 64.0 m², Plovdiv · score 1.00 · **kitchen**
-8. [Търговско помещение - кв. Капана - ТОП ОФЕРТА](https://www.alo.bg/targovsko-pomeshtenie-kv-kapana-top-oferta-10658435) — €700.0/mo, 66.0 m², Център, Пловдив · score 1.00
-9. [Магазин - Център - Капана](https://www.alo.bg/magazin-centar-kapana-11208640) — €700.0/mo, 45.0 m², Център, Пловдив · score 1.00
-10. [Магазин под наем в Капана](https://www.alo.bg/magazin-pod-naem-v-kapana-10573251) — €766.94/mo, 60.0 m², Център, Пловдив · score 1.00
+7. [Office listing](https://www.alo.bg/kapana-za-parvi-naemateli-prostranstvo-za-biznes-i-vdahnovenie-parter-11104973) — €550.0/mo, 88.0 m², Христо Смирненски, Пловдив · score 1.00 · **kitchen**
+8. [В сърцето на Капана - за първи наематели, за различни дейности / партер](https://www.alo.bg/v-sarceto-na-kapana-za-parvi-naemateli-za-razlichni-deinosti-parter-10915009) — €550.0/mo, 64.0 m², Plovdiv · score 1.00 · **kitchen**
+9. [Търговско помещение - кв. Капана - ТОП ОФЕРТА](https://www.alo.bg/targovsko-pomeshtenie-kv-kapana-top-oferta-10658435) — €700.0/mo, 66.0 m², Център, Пловдив · score 1.00
+10. [Магазин - Център - Капана](https://www.alo.bg/magazin-centar-kapana-11208640) — €700.0/mo, 45.0 m², Център, Пловдив · score 1.00
 
 ## Most luxurious
 
 1. [Офис под наем на топ локация в Капана](https://www.alo.bg/ofis-pod-naem-na-top-lokaciya-v-kapana-11108782) — €400.0/mo, 50.0 m², Plovdiv · score 1.00 · **kitchen**
 2. [Офис в гр. Пловдив - център!](https://www.alo.bg/ofis-v-gr-plovdiv-centar-11081121) — €400.0/mo, 50.0 m², Център, Пловдив · score 1.00
 3. [Офис в гр. Пловдив - Капана!](https://www.alo.bg/ofis-v-gr-plovdiv-kapana-10769362) — €450.0/mo, 76.0 m², Център, Пловдив · score 1.00 · **kitchen**
-4. [Офис Топ Център](https://www.alo.bg/ofis-top-centar-11019484) — €520.0/mo, 75.0 m², Център, Пловдив · score 1.00 · **kitchen**
+4. [Office listing](https://www.alo.bg/kapana-za-parvi-naemateli-prostranstvo-za-biznes-i-vdahnovenie-parter-11104973) — €550.0/mo, 88.0 m², Христо Смирненски, Пловдив · score 1.00 · **kitchen**
 5. [В сърцето на Капана - за първи наематели, за различни дейности / партер](https://www.alo.bg/v-sarceto-na-kapana-za-parvi-naemateli-za-razlichni-deinosti-parter-10915009) — €550.0/mo, 64.0 m², Plovdiv · score 1.00 · **kitchen**
 6. [Просторен офис от собственик](https://www.alo.bg/prostoren-ofis-ot-sobstvenik-10907726) — €650.0/mo, 109.0 m², Център, Пловдив · score 1.00 · **kitchen**
 7. [Офис 72 кв.м Тухла Готов (завършен)](https://www.alo.bg/ofis-72-kv-m-tuhla-gotov-zavarshen-9901631) — €664.68/mo, 72.0 m², Център, Пловдив · score 1.00
@@ -46,7 +46,7 @@ Amenity bonus: kitchen and/or leisure room explicitly mentioned in listing text.
 
 ## Best price (usable m² per euro)
 
-1. [Зала под наем за семинари, обучения, презентации в центъра на Пловдив](https://www.alo.bg/zala-pod-naem-za-seminari-obucheniya-prezentacii-v-centara-na-plovdiv-8038299) — €5.0/mo, 50.0 m², Център, Пловдив · score 1.00
+1. [REGATTA PARK WEST - МАГАЗИН, 54 кв.м., с Акт 16, кв. Христо Смирненски](https://www.alo.bg/regatta-park-west-magazin-54-kv-m-s-akt-16-kv-hristo-smirnenski-9931015) — €4.0/mo, 54.0 m², Гребна база, Пловдив · score 1.00
 2. [Зала под наем за провеждане на обучения и семинари](https://www.alo.bg/zala-pod-naem-za-provejdane-na-obucheniya-i-seminari-4734755) — €25.56/mo, 42.0 m², Център, Пловдив · score 1.00
 3. [Зала под наем](https://www.alo.bg/zala-pod-naem-9252791) — €51.13/mo, 50.0 m², Център, Пловдив · score 1.00
 4. [ПРОМО Coworking/Споделен/Виртуален офис/Коуъркинг/Plovdiv center/Grand/Гранд/Център](https://www.alo.bg/promo-coworking-spodelen-virtualen-ofis-kouarking-plovdiv-center-grand-grand-centar-8894450) — €52.99/mo, 67.0 m², Център, Пловдив · score 1.00
