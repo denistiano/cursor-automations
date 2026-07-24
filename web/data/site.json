@@ -1,8 +1,8 @@
 {
   "meta": {
-    "generatedAt": "2026-07-23T04:04:08.857830+00:00",
+    "generatedAt": "2026-07-24T04:01:35.223866+00:00",
     "generator": "scripts/build_site.py",
-    "gitSha": "6de1b21dbf1d11e6d585ba2f75e8b2a7305f86dd",
+    "gitSha": "ea91ec5cc7d777e398066a3f6cb5d0956fea4c5e",
     "schemaVersion": "1",
     "dataModel": "hq-sections-v3"
   },
@@ -191,7 +191,7 @@
         "collection": "social",
         "slug": "linkedin-first-post"
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 599,
@@ -212,7 +212,7 @@
         "collection": "social",
         "slug": "linkedin-page-bio"
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 601,
@@ -233,7 +233,7 @@
         "collection": "social",
         "slug": "x-bio-and-first-post"
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 81,
@@ -254,7 +254,7 @@
         "collection": "automations",
         "slug": "automation-business-plan-assistant"
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 80,
@@ -275,7 +275,7 @@
         "collection": "automations",
         "slug": "automation-competitor-research"
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 79,
@@ -296,7 +296,7 @@
         "collection": "automations",
         "slug": "automation-morning-standup-prep"
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 82,
@@ -317,7 +317,7 @@
         "collection": "automations",
         "slug": "automation-social-content-draft-only"
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 792,
@@ -339,7 +339,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 691
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 430,
@@ -361,7 +361,7 @@
         "slug": "blockers",
         "listItemId": 442
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 71,
@@ -383,7 +383,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 684
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 70,
@@ -405,7 +405,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 683
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 72,
@@ -427,7 +427,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 685
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 793,
@@ -449,7 +449,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 692
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 794,
@@ -471,7 +471,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 693
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 795,
@@ -493,7 +493,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 694
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 252,
@@ -515,7 +515,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 689
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 253,
@@ -537,7 +537,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 690
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     }
   ],
   "inboxBatch": {
@@ -565,7 +565,7 @@
         "collection": "social",
         "slug": "linkedin-first-post"
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 599,
@@ -586,7 +586,7 @@
         "collection": "social",
         "slug": "linkedin-page-bio"
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 601,
@@ -607,7 +607,7 @@
         "collection": "social",
         "slug": "x-bio-and-first-post"
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 81,
@@ -628,7 +628,7 @@
         "collection": "automations",
         "slug": "automation-business-plan-assistant"
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 80,
@@ -649,7 +649,7 @@
         "collection": "automations",
         "slug": "automation-competitor-research"
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 79,
@@ -670,7 +670,7 @@
         "collection": "automations",
         "slug": "automation-morning-standup-prep"
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 82,
@@ -691,7 +691,7 @@
         "collection": "automations",
         "slug": "automation-social-content-draft-only"
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 61,
@@ -709,7 +709,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 63,
@@ -727,7 +727,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 59,
@@ -745,7 +745,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 60,
@@ -763,7 +763,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 62,
@@ -781,7 +781,7 @@
       "inputLabel": "",
       "inputExample": "",
       "source": {},
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 792,
@@ -803,7 +803,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 691
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 430,
@@ -825,7 +825,7 @@
         "slug": "blockers",
         "listItemId": 442
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 71,
@@ -847,7 +847,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 684
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 70,
@@ -869,7 +869,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 683
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 72,
@@ -891,7 +891,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 685
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 793,
@@ -913,7 +913,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 692
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 794,
@@ -935,7 +935,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 693
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 795,
@@ -957,7 +957,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 694
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 252,
@@ -979,7 +979,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 689
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     },
     {
       "id": 253,
@@ -1001,7 +1001,7 @@
         "slug": "denis-decisions-manual",
         "listItemId": 690
       },
-      "updatedAt": "2026-07-23 04:04:08"
+      "updatedAt": "2026-07-24 04:01:35"
     }
   ],
   "roles": {
@@ -1031,7 +1031,7 @@
             "collection": "automations",
             "slug": "automation-morning-standup-prep"
           },
-          "updatedAt": "2026-07-23 04:04:08"
+          "updatedAt": "2026-07-24 04:01:35"
         },
         {
           "id": 430,
@@ -1053,7 +1053,7 @@
             "slug": "blockers",
             "listItemId": 442
           },
-          "updatedAt": "2026-07-23 04:04:08"
+          "updatedAt": "2026-07-24 04:01:35"
         },
         {
           "id": 71,
@@ -1075,7 +1075,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 684
           },
-          "updatedAt": "2026-07-23 04:04:08"
+          "updatedAt": "2026-07-24 04:01:35"
         },
         {
           "id": 70,
@@ -1097,7 +1097,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 683
           },
-          "updatedAt": "2026-07-23 04:04:08"
+          "updatedAt": "2026-07-24 04:01:35"
         },
         {
           "id": 72,
@@ -1119,7 +1119,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 685
           },
-          "updatedAt": "2026-07-23 04:04:08"
+          "updatedAt": "2026-07-24 04:01:35"
         },
         {
           "id": 252,
@@ -1141,7 +1141,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 689
           },
-          "updatedAt": "2026-07-23 04:04:08"
+          "updatedAt": "2026-07-24 04:01:35"
         },
         {
           "id": 253,
@@ -1163,7 +1163,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 690
           },
-          "updatedAt": "2026-07-23 04:04:08"
+          "updatedAt": "2026-07-24 04:01:35"
         }
       ],
       "prompts": [
@@ -1183,7 +1183,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-07-23 04:04:08"
+          "updatedAt": "2026-07-24 04:01:35"
         }
       ]
     },
@@ -1213,7 +1213,7 @@
             "collection": "automations",
             "slug": "automation-competitor-research"
           },
-          "updatedAt": "2026-07-23 04:04:08"
+          "updatedAt": "2026-07-24 04:01:35"
         }
       ],
       "prompts": [
@@ -1233,7 +1233,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-07-23 04:04:08"
+          "updatedAt": "2026-07-24 04:01:35"
         }
       ]
     },
@@ -1263,7 +1263,7 @@
             "collection": "automations",
             "slug": "automation-business-plan-assistant"
           },
-          "updatedAt": "2026-07-23 04:04:08"
+          "updatedAt": "2026-07-24 04:01:35"
         },
         {
           "id": 792,
@@ -1285,7 +1285,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 691
           },
-          "updatedAt": "2026-07-23 04:04:08"
+          "updatedAt": "2026-07-24 04:01:35"
         },
         {
           "id": 793,
@@ -1307,7 +1307,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 692
           },
-          "updatedAt": "2026-07-23 04:04:08"
+          "updatedAt": "2026-07-24 04:01:35"
         },
         {
           "id": 794,
@@ -1329,7 +1329,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 693
           },
-          "updatedAt": "2026-07-23 04:04:08"
+          "updatedAt": "2026-07-24 04:01:35"
         },
         {
           "id": 795,
@@ -1351,7 +1351,7 @@
             "slug": "denis-decisions-manual",
             "listItemId": 694
           },
-          "updatedAt": "2026-07-23 04:04:08"
+          "updatedAt": "2026-07-24 04:01:35"
         }
       ],
       "prompts": [
@@ -1371,7 +1371,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-07-23 04:04:08"
+          "updatedAt": "2026-07-24 04:01:35"
         }
       ]
     },
@@ -1401,7 +1401,7 @@
             "collection": "social",
             "slug": "linkedin-first-post"
           },
-          "updatedAt": "2026-07-23 04:04:08"
+          "updatedAt": "2026-07-24 04:01:35"
         },
         {
           "id": 599,
@@ -1422,7 +1422,7 @@
             "collection": "social",
             "slug": "linkedin-page-bio"
           },
-          "updatedAt": "2026-07-23 04:04:08"
+          "updatedAt": "2026-07-24 04:01:35"
         },
         {
           "id": 601,
@@ -1443,7 +1443,7 @@
             "collection": "social",
             "slug": "x-bio-and-first-post"
           },
-          "updatedAt": "2026-07-23 04:04:08"
+          "updatedAt": "2026-07-24 04:01:35"
         },
         {
           "id": 82,
@@ -1464,7 +1464,7 @@
             "collection": "automations",
             "slug": "automation-social-content-draft-only"
           },
-          "updatedAt": "2026-07-23 04:04:08"
+          "updatedAt": "2026-07-24 04:01:35"
         }
       ],
       "prompts": [
@@ -1484,7 +1484,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-07-23 04:04:08"
+          "updatedAt": "2026-07-24 04:01:35"
         }
       ]
     },
@@ -1512,7 +1512,7 @@
           "inputLabel": "",
           "inputExample": "",
           "source": {},
-          "updatedAt": "2026-07-23 04:04:08"
+          "updatedAt": "2026-07-24 04:01:35"
         }
       ]
     }
@@ -10075,6 +10075,42 @@
     },
     "standups": [
       {
+        "slug": "2026-07-24",
+        "title": "Standup — 2026-07-24",
+        "sections": {
+          "agent_next": [
+            "After PO channels + JD approved → careers page + LinkedIn announcement draft",
+            "After office picks confirmed → lease comparison table in HQ",
+            "After brand day 1 reply → merge into brand marketing plan draft",
+            "After path choice → landing scaffold OR deck export"
+          ],
+          "blockers": [
+            "PO apply → input-blocker-po-apply-method-publish-channels; jobs/product-owner body empty",
+            "Office B urgency → 10481212 valid ~10 days",
+            "Brand day 1 → blocks days 2–4, social strategy, marketing calendar",
+            "Landing vs deck → planning/landing-vs-deck-decision-brief.md"
+          ],
+          "done": [
+            "Agent: Live office re-check — A/B/C still live; B ~10 days → planning/office-shortlist-validation-2026-07-24.md",
+            "Agent: Carryover analysis (1d since 2026-07-23) → planning/carryover-analysis-2026-07-24.md",
+            "Agent: Denis batch agent prompt → planning/denis-agent-prompt-2026-07-24.md"
+          ],
+          "ongoing": [
+            "Denis: PO apply method + first publish channel (no reply since 2026-06-05 — day 49)",
+            "Denis: Office Plovdiv — B (10481212) expires ~10 days; no landlord contact in repo",
+            "Denis: HQ Inbox — 4 automations + 3 social drafts open (day 44+)",
+            "Denis: Brand sprint days 1–4 unanswered (32 days since sprint ended)",
+            "Denis: Landing page OR presentation deck — path not chosen",
+            "Denis: Create social accounts after approving bios"
+          ],
+          "today": [
+            "Denis: PO apply + JD — 2 replies in planning/po-apply-fast-track-2026-07-21.md",
+            "Denis: Office — confirm 3 picks + contact B today — planning/office-shortlist-validation-2026-07-24.md",
+            "Denis: Brand sprint day 1 — suggested defaults in planning/carryover-analysis-2026-07-24.md"
+          ]
+        }
+      },
+      {
         "slug": "2026-07-23",
         "title": "Standup — 2026-07-23",
         "sections": {
@@ -10205,38 +10241,6 @@
           "today": [
             "Denis: PO apply + channels (+ JD paste or approve skeleton)",
             "Denis: Office — pick 3 from revised shortlist",
-            "Denis: HQ Inbox — approve automations + social copy"
-          ]
-        }
-      },
-      {
-        "slug": "2026-06-08",
-        "title": "Standup — 2026-06-08",
-        "sections": {
-          "agent_next": [
-            "After PO channels + JD → careers page + LinkedIn announcement draft",
-            "After office picks → lease comparison table in HQ",
-            "Landing scaffold in web/ when Denis picks landing-first vs deck-first"
-          ],
-          "blockers": [
-            "PO apply → input-blocker-po-apply-method-publish-channels; jobs/product-owner body empty",
-            "Landing vs deck — Denis path choice"
-          ],
-          "done": [
-            "Agent: Office visit shortlist → planning/office-visit-shortlist-2026-06-08.md",
-            "Agent: PO apply decision brief → planning/po-apply-decision-brief.md (flagged empty PO JD)",
-            "Agent: Re-ran office ranking (no new scrape since 2026-06-03)"
-          ],
-          "ongoing": [
-            "Denis: PO apply method + first publish channel (no reply since 2026-06-05)",
-            "Denis: Office Plovdiv — shortlist ready; pick 3–5 visits",
-            "Denis: HQ Inbox — 4 automations + 3 social drafts open",
-            "Denis: Landing page OR presentation deck (outline ready)",
-            "Denis: Create social accounts after approving bios"
-          ],
-          "today": [
-            "Denis: PO apply + publish channels (+ PO JD if missing)",
-            "Denis: Office — confirm visit shortlist or reply with picks",
             "Denis: HQ Inbox — approve automations + social copy"
           ]
         }
